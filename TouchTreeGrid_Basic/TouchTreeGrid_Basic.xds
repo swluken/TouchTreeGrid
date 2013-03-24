@@ -1,0 +1,94 @@
+{
+    "name": "TouchTreeGrid_Basic",
+    "settings": {
+        "urlPrefix": "http://localhost/TouchTreeGrid/TouchTreeGrid_Basic/",
+        "spacesToIndent": 4,
+        "exportPath": "",
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true
+    },
+    "xdsVersion": "2.2.0",
+    "xdsBuild": 894,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000499,
+    "framework": "touch21",
+    "topInstanceFileMap": {
+        "edd7cdca-5c64-4ae6-9342-57c41820ab1d": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "bb95e1bf-6755-4cc6-a8ca-2ab3b5790c33": {
+            "paths": [
+                "metadata/model/Task",
+                "app/model/override/Task.js",
+                "app/model/Task.js"
+            ],
+            "className": "Task"
+        },
+        "0908d481-13f2-47c2-8ba8-4d1dbed2f9f6": {
+            "paths": [
+                "metadata/store/Task",
+                "app/store/override/Task.js",
+                "app/store/Task.js"
+            ],
+            "className": "Task"
+        },
+        "8c274233-2c62-4f46-b103-76d6c9f0def6": {
+            "paths": [
+                "metadata/view/Main",
+                "app/view/override/Main.js",
+                "app/view/Main.js"
+            ],
+            "className": "Main"
+        },
+        "dcf34621-667d-4a8e-bc95-e3fc814895a0": {
+            "paths": [
+                "metadata/view/TouchTreeGrid",
+                "app/view/override/TouchTreeGrid.js",
+                "app/view/TouchTreeGrid.js"
+            ],
+            "className": "TouchTreeGrid"
+        },
+        "ac3c8037-b03d-45af-ac33-d2b07600986d": {
+            "paths": [
+                "metadata/controller/TouchTreeGridController",
+                "app/controller/override/TouchTreeGridController.js",
+                "app/controller/TouchTreeGridController.js"
+            ],
+            "className": "TouchTreeGridController"
+        },
+        "9d18a977-daa6-4040-ac61-39c2369b822d": {
+            "paths": [
+                "metadata/resource/css"
+            ],
+            "className": "css"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "8c274233-2c62-4f46-b103-76d6c9f0def6",
+            "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+        ],
+        "store": [
+            "0908d481-13f2-47c2-8ba8-4d1dbed2f9f6"
+        ],
+        "controller": [
+            "ac3c8037-b03d-45af-ac33-d2b07600986d"
+        ],
+        "model": [
+            "bb95e1bf-6755-4cc6-a8ca-2ab3b5790c33"
+        ],
+        "resource": [
+            "edd7cdca-5c64-4ae6-9342-57c41820ab1d",
+            "9d18a977-daa6-4040-ac61-39c2369b822d"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

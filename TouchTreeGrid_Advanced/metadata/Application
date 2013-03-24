@@ -1,0 +1,31 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Task",
+            "Task2",
+            "Census"
+        ],
+        "stores": [
+            "Task",
+            "Task2",
+            "CensusMaine2000"
+        ],
+        "views": [
+            "Main",
+            "TouchTreeGrid",
+            "griddetailpanel",
+            "CensusDetailPanel"
+        ],
+        "controllers": [
+            "TouchTreeGridController"
+        ],
+        "name": "TouchTreeGrid"
+    },
+    "designerId": "application"
+}

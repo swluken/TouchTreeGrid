@@ -1,0 +1,379 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Census"
+    },
+    "designerId": "d0ecd8a4-9aa3-45fa-9ad1-7ae5f4c4e5f5",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CATEG",
+                "type": "string",
+                "designer|userClassName": "field8"
+            },
+            "designerId": "555a5948-7690-451b-a0f9-2e38797561d0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ID",
+                "designer|userClassName": "field9"
+            },
+            "designerId": "e4b6342b-d99c-484e-b43c-5c0d11173e7f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "PARENT_ID",
+                "designer|userClassName": "field10"
+            },
+            "designerId": "42d53c3f-32cb-4af4-8cc7-ecb2c5163a50"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "TotalPopulation",
+                "designer|userClassName": "field11"
+            },
+            "designerId": "daca4c3c-99bf-4990-9d9b-3ea329e0e18e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Male",
+                "designer|userClassName": "field12"
+            },
+            "designerId": "d05dc643-9b0b-45ee-8b8f-bf3a48449344"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Female",
+                "designer|userClassName": "field13"
+            },
+            "designerId": "4e9cbd7c-ba15-4c4f-af37-ae137f305a04"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Under5years",
+                "designer|userClassName": "field14"
+            },
+            "designerId": "54d3b390-7e98-4520-801c-00ea1faff32e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age5to9",
+                "designer|userClassName": "field15"
+            },
+            "designerId": "26b5508f-402a-4225-a534-e6b2c17f8015"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age10to14",
+                "designer|userClassName": "field16"
+            },
+            "designerId": "729d7419-db9b-40eb-a877-e6e28646aae9"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age15to19",
+                "designer|userClassName": "field17"
+            },
+            "designerId": "17329494-8e54-40b8-9454-9e7b5405b677"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age20to24",
+                "designer|userClassName": "field18"
+            },
+            "designerId": "047d4493-8001-4492-9198-0d3b16d5cd0d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age25to34",
+                "designer|userClassName": "field19"
+            },
+            "designerId": "c62e6729-561c-435a-8a00-b6b54c07af01"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age35to44",
+                "designer|userClassName": "field20"
+            },
+            "designerId": "fed4d6b5-7d2e-48f2-bb2c-8788dd0cb0ba"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age45to54",
+                "designer|userClassName": "field21"
+            },
+            "designerId": "153c60a0-c3a9-41bc-b956-d429e8fec828"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age55to59",
+                "designer|userClassName": "field22"
+            },
+            "designerId": "33c287a6-7141-4454-a724-9a269e4265f9"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age60to64",
+                "designer|userClassName": "field23"
+            },
+            "designerId": "3e233fca-d43c-41da-918e-9c1d30f44b8a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age65to74",
+                "designer|userClassName": "field24"
+            },
+            "designerId": "10729b32-25e1-447f-bd2b-18461e377b44"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age75to84",
+                "designer|userClassName": "field25"
+            },
+            "designerId": "8b6a2611-1426-4061-bfef-432967d2fcc1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age85andOver",
+                "designer|userClassName": "field26"
+            },
+            "designerId": "5e7ccbd0-dbce-4ee8-aa02-28b242448f0e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "MedianAge",
+                "designer|userClassName": "field27"
+            },
+            "designerId": "4fba0fe3-ed3a-4dc9-8857-7c07f032781b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age18andOver",
+                "designer|userClassName": "field28"
+            },
+            "designerId": "5297efee-c6ac-42e9-ae73-4a93fbcbbf0d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age18andOverMale",
+                "designer|userClassName": "field29"
+            },
+            "designerId": "be2e3159-37e5-48c0-93c3-935dde64c360"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age18andOverFemale",
+                "designer|userClassName": "field30"
+            },
+            "designerId": "89112601-7595-47f5-b277-be88d83b8daf"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age21andOver",
+                "designer|userClassName": "field31"
+            },
+            "designerId": "f7be0440-81c9-419e-acc0-ae0c5323c741"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age62andOver",
+                "designer|userClassName": "field32"
+            },
+            "designerId": "ad4d72a2-6734-4ff0-9893-1fe0af8373e2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age65andOver",
+                "designer|userClassName": "field33"
+            },
+            "designerId": "2f214873-eb71-4d04-8054-4f61c2d45239"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age65andOverMale",
+                "designer|userClassName": "field34"
+            },
+            "designerId": "7a8da828-c0fe-49fb-9cdf-c245105cf503"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Age65andOverFemale",
+                "designer|userClassName": "field35"
+            },
+            "designerId": "59e216ae-f01a-4ffc-a084-a0d8c14a3dc3"
+        }
+    ]
+}

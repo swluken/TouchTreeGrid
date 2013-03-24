@@ -1,0 +1,72 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "TouchTreeGridController",
+        "mixins": null
+    },
+    "designerId": "ac3c8037-b03d-45af-ac33-d2b07600986d",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "ACTIO",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "ref",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onLeafItemTap",
+                "fn": "onLeafItemTap",
+                "designer|params": [
+                    "list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "//     Ext.Msg.alert('You tapped leaf! : ' + record.get('text'));\r",
+                    "console.log('You tapped leaf! : ' + record.get('text'));"
+                ],
+                "name": "leafitemtap",
+                "designer|targetType": "TouchTreeGrid",
+                "designer|controlQuery": "container#firstexample"
+            },
+            "designerId": "c172ce7d-dc69-445d-aa00-371810eef691"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onFirstExampleItemTap",
+                "fn": "onFirstExampleItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "console.log('You tapped Node: ' + record.get('text'));"
+                ],
+                "name": "itemtap",
+                "designer|targetType": "TouchTreeGrid",
+                "designer|controlQuery": "container#firstexample"
+            },
+            "designerId": "4b0a4fb1-867a-4099-bd0f-3a37fa23f812"
+        }
+    ]
+}
