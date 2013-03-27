@@ -28,7 +28,28 @@
                 "designer|userClassName": "MyTitleBar",
                 "title": "TouchTreeGrid Demo"
             },
-            "designerId": "7594443e-ac98-4a9c-ad66-560a2c6c6375"
+            "designerId": "7594443e-ac98-4a9c-ad66-560a2c6c6375",
+            "cn": [
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "left",
+                        "height": "1.5em",
+                        "itemId": "gridhelp",
+                        "margin": ".4em 0 0 .2em",
+                        "padding": null,
+                        "width": "1.5em",
+                        "designer|userClassName": "MyImg",
+                        "src": "./resources/images/question.png"
+                    },
+                    "designerId": "9b1ef813-6868-486d-9d90-1fc020579cba"
+                }
+            ]
         },
         {
             "type": "Ext.tab.Panel",
@@ -67,10 +88,22 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "columns": "[\r\n                            {\r\n                                header: 'Task',\r\n                                dataIndex: 'text',\r\n                                width: '35%',\r\n                                style: ' text-align: left;',\r\n                                categStyle: 'font-weight: bold; text-align: left; color: blue;',\r\n                                headerStyle: 'text-align: left; color: #ccc;'\r\n                            }\r\n                        ]",
+                                "columns": [
+                                    "[\r",
+                                    "                            {\r",
+                                    "                                header: 'Task',\r",
+                                    "                                dataIndex: 'text',\r",
+                                    "                                width: '35%',\r",
+                                    "                                style: ' text-align: left;',\r",
+                                    "                                categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
+                                    "                                headerStyle: 'text-align: left; color: #ccc;'\r",
+                                    "                            }\r",
+                                    "                        ]"
+                                ],
                                 "disclosureProperty": null,
                                 "listItemId": "firstexamplelist",
                                 "includeFooterLevels": false,
+                                "helpHtml": "./resources/html/TaskExample.html",
                                 "store": [
                                     "TaskStore"
                                 ],
@@ -124,6 +157,11 @@
                                     "group": "(Custom Properties)",
                                     "name": "includeFooterLevels",
                                     "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "helpHtml",
+                                    "type": "string"
                                 }
                             ],
                             "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
@@ -167,12 +205,51 @@
                                     "Task2Store"
                                 ],
                                 "onItemDisclosure": true,
-                                "columns": "[\r\n    {\r\n        header: 'Task',\r\n        dataIndex: 'task',\r\n        width: '35%',\r\n        style: 'text-align: left;',\r\n        categStyle: 'font-weight: bold; text-align: left; color: blue;',\r\n        headerStyle: 'text-align: left; color: #ccc;'\r\n    },\r\n    {\r\n        header: 'User',\r\n        dataIndex: 'user',\r\n        width: '35%',\r\n        style: 'text-align: left; padding-left: .5em;',\r\n        categStyle: 'text-align: left;padding-left: .5em;',\r\n        headerStyle: 'text-align: left; color: #ccc;padding-left: .5em;'\r\n    },\r\n    {\r\n        header: 'Dur',\r\n        dataIndex: 'duration',\r\n        width: '15%',\r\n        style: 'text-align: right;',\r\n        categStyle: 'text-align: right;',\r\n        headerStyle: 'text-align: right; color: #ccc;'\r\n    }\r\n/*    ,\r\n    {\r\n        header: 'Done?',\r\n        dataIndex: 'done',\r\n        width: '15%',\r\n        style: 'text-align: right; font-size: .6em;',\r\n        categStyle: 'text-align: right;font-size: .6em;',\r\n        headerStyle: 'text-align: right; color: #ccc;'\r\n    } */\r\n]",
+                                "columns": [
+                                    "[\r",
+                                    "    {\r",
+                                    "        header: 'Task',\r",
+                                    "        dataIndex: 'task',\r",
+                                    "        width: '35%',\r",
+                                    "        style: 'text-align: left;',\r",
+                                    "        categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
+                                    "        headerStyle: 'text-align: left; color: #ccc;'\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'User',\r",
+                                    "        dataIndex: 'user',\r",
+                                    "        width: '35%',\r",
+                                    "        style: 'text-align: left; padding-left: .5em;',\r",
+                                    "        categStyle: 'text-align: left;padding-left: .5em;',\r",
+                                    "        headerStyle: 'text-align: left; color: #ccc;padding-left: .5em;'\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'Dur',\r",
+                                    "        dataIndex: 'duration',\r",
+                                    "        width: '15%',\r",
+                                    "        style: 'text-align: right;',\r",
+                                    "        categStyle: 'text-align: right;',\r",
+                                    "        headerStyle: 'text-align: right; color: #ccc;'\r",
+                                    "    }\r",
+                                    "/*    ,\r",
+                                    "    {\r",
+                                    "        header: 'Done?',\r",
+                                    "        dataIndex: 'done',\r",
+                                    "        width: '15%',\r",
+                                    "        style: 'text-align: right; font-size: .6em;',\r",
+                                    "        categStyle: 'text-align: right;font-size: .6em;',\r",
+                                    "        headerStyle: 'text-align: right; color: #ccc;'\r",
+                                    "    } */\r",
+                                    "]"
+                                ],
                                 "disclosureProperty": "leaf",
                                 "listItemId": "example2list",
                                 "colNumberToTruncateForIndents": 1,
-                                "categDepthColorsArr": "['#808127', '#949569', '#C5C678']",
+                                "categDepthColorsArr": [
+                                    "['#808127', '#949569', '#C5C678']"
+                                ],
                                 "applyDefaultCollapseLevel": false,
+                                "helpHtml": "./resources/html/ProjectExample.html",
                                 "cls": [
                                     "x-touchtreegrid-list",
                                     "x-touchtreegrid-list-example2"
@@ -253,6 +330,7 @@
                                     " {return this.formatNumbers(Math.round(Number(value)/1000), 0);}}"
                                 ],
                                 "defaultCollapseLevel": 2,
+                                "helpHtml": "./resources/html/CensusExample.html",
                                 "cls": [
                                     "x-touchtreegrid-list",
                                     "x-touchtreegrid-list-censusmaine"
@@ -354,6 +432,7 @@
                                 ],
                                 "includeHeader": false,
                                 "defaultCollapseLevel": 1,
+                                "helpHtml": "./resources/html/OverrideExample.html",
                                 "cls": [
                                     "x-touchtreegrid-list",
                                     "x-touchtreegrid-list-override"

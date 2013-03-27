@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "ref": null,
         "designer|userClassName": "TouchTreeGridController",
         "mixins": null
     },
@@ -106,7 +107,7 @@
                     "            {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, \r",
                     "            {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, \r",
                     "            {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, \r",
-                    "            {label: 'Done?', xtype: 'checkboxfield', disabled: true, disabledCls: null, checked: record.data.done}\r",
+                    "            {label: 'Done?', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done}\r",
                     "        ]}); \r",
                     "\r",
                     "        swapcont.add(newcont);\r",
@@ -201,7 +202,7 @@
                     "var myRequest = Ext.Ajax.request({\r",
                     "    url: gridurl,\r",
                     "    method: 'GET',\r",
-                    "    timeout: 5000,\r",
+                    "    timeout: 10000,\r",
                     "    cache: false,\r",
                     "    dataType: 'json',\r",
                     "    reader:{\r",
@@ -219,12 +220,16 @@
                     "        var gridloaded = gridstore.setData(griddata);  \r",
                     "        // setRoot() not working => http://www.sencha.com/forum/showthread.php?242257\r",
                     "\r",
+                    "        Ext.Viewport.setMasked(false);\r",
+                    "\r",
                     "        var refreshed = gridcont.doRefreshList();  \r",
                     "\r",
                     "    },\r",
                     "\r",
                     "    failure: function(response, opts) {\r",
-                    "        Ext.Msg.alert(gridurl +' (no data)');     \r",
+                    "        Ext.Viewport.setMasked(false);\r",
+                    "\r",
+                    "        Ext.Msg.alert('Data not loaded: '+gridurl);     \r",
                     "    }\r",
                     "});\r",
                     ""
@@ -330,6 +335,11 @@
                     "\r",
                     "var gridcont = me.getCensusmaine();\r",
                     "var gridurl = 'data/censusmaine2000TREE.json';\r",
+                    "\r",
+                    "Ext.Viewport.setMasked({\r",
+                    "    xtype: 'loadmask',\r",
+                    "    message: 'Loading Census...'\r",
+                    "});\r",
                     "\r",
                     "me.loadStore(me, gridcont, gridurl);\r",
                     "\r",
@@ -844,6 +854,57 @@
                 ]
             },
             "designerId": "03579e4b-aa5e-40af-b8c6-02ef51a87896"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onGridHelpTap",
+                "fn": "onGridHelpTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "var grid = Ext.Viewport.down('#maintabpanel').getActiveItem().down('touchtreegrid');\r",
+                    "if (!grid) {return;}\r",
+                    "\r",
+                    "gridId = grid.getHelpHtml();\r",
+                    "\r",
+                    "Ext.Ajax.request({\r",
+                    "    url: gridId,\r",
+                    "    method: 'GET',\r",
+                    "    callback: function(options, success, response) {\r",
+                    "\r",
+                    "        var help = me.getGridHelpPanel();\r",
+                    "        help.setHtml( response.responseText );\r",
+                    "        help.showBy(image);\r",
+                    "    }\r",
+                    "});"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Img",
+                "designer|controlQuery": "image#gridhelp"
+            },
+            "designerId": "2a0391d9-8c68-4d86-9f23-fac67111129d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "gridHelpPanel",
+                "autoCreate": true,
+                "ref": "gridHelpPanel",
+                "selector": "gridHelpPanel",
+                "xtype": "gridHelpPanel"
+            },
+            "designerId": "476afd72-8494-49cf-9b4e-45e9ba8a780a"
         }
     ]
 }

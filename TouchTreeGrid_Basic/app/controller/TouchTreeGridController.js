@@ -17,6 +17,13 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
     extend: 'Ext.app.Controller',
 
     config: {
+        refs: {
+            main: {
+                selector: 'main',
+                xtype: 'main'
+            }
+        },
+
         control: {
             "container#firstexample": {
                 leafitemtap: 'onLeafItemTap',

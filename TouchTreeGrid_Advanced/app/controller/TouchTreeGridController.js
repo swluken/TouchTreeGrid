@@ -33,6 +33,11 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
                 autoCreate: true,
                 selector: 'censusdetailpanel',
                 xtype: 'censusdetailpanel'
+            },
+            gridHelpPanel: {
+                autoCreate: true,
+                selector: 'gridHelpPanel',
+                xtype: 'gridHelpPanel'
             }
         },
 
@@ -58,6 +63,9 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
             },
             "viewport": {
                 orientationchange: 'onOrientationChange'
+            },
+            "image#gridhelp": {
+                tap: 'onGridHelpTap'
             }
         }
     },
@@ -99,7 +107,7 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
                     {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, 
                     {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, 
                     {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, 
-                    {label: 'Done?', xtype: 'checkboxfield', disabled: true, disabledCls: null, checked: record.data.done}
+                    {label: 'Done?', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done}
                 ]}); 
 
                 swapcont.add(newcont);
@@ -241,6 +249,26 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         this.loadColumnsCensusMaine();
     },
 
+    onGridHelpTap: function(image, e, eOpts) {
+        var me = this;
+
+        var grid = Ext.Viewport.down('#maintabpanel').getActiveItem().down('touchtreegrid');
+        if (!grid) {return;}
+
+        gridId = grid.getHelpHtml();
+
+        Ext.Ajax.request({
+            url: gridId,
+            method: 'GET',
+            callback: function(options, success, response) {
+
+                var help = me.getGridHelpPanel();
+                help.setHtml( response.responseText );
+                help.showBy(image);
+            }
+        });
+    },
+
     launch: function() {
         // Load data from JSON file within Launch since doesn't seem to work from within Store itself.
         // NOTE:  autoload=true -and- dummy root initialization required in Store to work=>
@@ -269,7 +297,7 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         var myRequest = Ext.Ajax.request({
             url: gridurl,
             method: 'GET',
-            timeout: 5000,
+            timeout: 10000,
             cache: false,
             dataType: 'json',
             reader:{
@@ -287,12 +315,16 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
                 var gridloaded = gridstore.setData(griddata);  
                 // setRoot() not working => http://www.sencha.com/forum/showthread.php?242257
 
+                Ext.Viewport.setMasked(false);
+
                 var refreshed = gridcont.doRefreshList();  
 
             },
 
             failure: function(response, opts) {
-                Ext.Msg.alert(gridurl +' (no data)');     
+                Ext.Viewport.setMasked(false);
+
+                Ext.Msg.alert('Data not loaded: '+gridurl);     
             }
         });
 
@@ -303,6 +335,11 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
 
         var gridcont = me.getCensusmaine();
         var gridurl = 'data/censusmaine2000TREE.json';
+
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Loading Census...'
+        });
 
         me.loadStore(me, gridcont, gridurl);
 

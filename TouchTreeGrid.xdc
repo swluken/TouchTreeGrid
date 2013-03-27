@@ -25,7 +25,9 @@
             "disableSelection": true,
             "listStyle": null,
             "onItemDisclosure": false,
-            "columns": "[]",
+            "columns": [
+                "[]"
+            ],
             "header": [
                 "{\r",
                 "            xtype: 'toolbar',\r",
@@ -58,7 +60,13 @@
             "colNumberToTruncateForIndents": 0,
             "includeFooterLevels": true,
             "categDepthColors": false,
-            "categDepthColorsArr": "[\r\n'#a6a6a6',\r\n'#dddddd',\r\n'white'\r\n]",
+            "categDepthColorsArr": [
+                "[\r",
+                "'#a6a6a6',\r",
+                "'#dddddd',\r",
+                "'white'\r",
+                "]"
+            ],
             "customExpCollapseEvent": "",
             "renderers": [
                 "{}"
@@ -73,6 +81,7 @@
             "applyDefaultCollapseLevel": true,
             "defaultCollapseLevel": 99,
             "landscapeIcon": "./resources/images/Recycle.png",
+            "helpHtml": "",
             "cls": [
                 "x-touchtreegrid-list"
             ],
@@ -319,6 +328,11 @@
             {
                 "group": "(Custom Properties)",
                 "name": "landscapeIcon",
+                "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "helpHtml",
                 "type": "string"
             }
         ],

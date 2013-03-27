@@ -20,7 +20,8 @@
             "Main",
             "TouchTreeGrid",
             "griddetailpanel",
-            "CensusDetailPanel"
+            "CensusDetailPanel",
+            "GridHelpPanel"
         ],
         "controllers": [
             "TouchTreeGridController"

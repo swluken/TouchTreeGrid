@@ -32,7 +32,18 @@ Ext.define('TouchTreeGrid.view.Main', {
                 docked: 'top',
                 height: '2.2em',
                 itemId: 'maintitlebar',
-                title: 'TouchTreeGrid Demo'
+                title: 'TouchTreeGrid Demo',
+                items: [
+                    {
+                        xtype: 'image',
+                        docked: 'left',
+                        height: '1.5em',
+                        itemId: 'gridhelp',
+                        margin: '.4em 0 0 .2em',
+                        width: '1.5em',
+                        src: './resources/images/question.png'
+                    }
+                ]
             },
             {
                 xtype: 'tabpanel',
@@ -61,6 +72,7 @@ Ext.define('TouchTreeGrid.view.Main', {
                                 ],
                                 listItemId: 'firstexamplelist',
                                 includeFooterLevels: false,
+                                helpHtml: './resources/html/TaskExample.html',
                                 store: 'TaskStore',
                                 defaultCollapseLevel: 1,
                                 itemId: 'firstexample'
@@ -129,6 +141,7 @@ Ext.define('TouchTreeGrid.view.Main', {
                                     '#C5C678'
                                 ],
                                 applyDefaultCollapseLevel: false,
+                                helpHtml: './resources/html/ProjectExample.html',
                                 cls: [
                                     'x-touchtreegrid-list',
                                     'x-touchtreegrid-list-example2'
@@ -159,6 +172,7 @@ Ext.define('TouchTreeGrid.view.Main', {
                                  {return this.formatNumbers(Math.round(Number(value)/1000), 0);}
                                 },
                                 defaultCollapseLevel: 2,
+                                helpHtml: './resources/html/CensusExample.html',
                                 cls: [
                                     'x-touchtreegrid-list',
                                     'x-touchtreegrid-list-censusmaine'
@@ -185,6 +199,7 @@ Ext.define('TouchTreeGrid.view.Main', {
                                 contentItemTplOverride: '<div style="background-color:#fff; border-bottom: 1px solid #dedede;">{text}</div>',
                                 includeHeader: false,
                                 defaultCollapseLevel: 1,
+                                helpHtml: './resources/html/OverrideExample.html',
                                 cls: [
                                     'x-touchtreegrid-list',
                                     'x-touchtreegrid-list-override'

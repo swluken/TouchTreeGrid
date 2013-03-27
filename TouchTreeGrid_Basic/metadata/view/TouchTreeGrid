@@ -38,7 +38,6 @@
         "disclosureProperty": "disclose",
         "listItemId": "touchtreegridlist",
         "categItemTpl": "",
-        "categItemShell": null,
         "footer": [
             "{\r",
             "            xtype: 'toolbar',\r",
@@ -213,11 +212,6 @@
         {
             "group": "(Custom Properties)",
             "name": "categItemTpl",
-            "type": "string"
-        },
-        {
-            "group": "(Custom Properties)",
-            "name": "categItemShell",
             "type": "string"
         },
         {

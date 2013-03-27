@@ -42,6 +42,7 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         applyDefaultCollapseLevel: true,
         defaultCollapseLevel: 99,
         landscapeIcon: './resources/images/Recycle.png',
+        helpHtml: '',
         cls: 'x-touchtreegrid-list',
         layout: {
             type: 'fit'

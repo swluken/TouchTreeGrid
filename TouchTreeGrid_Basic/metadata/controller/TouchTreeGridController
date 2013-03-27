@@ -67,6 +67,21 @@
                 "designer|controlQuery": "container#firstexample"
             },
             "designerId": "4b0a4fb1-867a-4099-bd0f-3a37fa23f812"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "main",
+                "ref": "main",
+                "selector": "main",
+                "xtype": "main"
+            },
+            "designerId": "d4936ea3-824b-4482-b8c2-769421a6b4eb"
         }
     ]
 }
