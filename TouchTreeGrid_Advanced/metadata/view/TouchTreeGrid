@@ -79,6 +79,7 @@
         "defaultCollapseLevel": 99,
         "landscapeIcon": "./resources/images/Recycle.png",
         "helpHtml": "",
+        "pressedCls": "x-item-pressed",
         "cls": [
             "x-touchtreegrid-list"
         ],
@@ -332,6 +333,11 @@
             "group": "(Custom Properties)",
             "name": "helpHtml",
             "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "pressedCls",
+            "type": "string"
         }
     ],
     "cn": [
@@ -499,13 +505,14 @@
                     "\r",
                     "var list = me.getList();\r",
                     "var disableSel = me.getDisableSelection();\r",
+                    "var pressedCls = (disableSel ? '' : me.getPressedCls());  // Don't apply pressing class if selection disabled\r",
                     "var disclose = me.getOnItemDisclosure();\r",
                     "var discloseProp = me.getDisclosureProperty();\r",
                     "var itemHeight = me.getItemHeight();\r",
                     "var variableHeights = me.getVariableHeights();\r",
                     "\r",
                     "if (this.isObjectEmpty(list)) {\r",
-                    "    list = Ext.create('Ext.dataview.List', {    \r",
+                    "    list = Ext.create('Ext.dataview.List', {   \r",
                     "        disableSelection: disableSel,\r",
                     "        onItemDisclosure : disclose,\r",
                     "        disclosureProperty : discloseProp,  // 'disclose' for all rows (default), 'leaf' for leafs only\r",
@@ -513,7 +520,8 @@
                     "        variableHeights: variableHeights,\r",
                     "        store: newStore,\r",
                     "        masked: false,\r",
-                    "        itemCls: 'x-touchtreegrid-item'\r",
+                    "        itemCls: 'x-touchtreegrid-item',\r",
+                    "        pressedCls : pressedCls\r",
                     "    });\r",
                     "\r",
                     "    list.on('itemtap', this.onItemTap, this);\r",
@@ -524,7 +532,7 @@
                     "    }\r",
                     "\r",
                     "    me.setList(list);\r",
-                    "\r",
+                    "    \r",
                     "    if (!me.getListScrollable()) {\r",
                     "        list.setScrollable({disabled: true});  // false doesn't seem to work\r",
                     "    }\r",

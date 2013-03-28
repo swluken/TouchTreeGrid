@@ -24,8 +24,9 @@ Ext.define('TouchTreeGrid.view.CensusDetailPanel', {
         scrollable: false,
         items: [
             {
-                xtype: 'titlebar',
+                xtype: 'toolbar',
                 docked: 'top',
+                padding: '.4em 0 0 0',
                 layout: {
                     align: 'center',
                     type: 'hbox'
@@ -45,8 +46,8 @@ Ext.define('TouchTreeGrid.view.CensusDetailPanel', {
                     },
                     {
                         xtype: 'label',
-                        html: '',
                         itemId: 'censusdetaillabel',
+                        maxWidth: '10em',
                         style: 'color : white'
                     }
                 ]

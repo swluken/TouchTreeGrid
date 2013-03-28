@@ -60,3 +60,18 @@
 [8160:6876:0327/102743:3895422:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
 [3920:8088:0327/104351:4863065:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
 [3920:8088:0327/104447:4919850:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[8028:7732:0327/104603:4995089:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[8028:7732:0327/104616:5007944:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[7160:5672:0327/182755:247058:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[7160:9040:0327/221530:13901841:WARNING:network_location_provider.cc(190)] StartProvider() : Failed, Bad URL: 
+[7160:5672:0327/224641:15772481:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[7016:2712:0327/224707:15799079:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[7016:2712:0327/231636:17567693:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[6568:7668:0327/231808:17659281:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[6568:7668:0327/231924:17735519:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[6552:7696:0327/232910:18322021:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[6552:7696:0327/234543:19314514:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[9884:9360:0327/234818:19469377:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[9884:9360:0327/234831:19482496:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[8788:9252:0327/234908:19519406:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[8788:9252:0327/234925:19537159:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412

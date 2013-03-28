@@ -93,8 +93,6 @@
                     "        layout: {type: 'fit'}\r",
                     "    }\r",
                     "    );\r",
-                    "    var myBtn = newcont.down('#griddetailbackbtn');\r",
-                    "    myBtn.setConfig({itemId: 'example2detailbackbtn'});\r",
                     "\r",
                     "    if (newcont)\r",
                     "    {\r",
@@ -120,30 +118,6 @@
                 "designer|controlQuery": "list#example2list"
             },
             "designerId": "ca5360b2-0195-467b-83eb-9a2543846d29"
-        },
-        {
-            "type": "fixedfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "launch",
-                "fn": "launch",
-                "implHandler": [
-                    "// Load data from JSON file within Launch since doesn't seem to work from within Store itself.\r",
-                    "// NOTE:  autoload=true -and- dummy root initialization required in Store to work=>\r",
-                    "//     root: {children: []}\r",
-                    "\r",
-                    "this.loadExample2Store();\r",
-                    "\r",
-                    "this.loadCensusMaine2000Store();\r",
-                    "\r",
-                    ""
-                ]
-            },
-            "designerId": "0b66cf00-0e70-40da-a02e-4463641e1c32"
         },
         {
             "type": "controllerref",
@@ -175,7 +149,7 @@
                     "var gridcont = me.getExample2();\r",
                     "var gridurl = 'data/treegrid.json';\r",
                     "\r",
-                    "me.loadStore(me, gridcont, gridurl);\r",
+                    "me.loadStore(me, gridcont, gridurl, 'Loading Project...');\r",
                     ""
                 ]
             },
@@ -194,9 +168,22 @@
                 "designer|params": [
                     "me",
                     "gridcont",
-                    "gridurl"
+                    "gridurl",
+                    "loadmask"
                 ],
                 "implHandler": [
+                    "// Load data from JSON file within Controller since doesn't seem to work from within Store itself.\r",
+                    "// NOTE:  autoload=true -and- dummy root initialization required in Store to work=>\r",
+                    "//     root: {children: []}\r",
+                    "\r",
+                    "var me = this;\r",
+                    "\r",
+                    "if (loadmask) {\r",
+                    "    Ext.Viewport.setMasked({\r",
+                    "        xtype: 'loadmask',\r",
+                    "        message: loadmask\r",
+                    "    });\r",
+                    "}\r",
                     "\r",
                     "// Change this to reload function with Pull Refresh\r",
                     "var myRequest = Ext.Ajax.request({\r",
@@ -212,22 +199,22 @@
                     "    success: function(response) {\r",
                     "        var griddata = Ext.JSON.decode(response.responseText);\r",
                     "\r",
-                    "        var gridlistname = gridcont.getListItemId();\r",
-                    "        var gridlist = gridcont.down('#'+gridlistname);\r",
+                    "        var gridListItemId = gridcont.getListItemId();\r",
+                    "        var gridlist = gridcont.down('#'+gridListItemId);\r",
                     "        var gridstore = gridlist.getStore();\r",
                     "\r",
                     "        gridstore.removeAll();\r",
                     "        var gridloaded = gridstore.setData(griddata);  \r",
                     "        // setRoot() not working => http://www.sencha.com/forum/showthread.php?242257\r",
                     "\r",
-                    "        Ext.Viewport.setMasked(false);\r",
+                    "        if (loadmask) {Ext.Viewport.setMasked(false);}\r",
                     "\r",
-                    "        var refreshed = gridcont.doRefreshList();  \r",
+                    "        me.postLoadProcess(gridListItemId, gridcont); \r",
                     "\r",
                     "    },\r",
                     "\r",
                     "    failure: function(response, opts) {\r",
-                    "        Ext.Viewport.setMasked(false);\r",
+                    "        if (loadmask) {Ext.Viewport.setMasked(false);}\r",
                     "\r",
                     "        Ext.Msg.alert('Data not loaded: '+gridurl);     \r",
                     "    }\r",
@@ -276,8 +263,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onExample2GridDetailBackButtonTap",
-                "fn": "onExample2GridDetailBackButtonTap",
+                "designer|userClassName": "onGridDetailBackButtonTap",
+                "fn": "onGridDetailBackButtonTap",
                 "implHandler": [
                     "var swapcont = this.getMain().down('#example2container');   \r",
                     "if (swapcont)\r",
@@ -287,12 +274,11 @@
                     "\r",
                     "    newcont.setShowAnimation({type :\"slide\", direction : \"right\"});\r",
                     "    swapcont.setActiveItem(newcont);  \r",
-                    "    swapcont.remove(priorcont, true);\r",
                     "}    "
                 ],
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
-                "designer|controlQuery": "button#example2detailbackbtn"
+                "designer|controlQuery": "button#griddetailbackbtn"
             },
             "designerId": "f635d6af-dad9-4455-9e28-3e3245632889"
         },
@@ -336,16 +322,8 @@
                     "var gridcont = me.getCensusmaine();\r",
                     "var gridurl = 'data/censusmaine2000TREE.json';\r",
                     "\r",
-                    "Ext.Viewport.setMasked({\r",
-                    "    xtype: 'loadmask',\r",
-                    "    message: 'Loading Census...'\r",
-                    "});\r",
+                    "me.loadStore(me, gridcont, gridurl, 'Loading Census...');\r",
                     "\r",
-                    "me.loadStore(me, gridcont, gridurl);\r",
-                    "\r",
-                    "//me.genericdataload(me, 'censusmaine2000', \"select * from CensusMaine2000 \");\r",
-                    "\r",
-                    "this.loadColumnsCensusMaine(); // also refreshes list\r",
                     ""
                 ]
             },
@@ -500,11 +478,10 @@
                     "if (swapcont)\r",
                     "{\r",
                     "    var newcont = swapcont.down('#censusmaine'); \r",
-                    "    var priorcont = swapcont.down('#censusdetailpanel'); \r",
+                    "    var priorcont = swapcont.down('#censusmainedetail'); \r",
                     "\r",
                     "    newcont.setShowAnimation({type :\"slide\", direction : \"right\"});\r",
                     "    swapcont.setActiveItem(newcont);  \r",
-                    "    swapcont.remove(priorcont, true);\r",
                     "}    "
                 ],
                 "name": "tap",
@@ -905,6 +882,73 @@
                 "xtype": "gridHelpPanel"
             },
             "designerId": "476afd72-8494-49cf-9b4e-45e9ba8a780a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onMainTabpanelActiveItemChange",
+                "fn": "onMainTabpanelActiveItemChange",
+                "implHandler": [
+                    "newcont = value.getItemId();\r",
+                    "var grid, numNodes;\r",
+                    "\r",
+                    "if (newcont === 'censusmainecontainer') {\r",
+                    "\r",
+                    "   // Check store for data and load if empty (only)\r",
+                    "   grid = value.down('#censusmainelist');\r",
+                    "   numNodes = grid.getStore().getData().length;\r",
+                    "\r",
+                    "   if (numNodes === 0) {this.loadCensusMaine2000Store();}  \r",
+                    "}\r",
+                    "\r",
+                    "if (newcont === 'example2container') {\r",
+                    "\r",
+                    "   // Check store for data and load if empty (only)\r",
+                    "   grid = value.down('#example2list');\r",
+                    "   numNodes = grid.getStore().getData().length;\r",
+                    "\r",
+                    "   if (numNodes === 0) {this.loadExample2Store();}  \r",
+                    "}"
+                ],
+                "name": "activeitemchange",
+                "designer|targetType": "Ext.tab.Panel",
+                "designer|controlQuery": "tabpanel#maintabpanel"
+            },
+            "designerId": "dc1a726a-0668-4c4f-9440-6b8e162c2b8c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "postLoadProcess",
+                "fn": "postLoadProcess",
+                "designer|params": [
+                    "gridListItemId",
+                    "gridcont"
+                ],
+                "implHandler": [
+                    "if (gridListItemId === 'censusmainelist') {\r",
+                    "    // Collapse nodes to defined level\r",
+                    "    var depth = gridcont.getDefaultCollapseLevel();\r",
+                    "    if (depth !== 99) {gridcont.doExpandDepth(depth);}\r",
+                    "\r",
+                    "    this.loadColumnsCensusMaine(); // also refreshes list\r",
+                    "}\r",
+                    "else {\r",
+                    "    var refreshed = gridcont.doRefreshList(); \r",
+                    "}"
+                ]
+            },
+            "designerId": "8bf53a05-c442-49f3-aff6-637f1f77fc72"
         }
     ]
 }

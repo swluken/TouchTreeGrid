@@ -14,7 +14,7 @@
     "designerId": "4c8cf420-dc3a-4258-87f3-37d85eb42fce",
     "cn": [
         {
-            "type": "Ext.TitleBar",
+            "type": "Ext.Toolbar",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -23,7 +23,9 @@
             "userConfig": {
                 "container|align": "center",
                 "docked": "top",
-                "designer|userClassName": "MyTitleBar1"
+                "margin": null,
+                "padding": ".4em 0 0 0",
+                "designer|userClassName": "MyToolbar1"
             },
             "designerId": "f749bf9d-bb3a-4d6f-93d2-7c80d4cd4e81",
             "cn": [
@@ -66,9 +68,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "html": "",
+                        "html": null,
                         "itemId": "censusdetaillabel",
+                        "maxWidth": "10em",
                         "style": "color : white",
+                        "width": null,
                         "designer|userClassName": "MyLabel"
                     },
                     "designerId": "23332f4f-6a5c-46eb-95f1-9629c22c9b1d"

@@ -49,8 +49,8 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
             "list#example2list": {
                 disclose: 'onExample2ListDisclose'
             },
-            "button#example2detailbackbtn": {
-                tap: 'onExample2GridDetailBackButtonTap'
+            "button#griddetailbackbtn": {
+                tap: 'onGridDetailBackButtonTap'
             },
             "touchtreegrid#example2": {
                 pullrefresh: 'onExample2ListPullrefresh'
@@ -66,6 +66,9 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
             },
             "image#gridhelp": {
                 tap: 'onGridHelpTap'
+            },
+            "tabpanel#maintabpanel": {
+                activeitemchange: 'onMainTabpanelActiveItemChange'
             }
         }
     },
@@ -93,8 +96,6 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
                 layout: {type: 'fit'}
             }
             );
-            var myBtn = newcont.down('#griddetailbackbtn');
-            myBtn.setConfig({itemId: 'example2detailbackbtn'});
 
             if (newcont)
             {
@@ -116,7 +117,7 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         }
     },
 
-    onExample2GridDetailBackButtonTap: function(button, e, eOpts) {
+    onGridDetailBackButtonTap: function(button, e, eOpts) {
         var swapcont = this.getMain().down('#example2container');   
         if (swapcont)
         {
@@ -125,7 +126,6 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
 
             newcont.setShowAnimation({type :"slide", direction : "right"});
             swapcont.setActiveItem(newcont);  
-            swapcont.remove(priorcont, true);
         }    
     },
 
@@ -229,11 +229,10 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         if (swapcont)
         {
             var newcont = swapcont.down('#censusmaine'); 
-            var priorcont = swapcont.down('#censusdetailpanel'); 
+            var priorcont = swapcont.down('#censusmainedetail'); 
 
             newcont.setShowAnimation({type :"slide", direction : "right"});
             swapcont.setActiveItem(newcont);  
-            swapcont.remove(priorcont, true);
         }    
     },
 
@@ -269,16 +268,27 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         });
     },
 
-    launch: function() {
-        // Load data from JSON file within Launch since doesn't seem to work from within Store itself.
-        // NOTE:  autoload=true -and- dummy root initialization required in Store to work=>
-        //     root: {children: []}
+    onMainTabpanelActiveItemChange: function(container, value, oldValue, eOpts) {
+        newcont = value.getItemId();
+        var grid, numNodes;
 
-        this.loadExample2Store();
+        if (newcont === 'censusmainecontainer') {
 
-        this.loadCensusMaine2000Store();
+            // Check store for data and load if empty (only)
+            grid = value.down('#censusmainelist');
+            numNodes = grid.getStore().getData().length;
 
+            if (numNodes === 0) {this.loadCensusMaine2000Store();}  
+        }
 
+        if (newcont === 'example2container') {
+
+            // Check store for data and load if empty (only)
+            grid = value.down('#example2list');
+            numNodes = grid.getStore().getData().length;
+
+            if (numNodes === 0) {this.loadExample2Store();}  
+        }
     },
 
     loadExample2Store: function() {
@@ -287,11 +297,23 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         var gridcont = me.getExample2();
         var gridurl = 'data/treegrid.json';
 
-        me.loadStore(me, gridcont, gridurl);
+        me.loadStore(me, gridcont, gridurl, 'Loading Project...');
 
     },
 
-    loadStore: function(me, gridcont, gridurl) {
+    loadStore: function(me, gridcont, gridurl, loadmask) {
+        // Load data from JSON file within Controller since doesn't seem to work from within Store itself.
+        // NOTE:  autoload=true -and- dummy root initialization required in Store to work=>
+        //     root: {children: []}
+
+        var me = this;
+
+        if (loadmask) {
+            Ext.Viewport.setMasked({
+                xtype: 'loadmask',
+                message: loadmask
+            });
+        }
 
         // Change this to reload function with Pull Refresh
         var myRequest = Ext.Ajax.request({
@@ -307,22 +329,22 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
             success: function(response) {
                 var griddata = Ext.JSON.decode(response.responseText);
 
-                var gridlistname = gridcont.getListItemId();
-                var gridlist = gridcont.down('#'+gridlistname);
+                var gridListItemId = gridcont.getListItemId();
+                var gridlist = gridcont.down('#'+gridListItemId);
                 var gridstore = gridlist.getStore();
 
                 gridstore.removeAll();
                 var gridloaded = gridstore.setData(griddata);  
                 // setRoot() not working => http://www.sencha.com/forum/showthread.php?242257
 
-                Ext.Viewport.setMasked(false);
+                if (loadmask) {Ext.Viewport.setMasked(false);}
 
-                var refreshed = gridcont.doRefreshList();  
+                me.postLoadProcess(gridListItemId, gridcont); 
 
             },
 
             failure: function(response, opts) {
-                Ext.Viewport.setMasked(false);
+                if (loadmask) {Ext.Viewport.setMasked(false);}
 
                 Ext.Msg.alert('Data not loaded: '+gridurl);     
             }
@@ -336,16 +358,8 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         var gridcont = me.getCensusmaine();
         var gridurl = 'data/censusmaine2000TREE.json';
 
-        Ext.Viewport.setMasked({
-            xtype: 'loadmask',
-            message: 'Loading Census...'
-        });
+        me.loadStore(me, gridcont, gridurl, 'Loading Census...');
 
-        me.loadStore(me, gridcont, gridurl);
-
-        //me.genericdataload(me, 'censusmaine2000', "select * from CensusMaine2000 ");
-
-        this.loadColumnsCensusMaine(); // also refreshes list
 
     },
 
@@ -635,6 +649,19 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         collapseBar.down('#touchtreegridicon').setHidden(!hide);
 
 
+    },
+
+    postLoadProcess: function(gridListItemId, gridcont) {
+        if (gridListItemId === 'censusmainelist') {
+            // Collapse nodes to defined level
+            var depth = gridcont.getDefaultCollapseLevel();
+            if (depth !== 99) {gridcont.doExpandDepth(depth);}
+
+            this.loadColumnsCensusMaine(); // also refreshes list
+        }
+        else {
+            var refreshed = gridcont.doRefreshList(); 
+        }
     }
 
 });
