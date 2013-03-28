@@ -22,7 +22,9 @@
         "disableSelection": true,
         "listStyle": null,
         "onItemDisclosure": false,
-        "columns": "[]",
+        "columns": [
+            "[]"
+        ],
         "header": [
             "{\r",
             "            xtype: 'toolbar',\r",
@@ -55,7 +57,13 @@
         "colNumberToTruncateForIndents": 0,
         "includeFooterLevels": true,
         "categDepthColors": false,
-        "categDepthColorsArr": "[\r\n'#a6a6a6',\r\n'#dddddd',\r\n'white'\r\n]",
+        "categDepthColorsArr": [
+            "[\r",
+            "'#a6a6a6',\r",
+            "'#dddddd',\r",
+            "'white'\r",
+            "]"
+        ],
         "customExpCollapseEvent": "",
         "renderers": [
             "{}"
@@ -70,6 +78,8 @@
         "applyDefaultCollapseLevel": true,
         "defaultCollapseLevel": 99,
         "landscapeIcon": "./resources/images/Recycle.png",
+        "helpHtml": "",
+        "pressedCls": "x-item-pressed",
         "cls": [
             "x-touchtreegrid-list"
         ],
@@ -107,7 +117,7 @@
         "applyDefaultCollapseLevel": "boolean",
         "defaultCollapseLevel": "number"
     },
-    "designerId": "dcf34621-667d-4a8e-bc95-e3fc814895a0",
+    "designerId": "d53b0de8-f020-4f95-8f37-ca115d7b1ae6",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
@@ -318,6 +328,16 @@
             "group": "(Custom Properties)",
             "name": "landscapeIcon",
             "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "helpHtml",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "pressedCls",
+            "type": "string"
         }
     ],
     "cn": [
@@ -345,7 +365,7 @@
                     ""
                 ]
             },
-            "designerId": "72322e18-3ca5-4094-bbb9-af61d3babb2a"
+            "designerId": "76811f56-9288-428a-95fb-e4f50a97c83c"
         },
         {
             "type": "basicfunction",
@@ -464,7 +484,7 @@
                     ""
                 ]
             },
-            "designerId": "3720e9dc-752a-4c24-8b09-bb962c674915"
+            "designerId": "3afa593b-e281-4c1f-a9e3-7dce97c2c4b6"
         },
         {
             "type": "basicfunction",
@@ -485,13 +505,14 @@
                     "\r",
                     "var list = me.getList();\r",
                     "var disableSel = me.getDisableSelection();\r",
+                    "var pressedCls = (disableSel ? '' : me.getPressedCls());  // Don't apply pressing class if selection disabled\r",
                     "var disclose = me.getOnItemDisclosure();\r",
                     "var discloseProp = me.getDisclosureProperty();\r",
                     "var itemHeight = me.getItemHeight();\r",
                     "var variableHeights = me.getVariableHeights();\r",
                     "\r",
                     "if (this.isObjectEmpty(list)) {\r",
-                    "    list = Ext.create('Ext.dataview.List', {    \r",
+                    "    list = Ext.create('Ext.dataview.List', {   \r",
                     "        disableSelection: disableSel,\r",
                     "        onItemDisclosure : disclose,\r",
                     "        disclosureProperty : discloseProp,  // 'disclose' for all rows (default), 'leaf' for leafs only\r",
@@ -499,7 +520,8 @@
                     "        variableHeights: variableHeights,\r",
                     "        store: newStore,\r",
                     "        masked: false,\r",
-                    "        itemCls: 'x-touchtreegrid-item'\r",
+                    "        itemCls: 'x-touchtreegrid-item',\r",
+                    "        pressedCls : pressedCls\r",
                     "    });\r",
                     "\r",
                     "    list.on('itemtap', this.onItemTap, this);\r",
@@ -510,7 +532,7 @@
                     "    }\r",
                     "\r",
                     "    me.setList(list);\r",
-                    "\r",
+                    "    \r",
                     "    if (!me.getListScrollable()) {\r",
                     "        list.setScrollable({disabled: true});  // false doesn't seem to work\r",
                     "    }\r",
@@ -534,7 +556,7 @@
                     ""
                 ]
             },
-            "designerId": "926d775d-dab1-494e-9a60-77e4001a5260"
+            "designerId": "eb291230-049b-410d-924c-4b350d4a1ad5"
         },
         {
             "type": "basicfunction",
@@ -586,7 +608,7 @@
                     "}"
                 ]
             },
-            "designerId": "2b08a987-c2de-48e3-a95d-33bb9e286ba2"
+            "designerId": "aea2ade2-7d70-47c6-b4fa-d4d42d52fa84"
         },
         {
             "type": "basicfunction",
@@ -612,7 +634,7 @@
                     "}    "
                 ]
             },
-            "designerId": "963f0468-7a9f-45cc-9d41-ff17b42a69d9"
+            "designerId": "0c493c3a-d16e-4e01-b006-89d39c2623d6"
         },
         {
             "type": "basicfunction",
@@ -633,7 +655,7 @@
                     "}    "
                 ]
             },
-            "designerId": "74c5fbf1-f545-4e3c-836b-1cc4476ff8b4"
+            "designerId": "e0950050-e775-424d-9632-bbec9616a9e5"
         },
         {
             "type": "basicfunction",
@@ -714,7 +736,7 @@
                     "}"
                 ]
             },
-            "designerId": "5648f2fc-d7a4-41cc-b053-cb8939209898"
+            "designerId": "d3eb7ab4-f7ab-4222-bf3f-ce89d7bee4bd"
         },
         {
             "type": "basicfunction",
@@ -735,7 +757,7 @@
                     "}"
                 ]
             },
-            "designerId": "523e17f2-b0a1-42fe-88d9-439ac1798923"
+            "designerId": "119f1a50-8a9a-469c-8bc0-a56641ffa095"
         },
         {
             "type": "basicfunction",
@@ -782,7 +804,7 @@
                     ""
                 ]
             },
-            "designerId": "253b93d4-a6f9-44d5-b6ea-105fc850c0e1"
+            "designerId": "ccde204e-f1d2-4b7e-bd0d-d4507c1b4502"
         },
         {
             "type": "basicfunction",
@@ -943,7 +965,7 @@
                     ""
                 ]
             },
-            "designerId": "12077cb0-f0eb-4fd0-86a9-06ef79ee3e37"
+            "designerId": "2e82bbda-d060-4f52-ba62-3e6a23606e11"
         },
         {
             "type": "basicfunction",
@@ -979,7 +1001,7 @@
                     "(decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : \"\") + suffix;"
                 ]
             },
-            "designerId": "35e610ca-e3e1-4701-add1-6505ed0c2058"
+            "designerId": "d737b27d-90a5-4a05-8ae0-5708fc562425"
         },
         {
             "type": "basicfunction",
@@ -1003,7 +1025,7 @@
                     "return true;"
                 ]
             },
-            "designerId": "e2af9314-20f2-4799-9c66-ea55c66c0a91"
+            "designerId": "01c23623-112e-4fa5-8cbc-6ffd58e6e0fb"
         }
     ]
 }

@@ -38,3 +38,13 @@
 [4852:3744:0323/234636:958719:ERROR:render_widget_host_impl.cc(1839)] We seem to have a different key type sent from the renderer. (7 vs. 10). Ignoring event.
 [4852:3744:0323/234636:958797:ERROR:render_widget_host_impl.cc(1836)] Got a KeyEvent back from the renderer but we don't seem to have sent it to the renderer!
 [4852:3744:0323/234636:958797:ERROR:render_widget_host_impl.cc(1836)] Got a KeyEvent back from the renderer but we don't seem to have sent it to the renderer!
+[12056:11972:0328/064749:44640856:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[12056:10708:0328/064750:44641948:ERROR:cache_util_win.cc(43)] Unable to move the cache: 5
+[12056:10708:0328/064750:44641948:ERROR:backend_impl.cc(134)] Unable to move cache folder C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\Cache to C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\old_Cache_000
+[12056:10708:0328/064750:44641948:ERROR:backend_impl.cc(221)] Unable to create cache
+[12056:11972:0328/065557:45128343:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[11864:10888:0328/065623:45154848:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[11864:7104:0328/065624:45155815:ERROR:cache_util_win.cc(43)] Unable to move the cache: 5
+[11864:7104:0328/065624:45155815:ERROR:backend_impl.cc(134)] Unable to move cache folder C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\Cache to C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\old_Cache_000
+[11864:7104:0328/065624:45155815:ERROR:backend_impl.cc(221)] Unable to create cache
+[11864:10888:0328/071208:46099527:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412

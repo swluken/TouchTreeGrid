@@ -43,6 +43,7 @@ Ext.define('TouchTreeGrid.view.Main', {
                 items: [
                     {
                         xtype: 'touchtreegrid',
+                        store: 'TaskStore',
                         columns: [
                             {
                                 header: 'Task',
@@ -55,7 +56,6 @@ Ext.define('TouchTreeGrid.view.Main', {
                         ],
                         listItemId: 'firstexamplelist',
                         includeFooterLevels: false,
-                        store: 'TaskStore',
                         defaultCollapseLevel: 1,
                         itemId: 'firstexample'
                     }

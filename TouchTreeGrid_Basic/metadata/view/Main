@@ -42,7 +42,7 @@
                 "designer|userClassName": "MyContainer3",
                 "layout": "fit"
             },
-            "designerId": "d99145e0-1ca1-4ed2-a7f2-04adddcd4d7a",
+            "designerId": "26326c10-0cc1-45c1-8f44-df9774c3fc97",
             "cn": [
                 {
                     "type": "linkedinstance",
@@ -52,66 +52,28 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "columns": "[\r\n                            {\r\n                                header: 'Task',\r\n                                dataIndex: 'text',\r\n                                width: '35%',\r\n                                style: ' text-align: left;',\r\n                                categStyle: 'font-weight: bold; text-align: left; color: blue;',\r\n                                headerStyle: 'text-align: left; color: #ccc;'\r\n                            }\r\n                        ]",
-                        "disclosureProperty": null,
-                        "listItemId": "firstexamplelist",
-                        "includeFooterLevels": false,
                         "store": [
                             "TaskStore"
                         ],
-                        "useAnimation": null,
-                        "headerItemData": null,
-                        "itemHeight": null,
-                        "footer": null,
+                        "columns": [
+                            "[\r",
+                            "                            {\r",
+                            "                                header: 'Task',\r",
+                            "                                dataIndex: 'text',\r",
+                            "                                width: '35%',\r",
+                            "                                style: ' text-align: left;',\r",
+                            "                                categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
+                            "                                headerStyle: 'text-align: left; color: #ccc;'\r",
+                            "                            }\r",
+                            "                        ]"
+                        ],
+                        "listItemId": "firstexamplelist",
+                        "includeFooterLevels": false,
                         "defaultCollapseLevel": 1,
                         "itemId": "firstexample"
                     },
-                    "configAlternates": {
-                        "onItemDisclosure": "boolean",
-                        "headerItemData": "object",
-                        "columns": "array",
-                        "includeFooter": "boolean",
-                        "includeFooterLevels": "boolean",
-                        "categItemTplOverride": "object",
-                        "contentItemTplOverride": "object",
-                        "includeHeader": "boolean",
-                        "applyDefaultCollapseLevel": "boolean",
-                        "defaultCollapseLevel": "number"
-                    },
-                    "designerId": "0895ac0f-cfa1-4329-82f1-931681fe1aa5",
-                    "customConfigs": [
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "onItemDisclosure",
-                            "type": "string"
-                        },
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "columns",
-                            "type": "string"
-                        },
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "disclosureProperty",
-                            "type": "string"
-                        },
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "listItemId",
-                            "type": "string"
-                        },
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "includeFooter",
-                            "type": "string"
-                        },
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "includeFooterLevels",
-                            "type": "string"
-                        }
-                    ],
-                    "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                    "designerId": "3c229b44-7594-4123-bb53-737ccb4c4cb9",
+                    "masterInstanceId": "d53b0de8-f020-4f95-8f37-ca115d7b1ae6"
                 }
             ]
         }

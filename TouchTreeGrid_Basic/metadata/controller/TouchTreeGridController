@@ -41,7 +41,7 @@
                     "console.log('You tapped leaf! : ' + record.get('text'));"
                 ],
                 "name": "leafitemtap",
-                "designer|targetType": "TouchTreeGrid",
+                "designer|targetType": null,
                 "designer|controlQuery": "container#firstexample"
             },
             "designerId": "c172ce7d-dc69-445d-aa00-371810eef691"
@@ -63,7 +63,7 @@
                     "console.log('You tapped Node: ' + record.get('text'));"
                 ],
                 "name": "itemtap",
-                "designer|targetType": "TouchTreeGrid",
+                "designer|targetType": null,
                 "designer|controlQuery": "container#firstexample"
             },
             "designerId": "4b0a4fb1-867a-4099-bd0f-3a37fa23f812"

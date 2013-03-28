@@ -2,7 +2,6 @@
     background-color: white;
 }
 
-
 /* .touchtreegrid-disclose-spacer referenced by doRefreshList function to create 
    %screen shift in header approximately lining up headers with list items when ondisclosure icons displayed (because they shift their row data) */
 .touchtreegrid-disclose-spacer {

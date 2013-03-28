@@ -42,6 +42,8 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         applyDefaultCollapseLevel: true,
         defaultCollapseLevel: 99,
         landscapeIcon: './resources/images/Recycle.png',
+        helpHtml: '',
+        pressedCls: 'x-item-pressed',
         cls: 'x-touchtreegrid-list',
         layout: {
             type: 'fit'
@@ -204,13 +206,14 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
         var list = me.getList();
         var disableSel = me.getDisableSelection();
+        var pressedCls = (disableSel ? '' : me.getPressedCls());  // Don't apply pressing class if selection disabled
         var disclose = me.getOnItemDisclosure();
         var discloseProp = me.getDisclosureProperty();
         var itemHeight = me.getItemHeight();
         var variableHeights = me.getVariableHeights();
 
         if (this.isObjectEmpty(list)) {
-            list = Ext.create('Ext.dataview.List', {    
+            list = Ext.create('Ext.dataview.List', {   
                 disableSelection: disableSel,
                 onItemDisclosure : disclose,
                 disclosureProperty : discloseProp,  // 'disclose' for all rows (default), 'leaf' for leafs only
@@ -218,7 +221,8 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                 variableHeights: variableHeights,
                 store: newStore,
                 masked: false,
-                itemCls: 'x-touchtreegrid-item'
+                itemCls: 'x-touchtreegrid-item',
+                pressedCls : pressedCls
             });
 
             list.on('itemtap', this.onItemTap, this);
