@@ -20,6 +20,8 @@ Phone specific usage   - <a href="http://www.lincolnwaterfrontrentals.com/Sencha
 Tablet specific usage  - <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a>
  (Census tab configured unique for tablets ... rotate Portrait vs. Landscape for column changes ... or resize browser window)
 
+Click on the <?> icon at top of screen for explanation of what each example is trying to demonstrate.
+
 Requires webkit-enabled browser:  Chrome, Safari, or actual mobile device.
 
 <div><b>Feeback appreciated at:</b> </div> http://www.sencha.com/forum/showthread.php?259616-TouchTreeGrid-component
