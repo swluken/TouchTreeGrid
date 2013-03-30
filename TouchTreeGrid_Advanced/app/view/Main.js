@@ -18,7 +18,8 @@ Ext.define('TouchTreeGrid.view.Main', {
     alias: 'widget.main',
 
     requires: [
-        'TouchTreeGrid.view.TouchTreeGrid'
+        'TouchTreeGrid.view.TouchTreeGrid',
+        'TouchTreeGrid.view.ProjectContainer'
     ],
 
     config: {
@@ -29,6 +30,14 @@ Ext.define('TouchTreeGrid.view.Main', {
         items: [
             {
                 xtype: 'titlebar',
+                listeners: {
+                    tap: {
+                        fn: function() {
+                              this.fireEvent('gridhelp', this.up('container'));
+                          },
+                        element: 'element'
+                    }
+                },
                 docked: 'top',
                 height: '2.2em',
                 itemId: 'maintitlebar',
@@ -53,7 +62,7 @@ Ext.define('TouchTreeGrid.view.Main', {
                     {
                         xtype: 'container',
                         title: 'TaskList',
-                        iconCls: 'organize',
+                        iconCls: 'user_list',
                         layout: {
                             type: 'fit'
                         },
@@ -82,78 +91,21 @@ Ext.define('TouchTreeGrid.view.Main', {
                     {
                         xtype: 'container',
                         title: 'Project',
-                        iconCls: 'organize',
-                        itemId: 'example2container',
+                        iconCls: 'doc_list',
+                        itemId: 'projecttab',
                         layout: {
-                            type: 'card'
+                            type: 'fit'
                         },
                         items: [
                             {
-                                xtype: 'touchtreegrid',
-                                listPlugins: {
-                                    xtype: 'component',
-                                    refreshFn: function(plugin) {this.up('touchtreegrid').fireEvent('pullrefresh');},
-                                    type: 'pullrefresh'
-                                },
-                                categDepthColors: true,
-                                store: 'Task2Store',
-                                onItemDisclosure: true,
-                                columns: [
-                                    {
-                                        header: 'Task',
-                                        dataIndex: 'task',
-                                        width: '35%',
-                                        style: 'text-align: left;',
-                                        categStyle: 'font-weight: bold; text-align: left; color: blue;',
-                                        headerStyle: 'text-align: left; color: #ccc;'
-                                    },
-                                    {
-                                        header: 'User',
-                                        dataIndex: 'user',
-                                        width: '35%',
-                                        style: 'text-align: left; padding-left: .5em;',
-                                        categStyle: 'text-align: left;padding-left: .5em;',
-                                        headerStyle: 'text-align: left; color: #ccc;padding-left: .5em;'
-                                    },
-                                    {
-                                        header: 'Dur',
-                                        dataIndex: 'duration',
-                                        width: '15%',
-                                        style: 'text-align: right;',
-                                        categStyle: 'text-align: right;',
-                                        headerStyle: 'text-align: right; color: #ccc;'
-                                    }/*,
-                                    {
-                                        header: 'Done?',
-                                        dataIndex: 'done',
-                                        width: '15%',
-                                        style: 'text-align: right; font-size: .6em;',
-                                        categStyle: 'text-align: right;font-size: .6em;',
-                                        headerStyle: 'text-align: right; color: #ccc;'
-                                    }*/
-                                ],
-                                disclosureProperty: 'leaf',
-                                listItemId: 'example2list',
-                                colNumberToTruncateForIndents: 1,
-                                categDepthColorsArr: [
-                                    '#808127',
-                                    '#949569',
-                                    '#C5C678'
-                                ],
-                                applyDefaultCollapseLevel: false,
-                                helpHtml: './resources/html/ProjectExample.html',
-                                cls: [
-                                    'x-touchtreegrid-list',
-                                    'x-touchtreegrid-list-example2'
-                                ],
-                                itemId: 'example2'
+                                xtype: 'projectContainer'
                             }
                         ]
                     },
                     {
                         xtype: 'container',
-                        title: 'Census',
-                        iconCls: 'organize',
+                        title: 'CENSUS',
+                        iconCls: 'team',
                         itemId: 'censusmainecontainer',
                         layout: {
                             type: 'card'
@@ -184,7 +136,7 @@ Ext.define('TouchTreeGrid.view.Main', {
                     {
                         xtype: 'container',
                         title: 'Override',
-                        iconCls: 'organize',
+                        iconCls: 'compose',
                         layout: {
                             type: 'fit'
                         },
@@ -211,7 +163,8 @@ Ext.define('TouchTreeGrid.view.Main', {
                 ],
                 tabBar: {
                     docked: 'bottom',
-                    itemId: 'maintabbar'
+                    itemId: 'maintabbar',
+                    scrollable: 'horizontal'
                 }
             }
         ]

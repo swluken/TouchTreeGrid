@@ -31,17 +31,17 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onLeafItemTap",
-                "fn": "onLeafItemTap",
+                "designer|userClassName": "onFirstExampleLeafItemTap",
+                "fn": "onFirstExampleLeafItemTap",
                 "designer|params": [
-                    "list, index, target, record, e"
+                    "me, list, index, target, record, e"
                 ],
                 "implHandler": [
                     "//     Ext.Msg.alert('You tapped leaf! : ' + record.get('text'));\r",
                     "console.log('You tapped leaf! : ' + record.get('text'));"
                 ],
-                "name": "leafitemtap",
-                "designer|targetType": null,
+                "name": "leafItemTap",
+                "designer|targetType": "Ext.Container",
                 "designer|controlQuery": "container#firstexample"
             },
             "designerId": "c172ce7d-dc69-445d-aa00-371810eef691"
@@ -54,16 +54,16 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onFirstExampleItemTap",
-                "fn": "onFirstExampleItemTap",
+                "designer|userClassName": "onFirstExampleNodeItemTap",
+                "fn": "onFirstExampleNodeItemTap",
                 "designer|params": [
                     "me, list, index, target, record, e"
                 ],
                 "implHandler": [
                     "console.log('You tapped Node: ' + record.get('text'));"
                 ],
-                "name": "itemtap",
-                "designer|targetType": null,
+                "name": "nodeItemTap",
+                "designer|targetType": "Ext.Container",
                 "designer|controlQuery": "container#firstexample"
             },
             "designerId": "4b0a4fb1-867a-4099-bd0f-3a37fa23f812"

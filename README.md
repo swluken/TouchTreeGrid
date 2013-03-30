@@ -32,9 +32,8 @@ Getting Started
 Detailed documention included in the download:  "TouchTreeGrid - Documentation.pdf"
 
 
-license
+License
 -------
 
 Copyright (c) 2013 Steve Luken. 
 This software is free to use (refer to associated MIT.LISCENSE) .
-

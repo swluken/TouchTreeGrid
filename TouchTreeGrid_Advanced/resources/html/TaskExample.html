@@ -11,7 +11,37 @@
 <p>&nbsp;</p>
 <p>>Every display aspect easily configured with CSS</p>
 <p>&nbsp;</p>
-<p>>Touch Census example to see displays customized differently between Phones and Tablets</p>
+<p>>See Census example for displays customized differently between Phones and Tablets</p>
 <p>&nbsp;</p>
- </div>
+</div>
+<div style:"font-style: bold; font-size: 1em;"> CODE TO IMPLEMENT:</div>
+<div style="font-size: .8em;">
+<p>(simply define Tree Store, link to TouchTreeGrid component and set configs)</p>
+</div>
+
+
+<div style="font-style: italic; font-size: .8em; font: courier; color: blue;">
+<p>&nbsp;</p>	
+<p>  {</p>
+<p>      &nbsp;xtype: 'touchtreegrid', </p>
+<p>      &nbsp;columns: [</p>
+<p>          {</p>
+<p>              &nbsp;&nbsp;&nbsp;header: 'Task',</p>
+<p>              &nbsp;&nbsp;&nbsp;dataIndex: 'text',</p>
+<p>              &nbsp;&nbsp;&nbsp;width: '35%',</p>
+<p>              &nbsp;&nbsp;&nbsp;style: ' text-align: left;',</p>
+<p>              &nbsp;&nbsp;&nbsp;categStyle: 'font-weight: bold; text-align: left; color: blue;',</p>
+<p>              &nbsp;&nbsp;&nbsp;headerStyle: 'text-align: left; color: #ccc;'</p>
+<p>          }</p>
+<p>      &nbsp;],</p>
+<p>      &nbsp;listItemId: 'firstexamplelist',</p>
+<p>      &nbsp;includeFooterLevels: false,</p>
+<p>      &nbsp;store: 'TaskStore',</p>
+<p>      &nbsp;defaultCollapseLevel: 1,</p>
+<p>      &nbsp;itemId: 'firstexample'</p>
+<p>  }	</p>
+</div>	
+
+
+
 	

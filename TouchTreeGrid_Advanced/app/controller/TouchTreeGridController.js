@@ -43,16 +43,17 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
 
         control: {
             "container#firstexample": {
-                leafitemtap: 'onLeafItemTap',
-                itemtap: 'onFirstExampleItemTap'
+                leafItemTap: 'onFirstExampleLeafItemTap',
+                nodeItemTap: 'onFirstExampleNodeItemTap'
             },
             "list#example2list": {
-                disclose: 'onExample2ListDisclose'
+                disclose: 'onExample2ListDisclose',
+                itemtaphold: 'onExample2ListItemTaphold'
             },
             "button#griddetailbackbtn": {
                 tap: 'onGridDetailBackButtonTap'
             },
-            "touchtreegrid#example2": {
+            "container#example2": {
                 pullrefresh: 'onExample2ListPullrefresh'
             },
             "list#censusmainelist": {
@@ -64,65 +65,38 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
             "viewport": {
                 orientationchange: 'onOrientationChange'
             },
-            "image#gridhelp": {
-                tap: 'onGridHelpTap'
-            },
             "tabpanel#maintabpanel": {
                 activeitemchange: 'onMainTabpanelActiveItemChange'
+            },
+            "list#example2Blist": {
+                disclose: 'onExample2BListDisclose'
+            },
+            "titlebar": {
+                gridhelp: 'onTitlebarGridhelp'
             }
         }
     },
 
-    onLeafItemTap: function(list, index, target, record, e) {
+    onFirstExampleLeafItemTap: function(me, list, index, target, record, e) {
         //     Ext.Msg.alert('You tapped leaf! : ' + record.get('text'));
         console.log('You tapped leaf! : ' + record.get('text'));
     },
 
-    onFirstExampleItemTap: function(me, list, index, target, record, e) {
+    onFirstExampleNodeItemTap: function(me, list, index, target, record, e) {
         console.log('You tapped Node: ' + record.get('text'));
     },
 
     onExample2ListDisclose: function(list, record, target, index, e, eOpts) {
-        //Ext.Msg.alert('You disclosed record: ' + record.get('task'));
-
-
-        var swapcont = this.getMain().down('#example2container');   
-        if (swapcont)
-        {
-            var newcont = this.getGriddetailpanel(
-            {
-                title : 'Example 2 Detail',
-                id : 'example2detail',
-                layout: {type: 'fit'}
-            }
-            );
-
-            if (newcont)
-            {
-                var newLabel = newcont.down('#griddetaillabel');    
-                newLabel.setHtml(record.get('task'));       
-
-                var fldSet = newcont.down('#griddetailfieldset');
-                var result = fldSet.setConfig({
-                    items : [
-                    {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, 
-                    {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, 
-                    {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, 
-                    {label: 'Done?', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done}
-                ]}); 
-
-                swapcont.add(newcont);
-                swapcont.setActiveItem(newcont);     
-            }
-        }
+        this.onExample2ListDiscloseOrHold(record, target, index);
     },
 
     onGridDetailBackButtonTap: function(button, e, eOpts) {
-        var swapcont = this.getMain().down('#example2container');   
+        // Reusing the Back button for all Project Task examples by storing references when creating detail panel (list disclose)
+        var swapcont = button.up('#griddetailpanel').swapcont;  
         if (swapcont)
         {
-            var newcont = swapcont.down('#example2'); 
-            var priorcont = swapcont.down('#example2detail'); 
+            gridItemId = button.up('#griddetailpanel').gridItemId;
+            var newcont = swapcont.down('#'+gridItemId); 
 
             newcont.setShowAnimation({type :"slide", direction : "right"});
             swapcont.setActiveItem(newcont);  
@@ -130,9 +104,7 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
     },
 
     onExample2ListPullrefresh: function(container) {
-        //Ext.Msg.alert('Refresh Example 2 List...');
-
-        this.loadExample2Store();
+        this.loadExample2Store(container);
     },
 
     onCensusMaineListDisclose: function(list, record, target, index, e, eOpts) {
@@ -248,10 +220,98 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         this.loadColumnsCensusMaine();
     },
 
-    onGridHelpTap: function(image, e, eOpts) {
-        var me = this;
+    onMainTabpanelActiveItemChange: function(container, value, oldValue, eOpts) {
+        newcont = value.getItemId();
+        var grid, gridcont, numNodes;
 
-        var grid = Ext.Viewport.down('#maintabpanel').getActiveItem().down('touchtreegrid');
+
+        if (value.getItemId() === 'projecttab') {
+            // Project example contained within sub tab panel so need to get active item of that 
+            gridcont = value.down('#projecttabpanel').getActiveItem().down('#touchtreegrid');
+        } else
+        {    
+            gridcont = value.down('#touchtreegrid');
+        }
+
+        gridcont = value.down('touchtreegrid');
+        grid = gridcont.down('#'+gridcont.getListItemId());
+
+        if (newcont === 'censusmainecontainer') {
+
+            // Check store for data and load if empty (only)
+            numNodes = grid.getStore().getData().length;
+            if (numNodes === 0) {this.loadCensusMaine2000Store();}  
+        }
+
+        if (newcont === 'projecttab'){
+            // Check store for data and load if empty (only)
+            numNodes = grid.getStore().getData().length;
+            if (numNodes === 0) {this.loadExample2Store(gridcont);}  
+        }
+
+
+    },
+
+    onExample2BListDisclose: function(list, record, target, index, e, eOpts) {
+        //Ext.Msg.alert('You disclosed record: ' + record.get('task'));
+
+
+        var swapcont = this.getMain().down('#example2Bcontainer');   
+        if (swapcont)
+        {
+            var newcont = this.getGriddetailpanel(
+            {
+                title : 'Example 2B Detail',
+                id : 'example2Bdetail',
+                layout: {type: 'fit'},
+                itemId: 'griddetailpanel'
+            }
+            );
+
+            var gridItemId = swapcont.down('touchtreegrid').getItemId();
+            newcont.swapcont = swapcont;
+            newcont.gridItemId = gridItemId;
+
+            if (newcont)
+            {
+                var newLabel = newcont.down('#griddetaillabel');    
+                newLabel.setHtml(record.get('task'));       
+
+                var fldSet = newcont.down('#griddetailfieldset');
+                var result = fldSet.setConfig({
+                    items : [
+                    {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, 
+                    {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, 
+                    {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, 
+                    {label: 'Done?', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done}
+                ]}); 
+
+                swapcont.add(newcont);
+                swapcont.setActiveItem(newcont);     
+            }
+        }
+    },
+
+    onTitlebarGridhelp: function(main) {
+        // Trapping tap event on entire titlebar instead of just help icon
+        var me=this;
+
+        var image = main.down('#gridhelp');
+
+
+        var currItem = Ext.Viewport.down('#maintabpanel').getActiveItem();
+
+        var grid, projex=false;
+        if (currItem.getItemId() === 'projecttab') {
+            // Project example contained within sub tab panel so need to get active item of that 
+            projex=true;
+            grid = currItem.down('#projecttabpanel').getActiveItem().down('touchtreegrid');
+        } else
+        {    
+            grid = currItem.down('touchtreegrid');
+        }   
+
+
         if (!grid) {return;}
 
         gridId = grid.getHelpHtml();
@@ -268,33 +328,18 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         });
     },
 
-    onMainTabpanelActiveItemChange: function(container, value, oldValue, eOpts) {
-        newcont = value.getItemId();
-        var grid, numNodes;
-
-        if (newcont === 'censusmainecontainer') {
-
-            // Check store for data and load if empty (only)
-            grid = value.down('#censusmainelist');
-            numNodes = grid.getStore().getData().length;
-
-            if (numNodes === 0) {this.loadCensusMaine2000Store();}  
-        }
-
-        if (newcont === 'example2container') {
-
-            // Check store for data and load if empty (only)
-            grid = value.down('#example2list');
-            numNodes = grid.getStore().getData().length;
-
-            if (numNodes === 0) {this.loadExample2Store();}  
+    onExample2ListItemTaphold: function(dataview, index, target, record, e, eOpts) {
+        // Example where we can treat long presses same as disclose event to improve on 
+        // sensitivity issues with smaller icon.
+        // Note:  long press (1 second) works on full item, but not actually on icon itself
+        if (record.get('leaf')) {
+            this.onExample2ListDiscloseOrHold(record, target, index);
         }
     },
 
-    loadExample2Store: function() {
+    loadExample2Store: function(gridcont) {
         var me = this;
 
-        var gridcont = me.getExample2();
         var gridurl = 'data/treegrid.json';
 
         me.loadStore(me, gridcont, gridurl, 'Loading Project...');
@@ -305,8 +350,6 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         // Load data from JSON file within Controller since doesn't seem to work from within Store itself.
         // NOTE:  autoload=true -and- dummy root initialization required in Store to work=>
         //     root: {children: []}
-
-        var me = this;
 
         if (loadmask) {
             Ext.Viewport.setMasked({
@@ -633,9 +676,19 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
 
         // Call funciton to hide/show titlebar and bottom tabbar when in landscape mode, but only if
         // active window contains TouchGridPanel with active expand/collapse toolbar
-        var collapseBar = Ext.Viewport.down('#maintabpanel').getActiveItem().down('#touchtreegridbuttons');
-        if (!collapseBar) {return;}
+        var currItem = Ext.Viewport.down('#maintabpanel').getActiveItem();
 
+        var collapseBar, projex=false;
+        if (currItem.getItemId() === 'projecttab') {
+            // Project example contained within sub tab panel so need to get active item of that 
+            projex=true;
+            collapseBar = currItem.down('#projecttabpanel').getActiveItem().down('#touchtreegridbuttons');
+        } else
+        {    
+            collapseBar = currItem.down('#touchtreegridbuttons');
+        }    
+
+        if (!collapseBar) {return;}
 
         var hide = (orient === 'landscape');
 
@@ -645,6 +698,8 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         main.down('#maintitlebar').setHidden(hide);
         main.down('#maintabbar').setHidden(hide);
 
+        // I could add logic for Project tab to add this for each tab in event user tabs to different example
+        // if (projex) {....} else {...}
         collapseBar.down('#touchtreegridlabel').setHtml(hide ? 'Rotate for Menu' : '');
         collapseBar.down('#touchtreegridicon').setHidden(!hide);
 
@@ -652,6 +707,8 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
     },
 
     postLoadProcess: function(gridListItemId, gridcont) {
+        var refreshed;
+
         if (gridListItemId === 'censusmainelist') {
             // Collapse nodes to defined level
             var depth = gridcont.getDefaultCollapseLevel();
@@ -659,8 +716,55 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
 
             this.loadColumnsCensusMaine(); // also refreshes list
         }
+        else if ((gridListItemId ==='example2list') ||
+        (gridListItemId ==='example2Blist') ||
+        (gridListItemId ==='example2Clist')) {
+            this.getMain().down('#example2list').up('touchtreegrid').doRefreshList();
+            this.getMain().down('#example2Blist').up('touchtreegrid').doRefreshList();
+            this.getMain().down('#example2Clist').up('touchtreegrid').doRefreshList();
+        }
         else {
-            var refreshed = gridcont.doRefreshList(); 
+            refreshed = gridcont.doRefreshList(); 
+        }
+    },
+
+    onExample2ListDiscloseOrHold: function(record, target, index) {
+        //Ext.Msg.alert('You disclosed record: ' + record.get('task'));
+
+
+        var swapcont = this.getMain().down('#example2container');   
+        if (swapcont)
+        {
+            var newcont = this.getGriddetailpanel(
+            {
+                title : 'Example 2 Detail',
+                id : 'example2detail',
+                layout: {type: 'fit'},
+                itemId: 'griddetailpanel'
+            }
+            );
+
+            var gridItemId = swapcont.down('touchtreegrid').getItemId();
+            newcont.swapcont = swapcont;
+            newcont.gridItemId = gridItemId;
+
+            if (newcont)
+            {
+                var newLabel = newcont.down('#griddetaillabel');    
+                newLabel.setHtml(record.get('task'));       
+
+                var fldSet = newcont.down('#griddetailfieldset');
+                var result = fldSet.setConfig({
+                    items : [
+                    {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, 
+                    {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, 
+                    {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, 
+                    {label: 'Done?', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done}
+                ]}); 
+
+                swapcont.add(newcont);
+                swapcont.setActiveItem(newcont);     
+            }
         }
     }
 

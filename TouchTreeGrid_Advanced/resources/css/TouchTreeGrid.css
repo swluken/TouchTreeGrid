@@ -2,6 +2,11 @@
     background-color: white;
 }
 
+/* Uncomment below to remove horizontal lines (Touch 2.1 anyway) */
+.x-touchtreegrid-list .x-list-normal .x-list-item .x-dock-horizontal {
+  /* border: none; */
+}
+
 /* .touchtreegrid-disclose-spacer referenced by doRefreshList function to create 
    %screen shift in header approximately lining up headers with list items when ondisclosure icons displayed (because they shift their row data) */
 .touchtreegrid-disclose-spacer {
@@ -23,7 +28,7 @@
   padding:0.6em 0 0 0 !important; 
   width:100% !important;
   font-size: .7em !important;
-
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
 }
 
 .x-touchtreegrid-list .touchtreegrid-list-content{ /* Detail (leaf) rows  */

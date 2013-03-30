@@ -48,3 +48,18 @@
 [11864:7104:0328/065624:45155815:ERROR:backend_impl.cc(134)] Unable to move cache folder C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\Cache to C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\old_Cache_000
 [11864:7104:0328/065624:45155815:ERROR:backend_impl.cc(221)] Unable to create cache
 [11864:10888:0328/071208:46099527:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[9516:4788:0329/140831:52486723:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[9516:2944:0329/140832:52487737:ERROR:cache_util_win.cc(43)] Unable to move the cache: 5
+[9516:2944:0329/140832:52487737:ERROR:backend_impl.cc(134)] Unable to move cache folder C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\Cache to C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\old_Cache_000
+[9516:2944:0329/140832:52487737:ERROR:backend_impl.cc(221)] Unable to create cache
+[9516:4788:0329/141908:53124081:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[12004:11076:0330/130118:134853332:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[12004:11888:0330/130119:134854362:ERROR:cache_util_win.cc(43)] Unable to move the cache: 5
+[12004:11888:0330/130119:134854362:ERROR:backend_impl.cc(134)] Unable to move cache folder C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\Cache to C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\old_Cache_000
+[12004:11888:0330/130119:134854362:ERROR:backend_impl.cc(221)] Unable to create cache
+[12004:11076:0330/130411:135027148:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[14076:11396:0330/181654:153789654:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[14076:11956:0330/181655:153790730:ERROR:cache_util_win.cc(43)] Unable to move the cache: 5
+[14076:11956:0330/181655:153790730:ERROR:backend_impl.cc(134)] Unable to move cache folder C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\Cache to C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\old_Cache_000
+[14076:11956:0330/181655:153790730:ERROR:backend_impl.cc(221)] Unable to create cache
+[14076:11396:0330/181745:153840276:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412

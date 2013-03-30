@@ -271,10 +271,10 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
             node = store.getAt(index);
 
         if (node.isLeaf()) {
-            this.fireEvent('leafitemtap', list, index, target, record, e);
+            this.fireEvent('leafItemTap', this, list, index, target, record, e);
 
         } else {
-            this.fireEvent('itemtap', this, list, index, target, record, e);  
+            this.fireEvent('nodeItemTap', this, list, index, target, record, e);  
 
             var xPosition = list.getScrollable().getScroller().position.x;
             var yPosition = list.getScrollable().getScroller().position.y;

@@ -129,11 +129,20 @@
                 "app/view/GridHelpPanel.js"
             ],
             "className": "GridHelpPanel"
+        },
+        "34e87089-9f09-4c61-9b97-8fcb52f62e0d": {
+            "paths": [
+                "metadata/view/ProjectContainer",
+                "app/view/override/ProjectContainer.js",
+                "app/view/ProjectContainer.js"
+            ],
+            "className": "ProjectContainer"
         }
     },
     "viewOrderMap": {
         "view": [
             "8c274233-2c62-4f46-b103-76d6c9f0def6",
+            "34e87089-9f09-4c61-9b97-8fcb52f62e0d",
             "88563679-8cb3-4a20-9b12-690c42275ed7",
             "4c8cf420-dc3a-4258-87f3-37d85eb42fce",
             "f69ccd2f-9818-4a4a-ae44-35a96e2d82f3",

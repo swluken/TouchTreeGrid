@@ -22,13 +22,33 @@
             },
             "codeClass": null,
             "userConfig": {
+                "listeners": [
+                    "{\r",
+                    "  tap: {\r",
+                    "      fn: function() {\r",
+                    "          this.fireEvent('gridhelp', this.up('container'));\r",
+                    "      },\r",
+                    "      element: 'element'\r",
+                    "  }\r",
+                    "}"
+                ],
                 "docked": "top",
                 "height": "2.2em",
                 "itemId": "maintitlebar",
                 "designer|userClassName": "MyTitleBar",
                 "title": "TouchTreeGrid Demo"
             },
+            "configAlternates": {
+                "listeners": "object"
+            },
             "designerId": "7594443e-ac98-4a9c-ad66-560a2c6c6375",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "listeners",
+                    "type": "string"
+                }
+            ],
             "cn": [
                 {
                     "type": "Ext.Img",
@@ -74,7 +94,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "title": "TaskList",
-                        "iconCls": "organize",
+                        "iconCls": "user_list",
                         "designer|userClassName": "MyContainer3",
                         "layout": "fit"
                     },
@@ -112,7 +132,8 @@
                                 "itemHeight": null,
                                 "footer": null,
                                 "defaultCollapseLevel": 1,
-                                "itemId": "firstexample"
+                                "itemId": "firstexample",
+                                "designer|createAlias": null
                             },
                             "configAlternates": {
                                 "onItemDisclosure": "boolean",
@@ -177,10 +198,10 @@
                     "codeClass": null,
                     "userConfig": {
                         "title": "Project",
-                        "iconCls": "organize",
-                        "itemId": "example2container",
+                        "iconCls": "doc_list",
+                        "itemId": "projecttab",
                         "designer|userClassName": "MyContainer4",
-                        "layout": "card"
+                        "layout": "fit"
                     },
                     "designerId": "fc49e1c9-a505-4573-b747-605dcf0a4026",
                     "cn": [
@@ -192,98 +213,10 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "plugins": null,
-                                "listPlugins": [
-                                    "{\r",
-                                    "    xtype: 'component',\r",
-                                    "    refreshFn: function(plugin) {this.up('touchtreegrid').fireEvent('pullrefresh');},\r",
-                                    "    type: 'pullrefresh'\r",
-                                    "}"
-                                ],
-                                "categDepthColors": true,
-                                "store": [
-                                    "Task2Store"
-                                ],
-                                "onItemDisclosure": true,
-                                "columns": [
-                                    "[\r",
-                                    "    {\r",
-                                    "        header: 'Task',\r",
-                                    "        dataIndex: 'task',\r",
-                                    "        width: '35%',\r",
-                                    "        style: 'text-align: left;',\r",
-                                    "        categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
-                                    "        headerStyle: 'text-align: left; color: #ccc;'\r",
-                                    "    },\r",
-                                    "    {\r",
-                                    "        header: 'User',\r",
-                                    "        dataIndex: 'user',\r",
-                                    "        width: '35%',\r",
-                                    "        style: 'text-align: left; padding-left: .5em;',\r",
-                                    "        categStyle: 'text-align: left;padding-left: .5em;',\r",
-                                    "        headerStyle: 'text-align: left; color: #ccc;padding-left: .5em;'\r",
-                                    "    },\r",
-                                    "    {\r",
-                                    "        header: 'Dur',\r",
-                                    "        dataIndex: 'duration',\r",
-                                    "        width: '15%',\r",
-                                    "        style: 'text-align: right;',\r",
-                                    "        categStyle: 'text-align: right;',\r",
-                                    "        headerStyle: 'text-align: right; color: #ccc;'\r",
-                                    "    }\r",
-                                    "/*    ,\r",
-                                    "    {\r",
-                                    "        header: 'Done?',\r",
-                                    "        dataIndex: 'done',\r",
-                                    "        width: '15%',\r",
-                                    "        style: 'text-align: right; font-size: .6em;',\r",
-                                    "        categStyle: 'text-align: right;font-size: .6em;',\r",
-                                    "        headerStyle: 'text-align: right; color: #ccc;'\r",
-                                    "    } */\r",
-                                    "]"
-                                ],
-                                "disclosureProperty": "leaf",
-                                "listItemId": "example2list",
-                                "colNumberToTruncateForIndents": 1,
-                                "categDepthColorsArr": [
-                                    "['#808127', '#949569', '#C5C678']"
-                                ],
-                                "applyDefaultCollapseLevel": false,
-                                "helpHtml": "./resources/html/ProjectExample.html",
-                                "cls": [
-                                    "x-touchtreegrid-list",
-                                    "x-touchtreegrid-list-example2"
-                                ],
-                                "itemId": "example2"
+                                "designer|createAlias": null
                             },
-                            "configAlternates": {
-                                "plugins": "object",
-                                "listPlugins": "object",
-                                "categIndentPct": "number",
-                                "colNumberToTruncateForIndents": "number",
-                                "categDepthColors": "boolean",
-                                "categDepthColorButtons": "boolean",
-                                "applyDefaultCollapseLevel": "boolean"
-                            },
-                            "designerId": "c093b29a-2bac-4eb2-aae0-677aa20fe069",
-                            "customConfigs": [
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "plugins",
-                                    "type": "string"
-                                },
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "listPlugins",
-                                    "type": "string"
-                                },
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "categDepthColors",
-                                    "type": "string"
-                                }
-                            ],
-                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                            "designerId": "34dafff5-bf03-4965-8d98-47c3fb59cc57",
+                            "masterInstanceId": "34e87089-9f09-4c61-9b97-8fcb52f62e0d"
                         }
                     ]
                 },
@@ -295,8 +228,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "title": "Census",
-                        "iconCls": "organize",
+                        "title": "CENSUS",
+                        "iconCls": "team",
                         "itemId": "censusmainecontainer",
                         "designer|userClassName": "MyContainer5",
                         "layout": "card"
@@ -335,7 +268,8 @@
                                     "x-touchtreegrid-list",
                                     "x-touchtreegrid-list-censusmaine"
                                 ],
-                                "itemId": "censusmaine"
+                                "itemId": "censusmaine",
+                                "designer|createAlias": null
                             },
                             "configAlternates": {
                                 "plugins": "object",
@@ -382,7 +316,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "title": "Override",
-                        "iconCls": "organize",
+                        "iconCls": "compose",
                         "designer|userClassName": "MyContainer3",
                         "layout": "fit"
                     },
@@ -437,7 +371,8 @@
                                     "x-touchtreegrid-list",
                                     "x-touchtreegrid-list-override"
                                 ],
-                                "itemId": "overrideexample"
+                                "itemId": "overrideexample",
+                                "designer|createAlias": null
                             },
                             "configAlternates": {
                                 "onItemDisclosure": "boolean",
@@ -497,7 +432,8 @@
                     "userConfig": {
                         "docked": "bottom",
                         "itemId": "maintabbar",
-                        "designer|userClassName": "MyTabBar"
+                        "designer|userClassName": "MyTabBar",
+                        "scrollable": "horizontal"
                     },
                     "designerId": "02f2798a-24dc-46d7-ae33-8030e35ef93f"
                 }

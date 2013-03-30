@@ -31,15 +31,15 @@ Ext.define('TouchTreeGrid.store.Task', {
                     text: 'Today',
                     items: [
                         {
-                            text: 'Eat',
+                            text: 'Mow Grass',
                             leaf: true
                         },
                         {
-                            text: 'Sleep',
+                            text: 'Buy Groceries',
                             leaf: true
                         },
                         {
-                            text: 'Drinking',
+                            text: 'Watch Game',
                             leaf: true
                         }
                     ]
@@ -48,11 +48,11 @@ Ext.define('TouchTreeGrid.store.Task', {
                     text: 'Tomorrow',
                     items: [
                         {
-                            text: 'Watch TV',
+                            text: 'Frisbee',
                             leaf: true
                         },
                         {
-                            text: 'Watch Video',
+                            text: 'Cookout',
                             leaf: true
                         }
                     ]
@@ -61,8 +61,25 @@ Ext.define('TouchTreeGrid.store.Task', {
                     text: 'This week',
                     items: [
                         {
-                            text: 'Shopping',
+                            text: 'Call Mom',
                             leaf: true
+                        },
+                        {
+                            text: 'Study',
+                            items: [
+                                {
+                                    text: 'Calculus',
+                                    leaf: true
+                                },
+                                {
+                                    text: 'Physics',
+                                    leaf: true
+                                },
+                                {
+                                    text: 'History',
+                                    leaf: true
+                                }
+                            ]
                         }
                     ]
                 },
@@ -70,21 +87,8 @@ Ext.define('TouchTreeGrid.store.Task', {
                     text: 'Later',
                     items: [
                         {
-                            text: 'Study',
-                            items: [
-                                {
-                                    text: 'Eat',
-                                    leaf: true
-                                },
-                                {
-                                    text: 'Sleep',
-                                    leaf: true
-                                },
-                                {
-                                    text: 'Drinking',
-                                    leaf: true
-                                }
-                            ]
+                            text: 'Buy Clothes',
+                            leaf: true
                         }
                     ]
                 }

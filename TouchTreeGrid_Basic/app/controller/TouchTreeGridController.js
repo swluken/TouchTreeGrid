@@ -26,18 +26,18 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
 
         control: {
             "container#firstexample": {
-                leafitemtap: 'onLeafItemTap',
-                itemtap: 'onFirstExampleItemTap'
+                leafItemTap: 'onFirstExampleLeafItemTap',
+                nodeItemTap: 'onFirstExampleNodeItemTap'
             }
         }
     },
 
-    onLeafItemTap: function(list, index, target, record, e) {
+    onFirstExampleLeafItemTap: function(me, list, index, target, record, e) {
         //     Ext.Msg.alert('You tapped leaf! : ' + record.get('text'));
         console.log('You tapped leaf! : ' + record.get('text'));
     },
 
-    onFirstExampleItemTap: function(me, list, index, target, record, e) {
+    onFirstExampleNodeItemTap: function(me, list, index, target, record, e) {
         console.log('You tapped Node: ' + record.get('text'));
     }
 

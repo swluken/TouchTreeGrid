@@ -34,7 +34,8 @@ Ext.application({
         'TouchTreeGrid',
         'griddetailpanel',
         'CensusDetailPanel',
-        'GridHelpPanel'
+        'GridHelpPanel',
+        'ProjectContainer'
     ],
     controllers: [
         'TouchTreeGridController'
