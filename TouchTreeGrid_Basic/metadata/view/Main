@@ -56,24 +56,22 @@
                             "TaskStore"
                         ],
                         "columns": [
-                            "[\r",
-                            "                            {\r",
+                            "[{\r",
                             "                                header: 'Task',\r",
                             "                                dataIndex: 'text',\r",
                             "                                width: '35%',\r",
                             "                                style: ' text-align: left;',\r",
                             "                                categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
                             "                                headerStyle: 'text-align: left; color: #ccc;'\r",
-                            "                            }\r",
-                            "                        ]"
+                            "}]"
                         ],
                         "listItemId": "firstexamplelist",
                         "includeFooterLevels": false,
                         "defaultCollapseLevel": 1,
                         "itemId": "firstexample"
                     },
-                    "designerId": "3c229b44-7594-4123-bb53-737ccb4c4cb9",
-                    "masterInstanceId": "d53b0de8-f020-4f95-8f37-ca115d7b1ae6"
+                    "designerId": "143ad7d8-fa13-4490-a8a6-3385bb4fd1c8",
+                    "masterInstanceId": "7d6de964-323e-4c82-a7f6-45d73c89f642"
                 }
             ]
         }

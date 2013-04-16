@@ -118,3 +118,24 @@
 [1348:6360:0330/181821:153876328:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
 [6892:12368:0330/183030:154605680:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
 [6892:12368:0330/183044:154619657:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[12596:8480:0330/213330:165585326:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[12596:8404:0330/213331:165586528:ERROR:cache_util_win.cc(43)] Unable to move the cache: 5
+[12596:8404:0330/213331:165586528:ERROR:backend_impl.cc(134)] Unable to move cache folder C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\Cache to C:\Users\Steve\AppData\Local\Sencha\Sencha Architect 2.2\old_Cache_000
+[12596:8404:0330/213331:165586528:ERROR:backend_impl.cc(221)] Unable to create cache
+[12596:8480:0330/232123:172059227:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[5664:5892:0412/220548:47659927:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[5664:5892:0413/004919:57470331:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[5664:5892:0413/004954:57505837:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[5664:5892:0413/010310:58301723:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[7996:7140:0413/010310:58302097:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[7996:7140:0413/012439:59590478:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[7392:7336:0413/012943:59894353:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[7392:7336:0413/013426:60177541:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[13256:7880:0414/075412:169392359:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[13256:7880:0414/084911:172691328:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[13256:7880:0414/095525:176665968:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[13072:12604:0414/114849:183469531:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[13072:12604:0414/193312:211332479:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[13072:12604:0414/204855:215875852:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[10960:11096:0415/215309:18466353:ERROR:network_change_notifier_win.cc(143)] WSALookupServiceBegin failed with: 1722
+[10960:11096:0415/220218:19016147:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412

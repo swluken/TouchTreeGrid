@@ -840,7 +840,7 @@
                 "fn": "onMainTabpanelActiveItemChange",
                 "implHandler": [
                     "newcont = value.getItemId();\r",
-                    "var grid, gridcont, numNodes;\r",
+                    "var grid, gridcont, numNodes, mydata, numRecords;\r",
                     "\r",
                     "\r",
                     "if (value.getItemId() === 'projecttab') {\r",
@@ -866,6 +866,20 @@
                     "    numNodes = grid.getStore().getData().length;\r",
                     "    if (numNodes === 0) {this.loadExample2Store(gridcont);}  \r",
                     "}\r",
+                    "\r",
+                    "if (newcont === 'dow2012container'){\r",
+                    "    numRecords = grid.getStore().getData().length;\r",
+                    "    if (numRecords === 0) {\r",
+                    "        Ext.Viewport.setMasked({\r",
+                    "           xtype: 'loadmask',\r",
+                    "           message: 'Loading DOW 2012...'\r",
+                    "        });\r",
+                    "        grid.getStore().load();\r",
+                    "        gridcont.doRefreshList();\r",
+                    "        Ext.Viewport.setMasked(false);\r",
+                    "    }  \r",
+                    "}\r",
+                    "\r",
                     "\r",
                     ""
                 ],
@@ -1102,6 +1116,20 @@
                 ]
             },
             "designerId": "de6e5070-d684-42db-93de-8754e92074fd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "dow2012",
+                "ref": "dow2012",
+                "selector": "#dow2012"
+            },
+            "designerId": "a0d79c58-dc5b-400b-b250-e1f436126e3f"
         }
     ]
 }

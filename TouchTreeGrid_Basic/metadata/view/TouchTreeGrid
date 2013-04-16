@@ -54,7 +54,7 @@
             "{}"
         ],
         "categIndentPct": "3",
-        "colNumberToTruncateForIndents": 0,
+        "colNumberToTruncateForIndents": 1,
         "includeFooterLevels": true,
         "categDepthColors": false,
         "categDepthColorsArr": [
@@ -79,7 +79,18 @@
         "defaultCollapseLevel": 99,
         "landscapeIcon": "./resources/images/Recycle.png",
         "helpHtml": "",
-        "pressedCls": "x-item-pressed",
+        "pressedCls": "touchtreegrid-item-pressed",
+        "simpleList": false,
+        "columnSorting": false,
+        "styleContentRow": "",
+        "styleCategRow": "",
+        "styleHeaderRow": "",
+        "singleExpand": false,
+        "additionalListConfigs": [
+            "{}"
+        ],
+        "selectedCls": "touchtreegrid-item-selected",
+        "mode": "SINGLE",
         "cls": [
             "x-touchtreegrid-list"
         ],
@@ -115,9 +126,14 @@
         "includeHeader": "boolean",
         "autoApplyCollapseConfig": "boolean",
         "applyDefaultCollapseLevel": "boolean",
-        "defaultCollapseLevel": "number"
+        "defaultCollapseLevel": "number",
+        "simpleList": "boolean",
+        "headerSorting": "boolean",
+        "columnSorting": "boolean",
+        "singleExpand": "boolean",
+        "additionalListConfigs": "object"
     },
-    "designerId": "d53b0de8-f020-4f95-8f37-ca115d7b1ae6",
+    "designerId": "7d6de964-323e-4c82-a7f6-45d73c89f642",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
@@ -338,6 +354,51 @@
             "group": "(Custom Properties)",
             "name": "pressedCls",
             "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "simpleList",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "columnSorting",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "styleContentRow",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "styleCategRow",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "styleHeaderRow",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "singleExpand",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "additionalListConfigs",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "selectedCls",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "mode",
+            "type": "string"
         }
     ],
     "cn": [
@@ -365,7 +426,7 @@
                     ""
                 ]
             },
-            "designerId": "76811f56-9288-428a-95fb-e4f50a97c83c"
+            "designerId": "f2679bb7-ef00-44fb-8c0f-f21de6d51179"
         },
         {
             "type": "basicfunction",
@@ -384,6 +445,8 @@
                     "\r",
                     "var me = this, myWidth, myWidthVal;\r",
                     "\r",
+                    "var simpleList = me.getSimpleList();\r",
+                    "\r",
                     "// Proceed to build TPL for header row\r",
                     "var styleStr = '', rendStr='';\r",
                     "var categ = me.getCategItemTplOverride();\r",
@@ -399,10 +462,10 @@
                     "    data ={header: '', dataIndex: '', width: '', style: '', categStyle: '', headerStyle: ''};\r",
                     "}\r",
                     "\r",
-                    "if (categ==='') {   // Use default if not provided by user\r",
+                    "if (categ==='' && !simpleList) {   // Use default if not provided by user\r",
                     "    var shellArr = \r",
                     "    [\r",
-                    "    '<div style=\"display: -webkit-box; -webkit-box-orient: horizontal;\">',\r",
+                    "    '<div style=\"display: -webkit-box; -webkit-box-orient: horizontal;'+me.getStyleCategRow()+'\">',\r",
                     "    '<p align=\"left\" style=\"width:{[(values.depth-1)*'+indent+']}%;\"</p>',    // 3% per depth starting at 0% \r",
                     "    '<p align=\"left\" style=\"width:4%;min-width:4%;max-width:4%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;\">', \r",
                     "    '<span class=\"touchtreegrid-details-img ',\r",
@@ -446,14 +509,15 @@
                     "var categrows = me.setCategItemTpl(categ);\r",
                     "\r",
                     "var detail = me.getContentItemTplOverride();\r",
-                    "if (detail==='') {\r",
-                    "    var detailArr = [\r",
-                    "    '<div style=\"display: -webkit-box;-webkit-box-orient: horizontal;\">',\r",
+                    "var detailArr, j;\r",
+                    "if (detail==='' && !simpleList) {\r",
+                    "    detailArr = [\r",
+                    "    '<div style=\"display: -webkit-box;-webkit-box-orient: horizontal;'+me.getStyleContentRow()+'\">',\r",
                     "    '<p align=\"left\" style=\"width:{[(values.depth-1)*'+indent+']}%;\"</p>',    // 3% per depth starting at 0%         \r",
                     "    '<p align=\"left\" style=\"width:4%;min-width:4%;max-width:4%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;\">&nbsp;</p>'\r",
                     "    ];\r",
                     "\r",
-                    "    for (var j=0; j<data.length; j++) {\r",
+                    "    for (j=0; j<data.length; j++) {\r",
                     "\r",
                     "        // Substitute user-defined renderer string from Columns array if defined\r",
                     "        rendStr = ((!data[j].renderer) ? data[j].dataIndex : '[' + data[j].renderer + ']');\r",
@@ -478,13 +542,37 @@
                     "\r",
                     "    detailArr.push('</div>');  \r",
                     "    detail=detailArr.join('');    \r",
-                    "}    \r",
+                    "}   \r",
+                    "if (detail==='' && simpleList) {\r",
+                    "    detailArr = [\r",
+                    " // webkit-box handled by  \"display : inline-block;\" in TouchTreeGrid.css \r",
+                    " //   '<div style=\"display: -webkit-box;-webkit-box-orient: horizontal;\">',\r",
+                    "    ];\r",
+                    "\r",
+                    "    for (j=0; j<data.length; j++) {\r",
+                    "\r",
+                    "        // Substitute user-defined renderer string from Columns array if defined\r",
+                    "        rendStr = ((!data[j].renderer) ? data[j].dataIndex : '[' + data[j].renderer + ']');\r",
+                    "\r",
+                    "\r",
+                    "        detailArr.push('<p class=\"touchtreegrid-simplelist-cell\" style=\"' +\r",
+                    "        'min-width:' + data[j].width + ' !important;' + \r",
+                    "        'max-width:' + data[j].width + ' !important;' + \r",
+                    "        'width:' + data[j].width + ' !important;' + \r",
+                    "        ((data[j].style === '') ? '' : data[j].style) + '\" ' +\r",
+                    "        '>{' + rendStr + '}</p>');\r",
+                    "\r",
+                    "    }\r",
+                    "\r",
+                    " //   detailArr.push('</div>');  \r",
+                    "    detail=detailArr.join('');    \r",
+                    "}   \r",
                     "var content = me.setContentItemTpl(detail);    \r",
                     "\r",
                     ""
                 ]
             },
-            "designerId": "3afa593b-e281-4c1f-a9e3-7dce97c2c4b6"
+            "designerId": "8677b7bf-b80f-4a17-ab97-d5be9d4fe895"
         },
         {
             "type": "basicfunction",
@@ -506,6 +594,8 @@
                     "var list = me.getList();\r",
                     "var disableSel = me.getDisableSelection();\r",
                     "var pressedCls = (disableSel ? '' : me.getPressedCls());  // Don't apply pressing class if selection disabled\r",
+                    "var selectedCls = me.getSelectedCls();\r",
+                    "var mode = me.getMode();\r",
                     "var disclose = me.getOnItemDisclosure();\r",
                     "var discloseProp = me.getDisclosureProperty();\r",
                     "var itemHeight = me.getItemHeight();\r",
@@ -521,7 +611,9 @@
                     "        store: newStore,\r",
                     "        masked: false,\r",
                     "        itemCls: 'x-touchtreegrid-item',\r",
-                    "        pressedCls : pressedCls\r",
+                    "        pressedCls : pressedCls,\r",
+                    "        selectedCls : selectedCls,\r",
+                    "        mode: mode\r",
                     "    });\r",
                     "\r",
                     "    list.on('itemtap', this.onItemTap, this);\r",
@@ -532,7 +624,7 @@
                     "    }\r",
                     "\r",
                     "    me.setList(list);\r",
-                    "    \r",
+                    "\r",
                     "    if (!me.getListScrollable()) {\r",
                     "        list.setScrollable({disabled: true});  // false doesn't seem to work\r",
                     "    }\r",
@@ -540,6 +632,18 @@
                     "    var listItemId = me.getListItemId();\r",
                     "    if (listItemId !== '') {\r",
                     "        list.setItemId(listItemId);\r",
+                    "    }\r",
+                    "\r",
+                    "    // Update list with any additional configs defined in user-defined additionalListConfigs object\r",
+                    "    // (this allows all configs supported by Ext.dataview.List component to be applied to TouchTreeGrid list\r",
+                    "    // Note:  any duplicated configs already supported by TouchTreeGrid will overwrite those and could have \r",
+                    "    //        unexpected behaviour !!\r",
+                    "    var addlConfigs = me.getAdditionalListConfigs();\r",
+                    "    if (!me.isObjectEmpty(addlConfigs)) {\r",
+                    "        for (cfg in addlConfigs) {\r",
+                    "            list.config[cfg] = addlConfigs[cfg];\r",
+                    "            list['_'+cfg] = addlConfigs[cfg];\r",
+                    "        }\r",
                     "    }\r",
                     "\r",
                     "    me.add(list);\r",
@@ -556,7 +660,7 @@
                     ""
                 ]
             },
-            "designerId": "eb291230-049b-410d-924c-4b350d4a1ad5"
+            "designerId": "c4db9df3-9e72-4ba5-a44b-52aaba8a036b"
         },
         {
             "type": "basicfunction",
@@ -588,10 +692,24 @@
                     "var store = list.getStore(),\r",
                     "    node = store.getAt(index);\r",
                     "\r",
-                    "if (node.isLeaf()) {\r",
+                    "if (this.getSimpleList() || node.isLeaf()) {\r",
                     "    this.fireEvent('leafItemTap', this, list, index, target, record, e);\r",
                     "\r",
-                    "} else {\r",
+                    "} \r",
+                    "else if (this.getSingleExpand() && !node.isExpanded()) {\r",
+                    "    // If node collapsed, then expand this one and collapse all sibling nodes\r",
+                    "    this.fireEvent('nodeItemTap', this, list, index, target, record, e);  \r",
+                    "    debugger; \r",
+                    "    node.expand(false);\r",
+                    "    var parent = node.parentNode;\r",
+                    "    var children = parent.childNodes;\r",
+                    "    for (var i=0; i<children.length; i++) {\r",
+                    "        if (children[i] !== node && children[i].isExpanded()) {\r",
+                    "            children[i].collapse();\r",
+                    "        }\r",
+                    "    }\r",
+                    "}\r",
+                    "else {\r",
                     "    this.fireEvent('nodeItemTap', this, list, index, target, record, e);  \r",
                     "\r",
                     "    var xPosition = list.getScrollable().getScroller().position.x;\r",
@@ -608,7 +726,7 @@
                     "}"
                 ]
             },
-            "designerId": "aea2ade2-7d70-47c6-b4fa-d4d42d52fa84"
+            "designerId": "45927094-7a5b-402f-bec9-481646c6088d"
         },
         {
             "type": "basicfunction",
@@ -627,14 +745,15 @@
                     "if (this.getIncludeHeader()) {\r",
                     "    Ext.apply(config, {\r",
                     "        docked : 'top',\r",
-                    "        cls    : 'touchtreegrid-header'\r",
+                    "        cls    : 'touchtreegrid-header',\r",
+                    "        itemId : 'touchtreegridheader'\r",
                     "    });\r",
                     "\r",
                     "    return Ext.factory(config, Ext.Toolbar);\r",
                     "}    "
                 ]
             },
-            "designerId": "0c493c3a-d16e-4e01-b006-89d39c2623d6"
+            "designerId": "fdd66183-9da1-45af-bf3c-343ac00c4841"
         },
         {
             "type": "basicfunction",
@@ -650,12 +769,17 @@
                     "header"
                 ],
                 "implHandler": [
-                    "if (this.getIncludeHeader()) {\r",
-                    "    this.insert(0, header);\r",
+                    "var me = this;\r",
+                    "if (me.getIncludeHeader()) {\r",
+                    "    me.insert(0, header);\r",
+                    "\r",
+                    "    if (this.getColumnSorting()) {  // add tap event listener to header toolbar\r",
+                    "        header.element.on('tap', me[\"handleColumnSort\"], me, {});\r",
+                    "    }\r",
                     "}    "
                 ]
             },
-            "designerId": "e0950050-e775-424d-9632-bbec9616a9e5"
+            "designerId": "3482ca0f-57c0-48bb-a925-4f467945a515"
         },
         {
             "type": "basicfunction",
@@ -673,9 +797,9 @@
                 "implHandler": [
                     "var me = this;\r",
                     "\r",
-                    "var img = this.getLandscapeIcon();\r",
+                    "var img = me.getLandscapeIcon();\r",
                     "\r",
-                    "if (this.getIncludeFooter()) {\r",
+                    "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
                     "    Ext.apply(config, {\r",
                     "        docked : 'bottom',\r",
                     "        cls    : 'touchtreegrid-footer',\r",
@@ -736,7 +860,7 @@
                     "}"
                 ]
             },
-            "designerId": "d3eb7ab4-f7ab-4222-bf3f-ce89d7bee4bd"
+            "designerId": "f6b6d43a-2bb7-47c1-a3ee-6c67e2fe475a"
         },
         {
             "type": "basicfunction",
@@ -752,12 +876,12 @@
                     "footer"
                 ],
                 "implHandler": [
-                    "if (this.getIncludeFooter()) {\r",
+                    "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
                     "    this.insert(0, footer);\r",
                     "}"
                 ]
             },
-            "designerId": "119f1a50-8a9a-469c-8bc0-a56641ffa095"
+            "designerId": "5df30a86-dd3b-46b1-83d9-163285d999c5"
         },
         {
             "type": "basicfunction",
@@ -804,7 +928,7 @@
                     ""
                 ]
             },
-            "designerId": "ccde204e-f1d2-4b7e-bd0d-d4507c1b4502"
+            "designerId": "01aaa6ef-6887-4e1f-a9f1-b58179da1e57"
         },
         {
             "type": "basicfunction",
@@ -824,6 +948,8 @@
                     "\r",
                     "var me = this;\r",
                     "\r",
+                    "var simpleList = me.getSimpleList();\r",
+                    "\r",
                     "var list = me.getList();\r",
                     "var disclose = me.getOnItemDisclosure();\r",
                     "var colorArr = me.getCategDepthColorsArr();\r",
@@ -834,17 +960,27 @@
                     "// Customize TPL to change colors by category depth as defined in colorArr\r",
                     "var colorStyle = (colorDepth ? 'style=\"background-color: {[this.depthColor(values)]} !important;\"' : '');\r",
                     "\r",
-                    "var tpl = [\r",
-                    "'<tpl if=\"leaf\">',\r",
-                    "'<div class=\"touchtreegrid-list-content\">',\r",
-                    "me.getContentItemTpl(),\r",
-                    "'</div>',\r",
-                    "'<tpl else>',\r",
-                    "'<div class=\"touchtreegrid-list-categ\" '+colorStyle + '>',\r",
-                    "me.getCategItemTpl(),\r",
-                    "'</div>',\r",
-                    "'</tpl>'\r",
-                    "].join('');\r",
+                    "var tpl;\r",
+                    "if (!simpleList) {\r",
+                    "    tpl = [\r",
+                    "    '<tpl if=\"leaf\">',\r",
+                    "    '<div class=\"touchtreegrid-list-content\">',\r",
+                    "    me.getContentItemTpl(),\r",
+                    "    '</div>',\r",
+                    "    '<tpl else>',\r",
+                    "    '<div class=\"touchtreegrid-list-categ\" '+colorStyle + '>',\r",
+                    "    me.getCategItemTpl(),\r",
+                    "    '</div>',\r",
+                    "    '</tpl>'\r",
+                    "    ].join('');\r",
+                    "}\r",
+                    "else {\r",
+                    "    tpl = [\r",
+                    "//    '<div class=\"touchtreegrid-list-content\">',\r",
+                    "    me.getContentItemTpl(),\r",
+                    " //   '</div>'\r",
+                    "    ].join('');\r",
+                    "}\r",
                     "\r",
                     "var renderers = {};\r",
                     "renderers.scope = me;\r",
@@ -862,7 +998,8 @@
                     "itemTpl.compile();\r",
                     "\r",
                     "list.setItemTpl(itemTpl);\r",
-                    "//list.refresh();\r",
+                    "\r",
+                    "if (simpleList) list.refresh();\r",
                     "\r",
                     "/* Build Header TPL */\r",
                     "var header = me.getHeader();\r",
@@ -873,24 +1010,26 @@
                     "if (headerTpl==='') {\r",
                     "\r",
                     "    var headerTplArr = [\r",
-                    "    '<div style=\"display: -webkit-box;-webkit-box-orient: horizontal;\">',\r",
-                    "    '<p align=\"left\" style=\"width:4%;min-width:4%;max-width:4%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;\">&nbsp;</p>'\r",
+                    "    '<div style=\"display: -webkit-box;-webkit-box-orient: horizontal;'+me.getStyleHeaderRow()+'\">'    \r",
                     "    ];\r",
+                    "    if (!simpleList) {\r",
+                    "        headerTplArr.push('<p align=\"left\" style=\"width:4%;min-width:4%;max-width:4%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;\">&nbsp;</p>');\r",
+                    "    }\r",
                     "\r",
                     "    for (var j=0; j<data.length; j++) {\r",
                     "\r",
-                    "        // Use categStyle if exists, else apply detail row style to category row\r",
+                    "        // Use headerStyle if exists, else apply detail row style to category row\r",
                     "        if (data[j].headerStyle && data[j].headerStyle > '') {styleStr = data[j].headerStyle;}\r",
                     "        else if (data[j].style) {styleStr = data[j].style;}\r",
                     "        else {styleStr = '';}        \r",
                     "\r",
-                    "        headerTplArr.push('<p style=\"min-width:' + data[j].width +\r",
+                    "        headerTplArr.push('<p class=\"grid-cell-hd\" style=\"min-width:' + data[j].width +\r",
                     "        ';white-space: nowrap;overflow:hidden;text-overflow:clip;' +\r",
-                    "        styleStr + '\" >' + data[j].header + '</p>');\r",
+                    "        styleStr + '\" dataIndex=\"'+data[j].dataIndex+'\">' + data[j].header + '</p>');               \r",
                     "    }\r",
                     "    headerTplArr.push('</div>');  \r",
                     "\r",
-                    "    // Wrap with spaceer to accomodate for disclosure icon(lines up columns better)\r",
+                    "    // Wrap with spacer to accomodate for disclosure icon(lines up columns better)\r",
                     "    var headerTplArr2 = [];\r",
                     "    if (disclose) {\r",
                     "        headerTplArr2.push('<div class=\"touchtreegrid-disclose-spacer\">');\r",
@@ -907,12 +1046,12 @@
                     "}    \r",
                     "\r",
                     "\r",
-                    "if (me.getApplyDefaultCollapseLevel() && !skipApplyDefaultCollapseLevel) {\r",
+                    "if (me.getApplyDefaultCollapseLevel() && !skipApplyDefaultCollapseLevel && !simpleList) {\r",
                     "    // custom implementations can request not to change collapse levels when refreshing\r",
                     "    me.doExpandDepth(me.getDefaultCollapseLevel());\r",
                     "}\r",
                     "\r",
-                    "if (me.getIncludeFooter() && me.getIncludeFooterLevels()) {\r",
+                    "if (me.getIncludeFooter() && me.getIncludeFooterLevels() && !simpleList) {\r",
                     "    // Proceed to add expand/collapse levels  (horizontal scrolling toolbar LATER)\r",
                     "\r",
                     "    // First get total depth of treestore\r",
@@ -965,7 +1104,7 @@
                     ""
                 ]
             },
-            "designerId": "2e82bbda-d060-4f52-ba62-3e6a23606e11"
+            "designerId": "3fc8bb9f-bd9c-40fa-92ab-a937926ceff3"
         },
         {
             "type": "basicfunction",
@@ -1001,7 +1140,7 @@
                     "(decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : \"\") + suffix;"
                 ]
             },
-            "designerId": "d737b27d-90a5-4a05-8ae0-5708fc562425"
+            "designerId": "0675b8b5-b285-4792-9a43-03964c721519"
         },
         {
             "type": "basicfunction",
@@ -1025,7 +1164,68 @@
                     "return true;"
                 ]
             },
-            "designerId": "01c23623-112e-4fa5-8cbc-6ffd58e6e0fb"
+            "designerId": "9d50c9f1-89ae-4607-979c-d9dc71f72d83"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "handleColumnSort",
+                "fn": "handleColumnSort",
+                "designer|params": [
+                    "e,t"
+                ],
+                "implHandler": [
+                    "// Refer to updateHeader() for code to add tap listener on header toolbar\r",
+                    "//  header.element.on('tap', me[\"handleColumnSort\"], me, {});\r",
+                    "\r",
+                    "var me        = this,\r",
+                    "    list      = me.getList(),\r",
+                    "    columns   = me.getColumns(),\r",
+                    "    cNum      = columns.length,\r",
+                    "    store     = list.getStore(),\r",
+                    "    el        = Ext.get(t),\r",
+                    "    headerEl  = me.down('#touchtreegridheader').element,\r",
+                    "    dataIndex = el.getAttribute('dataIndex'),\r",
+                    "    sorters   = store.getSorters(),\r",
+                    "    sorter    = sorters[0],\r",
+                    "    dir       = sorter ? sorter.getDirection() : 'ASC',\r",
+                    "    asc       = 'x-grid-sort-asc',\r",
+                    "    desc      = 'x-grid-sort-desc',\r",
+                    "    c, column, colEl;\r",
+                    "\r",
+                    "if (!dataIndex) return;  //Included in event of extra toolbar space at far right\r",
+                    "\r",
+                    "for (c=0; c < cNum; c++) {\r",
+                    "    column = columns[c];\r",
+                    "    if (column.dataIndex === dataIndex) {break;}\r",
+                    "}\r",
+                    "\r",
+                    "if (!column.sortable) return;\r",
+                    "\r",
+                    "store.sort(dataIndex, dir === 'DESC' ? 'ASC' : 'DESC');\r",
+                    "list.refresh();\r",
+                    "\r",
+                    "// Remove any prior sort indicators \r",
+                    "for (c=0; c < cNum; c++) {\r",
+                    "    colEl = Ext.get(headerEl.down('p.grid-cell-hd[dataIndex=' + columns[c].dataIndex + ']'));\r",
+                    "    if (!me.isObjectEmpty(colEl)) {\r",
+                    "        colEl.removeCls(asc);\r",
+                    "        colEl.removeCls(desc);\r",
+                    "    }    \r",
+                    "}\r",
+                    "\r",
+                    "// Apply sort indicator to tapped column\r",
+                    "el.addCls(dir === 'DESC' ? desc : asc);    \r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "fdf25490-0f20-4365-b2aa-663eebe25a46"
         }
     ]
 }

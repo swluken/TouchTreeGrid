@@ -10,10 +10,10 @@
         "cacheBust": false,
         "buildShouldOverwriteIndex": true
     },
-    "xdsVersion": "2.2.0",
-    "xdsBuild": 908,
+    "xdsVersion": "2.2.1",
+    "xdsBuild": 951,
     "schemaVersion": 1,
-    "upgradeVersion": 210000000499,
+    "upgradeVersion": 210000000500,
     "framework": "touch21",
     "topInstanceFileMap": {
         "edd7cdca-5c64-4ae6-9342-57c41820ab1d": {
@@ -137,6 +137,30 @@
                 "app/view/ProjectContainer.js"
             ],
             "className": "ProjectContainer"
+        },
+        "a07428af-5d8d-4081-b354-613004c06dba": {
+            "paths": [
+                "metadata/model/Dow2012",
+                "app/model/override/Dow2012.js",
+                "app/model/Dow2012.js"
+            ],
+            "className": "Dow2012"
+        },
+        "3ead9a44-1e8c-4852-8efd-bdf62a00c3bf": {
+            "paths": [
+                "metadata/store/Dow2012",
+                "app/store/override/Dow2012.js",
+                "app/store/Dow2012.js"
+            ],
+            "className": "Dow2012"
+        },
+        "e3cd3555-a9f6-4600-b74d-38fdbc1973f9": {
+            "paths": [
+                "metadata/store/TaskAccordion",
+                "app/store/override/TaskAccordion.js",
+                "app/store/TaskAccordion.js"
+            ],
+            "className": "TaskAccordion"
         }
     },
     "viewOrderMap": {
@@ -150,8 +174,10 @@
         ],
         "store": [
             "0908d481-13f2-47c2-8ba8-4d1dbed2f9f6",
+            "e3cd3555-a9f6-4600-b74d-38fdbc1973f9",
             "dbc02c5d-f3c6-4a17-95d9-cf19ebf9e830",
-            "78f87ea9-233f-440a-a9bb-c0416f6d09c0"
+            "78f87ea9-233f-440a-a9bb-c0416f6d09c0",
+            "3ead9a44-1e8c-4852-8efd-bdf62a00c3bf"
         ],
         "controller": [
             "ac3c8037-b03d-45af-ac33-d2b07600986d"
@@ -159,7 +185,8 @@
         "model": [
             "bb95e1bf-6755-4cc6-a8ca-2ab3b5790c33",
             "33f28e9c-2e63-41cc-97a3-e1c59f43ba15",
-            "d0ecd8a4-9aa3-45fa-9ad1-7ae5f4c4e5f5"
+            "d0ecd8a4-9aa3-45fa-9ad1-7ae5f4c4e5f5",
+            "a07428af-5d8d-4081-b354-613004c06dba"
         ],
         "resource": [
             "edd7cdca-5c64-4ae6-9342-57c41820ab1d",

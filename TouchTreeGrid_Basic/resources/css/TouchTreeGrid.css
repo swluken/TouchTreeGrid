@@ -2,6 +2,11 @@
     background-color: white;
 }
 
+/* Uncomment below to remove horizontal lines (Touch 2.1 anyway) */
+.x-touchtreegrid-list .x-list-normal .x-list-item .x-dock-horizontal {
+  /* border: none; */
+}
+
 /* .touchtreegrid-disclose-spacer referenced by doRefreshList function to create 
    %screen shift in header approximately lining up headers with list items when ondisclosure icons displayed (because they shift their row data) */
 .touchtreegrid-disclose-spacer {
@@ -23,7 +28,7 @@
   padding:0.6em 0 0 0 !important; 
   width:100% !important;
   font-size: .7em !important;
-
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
 }
 
 .x-touchtreegrid-list .touchtreegrid-list-content{ /* Detail (leaf) rows  */
@@ -46,8 +51,38 @@
 .x-touchtreegrid-list .touchtreegrid-list-content-cell{ /* Detail (leaf) cells  */
     overflow       : hidden;
     text-overflow  : clip;
-	white-space    : nowrap;           
+	white-space    : nowrap;    
+
 }
+
+.x-touchtreegrid-list .touchtreegrid-simplelist-cell{ /* simple list cells  */
+    display        : inline-block; 
+    overflow       : hidden;
+    text-overflow  : clip;
+	white-space    : nowrap;   
+    color: black;
+    background-color:white;
+    padding:1em 0 0 0;
+    margin:0;
+    font-size: .8em !important;   
+}
+
+/* Handle colors for simple grid list item "selected" and "pressing" 
+   Selectors for Treegrid selection not provided as deemed not appropriate but handled similarly */
+.x-touchtreegrid-list .touchtreegrid-item-selected,
+.x-touchtreegrid-list .touchtreegrid-item-selected .touchtreegrid-simplelist-cell{ 
+    background-color: #006bb6 !important;  /* Sencha 2.1 default color for selected */
+    color: white !important;
+}   
+.x-touchtreegrid-list .touchtreegrid-item-selected .x-list-disclosure {
+  background: #fff none;  /* reverses color on disclosure icon for selected rows */
+}
+.x-touchtreegrid-list .touchtreegrid-item-pressed, 
+.x-touchtreegrid-list .touchtreegrid-item-pressed .touchtreegrid-simplelist-cell{
+    background-color: #b6e1ff !important;  /* Sencha 2.1 default color for pressing */
+    color: white !important;
+}   
+
 
 .x-touchtreegrid-list .touchtreegrid-header {  /* Titlebar with column headers  */
     width:100%;
@@ -107,6 +142,15 @@
     margin: .5em .5em 0 0;
     width: 1.5em !important;
 }  
+
+.x-touchtreegrid-list .x-grid-sort-desc {
+    background: url('data:image/gif;base64,R0lGODlhDQAFAIcAAGGQzUD/QOPu+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAMAAAEALAAAAAANAAUAAAgbAAMIDABgoEGDABIeRJhQ4cKGEA8KmEiRosGAADs=') no-repeat right center;
+    background-position: right top;
+}
+
+.x-touchtreegrid-list .x-grid-sort-asc {
+    background: url('data:image/gif;base64,R0lGODlhDQAFAIcAAGGQzUD/QOPu+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAMAAAEALAAAAAANAAUAAAgeAAUAGEgQgIAACBEKLHgwYcKFBh1KFNhQosOKEgMCADs=') no-repeat right center;
+    background-position: right top;}
 
 
 

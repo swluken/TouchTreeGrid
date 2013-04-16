@@ -1,3 +1,9 @@
+4/15/2013 Commit Change Log:
+ - Added support for Standard Grid lists with column sorting
+ - Added support for traditional Accordions with singleExpand
+ - Added associated CSS selectors
+ - Updated documentation
+
 3/30/2013 Commit Change Log: 
  - Modified name of leafitemtap event to "leafItemTap".
       > Parameters: me, list, index, target, record, e

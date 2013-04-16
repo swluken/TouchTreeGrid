@@ -102,12 +102,12 @@
                                 ],
                                 "disclosureProperty": "leaf",
                                 "listItemId": "example2list",
-                                "colNumberToTruncateForIndents": 1,
                                 "categDepthColorsArr": [
                                     "['#808127', '#949569', '#C5C678']"
                                 ],
                                 "applyDefaultCollapseLevel": false,
                                 "helpHtml": "./resources/html/ProjectExample.html",
+                                "singleExpand": true,
                                 "cls": [
                                     "x-touchtreegrid-list",
                                     "x-touchtreegrid-list-example2"
@@ -217,12 +217,14 @@
                                 "itemHeight": 32,
                                 "disclosureProperty": null,
                                 "listItemId": "example2Blist",
-                                "colNumberToTruncateForIndents": 1,
                                 "categDepthColorsArr": [
                                     "['#808127', '#949569', '#C5C678']"
                                 ],
                                 "applyDefaultCollapseLevel": false,
                                 "helpHtml": "./resources/html/Project2Example.html",
+                                "styleContentRow": null,
+                                "styleCategRow": null,
+                                "styleHeaderRow": null,
                                 "cls": [
                                     "x-touchtreegrid-list",
                                     "x-touchtreegrid-list-example2",
@@ -332,7 +334,6 @@
                                 "itemHeight": 32,
                                 "disclosureProperty": "leaf",
                                 "listItemId": "example2Clist",
-                                "colNumberToTruncateForIndents": 1,
                                 "categDepthColorsArr": [
                                     "['white', 'white', 'white']"
                                 ],
@@ -377,6 +378,24 @@
                             "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.tab.Bar",
+                    "reference": {
+                        "name": "tabBar",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "projectTabBar"
+                        ],
+                        "docked": "top",
+                        "margin": null,
+                        "style": null,
+                        "designer|userClassName": "MyTabBar"
+                    },
+                    "designerId": "c106c06f-247e-4394-83e2-69b94018d7d2"
                 }
             ]
         }

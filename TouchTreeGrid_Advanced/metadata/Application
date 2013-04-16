@@ -9,12 +9,15 @@
         "models": [
             "Task",
             "Task2",
-            "Census"
+            "Census",
+            "Dow2012"
         ],
         "stores": [
             "Task",
             "Task2",
-            "CensusMaine2000"
+            "CensusMaine2000",
+            "Dow2012",
+            "TaskAccordion"
         ],
         "views": [
             "Main",

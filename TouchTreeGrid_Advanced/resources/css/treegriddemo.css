@@ -1,11 +1,31 @@
+/******************** BEGIN ACCORDION EXAMPLE OVERRIDES *********************/
+.x-touchtreegrid-list-accordion {
+    }
+.x-touchtreegrid-list-accordion .x-list-normal .x-list-item .x-dock-horizontal {
+   border: none; 
+}
+.x-touchtreegrid-list-accordion .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    padding:.6em 0 0 0;
+}
+.x-touchtreegrid-list-accordion .touchtreegrid-list-categ {  
+  border-top: none;
+  border-bottom: none;
+  -webkit-box-shadow: none;
+}
+
+
+/******************** BEGIN PROJECT #1 EXAMPLE OVERRIDES *********************/
 /* Remove -or- rename this to use default Sencha disclosure icon if concerns with sensitivity of smaller iphone style icon */
  .x-touchtreegrid-list-example2 .x-list-disclosure{  
         width: 12px;
         height: 1.5em;
-        margin: .4em 0 0 .5em;
+        margin: .4em 0 0 .5em;           
         -webkit-mask: none;
         -webkit-mask-box-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjbQg61aAAAAc0lEQVQ4T2NgGGagtLS0DoSJ8hZIYVlZ2X8QJkoTUFELTAOILikpqSZoE7ma2tFsqiDGJtI0FRYWSgOd9xYpEJ4AxYSw2gRVfBtNsQqdFdvb27MA3XyEKGfA3AZ0uwpQ0xMQBrEJBiVIAUgh0YqJMpEuigDEnX39an6ddgAAAABJRU5ErkJggg==');
 }
+
+
+/******************** BEGIN PROJECT #2 EXAMPLE OVERRIDES *********************/
  .x-touchtreegrid-list-example2B .x-list-disclosure{  
         margin-top: .1em;
 }
@@ -15,8 +35,6 @@
  .x-touchtreegrid-list-example2 .touchtreegrid-disclose-spacer {
   width: 97%;    
 }
-
-
 .x-touchtreegrid-list-example2B .x-list-normal .x-list-item .x-dock-horizontal {
    border: none; 
 }
@@ -25,6 +43,7 @@
 }
 
 
+/******************** BEGIN PROJECT #3 EXAMPLE OVERRIDES *********************/
 .x-touchtreegrid-list-example2C .touchtreegrid-list-categ {  
   border-top: none;
   border-bottom: none;
@@ -38,23 +57,17 @@
 }
 
 
-
-.detailtextfields {
-    text-align: right;
-}   
-.detailtextfields-phone-portrait {
-    text-align: left;
-    font-size: .7em;
-}    
+/******************** BEGIN PROJECT #1, #2, #3 EXPAND/COLLAPSE BUTTON COLOR OVERRIDES *********************/
 
 .x-touchtreegrid-list-example2 .touchtreegrid-footer {  /* Class for Example 2 footer toolbar containing expand/collapse buttons */
     background: #5e6266;
 }
-
 .x-touchtreegrid-list-example2 .touchtreegrid-expand-collapse-buttons { /* Class for Example 2 expand/collapse buttons */
     background: #2f3133;
 }  
 
+/******************** BEGIN PROJECT #1, #2, #3 PRESSED BUTTON OVERRIDES *********************/
+/* This works because examples #2 and #3 also reference x-touchtreegrid-list-example2 class */
 /* Update following for specific implementations to control button pressing colors (refer to sencha-touch.css for version changes) */
  .x-touchtreegrid-list-example2 .x-button.x-button-pressing, 
  .x-touchtreegrid-list-example2 .x-button.x-button-pressing:after,
@@ -65,17 +78,36 @@
 {
   background-image: none;
   background-color: #929699;
-
-//  background-color: #c4c4c4;
-//  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ababab), color-stop(10%, #b8b8b8), color-stop(65%, #c4c4c4), color-stop(100%, #c6c6c6));
-//  background-image: -webkit-linear-gradient(top, #ababab, #b8b8b8 10%, #c4c4c4 65%, #c6c6c6);
-//  background-image: linear-gradient(top, #ababab, #b8b8b8 10%, #c4c4c4 65%, #c6c6c6);
 }
 
+
+/******************** PROJECT TAB COLOR OVERRIDES *********************/
+.projectTabBar .x-tab {
+    background-color: #cf8450;
+}
+.projectTabBar .x-tab-active {
+    background-color: #c36625 !important;
+    background-image: none !important;
+}
+
+
+/******************** CENSUS DETAIL PANEL COLUMN TEXT OVERRIDES *********************/
+.detailtextfields {
+    text-align: right;
+}   
+.detailtextfields-phone-portrait {
+    text-align: left;
+    font-size: .7em;
+}    
+
+/******************** OVERRIDE EXAMPLE OVERRIDES *********************/
 .x-touchtreegrid-list-override .touchtreegrid-list-categ {
   background-color: white !important;
   border: none;
 }   
 
+
+/******************** CUSTOM TAB ICONS *********************/
 .x-tab .x-button-icon.doc_list,.x-button .x-button-icon.x-icon-mask.doc_list{-webkit-mask-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAEVUlEQVRoBe2au2sUURSHXaPGN4j4AFEQlShGxCcSgq3i46+wUxAbC9EiYqWohRifWFiKFqJoCDY2KtqIRQqtNkkRRYyKxmd0/X5hBzaJm7kz5ySZSfbAx8zenTn3/O65r5ndQqlUmuJphUJhHf7WwHTwdR4faC96Ho94mQR7QUVr4QX8AYkda57FaZlKUC5GZhtwdB42g5tfl+AqnEyrOE99iliJvAabILNiJdAcHGK34ucKZF6sBJsyXJ6gLuMnrhv/5ppu+AkeVsDJHFie2FncIK/2PRVtgHboh7jJqcg1q6v5SlqOrzrYC3+hsu7YSStVhslsMxVdBIkOGRbKSD14mfxp2UtsIcEOcorY7RQkETvo/vH+kEhwObNXCTo0s+Otb1j9wV0asY3c3Qo6JmqoYbWOY0FQ4GWxp4lzfZ7Fqp1jM4zYLVynbrwRNDvm2kIyvAOFehiIbZw8tESI4AkhNEpGiGAt7BPGQgRPGLESMlaCNSy0Oxp3Szs+HxH5YfgWqED77feB147qZWkFS2gXm/5QwaMqIonztF06E90zidDo2rSCo/tzd6wJzl3KEgacdtL6bzXsu+uZyAa9xqFMdXjswbUB6se/3nKkNhfBiFpIBMehgfOXHC9BD+i90xHQGxLLjk339oL8PoXU5iKY2iX2EMyAXVCEm6DXME2gMqt9wsFdqxOvSUuiosZT910G8q3M/ACryc930AbGZF6C7xBFJEyZ6AD93KL1ehZYTX40PKJGTe3P7KBc8wWOajy9JHgIbUwu/YznX5xrG/oZLKYMqyE7LU50r4tgxEnYmaHBUN5HmX5vyox5denMCIoLZNIJdunSatXyWryE0yJdeeApijLN2CtgAZg2DNyvGbob36b5wEUwwvSu+ihsgzY+n+X4FubCMdgP1iVF/k5AO6Q2F8HUfgr2gfzpLw/doF2RlhNlfSlYTZua2VYnXmN4HoFIXGTzOYk+a0nxMBc/Xhm+jiKNVe2pu0Dd7jfMBI25j2AJWPd+AC1/JnMRzERyi3FbJBJ13VfQSVmJMm0HW+EeaOdlMe3k5NtkLoIVAfqeD42EMmVE/+oRmTCvMZwJMSFBTDrBbl2a8aofyTVpFSEaw/KvZWoRWEyTlibB1wwT0/ttF8GI3UkwN2AVPIGDlHVw1HKlh4rdYLUvODgAty2OvLr0SYJYCVp7m2EPqDGVGc3UVpOfr6Asm8xLcA9RKKjIKreRdVGh4aiGVKw6msylSxNBCywGZVlL0H1QNtQIaozO8jmHxCaR8vMO+hLfPeQGF8FMJG8Ys9pLS7SeaAayTZnGXQucg8oewMfEpgbUbstkLoIVARq1E+qqjIYyPRLqKUdkwrzGcCbEhARRExzSSnm+ppbhwOxZZ9zAaka8LNU7srSztPbMTSw75gfyESVV/1I9s7H619W/SSu4CZcPwLzzqR5a7DeqO3H9aQWrhfVSLXdWm7Ryl7KEAU+6DP8DSG3LLNeR7x0AAAAASUVORK5CYII=')}
 .x-tab .x-button-icon.user_list,.x-button .x-button-icon.x-icon-mask.user_list{-webkit-mask-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAE50lEQVRoBe2YS4jVVRzH507jaOP4AEmxQcMc8JlJi0KlXbmp1kFBUa0sFdz42rpSt24MRNBAJnDlaxG0aBENRBA97CnTUDNOIyaa5LPp873cud3H/7z/c7137v3B5z7+5/c75/c753ce/1OYmprqaifpbqdgFWsn4Nk+4p0R7ozwLOuBtkvpnrwGsFAoqPP6YCNshhXwL0gKcBd+hmH4g/3/Ht8Nl0IeBw+CnYvnr8DrsAGWgIKvlIf8uQkTcAGGaPtHvo1S6kR13ONGpcCC5IBxagFt7oB9sBB8suY2ej/AXoL+lO9Moe55FJwDdWI+ohGOBQ96YS/cAJ1RQ3iA/rcwaGqfMo3sFxBSr1U3ddFahTO7YBGEymMYrIO3GMn5FmMFkJv4pJ+tsfcoHLApOMrU4W/AWfg6Q1fBKgskuQQePYdL8+sbHBksuhP/ocVMHXeK1K4LinaeoEyLYl0Zz4IlZYRX09qy4BbrDZTaz8HH8E9tMX0wWfss5X/KHNa8S7Gv9FujOKfywUz9zsvhVP8a5kdKSqcGWWlvnJ/MYaW8tzAFtCYYpVkC1hG0LujSwniGMs1xHxnF5m2CvmJSbpaAx3BQZ+1a0RlcC+PK2gLDf42uNaaGzR2Dg9OPr/FDJ68sCUlpdZAwirU3jFaNK1Caa/RHPZrU4P0O9226KQFbe9LWaECZ0vwA9IPmuU0U8B1QBxklJWAd+UxpaGzQUFC3YEmPxWeKRUivkN6di4m1Y1IC1qnoT4h5ccCsSsZMjipoNDM7pKoGzz8pi5acOO/Zjk1tgsLvbQp5lkWPsHqedDuNM3r514t6rAxheDnLmPqVyksh9uVB9prXk6VMse9ZKLpEd1SfwXaXoqH8b55fwpm6l4aSfi/fR+BZiElrBfwVfADFNqJHmAokuqo5Di+D98KC7rT8wo/h6T8Z35py60EBx4oCLU/d8o+Y2kpp8iW2n0fY61R0ljr+cthaz8YOWxVX2aeOsLYOnV9PUvELEFLfr+ifAJdoL9aVbkxK65Qm+7KEOFg2yvhxkWc/gdLPV47TWeMOZZ2aNGW0G1j3V0M9escegf/vwGk0+tay0pZKtXBpX9ZIuPio0raRv6PnMGncDb3QD88Q5FowrbYUVQkmhTdhJfRBD8QselWV+vwJvsTDL80LXbg/BS/Ba6BVVHulthGfTlSq6liqVV73zqdAq7Uy5B4jHpO+mHqIbzpRlQJdDNvgQ9Bi4ErdkPLL1Lcf9LKvjisOhq9/vnrO+UvDGrE+eBGOwXUICSRUd4T698AaUNbkGrgxYDUEOjJugTNwFUKdT9HXnfchGIA5viPo0qsLmMoVqHp2EA6D9ssUx1NstZ1obr8DuhbucQXkKq8KmAq1bz0N6tnfQItLisN52d7Cj0/gVVgC3a7ATOXlgKlkAbwLj3JEXR30EP90CNkKUWmOXTGFn+T7KLgabJZybV87od80kqbn2HQthyFolmB8/dB77vsQNK/R7zoI2uh9G2omvVH83mQazazn2mN3g1bmVpQVOL0t5FiqgJe1YqQVPuus4C0KuNVFU8xbZkPA3sFKse0C1o3Hd0Fd5KesNNPblJhpGQ9pQKvz8yEGnrra5q6B64LOszqr2h22H++ODb4AsDbdAoVtN4c7AbdAVia52BnhpO5rAePOCLfAICW5+B8ydQ+GAD9xWgAAAABJRU5ErkJggg==')}
+.x-tab .x-button-icon.chart2,.x-button .x-button-icon.x-icon-mask.chart2{-webkit-mask-image:url('data:image/png;base64,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')}    
