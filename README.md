@@ -35,15 +35,15 @@ Requires webkit-enabled browser:  Chrome, Safari, or actual mobile device.
 
 Planned Enhancements (based on user feedback)
 ---------------
-> Upgraded version for Sencha 2.2
-> Horizontal scrolling example
-> Column show/hide example
-> Standard Grid example using grouped=true and indexBar=true configs
-> More renderer function examples
-> Optional support of auto-generated Ext.dataview.DataView (vs. Ext.dataview.List) for grid
-> Possible support to add custom buttons to auto-generated Footer toolbar
-> Possible support for locked columns
-> Possible support for check  boxes and other components within cells
+- Upgraded version for Sencha 2.2
+- Horizontal scrolling example
+- Column show/hide example
+- tandard Grid example using grouped=true and indexBar=true configs
+- More renderer function examples
+- Optional support of auto-generated Ext.dataview.DataView (vs. Ext.dataview.List) for grid
+- Possible support to add custom buttons to auto-generated Footer toolbar
+- Possible support for locked columns
+- Possible support for check  boxes and other components within cells
 
 Getting Started
 ---------------
