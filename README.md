@@ -33,14 +33,14 @@ Requires webkit-enabled browser:  Chrome, Safari, or actual mobile device.
 
 <div><b>Feeback appreciated at:</b> </div> http://www.sencha.com/forum/showthread.php?259616-TouchTreeGrid-component
 
-Planned Enhancements (based on user feedback)
+Planned Enhancements (pending feedback)
 ---------------
 - Upgraded version for Sencha 2.2
 - Horizontal scrolling example
 - Column show/hide example
-- tandard Grid example using grouped=true and indexBar=true configs
+- Standard Grid example using grouped=true and indexBar=true configs
 - More renderer function examples
-- Optional support of auto-generated Ext.dataview.DataView (vs. Ext.dataview.List) for grid
+- Support of optional auto-generated Ext.dataview.DataView (vs. Ext.dataview.List) for grid
 - Possible support to add custom buttons to auto-generated Footer toolbar
 - Possible support for locked columns
 - Possible support for check  boxes and other components within cells
