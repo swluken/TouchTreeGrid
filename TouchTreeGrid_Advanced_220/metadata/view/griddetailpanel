@@ -1,0 +1,105 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "griddetailpanel",
+        "designer|userAlias": "griddetailpanel",
+        "layout": "vbox"
+    },
+    "designerId": "88563679-8cb3-4a20-9b12-690c42275ed7",
+    "cn": [
+        {
+            "type": "Ext.TitleBar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "center",
+                "docked": "top"
+            },
+            "designerId": "2f23bd04-16ba-4d53-a30c-8c1b8c069dce",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "itemId": "griddetailbackbtn",
+                        "maxWidth": 80,
+                        "minWidth": 80,
+                        "ui": "back",
+                        "text": "Back"
+                    },
+                    "designerId": "0d1c2d94-d204-4868-b2ff-c62ccedef7de"
+                },
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 10
+                    },
+                    "designerId": "40724b48-4aea-4c2e-a412-e293edd38bbc"
+                },
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "",
+                        "itemId": "griddetaillabel",
+                        "style": "color : white"
+                    },
+                    "designerId": "feeaf11c-9f90-40dc-81e3-76c1a4ab0b1d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "itemId": "griddetailfieldset",
+                "scrollable": "vertical",
+                "title": null
+            },
+            "designerId": "bf1db1b2-ebae-40cf-8a9f-1dc56d301d2e",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 78,
+                        "label": "Field",
+                        "readOnly": true
+                    },
+                    "designerId": "b98fcb1a-caf0-4d06-8cdf-a96830fec80b"
+                }
+            ]
+        }
+    ]
+}

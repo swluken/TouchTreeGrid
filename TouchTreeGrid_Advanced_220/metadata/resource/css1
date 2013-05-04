@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css1",
+        "url": "./resources/css/treegriddemo.css"
+    },
+    "designerId": "ebd3dcfe-8e31-41f8-ba8a-b3b52fc1f7cd"
+}

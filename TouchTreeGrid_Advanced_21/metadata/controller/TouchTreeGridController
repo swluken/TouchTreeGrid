@@ -1,0 +1,1109 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "ref": null,
+        "designer|userClassName": "TouchTreeGridController",
+        "mixins": null
+    },
+    "designerId": "ac3c8037-b03d-45af-ac33-d2b07600986d",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "ACTIO",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "ref",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFirstExampleLeafItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "//     Ext.Msg.alert('You tapped leaf! : ' + record.get('text'));\r",
+                    "console.log('You tapped leaf! : ' + record.get('text'));"
+                ],
+                "name": "leafItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#firstexample"
+            },
+            "designerId": "c172ce7d-dc69-445d-aa00-371810eef691"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFirstExampleNodeItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "console.log('You tapped Node: ' + record.get('text'));"
+                ],
+                "name": "nodeItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#firstexample"
+            },
+            "designerId": "4b0a4fb1-867a-4099-bd0f-3a37fa23f812"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExample2ListDisclose",
+                "implHandler": [
+                    "this.onExample2ListDiscloseOrHold(record, target, index);"
+                ],
+                "name": "disclose",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list#example2list"
+            },
+            "designerId": "ca5360b2-0195-467b-83eb-9a2543846d29"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "example2",
+                "selector": "#example2"
+            },
+            "designerId": "ca08a826-a88a-4b7e-827d-f8f3007e4533"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadExample2Store",
+                "designer|params": [
+                    "gridcont"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "var gridurl = 'data/treegrid.json';\r",
+                    "\r",
+                    "me.loadStore(me, gridcont, gridurl, 'Loading Project...');\r",
+                    ""
+                ]
+            },
+            "designerId": "fbe955fe-5057-4045-b5f4-9e206519ef11"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadStore",
+                "designer|params": [
+                    "me",
+                    "gridcont",
+                    "gridurl",
+                    "loadmask"
+                ],
+                "implHandler": [
+                    "// Load data from JSON file within Controller since doesn't seem to work from within Store itself.\r",
+                    "// NOTE:  autoload=true -and- dummy root initialization required in Store to work=>\r",
+                    "//     root: {children: []}\r",
+                    "\r",
+                    "if (loadmask) {\r",
+                    "    Ext.Viewport.setMasked({\r",
+                    "        xtype: 'loadmask',\r",
+                    "        message: loadmask\r",
+                    "    });\r",
+                    "}\r",
+                    "\r",
+                    "// Change this to reload function with Pull Refresh\r",
+                    "var myRequest = Ext.Ajax.request({\r",
+                    "    url: gridurl,\r",
+                    "    method: 'GET',\r",
+                    "    timeout: 10000,\r",
+                    "    cache: false,\r",
+                    "    dataType: 'json',\r",
+                    "    reader:{\r",
+                    "        type: 'json'\r",
+                    "    },\r",
+                    "\r",
+                    "    success: function(response) {\r",
+                    "        var griddata = Ext.JSON.decode(response.responseText);\r",
+                    "\r",
+                    "        var gridListItemId = gridcont.getListItemId();\r",
+                    "        var gridlist = gridcont.down('#'+gridListItemId);\r",
+                    "        var gridstore = gridlist.getStore();\r",
+                    "\r",
+                    "        gridstore.removeAll();\r",
+                    "        var gridloaded = gridstore.setData(griddata);  \r",
+                    "        // setRoot() not working => http://www.sencha.com/forum/showthread.php?242257\r",
+                    "\r",
+                    "        if (loadmask) {Ext.Viewport.setMasked(false);}\r",
+                    "\r",
+                    "        me.postLoadProcess(gridListItemId, gridcont); \r",
+                    "\r",
+                    "    },\r",
+                    "\r",
+                    "    failure: function(response, opts) {\r",
+                    "        if (loadmask) {Ext.Viewport.setMasked(false);}\r",
+                    "\r",
+                    "        Ext.Msg.alert('Data not loaded: '+gridurl);     \r",
+                    "    }\r",
+                    "});\r",
+                    ""
+                ]
+            },
+            "designerId": "36a4b260-6c3e-4cbe-8a33-c9ab81f6e9e6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "main",
+                "selector": "main",
+                "xtype": "main"
+            },
+            "designerId": "d4936ea3-824b-4482-b8c2-769421a6b4eb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "griddetailpanel",
+                "selector": "griddetailpanel",
+                "xtype": "griddetailpanel"
+            },
+            "designerId": "d827291c-c2e5-4f47-b0e7-28a420a84374"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onGridDetailBackButtonTap",
+                "implHandler": [
+                    "// Reusing the Back button for all Project Task examples by storing references when creating detail panel (list disclose)\r",
+                    "var swapcont = button.up('#griddetailpanel').swapcont;  \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    gridItemId = button.up('#griddetailpanel').gridItemId;\r",
+                    "    var newcont = swapcont.down('#'+gridItemId); \r",
+                    "\r",
+                    "    newcont.setShowAnimation({type :\"slide\", direction : \"right\"});\r",
+                    "    swapcont.setActiveItem(newcont);  \r",
+                    "}    "
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button#griddetailbackbtn"
+            },
+            "designerId": "f635d6af-dad9-4455-9e28-3e3245632889"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExample2ListPullrefresh",
+                "designer|params": [
+                    "container"
+                ],
+                "implHandler": [
+                    "this.loadExample2Store(container);"
+                ],
+                "name": "pullrefresh",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#example2"
+            },
+            "designerId": "012e6c48-8004-4f56-9aaa-121402afe220"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadCensusMaine2000Store",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "var gridcont = me.getCensusmaine();\r",
+                    "var gridurl = 'data/censusmaine2000TREE.json';\r",
+                    "\r",
+                    "me.loadStore(me, gridcont, gridurl, 'Loading Census...');\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "c9b6c500-96c6-4d66-a51c-1bef00e87b33"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "censusmaine",
+                "selector": "#censusmaine"
+            },
+            "designerId": "e93ac689-260a-445e-94c4-877cba1b1655"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCensusMaineListDisclose",
+                "implHandler": [
+                    "var swapcont = this.getMain().down('#censusmainecontainer');   \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    var newcont = this.getCensusdetailpanel(\r",
+                    "    {\r",
+                    "        title : '2000 Census (Maine)',\r",
+                    "        id : 'censusmainedetail',\r",
+                    "        layout: {type: 'vbox'},\r",
+                    "        scrollable: 'vertical'\r",
+                    "    }\r",
+                    "    );\r",
+                    "\r",
+                    "    var device = ((Ext.os.is.Phone) ? 'phone' : 'tablet');\r",
+                    "    var orient = ((Ext.Viewport.getWindowWidth() > Ext.Viewport.getWindowHeight()) ? 'landscape' : 'portrait');\r",
+                    "\r",
+                    "    var inputCls = ((device==='phone' && orient==='portrait') ? 'detailtextfields-phone-portrait' : 'detailtextfields');\r",
+                    "\r",
+                    "    if (newcont)\r",
+                    "    {\r",
+                    "        var myList = this.getCensusmaine();\r",
+                    "        var newLabel = newcont.down('#censusdetaillabel');    \r",
+                    "        newLabel.setHtml(record.get('CATEG'));       \r",
+                    "\r",
+                    "        var fldSet = newcont.down('#censusfieldset1');\r",
+                    "        var result = fldSet.setConfig({\r",
+                    "            items : [\r",
+                    "            {label: 'Total Population',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.TotalPopulation, 0)}, \r",
+                    "            {label: 'Male',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Male, 0)}, \r",
+                    "            {label: 'Female',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Female, 0)}, \r",
+                    "            {label: 'Under 5 years',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Under5years, 0)}, \r",
+                    "            {label: '5 to 9',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age5to9, 0)}, \r",
+                    "            {label: '10 to 14',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age10to14, 0)}, \r",
+                    "            {label: '15 to 19',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age15to19, 0)}, \r",
+                    "            {label: '20 to 24',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age20to24, 0)}, \r",
+                    "            {label: '25 to 34',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age25to34, 0)}, \r",
+                    "            {label: '35 to 44',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age35to44, 0)}, \r",
+                    "            {label: '45 to 54',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age45to54, 0)}, \r",
+                    "            {label: '55 to 59',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age55to59, 0)}, \r",
+                    "            {label: '60 to 64',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age60to64, 0)}, \r",
+                    "            {label: '65 to 74',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age65to74, 0)}, \r",
+                    "            {label: '75 to 84',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age75to84, 0)}, \r",
+                    "            {label: '85 and Over',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age85andOver, 0)}, \r",
+                    "            {label: 'Median Age',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.MedianAge, 0)}, \r",
+                    "            {label: '18 and Over',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age18andOver, 0)}, \r",
+                    "            {label: '18 and Over Male',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age18andOverMale, 0)}, \r",
+                    "            {label: '18 and Over Female',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age18andOverFemale, 0)}, \r",
+                    "            {label: '21 and Over',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age21andOver, 0)}, \r",
+                    "            {label: '62 and Over',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age62andOver, 0)}, \r",
+                    "            {label: '65 and Over',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age65andOver, 0)}, \r",
+                    "            {label: '65 and Over Male',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age65andOverMale, 0)}, \r",
+                    "            {label: '65 and Over Female',labelWidth: '60%', inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age65andOverFemale, 0)}\r",
+                    "        ]}); \r",
+                    "\r",
+                    "        var fldSet2 = newcont.down('#censusfieldset2');\r",
+                    "        var resul2t = fldSet2.setConfig({\r",
+                    "            items : [\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.TotalPopulation/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Male/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Female/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Under5years/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age5to9/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age10to14/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age15to19/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age20to24/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age25to34/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age35to44/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age45to54/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age55to59/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age60to64/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age65to74/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age75to84/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age85andOver/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.MedianAge/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age18andOver/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age18andOverMale/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age18andOverFemale/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age21andOver/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age62andOver/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age65andOver/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age65andOverMale/record.data.TotalPopulation*100, 1, \"\", \"%\")},\r",
+                    "            {inputCls: inputCls, xtype: 'textfield', readOnly: true, value: myList.formatNumbers(record.data.Age65andOverFemale/record.data.TotalPopulation*100, 1, \"\", \"%\")}\r",
+                    "        ]}); \r",
+                    "        swapcont.add(newcont);\r",
+                    "        swapcont.setActiveItem(newcont);      \r",
+                    "    }\r",
+                    "}"
+                ],
+                "name": "disclose",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list#censusmainelist"
+            },
+            "designerId": "7ec135a2-e0ac-4e1d-94a5-820cf50d7d5c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "censusdetailpanel",
+                "selector": "censusdetailpanel",
+                "xtype": "censusdetailpanel"
+            },
+            "designerId": "e653de7a-8f9f-4826-bc52-4368561a5d6e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCensusDetailBackButtonTap",
+                "implHandler": [
+                    "var swapcont = this.getMain().down('#censusmainecontainer');   \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    var newcont = swapcont.down('#censusmaine'); \r",
+                    "    var priorcont = swapcont.down('#censusmainedetail'); \r",
+                    "\r",
+                    "    newcont.setShowAnimation({type :\"slide\", direction : \"right\"});\r",
+                    "    swapcont.setActiveItem(newcont);  \r",
+                    "}    "
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button#censusdetailbackbtn"
+            },
+            "designerId": "3ea85003-6582-416d-9511-96e4e5db3daa"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onOrientationChange",
+                "designer|params": [
+                    "viewport, orientation, width, height"
+                ],
+                "implHandler": [
+                    "//Ext.Msg.alert('', 'Orientation change: ' + orientation, Ext.emptyFn); \r",
+                    "\r",
+                    "\r",
+                    "// Call funciton to hide/show titlebar and bottom tabbar when in landscape mode, but only if\r",
+                    "// active window contains TouchGridPanel with active expand/collapse toolbar\r",
+                    "this.hideShowPanels();\r",
+                    "\r",
+                    "// Demo reconfiguring columns array for Census example based on device and orientation\r",
+                    "this.loadColumnsCensusMaine();"
+                ],
+                "name": "orientationchange",
+                "designer|targetType": null,
+                "designer|controlQuery": "viewport"
+            },
+            "designerId": "9032f0e8-666e-4e02-8d42-9d707a2a33f1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadColumnsCensusMaine",
+                "implHandler": [
+                    "/* Demo grid column changes based on device (phone vs. tablet) and orientation (portrait vs. landscape) */\r",
+                    "/* NOTE:  When connected to data source suggest storing array configruations in a table \r",
+                    "for each grid, device and orienation configuration */ \r",
+                    "\r",
+                    "var device = ((Ext.os.is.Phone) ? 'phone' : 'tablet');\r",
+                    "var orient = ((Ext.Viewport.getWindowWidth() > Ext.Viewport.getWindowHeight()) ? 'landscape' : 'portrait');\r",
+                    "\r",
+                    "var colArr = [];\r",
+                    "\r",
+                    "if (device==='phone' && orient==='portrait') {\r",
+                    "    colArr = [\r",
+                    "    {\r",
+                    "        header: '&nbsp;',\r",
+                    "        dataIndex: 'CATEG',\r",
+                    "        width: '35%',\r",
+                    "        style: 'text-align: left;',\r",
+                    "        categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
+                    "        headerStyle: 'text-align: left; color: #ccc;'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Population',\r",
+                    "        dataIndex: 'TotalPopulation',\r",
+                    "        width: '20%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.TotalPopulation, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Males',\r",
+                    "        dataIndex: 'Male',\r",
+                    "        width: '20%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Male, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Females',\r",
+                    "        dataIndex: 'Female',\r",
+                    "        width: '20%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Female, 0)'\r",
+                    "    }\r",
+                    "    ];    \r",
+                    "}\r",
+                    "\r",
+                    "if (device==='phone' && orient==='landscape') {\r",
+                    "    colArr = [\r",
+                    "    {\r",
+                    "        header: '&nbsp;',\r",
+                    "        dataIndex: 'CATEG',\r",
+                    "        width: '35%',\r",
+                    "        style: 'text-align: left;',\r",
+                    "        categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
+                    "        headerStyle: 'text-align: left; color: #ccc;'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Population',\r",
+                    "        dataIndex: 'TotalPopulation',\r",
+                    "        width: '15%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.TotalPopulation, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Males',\r",
+                    "        dataIndex: 'Male',\r",
+                    "        width: '15%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Male, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Females',\r",
+                    "        dataIndex: 'Female',\r",
+                    "        width: '15%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Female, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Median',\r",
+                    "        dataIndex: 'MedianAge',\r",
+                    "        width: '15%',\r",
+                    "        style: 'text-align: center;',\r",
+                    "        categStyle: 'text-align: center;',\r",
+                    "        headerStyle: 'text-align: center; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.MedianAge, 0)'\r",
+                    "    }\r",
+                    "    ];  \r",
+                    "}\r",
+                    "\r",
+                    "if (device==='tablet' && orient==='portrait') {\r",
+                    "    colArr = [\r",
+                    "    {\r",
+                    "        header: '&nbsp;',\r",
+                    "        dataIndex: 'CATEG',\r",
+                    "        width: '23%',\r",
+                    "        style: 'text-align: left;',\r",
+                    "        categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
+                    "        headerStyle: 'text-align: left; color: #ccc;'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Population',\r",
+                    "        dataIndex: 'TotalPopulation',\r",
+                    "        width: '12%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.TotalPopulation, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Males',\r",
+                    "        dataIndex: 'Male',\r",
+                    "        width: '12%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Male, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Females',\r",
+                    "        dataIndex: 'Female',\r",
+                    "        width: '12%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Female, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Median',\r",
+                    "        dataIndex: 'MedianAge',\r",
+                    "        width: '12%',\r",
+                    "        style: 'text-align: center;',\r",
+                    "        categStyle: 'text-align: center;',\r",
+                    "        headerStyle: 'text-align: center; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.MedianAge, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: '18+',\r",
+                    "        dataIndex: 'Age18andOver',\r",
+                    "        width: '12%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Age18andOver, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: '21+',\r",
+                    "        dataIndex: 'Age21andOver',\r",
+                    "        width: '12%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Age21andOver, 0)'\r",
+                    "    }\r",
+                    "    ];    \r",
+                    "\r",
+                    "}\r",
+                    "\r",
+                    "if (device==='tablet' && orient==='landscape') {\r",
+                    "    colArr = [\r",
+                    "    {\r",
+                    "        header: '&nbsp;',\r",
+                    "        dataIndex: 'CATEG',\r",
+                    "        width: '21%',\r",
+                    "        style: 'text-align: left;',\r",
+                    "        categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
+                    "        headerStyle: 'text-align: left; color: #ccc;'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Population',\r",
+                    "        dataIndex: 'TotalPopulation',\r",
+                    "        width: '10%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.TotalPopulation, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Males',\r",
+                    "        dataIndex: 'Male',\r",
+                    "        width: '8%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Male, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Females',\r",
+                    "        dataIndex: 'Female',\r",
+                    "        width: '8%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Female, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: 'Median',\r",
+                    "        dataIndex: 'MedianAge',\r",
+                    "        width: '8%',\r",
+                    "        style: 'text-align: center;',\r",
+                    "        categStyle: 'text-align: center;',\r",
+                    "        headerStyle: 'text-align: center; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.MedianAge, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: '18+',\r",
+                    "        dataIndex: 'Age18andOver',\r",
+                    "        width: '8%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Age18andOver, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: '21+',\r",
+                    "        dataIndex: 'Age21andOver',\r",
+                    "        width: '8%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Age21andOver, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: '62+',\r",
+                    "        dataIndex: 'Age62andOver',\r",
+                    "        width: '8%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Age62andOver, 0)'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        header: '65+',\r",
+                    "        dataIndex: 'Age65andOver',\r",
+                    "        width: '8%',\r",
+                    "        style: 'text-align: right;',\r",
+                    "        categStyle: 'text-align: right;',\r",
+                    "        headerStyle: 'text-align: right; color: #ccc;',\r",
+                    "        renderer: 'this.formatNumbers(values.Age65andOver, 0)'\r",
+                    "    }\r",
+                    "    ];    \r",
+                    "\r",
+                    "}\r",
+                    "\r",
+                    "var gridcont = this.getCensusmaine();\r",
+                    "gridcont.setColumns(colArr);\r",
+                    "gridcont.doRefreshList(true);   // Don't change collapse levels when refreshing\r",
+                    ""
+                ]
+            },
+            "designerId": "43a314b3-d705-4e27-8c64-94190e975866"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hideShowPanels",
+                "implHandler": [
+                    "// Controls display of panels when phone is in landscape vs portrait orientation to\r",
+                    "//provide more realestate for scrolling the data\r",
+                    "\r",
+                    "var device = ((Ext.os.is.Phone) ? 'phone' : 'tablet');\r",
+                    "var orient = ((Ext.Viewport.getWindowWidth() > Ext.Viewport.getWindowHeight()) ? 'landscape' : 'portrait');\r",
+                    "\r",
+                    "if (device !== 'phone') {return;}\r",
+                    "\r",
+                    "// Call funciton to hide/show titlebar and bottom tabbar when in landscape mode, but only if\r",
+                    "// active window contains TouchGridPanel with active expand/collapse toolbar\r",
+                    "var currItem = Ext.Viewport.down('#maintabpanel').getActiveItem();\r",
+                    "\r",
+                    "var collapseBar, projex=false;\r",
+                    "if (currItem.getItemId() === 'projecttab') {\r",
+                    "    // Project example contained within sub tab panel so need to get active item of that \r",
+                    "    projex=true;\r",
+                    "    collapseBar = currItem.down('#projecttabpanel').getActiveItem().down('#touchtreegridbuttons');\r",
+                    "} else\r",
+                    "{    \r",
+                    "    collapseBar = currItem.down('#touchtreegridbuttons');\r",
+                    "}    \r",
+                    "\r",
+                    "if (!collapseBar) {return;}\r",
+                    "\r",
+                    "var hide = (orient === 'landscape');\r",
+                    "\r",
+                    "// Hide bottom tabbar and titlebar for phones in landscape mode ... show in portrait mode\r",
+                    "var main = this.getMain();\r",
+                    "\r",
+                    "main.down('#maintitlebar').setHidden(hide);\r",
+                    "main.down('#maintabbar').setHidden(hide);\r",
+                    "\r",
+                    "// I could add logic for Project tab to add this for each tab in event user tabs to different example\r",
+                    "// if (projex) {....} else {...}\r",
+                    "collapseBar.down('#touchtreegridlabel').setHtml(hide ? 'Rotate for Menu' : '');\r",
+                    "collapseBar.down('#touchtreegridicon').setHidden(!hide);\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "03579e4b-aa5e-40af-b8c6-02ef51a87896"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "gridHelpPanel",
+                "selector": "gridHelpPanel",
+                "xtype": "gridHelpPanel"
+            },
+            "designerId": "476afd72-8494-49cf-9b4e-45e9ba8a780a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMainTabpanelActiveItemChange",
+                "implHandler": [
+                    "newcont = value.getItemId();\r",
+                    "var grid, gridcont, numNodes, mydata, numRecords;\r",
+                    "\r",
+                    "\r",
+                    "if (value.getItemId() === 'projecttab') {\r",
+                    "    // Project example contained within sub tab panel so need to get active item of that \r",
+                    "    gridcont = value.down('#projecttabpanel').getActiveItem().down('#touchtreegrid');\r",
+                    "} else\r",
+                    "{    \r",
+                    "    gridcont = value.down('#touchtreegrid');\r",
+                    "}\r",
+                    "\r",
+                    "gridcont = value.down('touchtreegrid');\r",
+                    "grid = gridcont.down('#'+gridcont.getListItemId());\r",
+                    "\r",
+                    "if (newcont === 'censusmainecontainer') {\r",
+                    "\r",
+                    "    // Check store for data and load if empty (only)\r",
+                    "    numNodes = grid.getStore().getData().length;\r",
+                    "    if (numNodes === 0) {this.loadCensusMaine2000Store();}  \r",
+                    "}\r",
+                    "\r",
+                    "if (newcont === 'projecttab'){\r",
+                    "    // Check store for data and load if empty (only)\r",
+                    "    numNodes = grid.getStore().getData().length;\r",
+                    "    if (numNodes === 0) {this.loadExample2Store(gridcont);}  \r",
+                    "}\r",
+                    "\r",
+                    "if (newcont === 'dow2012container'){\r",
+                    "    numRecords = grid.getStore().getData().length;\r",
+                    "    if (numRecords === 0) {\r",
+                    "        Ext.Viewport.setMasked({\r",
+                    "           xtype: 'loadmask',\r",
+                    "           message: 'Loading DOW 2012...'\r",
+                    "        });\r",
+                    "        grid.getStore().load();\r",
+                    "        gridcont.doRefreshList();\r",
+                    "        Ext.Viewport.setMasked(false);\r",
+                    "    }  \r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    ""
+                ],
+                "name": "activeitemchange",
+                "designer|targetType": "Ext.tab.Panel",
+                "designer|controlQuery": "tabpanel#maintabpanel"
+            },
+            "designerId": "dc1a726a-0668-4c4f-9440-6b8e162c2b8c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "postLoadProcess",
+                "designer|params": [
+                    "gridListItemId",
+                    "gridcont"
+                ],
+                "implHandler": [
+                    "var refreshed;\r",
+                    "\r",
+                    "if (gridListItemId === 'censusmainelist') {\r",
+                    "    // Collapse nodes to defined level\r",
+                    "    var depth = gridcont.getDefaultCollapseLevel();\r",
+                    "    if (depth !== 99) {gridcont.doExpandDepth(depth);}\r",
+                    "\r",
+                    "    this.loadColumnsCensusMaine(); // also refreshes list\r",
+                    "}\r",
+                    "else if ((gridListItemId ==='example2list') ||\r",
+                    "(gridListItemId ==='example2Blist') ||\r",
+                    "(gridListItemId ==='example2Clist')) {\r",
+                    "    this.getMain().down('#example2list').up('touchtreegrid').doRefreshList();\r",
+                    "    this.getMain().down('#example2Blist').up('touchtreegrid').doRefreshList();\r",
+                    "    this.getMain().down('#example2Clist').up('touchtreegrid').doRefreshList();\r",
+                    "}\r",
+                    "else {\r",
+                    "    refreshed = gridcont.doRefreshList(); \r",
+                    "}"
+                ]
+            },
+            "designerId": "8bf53a05-c442-49f3-aff6-637f1f77fc72"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExample2BListDisclose",
+                "implHandler": [
+                    "//Ext.Msg.alert('You disclosed record: ' + record.get('task'));\r",
+                    "\r",
+                    "\r",
+                    "var swapcont = this.getMain().down('#example2Bcontainer');   \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    var newcont = this.getGriddetailpanel(\r",
+                    "    {\r",
+                    "        title : 'Example 2B Detail',\r",
+                    "        id : 'example2Bdetail',\r",
+                    "        layout: {type: 'fit'},\r",
+                    "        itemId: 'griddetailpanel'\r",
+                    "    }\r",
+                    "    );\r",
+                    "\r",
+                    "    var gridItemId = swapcont.down('touchtreegrid').getItemId();\r",
+                    "    newcont.swapcont = swapcont;\r",
+                    "    newcont.gridItemId = gridItemId;\r",
+                    "\r",
+                    "    if (newcont)\r",
+                    "    {\r",
+                    "        var newLabel = newcont.down('#griddetaillabel');    \r",
+                    "        newLabel.setHtml(record.get('task'));       \r",
+                    "\r",
+                    "        var fldSet = newcont.down('#griddetailfieldset');\r",
+                    "        var result = fldSet.setConfig({\r",
+                    "            items : [\r",
+                    "            {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, \r",
+                    "            {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, \r",
+                    "            {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, \r",
+                    "            {label: 'Done?', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done}\r",
+                    "        ]}); \r",
+                    "\r",
+                    "        swapcont.add(newcont);\r",
+                    "        swapcont.setActiveItem(newcont);     \r",
+                    "    }\r",
+                    "}"
+                ],
+                "name": "disclose",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list#example2Blist"
+            },
+            "designerId": "9855625f-d50a-49e6-b974-6448b438a297"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTitlebarGridhelp",
+                "designer|params": [
+                    "main"
+                ],
+                "implHandler": [
+                    "// Trapping tap event on entire titlebar instead of just help icon\r",
+                    "var me=this;\r",
+                    "\r",
+                    "var image = main.down('#gridhelp');\r",
+                    "\r",
+                    "\r",
+                    "var currItem = Ext.Viewport.down('#maintabpanel').getActiveItem();\r",
+                    "\r",
+                    "var grid, projex=false;\r",
+                    "if (currItem.getItemId() === 'projecttab') {\r",
+                    "    // Project example contained within sub tab panel so need to get active item of that \r",
+                    "    projex=true;\r",
+                    "    grid = currItem.down('#projecttabpanel').getActiveItem().down('touchtreegrid');\r",
+                    "} else\r",
+                    "{    \r",
+                    "    grid = currItem.down('touchtreegrid');\r",
+                    "}   \r",
+                    "\r",
+                    "\r",
+                    "if (!grid) {return;}\r",
+                    "\r",
+                    "gridId = grid.getHelpHtml();\r",
+                    "\r",
+                    "Ext.Ajax.request({\r",
+                    "    url: gridId,\r",
+                    "    method: 'GET',\r",
+                    "    callback: function(options, success, response) {\r",
+                    "\r",
+                    "        var help = me.getGridHelpPanel();\r",
+                    "        help.setHtml( response.responseText );\r",
+                    "        help.showBy(image);\r",
+                    "    }\r",
+                    "});"
+                ],
+                "name": "gridhelp",
+                "designer|targetType": "Ext.TitleBar",
+                "designer|controlQuery": "titlebar"
+            },
+            "designerId": "fa04e4d7-ba6d-4c43-8ee4-87dc5860e540"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExample2ListItemTaphold",
+                "implHandler": [
+                    "// Example where we can treat long presses same as disclose event to improve on \r",
+                    "// sensitivity issues with smaller icon.\r",
+                    "// Note:  long press (1 second) works on full item, but not actually on icon itself\r",
+                    "if (record.get('leaf')) {\r",
+                    "this.onExample2ListDiscloseOrHold(record, target, index);\r",
+                    "}"
+                ],
+                "name": "itemtaphold",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list#example2list"
+            },
+            "designerId": "3d778320-25d3-40d0-9638-1bc9d831e8b1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExample2ListDiscloseOrHold",
+                "designer|params": [
+                    "record",
+                    "target",
+                    "index"
+                ],
+                "implHandler": [
+                    "//Ext.Msg.alert('You disclosed record: ' + record.get('task'));\r",
+                    "\r",
+                    "\r",
+                    "var swapcont = this.getMain().down('#example2container');   \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    var newcont = this.getGriddetailpanel(\r",
+                    "    {\r",
+                    "        title : 'Example 2 Detail',\r",
+                    "        id : 'example2detail',\r",
+                    "        layout: {type: 'fit'},\r",
+                    "        itemId: 'griddetailpanel'\r",
+                    "    }\r",
+                    "    );\r",
+                    "\r",
+                    "    var gridItemId = swapcont.down('touchtreegrid').getItemId();\r",
+                    "    newcont.swapcont = swapcont;\r",
+                    "    newcont.gridItemId = gridItemId;\r",
+                    "\r",
+                    "    if (newcont)\r",
+                    "    {\r",
+                    "        var newLabel = newcont.down('#griddetaillabel');    \r",
+                    "        newLabel.setHtml(record.get('task'));       \r",
+                    "\r",
+                    "        var fldSet = newcont.down('#griddetailfieldset');\r",
+                    "        var result = fldSet.setConfig({\r",
+                    "            items : [\r",
+                    "            {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, \r",
+                    "            {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, \r",
+                    "            {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, \r",
+                    "            {label: 'Done?', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done}\r",
+                    "        ]}); \r",
+                    "\r",
+                    "        swapcont.add(newcont);\r",
+                    "        swapcont.setActiveItem(newcont);     \r",
+                    "    }\r",
+                    "}"
+                ]
+            },
+            "designerId": "de6e5070-d684-42db-93de-8754e92074fd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dow2012",
+                "selector": "#dow2012"
+            },
+            "designerId": "a0d79c58-dc5b-400b-b250-e1f436126e3f"
+        }
+    ]
+}

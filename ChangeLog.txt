@@ -1,3 +1,32 @@
+5/3/2013 Commit Change Log:
+ - Touch 2.2 code version contained in subdirectory:  ./TouchTreeGrid_Advanced_220/
+ - Renamed directory ./TouchTreeGrid_Advanced/ to ./TouchTreeGrid_Advanced_21/ for prior Touch 2.1 code version 
+ - Renamed directory ./TouchTreeGrid_Basic/ to ./TouchTreeGrid_Basic_21/ for prior Touch 2.1 code version 
+ - Touch 2.2 version of TouchTreeGrid.xdc stored to subdirectory: ./TouchTreeGrid_Advanced_220/
+ - Touch 2.1 version of TouchTreegrid.xdc moved to subdirecotries: ./TouchTreeGrid_Advanced_21/, ./TouchTreeGrid_Basic_21/
+
+Following applies to Touch 2.2 code version in subdirectory:  ./TouchTreeGrid_Advanced_220/
+ - Added .x-list-normal .x-list-item.x-list-item-tpl selectors to TouchTreeGrid.css and treegriddemo.css for removing horizontal lines
+ - Modified Census column widths [loadColumnsCensusMain() within TouchTreeGridController.js]
+   to not exceed total 90% (phone portrait) or 95% (phone landscape), 97% (tablets) allowing for new 2.2 disclosure icon
+ - Removed CSS for .touchtreegrid-disclose-spacer  as no longer needed
+ - Added .x-list-disclosure:before selector to treegriddemo.css to disable arrow picto from overlaying Example #2 I-Phone style icon:
+   .x-touchtreegrid-list-example2 .x-list-disclosure:before{  
+     content: '';
+     font-family: '';
+   }
+ - Added Style: background-image: -webkit-linear-gradient(top, rgb(86, 167, 223), rgb(43, 145, 215) 3%, rgb(33, 117, 175));
+   to Project Tab Bar to be consistent with 2.1 examples as ui='light' not working in 2.2
+ - Added useSimpleItems config (default = true)
+ - Added infinite config (default = true)
+ - Removed padding/margins in Census detail panel fieldsets which were added to .x-form-fieldset by Touch 2.2 
+ - Updated TPL for Manual example to work with Touch 2.2
+ - Updated documentation on CSS changes and on new 2.2 LIST configs (useSimpleLists, infinite)
+ - Removed empty entries in censusmaine2000TREE.json
+ - Modified main.js to reference Touch 2.2 supported icons for demo tabs
+ - Removed custom icons from treegriddemo.css
+ - Updated documentation consistent with above.
+
 4/17/2013 Commit Change Log:
  - Updated documentation
  - Update README on enhancements in progress.

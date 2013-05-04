@@ -1,16 +1,16 @@
 TouchTreeGrid
 =============
 
-TouchTreeGrid is an extremely versatile and easy to implement Sencha Touch 2.1x custom 
+TouchTreeGrid is an extremely versatile and easy to implement Sencha Touch 2.1x, 2.2+ custom 
 component that supports Tree Grids, Standard Grids and traditional Accordion view layouts
 (all by the same component).  Column sorting and custom data renderings such as comma
 formatting, currency, percents and custom colors for negative vs. positive values are included.
 TouchTreeGrid utilizes Sencha’s Ext.dataview.List component and Disclosure events are
 supported for leafs and optionally for category rows. 
 
-TouchTreeGrid was developed entirely within Sencha Architect (v2.2) designer product and
+TouchTreeGrid was developed entirely within Sencha Architect designer product and
 can also be used without Architect.  An Architect component is provided for import into
-your toolbox (TouchTreeGrid.xdc - Sencha Architect Version: 2.2.1 Build: 951).
+your toolbox (TouchTreeGrid.xdc - Sencha Architect Version: 2.2.2 Build: 971).
 Using Sencha Architect you can implement this component
 for new grid implementations very rapidly.  Both basic and advanced examples are included
 in the download.   Scrolling and overall functionality was found to be very fast for a
@@ -19,7 +19,7 @@ larger data example containing +3000 rows and 3 category levels .
 This software can be downloaded at <a href="https://github.com/swluken/TouchTreeGrid>https://github.com/swluken/TouchTreeGrid</a>
   
 
-To see a working demo, visit 
+To see a working demo [Touch 2.2 version], visit 
 
 Phone specific usage   - <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html?deviceType=Phone">TouchTreeGrid (Phone)</a>
 (Test orientation changes by rotating phone from Portrait to Landscape ... or resizing browser window)
@@ -35,7 +35,6 @@ Requires webkit-enabled browser:  Chrome, Safari, or actual mobile device.
 
 Planned Enhancements (pending feedback)
 ---------------
-- Upgraded version for Sencha 2.2
 - Horizontal scrolling example
 - Column show/hide example
 - Standard Grid example using grouped=true and indexBar=true configs

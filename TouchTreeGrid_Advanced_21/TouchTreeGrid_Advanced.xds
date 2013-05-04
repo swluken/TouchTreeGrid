@@ -1,0 +1,200 @@
+{
+    "name": "TouchTreeGrid_Advanced",
+    "settings": {
+        "urlPrefix": "http://localhost/TouchTreeGrid/TouchTreeGrid_Advanced_21/",
+        "spacesToIndent": 4,
+        "exportPath": "",
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true
+    },
+    "xdsVersion": "2.2.2",
+    "xdsBuild": 971,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000501,
+    "framework": "touch21",
+    "topInstanceFileMap": {
+        "edd7cdca-5c64-4ae6-9342-57c41820ab1d": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "bb95e1bf-6755-4cc6-a8ca-2ab3b5790c33": {
+            "paths": [
+                "metadata/model/Task",
+                "app/model/override/Task.js",
+                "app/model/Task.js"
+            ],
+            "className": "Task"
+        },
+        "0908d481-13f2-47c2-8ba8-4d1dbed2f9f6": {
+            "paths": [
+                "metadata/store/Task",
+                "app/store/override/Task.js",
+                "app/store/Task.js"
+            ],
+            "className": "Task"
+        },
+        "8c274233-2c62-4f46-b103-76d6c9f0def6": {
+            "paths": [
+                "metadata/view/Main",
+                "app/view/override/Main.js",
+                "app/view/Main.js"
+            ],
+            "className": "Main"
+        },
+        "dcf34621-667d-4a8e-bc95-e3fc814895a0": {
+            "paths": [
+                "metadata/view/TouchTreeGrid",
+                "app/view/override/TouchTreeGrid.js",
+                "app/view/TouchTreeGrid.js"
+            ],
+            "className": "TouchTreeGrid"
+        },
+        "ac3c8037-b03d-45af-ac33-d2b07600986d": {
+            "paths": [
+                "metadata/controller/TouchTreeGridController",
+                "app/controller/override/TouchTreeGridController.js",
+                "app/controller/TouchTreeGridController.js"
+            ],
+            "className": "TouchTreeGridController"
+        },
+        "9d18a977-daa6-4040-ac61-39c2369b822d": {
+            "paths": [
+                "metadata/resource/css"
+            ],
+            "className": "css"
+        },
+        "dbc02c5d-f3c6-4a17-95d9-cf19ebf9e830": {
+            "paths": [
+                "metadata/store/Task2",
+                "app/store/override/Task2.js",
+                "app/store/Task2.js"
+            ],
+            "className": "Task2"
+        },
+        "33f28e9c-2e63-41cc-97a3-e1c59f43ba15": {
+            "paths": [
+                "metadata/model/Task2",
+                "app/model/override/Task2.js",
+                "app/model/Task2.js"
+            ],
+            "className": "Task2"
+        },
+        "88563679-8cb3-4a20-9b12-690c42275ed7": {
+            "paths": [
+                "metadata/view/griddetailpanel",
+                "app/view/override/griddetailpanel.js",
+                "app/view/griddetailpanel.js"
+            ],
+            "className": "griddetailpanel"
+        },
+        "d0ecd8a4-9aa3-45fa-9ad1-7ae5f4c4e5f5": {
+            "paths": [
+                "metadata/model/Census",
+                "app/model/override/Census.js",
+                "app/model/Census.js"
+            ],
+            "className": "Census"
+        },
+        "78f87ea9-233f-440a-a9bb-c0416f6d09c0": {
+            "paths": [
+                "metadata/store/CensusMaine2000",
+                "app/store/override/CensusMaine2000.js",
+                "app/store/CensusMaine2000.js"
+            ],
+            "className": "CensusMaine2000"
+        },
+        "4c8cf420-dc3a-4258-87f3-37d85eb42fce": {
+            "paths": [
+                "metadata/view/CensusDetailPanel",
+                "app/view/override/CensusDetailPanel.js",
+                "app/view/CensusDetailPanel.js"
+            ],
+            "className": "CensusDetailPanel"
+        },
+        "ebd3dcfe-8e31-41f8-ba8a-b3b52fc1f7cd": {
+            "paths": [
+                "metadata/resource/css1"
+            ],
+            "className": "css1"
+        },
+        "f69ccd2f-9818-4a4a-ae44-35a96e2d82f3": {
+            "paths": [
+                "metadata/view/GridHelpPanel",
+                "app/view/override/GridHelpPanel.js",
+                "app/view/GridHelpPanel.js"
+            ],
+            "className": "GridHelpPanel"
+        },
+        "34e87089-9f09-4c61-9b97-8fcb52f62e0d": {
+            "paths": [
+                "metadata/view/ProjectContainer",
+                "app/view/override/ProjectContainer.js",
+                "app/view/ProjectContainer.js"
+            ],
+            "className": "ProjectContainer"
+        },
+        "a07428af-5d8d-4081-b354-613004c06dba": {
+            "paths": [
+                "metadata/model/Dow2012",
+                "app/model/override/Dow2012.js",
+                "app/model/Dow2012.js"
+            ],
+            "className": "Dow2012"
+        },
+        "3ead9a44-1e8c-4852-8efd-bdf62a00c3bf": {
+            "paths": [
+                "metadata/store/Dow2012",
+                "app/store/override/Dow2012.js",
+                "app/store/Dow2012.js"
+            ],
+            "className": "Dow2012"
+        },
+        "e3cd3555-a9f6-4600-b74d-38fdbc1973f9": {
+            "paths": [
+                "metadata/store/TaskAccordion",
+                "app/store/override/TaskAccordion.js",
+                "app/store/TaskAccordion.js"
+            ],
+            "className": "TaskAccordion"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "8c274233-2c62-4f46-b103-76d6c9f0def6",
+            "34e87089-9f09-4c61-9b97-8fcb52f62e0d",
+            "88563679-8cb3-4a20-9b12-690c42275ed7",
+            "4c8cf420-dc3a-4258-87f3-37d85eb42fce",
+            "f69ccd2f-9818-4a4a-ae44-35a96e2d82f3",
+            "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+        ],
+        "store": [
+            "0908d481-13f2-47c2-8ba8-4d1dbed2f9f6",
+            "e3cd3555-a9f6-4600-b74d-38fdbc1973f9",
+            "dbc02c5d-f3c6-4a17-95d9-cf19ebf9e830",
+            "78f87ea9-233f-440a-a9bb-c0416f6d09c0",
+            "3ead9a44-1e8c-4852-8efd-bdf62a00c3bf"
+        ],
+        "controller": [
+            "ac3c8037-b03d-45af-ac33-d2b07600986d"
+        ],
+        "model": [
+            "bb95e1bf-6755-4cc6-a8ca-2ab3b5790c33",
+            "33f28e9c-2e63-41cc-97a3-e1c59f43ba15",
+            "d0ecd8a4-9aa3-45fa-9ad1-7ae5f4c4e5f5",
+            "a07428af-5d8d-4081-b354-613004c06dba"
+        ],
+        "resource": [
+            "edd7cdca-5c64-4ae6-9342-57c41820ab1d",
+            "9d18a977-daa6-4040-ac61-39c2369b822d",
+            "ebd3dcfe-8e31-41f8-ba8a-b3b52fc1f7cd"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

@@ -1,0 +1,399 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "ui": "light",
+        "designer|userClassName": "ProjectContainer",
+        "designer|userAlias": "projectContainer",
+        "layout": "fit"
+    },
+    "designerId": "34e87089-9f09-4c61-9b97-8fcb52f62e0d",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "projecttabpanel",
+                "ui": "light"
+            },
+            "designerId": "7bab0a29-3310-4cb6-bb21-ba8db6462faa",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Ex #1",
+                        "itemId": "example2container",
+                        "layout": "card"
+                    },
+                    "designerId": "f3595e4c-f985-431d-9ffd-c67f27fd9fe7",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "plugins": null,
+                                "listPlugins": [
+                                    "{\r",
+                                    "    xtype: 'component',\r",
+                                    "    refreshFn: function(plugin) {this.up('touchtreegrid').fireEvent('pullrefresh', this.up('touchtreegrid'));},\r",
+                                    "    type: 'pullrefresh'\r",
+                                    "}"
+                                ],
+                                "categDepthColors": true,
+                                "store": [
+                                    "Task2Store"
+                                ],
+                                "onItemDisclosure": true,
+                                "columns": [
+                                    "[\r",
+                                    "    {\r",
+                                    "        header: 'Task',\r",
+                                    "        dataIndex: 'task',\r",
+                                    "        width: '35%',\r",
+                                    "        style: 'text-align: left;',\r",
+                                    "        categStyle: 'font-weight: bold; text-align: left; color: #692047;',\r",
+                                    "        headerStyle: 'text-align: left; color: #ccc;'\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'User',\r",
+                                    "        dataIndex: 'user',\r",
+                                    "        width: '35%',\r",
+                                    "        style: 'text-align: left; padding-left: .5em;',\r",
+                                    "        categStyle: 'text-align: left;padding-left: .5em;',\r",
+                                    "        headerStyle: 'text-align: left; color: #ccc;padding-left: .5em;'\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'Dur',\r",
+                                    "        dataIndex: 'duration',\r",
+                                    "        width: '15%',\r",
+                                    "        style: 'text-align: right;',\r",
+                                    "        categStyle: 'text-align: right;',\r",
+                                    "        headerStyle: 'text-align: right; color: #ccc;'\r",
+                                    "    }\r",
+                                    "/*    ,\r",
+                                    "    {\r",
+                                    "        header: 'Done?',\r",
+                                    "        dataIndex: 'done',\r",
+                                    "        width: '15%',\r",
+                                    "        style: 'text-align: right; font-size: .6em;',\r",
+                                    "        categStyle: 'text-align: right;font-size: .6em;',\r",
+                                    "        headerStyle: 'text-align: right; color: #ccc;'\r",
+                                    "    } */\r",
+                                    "]"
+                                ],
+                                "disclosureProperty": "leaf",
+                                "listItemId": "example2list",
+                                "categDepthColorsArr": [
+                                    "['#808127', '#949569', '#C5C678']"
+                                ],
+                                "applyDefaultCollapseLevel": false,
+                                "helpHtml": "./resources/html/ProjectExample.html",
+                                "singleExpand": true,
+                                "cls": [
+                                    "x-touchtreegrid-list",
+                                    "x-touchtreegrid-list-example2"
+                                ],
+                                "itemId": "example2",
+                                "designer|createAlias": null
+                            },
+                            "configAlternates": {
+                                "plugins": "object",
+                                "listPlugins": "object",
+                                "categIndentPct": "number",
+                                "colNumberToTruncateForIndents": "number",
+                                "categDepthColors": "boolean",
+                                "categDepthColorButtons": "boolean",
+                                "applyDefaultCollapseLevel": "boolean"
+                            },
+                            "designerId": "ea786289-0f65-4c3e-bb7c-ea34e4de961c",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "plugins",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "listPlugins",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "categDepthColors",
+                                    "type": "string"
+                                }
+                            ],
+                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Ex #2",
+                        "itemId": "example2Bcontainer",
+                        "layout": "card"
+                    },
+                    "designerId": "48b7b2ba-3428-4802-9516-f8ff901f18ca",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "plugins": null,
+                                "listPlugins": null,
+                                "categDepthColors": true,
+                                "store": [
+                                    "Task2Store"
+                                ],
+                                "onItemDisclosure": true,
+                                "columns": [
+                                    "[\r",
+                                    "    {\r",
+                                    "        header: 'Task',\r",
+                                    "        dataIndex: 'task',\r",
+                                    "        width: '35%',\r",
+                                    "        style: 'text-align: left;',\r",
+                                    "        categStyle: 'font-weight: bold; text-align: left; color: #f4f4f4;',\r",
+                                    "        headerStyle: 'text-align: left; color: #ccc;'\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'User',\r",
+                                    "        dataIndex: 'user',\r",
+                                    "        width: '35%',\r",
+                                    "        style: 'text-align: left; padding-left: .5em;',\r",
+                                    "        categStyle: 'text-align: left;padding-left: .5em;',\r",
+                                    "        headerStyle: 'text-align: left; color: #ccc;padding-left: .5em;'\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'Dur',\r",
+                                    "        dataIndex: 'duration',\r",
+                                    "        width: '15%',\r",
+                                    "        style: 'text-align: right;',\r",
+                                    "        categStyle: 'text-align: right;',\r",
+                                    "        headerStyle: 'text-align: right; color: #ccc;'\r",
+                                    "    }\r",
+                                    "/*    ,\r",
+                                    "    {\r",
+                                    "        header: 'Done?',\r",
+                                    "        dataIndex: 'done',\r",
+                                    "        width: '15%',\r",
+                                    "        style: 'text-align: right; font-size: .6em;',\r",
+                                    "        categStyle: 'text-align: right;font-size: .6em;',\r",
+                                    "        headerStyle: 'text-align: right; color: #ccc;'\r",
+                                    "    } */\r",
+                                    "]"
+                                ],
+                                "variableHeights": false,
+                                "itemHeight": 32,
+                                "disclosureProperty": null,
+                                "listItemId": "example2Blist",
+                                "categDepthColorsArr": [
+                                    "['#808127', '#949569', '#C5C678']"
+                                ],
+                                "applyDefaultCollapseLevel": false,
+                                "helpHtml": "./resources/html/Project2Example.html",
+                                "styleContentRow": null,
+                                "styleCategRow": null,
+                                "styleHeaderRow": null,
+                                "cls": [
+                                    "x-touchtreegrid-list",
+                                    "x-touchtreegrid-list-example2",
+                                    "x-touchtreegrid-list-example2B"
+                                ],
+                                "itemId": "example2B",
+                                "designer|createAlias": null
+                            },
+                            "configAlternates": {
+                                "plugins": "object",
+                                "listPlugins": "object",
+                                "categIndentPct": "number",
+                                "colNumberToTruncateForIndents": "number",
+                                "categDepthColors": "boolean",
+                                "categDepthColorButtons": "boolean",
+                                "applyDefaultCollapseLevel": "boolean"
+                            },
+                            "designerId": "b66e02a0-df28-4b5e-8353-b9575006b681",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "plugins",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "listPlugins",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "categDepthColors",
+                                    "type": "string"
+                                }
+                            ],
+                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Ex #3",
+                        "itemId": "example2Ccontainer",
+                        "layout": "card"
+                    },
+                    "designerId": "cfae5969-f9f3-47a3-9ff0-054924b9a1d0",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "plugins": null,
+                                "listPlugins": null,
+                                "categDepthColors": true,
+                                "store": [
+                                    "Task2Store"
+                                ],
+                                "columns": [
+                                    "[\r",
+                                    "    {\r",
+                                    "        header: 'Task',\r",
+                                    "        dataIndex: 'task',\r",
+                                    "        width: '35%',\r",
+                                    "        style: 'text-align: left;',\r",
+                                    "        categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
+                                    "        headerStyle: 'text-align: left; color: #ccc;'\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'User',\r",
+                                    "        dataIndex: 'user',\r",
+                                    "        width: '35%',\r",
+                                    "        style: 'text-align: left; padding-left: .5em;',\r",
+                                    "        categStyle: 'text-align: left;padding-left: .5em;',\r",
+                                    "        headerStyle: 'text-align: left; color: #ccc;padding-left: .5em;'\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'Dur',\r",
+                                    "        dataIndex: 'duration',\r",
+                                    "        width: '15%',\r",
+                                    "        style: 'text-align: right;',\r",
+                                    "        categStyle: 'text-align: right;',\r",
+                                    "        headerStyle: 'text-align: right; color: #ccc;'\r",
+                                    "    }\r",
+                                    "/*    ,\r",
+                                    "    {\r",
+                                    "        header: 'Done?',\r",
+                                    "        dataIndex: 'done',\r",
+                                    "        width: '15%',\r",
+                                    "        style: 'text-align: right; font-size: .6em;',\r",
+                                    "        categStyle: 'text-align: right;font-size: .6em;',\r",
+                                    "        headerStyle: 'text-align: right; color: #ccc;'\r",
+                                    "    } */\r",
+                                    "]"
+                                ],
+                                "variableHeights": false,
+                                "itemHeight": 32,
+                                "disclosureProperty": "leaf",
+                                "listItemId": "example2Clist",
+                                "categDepthColorsArr": [
+                                    "['white', 'white', 'white']"
+                                ],
+                                "categDepthColorButtons": false,
+                                "applyDefaultCollapseLevel": false,
+                                "helpHtml": "./resources/html/Project3Example.html",
+                                "cls": [
+                                    "x-touchtreegrid-list",
+                                    "x-touchtreegrid-list-example2",
+                                    "x-touchtreegrid-list-example2C"
+                                ],
+                                "itemId": "example2C",
+                                "designer|createAlias": null
+                            },
+                            "configAlternates": {
+                                "plugins": "object",
+                                "listPlugins": "object",
+                                "categIndentPct": "number",
+                                "colNumberToTruncateForIndents": "number",
+                                "categDepthColors": "boolean",
+                                "categDepthColorButtons": "boolean",
+                                "applyDefaultCollapseLevel": "boolean"
+                            },
+                            "designerId": "d2812946-adaa-4a8d-8b31-2a0a2fe18791",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "plugins",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "listPlugins",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "categDepthColors",
+                                    "type": "string"
+                                }
+                            ],
+                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.tab.Bar",
+                    "reference": {
+                        "name": "tabBar",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "projectTabBar"
+                        ],
+                        "docked": "top",
+                        "margin": null,
+                        "style": "background-image: -webkit-linear-gradient(top, rgb(86, 167, 223), rgb(43, 145, 215) 3%, rgb(33, 117, 175));",
+                        "ui": "light"
+                    },
+                    "designerId": "c106c06f-247e-4394-83e2-69b94018d7d2"
+                }
+            ]
+        }
+    ]
+}
