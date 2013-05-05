@@ -6,7 +6,6 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": true,
         "data": null,
         "model": "Task2",
         "storeId": "Task2Store",

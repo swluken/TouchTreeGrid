@@ -198,6 +198,9 @@ Ext.define('TouchTreeGrid.view.Main', {
                                     padding: '.6em 0 0 0 !important'
                                 },
                                 listItemId: 'dow2012list',
+                                listPlugins: {
+                                    xclass: 'Ext.plugin.PullRefresh'
+                                },
                                 renderers: {
                                     renderer_formatWithColor: function (value, decPlaces, prefix, suffix, thouSeparator, decSeparator)
                                 {var clr = (value >= 0) ? 'green' : 'red';

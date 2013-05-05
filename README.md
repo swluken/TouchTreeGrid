@@ -55,3 +55,5 @@ License
 
 Copyright (c) 2013 Steve Luken. 
 This software is free to use (refer to associated MIT.LISCENSE) .
+
+**Don't forget to star this repository to be notified for frequent changes !!

@@ -106,6 +106,7 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
 
     onExample2ListPullrefresh: function(container) {
         this.loadExample2Store(container);
+
     },
 
     onCensusMaineListDisclose: function(list, record, target, index, e, eOpts) {
@@ -357,11 +358,12 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
 
         var gridurl = 'data/treegrid.json';
 
-        me.loadStore(me, gridcont, gridurl, 'Loading Project...');
+        // Passing scrollToY=1 parameter as Touch 2.2 workaround when loading via PullRefresh
+        me.loadStore(me, gridcont, gridurl, 'Loading Project...', 1);
 
     },
 
-    loadStore: function(me, gridcont, gridurl, loadmask) {
+    loadStore: function(me, gridcont, gridurl, loadmask, scrollToY) {
         // Load data from JSON file within Controller since doesn't seem to work from within Store itself.
         // NOTE:  autoload=true -and- dummy root initialization required in Store to work=>
         //     root: {children: []}
@@ -396,6 +398,12 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
                 // setRoot() not working => http://www.sencha.com/forum/showthread.php?242257
 
                 if (loadmask) {Ext.Viewport.setMasked(false);}
+
+                if (scrollToY){
+                    // workaround to get Touch 2.2 pullrefresh plugin to auto-snapBack
+                    var scroller = gridlist.getScrollable().getScroller();
+                    scroller.minPosition.y = scrollToY;  
+                }
 
                 me.postLoadProcess(gridListItemId, gridcont); 
 

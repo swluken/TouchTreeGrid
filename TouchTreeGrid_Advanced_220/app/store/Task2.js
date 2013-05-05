@@ -21,7 +21,6 @@ Ext.define('TouchTreeGrid.store.Task2', {
     ],
 
     config: {
-        autoLoad: true,
         model: 'TouchTreeGrid.model.Task2',
         storeId: 'Task2Store',
         root: {

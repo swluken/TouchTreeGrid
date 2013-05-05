@@ -384,6 +384,11 @@
                                     "}"
                                 ],
                                 "listItemId": "dow2012list",
+                                "listPlugins": [
+                                    "{\r",
+                                    "    xclass: 'Ext.plugin.PullRefresh'\r",
+                                    "}"
+                                ],
                                 "renderers": [
                                     "{renderer_formatWithColor: function (value, decPlaces, prefix, suffix, thouSeparator, decSeparator)\r",
                                     "{var clr = (value >= 0) ? 'green' : 'red';\r",

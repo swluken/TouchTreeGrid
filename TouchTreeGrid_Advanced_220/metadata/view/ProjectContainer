@@ -51,9 +51,12 @@
                                 "plugins": null,
                                 "listPlugins": [
                                     "{\r",
-                                    "    xtype: 'component',\r",
-                                    "    refreshFn: function(plugin) {this.up('touchtreegrid').fireEvent('pullrefresh', this.up('touchtreegrid'));},\r",
-                                    "    type: 'pullrefresh'\r",
+                                    "    xclass: 'Ext.plugin.PullRefresh',\r",
+                                    "    listeners : {\r",
+                                    "        latestfetched : function() {this.up('touchtreegrid').fireEvent('pullrefresh', this.up('touchtreegrid'));}\r",
+                                    "    }\r",
+                                    "  //  refreshFn: function(plugin) {this.up('touchtreegrid').fireEvent('pullrefresh', this.up('touchtreegrid'));}\r",
+                                    "\r",
                                     "}"
                                 ],
                                 "categDepthColors": true,

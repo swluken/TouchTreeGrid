@@ -1,3 +1,11 @@
+5/4/2013 Commit Change Log:
+Change summary:  Modified PullRefresh implementation as Touch 2.2 removed support for refreshFn
+ - Added pull refresh to dow2012 example (maintabpanel.js) via "listPlugins : {xclass: 'Ext.plugin.PullRefresh'}"
+ - Replaced refreshFn event handling in example2 (ProjectContainer.js) with new Touch 2.2 event "latestfetched"
+   via listPlugin config.  Workaround to snap list back after manually loading data for this example is 
+   to modify loadExample2Store() function within TouchTreeGridController.js to pass scrollToY = 1 to
+   loadStore() function to reset scroller after loading data.
+
 5/3/2013 Commit Change Log:
  - Touch 2.2 code version contained in subdirectory:  ./TouchTreeGrid_Advanced_220/
  - Renamed directory ./TouchTreeGrid_Advanced/ to ./TouchTreeGrid_Advanced_21/ for prior Touch 2.1 code version 

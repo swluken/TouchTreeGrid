@@ -43,9 +43,11 @@ Ext.define('TouchTreeGrid.view.ProjectContainer', {
                             {
                                 xtype: 'touchtreegrid',
                                 listPlugins: {
-                                    xtype: 'component',
-                                    refreshFn: function(plugin) {this.up('touchtreegrid').fireEvent('pullrefresh', this.up('touchtreegrid'));},
-                                    type: 'pullrefresh'
+                                    xclass: 'Ext.plugin.PullRefresh',
+                                    listeners: {
+                                        latestfetched: function() {this.up('touchtreegrid').fireEvent('pullrefresh', this.up('touchtreegrid'));}
+                                    }
+                                    //  refreshFn: function(plugin) {this.up('touchtreegrid').fireEvent('pullrefresh', this.up('touchtreegrid'));}
                                 },
                                 categDepthColors: true,
                                 store: 'Task2Store',
