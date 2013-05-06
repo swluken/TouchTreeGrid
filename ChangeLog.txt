@@ -1,5 +1,6 @@
 5/6/2013 Commit Change Log:
 Summary: Correct duplicate PullRefresh issue for DOW Hist example
+NOTE:  Changes to Examples only...NO changes to TouchTreeGrid component in this commit.
  - Deleted TouchTreeGrid.xdc from parent directory to avoid confusion as each subdirectory
    contains Touch-specific versions:
      ./TouchTreeGrid_Advanced_21/TouchTreeGrid.xdc (Touch 2.1)
