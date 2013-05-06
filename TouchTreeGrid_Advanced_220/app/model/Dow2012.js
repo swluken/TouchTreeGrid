@@ -17,6 +17,7 @@ Ext.define('TouchTreeGrid.model.Dow2012', {
     extend: 'Ext.data.Model',
 
     config: {
+        idProperty: 'ID',
         fields: [
             {
                 name: 'CloseDate',
@@ -53,6 +54,9 @@ Ext.define('TouchTreeGrid.model.Dow2012', {
             {
                 name: 'ChgPct',
                 type: 'float'
+            },
+            {
+                name: 'ID'
             }
         ]
     }

@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "idProperty": "ID",
         "designer|userClassName": "Dow2012"
     },
     "designerId": "a07428af-5d8d-4081-b354-613004c06dba",
@@ -126,6 +127,18 @@
                 "type": "float"
             },
             "designerId": "fe68e275-ef9a-449f-8fb9-88df57d10879"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ID"
+            },
+            "designerId": "b860dfa5-f118-4e2d-b3e1-a34476a890c2"
         }
     ]
 }

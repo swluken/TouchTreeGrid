@@ -1,5 +1,17 @@
+5/6/2013 Commit Change Log:
+Summary: Correct duplicate PullRefresh issue for DOW Hist example
+ - Deleted TouchTreeGrid.xdc from parent directory to avoid confusion as each subdirectory
+   contains Touch-specific versions:
+     ./TouchTreeGrid_Advanced_21/TouchTreeGrid.xdc (Touch 2.1)
+     ./TouchTreeGrid_Basic_21/TouchTreeGrid.xdc (Touch 2.1)
+     ./TouchTreeGrid_Advanced_220/TouchTreeGrid.xdc (Touch 2.2)
+ - ./TouchTreeGrid_Advanced_220/ modifications:
+   > TouchTreeGrid.model.Dow2012 requires idProperty and unique values in store to prevent
+     duplicates when refreshing data via PullRefresh
+   > Replaced ./TouchTreeGrid_Advanced_220/data/dow2012.json to include unique ID values
+
 5/4/2013 Commit Change Log:
-Change summary:  Modified PullRefresh implementation as Touch 2.2 removed support for refreshFn
+Summary:  Modified PullRefresh implementation as Touch 2.2 removed support for refreshFn
  - Added pull refresh to dow2012 example (maintabpanel.js) via "listPlugins : {xclass: 'Ext.plugin.PullRefresh'}"
  - Replaced refreshFn event handling in example2 (ProjectContainer.js) with new Touch 2.2 event "latestfetched"
    via listPlugin config.  Workaround to snap list back after manually loading data for this example is 
