@@ -95,7 +95,6 @@ Ext.define('TouchTreeGrid.view.ProjectContainer', {
                                 ],
                                 applyDefaultCollapseLevel: false,
                                 helpHtml: './resources/html/ProjectExample.html',
-                                singleExpand: true,
                                 cls: [
                                     'x-touchtreegrid-list',
                                     'x-touchtreegrid-list-example2'

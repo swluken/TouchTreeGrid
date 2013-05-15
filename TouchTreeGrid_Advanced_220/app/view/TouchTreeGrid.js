@@ -56,7 +56,7 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         infinite: true,
         cls: 'x-touchtreegrid-list',
         layout: {
-            type: 'fit'
+            type: 'vbox'
         },
         store: {
             
@@ -270,8 +270,20 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                 selectedCls : selectedCls,
                 useSimpleItems: useSimpleItems,
                 infinite: infinite,
-                mode: mode
+                mode: mode,
+                height: '100%'
             });
+
+            // Support application of width, minWidth, height, minHeight overrides from linked instance for Horizontal scrolling
+            var height = me.getHeight(); // Horiz scrolling doesn't work with 100% for some reason so any pixel setting
+            // larger than expected works.  Example: 1000 (not sure why)
+            if (!Ext.isEmpty(height)) {list.setHeight(height);}
+            var minHeight = me.getMinHeight();
+            if (!Ext.isEmpty(minHeight)) {list.setMinHeight(minHeight);}
+            var width = me.getWidth();
+            if (!Ext.isEmpty(width)) {list.setWidth(width);}
+            var minWidth = me.getMinWidth();
+            if (!Ext.isEmpty(minWidth)) {list.setMinWidth(minWidth);}                                                              
 
             list.on('itemtap', this.onItemTap, this);
 
@@ -284,6 +296,8 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
             if (!me.getListScrollable()) {
                 list.setScrollable({disabled: true});  // false doesn't seem to work
+            } else {
+                list.setScrollable(me.getListScrollable());
             }
 
             var listItemId = me.getListItemId();
@@ -449,12 +463,6 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
 
             return Ext.factory(config, Ext.Toolbar);
-        }
-    },
-
-    updateFooter: function(footer) {
-        if (this.getIncludeFooter() && !this.getSimpleList()) {
-            this.insert(0, footer);
         }
     },
 
@@ -688,11 +696,9 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
             headerEl  = me.down('#touchtreegridheader').element,
             dataIndex = el.getAttribute('dataIndex'),
             sorters   = store.getSorters(),
-            sorter    = sorters[0],
-            dir       = sorter ? sorter.getDirection() : 'ASC',
             asc       = 'x-grid-sort-asc',
             desc      = 'x-grid-sort-desc',
-            c, column, colEl;
+            c, column, colEl, sorter, dir, grouper, grouperSortProperty, grouperDirection;
 
         if (!dataIndex) return;  //Included in event of extra toolbar space at far right
 
@@ -703,7 +709,26 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
         if (!column.sortable) return;
 
-        store.sort(dataIndex, dir === 'DESC' ? 'ASC' : 'DESC');
+        grouper = store.getGrouper();
+        if (!Ext.isEmpty(grouper)) {
+            grouperSortProperty = grouper.getSortProperty();
+            grouperDirection = grouper.getDirection();
+        }    
+
+        // Sort items within grouper if defined
+        if (Ext.isEmpty(grouperSortProperty)) {
+            sorter    = sorters[0];
+            dir       = sorter ? sorter.getDirection() : 'ASC';
+            store.sort([{property: dataIndex, direction: dir === 'DESC' ? 'ASC' : 'DESC'}]);
+        } else {
+            sorter    = sorters[2];  // 1st index is auto-added grouper sort,
+            // 2nd index is default sorter defined in store (required for now!),
+            // this 3rd index is user pressed column to sort
+            dir       = sorter ? sorter.getDirection() : 'ASC';
+            store.sort([{property: grouperSortProperty, direction: grouperDirection},
+            {property: dataIndex, direction: dir === 'DESC' ? 'ASC' : 'DESC'}]);
+        }    
+
         list.refresh();
 
         // Remove any prior sort indicators 
@@ -719,6 +744,12 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         el.addCls(dir === 'DESC' ? desc : asc);    
 
 
+    },
+
+    updateFooter: function(footer) {
+        if (this.getIncludeFooter() && !this.getSimpleList()) {
+            this.insert(0, footer);
+        }
     }
 
 });

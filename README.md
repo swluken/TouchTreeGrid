@@ -16,7 +16,7 @@ for new grid implementations very rapidly.  Both basic and advanced examples are
 in the download.   Scrolling and overall functionality was found to be very fast for a
 larger data example containing +3000 rows and 3 category levels .  
 
-This software can be downloaded at <a href="https://github.com/swluken/TouchTreeGrid>https://github.com/swluken/TouchTreeGrid</a>
+This software can be downloaded at <a href="https://github.com/swluken/TouchTreeGrid">https://github.com/swluken/TouchTreeGrid</a>
   
 
 To see a working demo [Touch 2.2 version], visit 
@@ -35,14 +35,14 @@ Requires webkit-enabled browser:  Chrome, Safari, or actual mobile device.
 
 Planned Enhancements (pending feedback)
 ---------------
-- Horizontal scrolling example
+- Support for Row Renderer function that will specify different CSS selector based on data attribute
+- Support option to define different column layouts/widths/contents for Category and Header rows (TreeGrids)
+- Support for check  boxes, icons/pix and other components within cells
 - Column show/hide example
-- Standard Grid example using grouped=true and indexBar=true configs
 - More renderer function examples
 - Support of optional auto-generated Ext.dataview.DataView (vs. Ext.dataview.List) for grid
 - Possible support to add custom buttons to auto-generated Footer toolbar
 - Possible support for locked columns
-- Possible support for check  boxes and other components within cells
 
 Getting Started
 ---------------

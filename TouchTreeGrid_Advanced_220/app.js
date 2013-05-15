@@ -30,7 +30,9 @@ Ext.application({
         'Task2',
         'CensusMaine2000',
         'Dow2012',
-        'TaskAccordion'
+        'TaskAccordion',
+        'Dow2012grouper',
+        'Dow2012Horiz'
     ],
     views: [
         'Main',
@@ -38,7 +40,8 @@ Ext.application({
         'griddetailpanel',
         'CensusDetailPanel',
         'GridHelpPanel',
-        'ProjectContainer'
+        'ProjectContainer',
+        'ListsContainer'
     ],
     controllers: [
         'TouchTreeGridController'

@@ -1,12 +1,13 @@
 {
     "expandedState": {
-        "data": true,
-        "model": true,
+        "data": false,
+        "model": false,
         "component": true,
         "controller": true,
         "resource": true,
         "8c274233-2c62-4f46-b103-76d6c9f0def6": {
             "id": "8c274233-2c62-4f46-b103-76d6c9f0def6",
+            "expanded": false,
             "cn": [
                 {
                     "id": "7594443e-ac98-4a9c-ad66-560a2c6c6375",
@@ -517,7 +518,8 @@
     },
     "tabState": {
         "openTabs": [
-            "8c274233-2c62-4f46-b103-76d6c9f0def6"
+            "8c274233-2c62-4f46-b103-76d6c9f0def6",
+            "dcf34621-667d-4a8e-bc95-e3fc814895a0"
         ]
     },
     "canvasState": {

@@ -13,7 +13,9 @@
                 "{}"
             ],
             "displayField": null,
-            "listScrollable": true,
+            "listScrollable": [
+                "true"
+            ],
             "headerItemTpl": null,
             "contentItemTpl": "",
             "useAnimation": null,
@@ -101,11 +103,12 @@
             ],
             "designer|userClassName": "TouchTreeGrid",
             "designer|userAlias": "touchtreegrid",
-            "layout": "fit"
+            "layout": "vbox",
+            "scrollable": null
         },
         "configAlternates": {
             "store": "object",
-            "listScrollable": "boolean",
+            "listScrollable": "object",
             "defaultExpanded": "boolean",
             "useAnimation": "boolean",
             "disableSelection": "boolean",
@@ -138,7 +141,8 @@
             "singleExpand": "boolean",
             "additionalListConfigs": "object",
             "useSimpleItems": "boolean",
-            "infinite": "boolean"
+            "infinite": "boolean",
+            "scrollable": "object"
         },
         "customConfigs": [
             {
@@ -628,8 +632,20 @@
                         "        selectedCls : selectedCls,\r",
                         "        useSimpleItems: useSimpleItems,\r",
                         "        infinite: infinite,\r",
-                        "        mode: mode\r",
+                        "        mode: mode,\r",
+                        "        height: '100%'\r",
                         "    });\r",
+                        "    \r",
+                        "    // Support application of width, minWidth, height, minHeight overrides from linked instance for Horizontal scrolling\r",
+                        "    var height = me.getHeight(); // Horiz scrolling doesn't work with 100% for some reason so any pixel setting\r",
+                        "                                 // larger than expected works.  Example: 1000 (not sure why)\r",
+                        "    if (!Ext.isEmpty(height)) {list.setHeight(height);}\r",
+                        "    var minHeight = me.getMinHeight();\r",
+                        "    if (!Ext.isEmpty(minHeight)) {list.setMinHeight(minHeight);}\r",
+                        "    var width = me.getWidth();\r",
+                        "    if (!Ext.isEmpty(width)) {list.setWidth(width);}\r",
+                        "    var minWidth = me.getMinWidth();\r",
+                        "    if (!Ext.isEmpty(minWidth)) {list.setMinWidth(minWidth);}                                                              \r",
                         "\r",
                         "    list.on('itemtap', this.onItemTap, this);\r",
                         "\r",
@@ -642,6 +658,8 @@
                         "\r",
                         "    if (!me.getListScrollable()) {\r",
                         "        list.setScrollable({disabled: true});  // false doesn't seem to work\r",
+                        "    } else {\r",
+                        "        list.setScrollable(me.getListScrollable());\r",
                         "    }\r",
                         "\r",
                         "    var listItemId = me.getListItemId();\r",
@@ -863,25 +881,6 @@
                         "\r",
                         "\r",
                         "    return Ext.factory(config, Ext.Toolbar);\r",
-                        "}"
-                    ]
-                }
-            },
-            {
-                "type": "basicfunction",
-                "reference": {
-                    "name": "items",
-                    "type": "array"
-                },
-                "codeClass": null,
-                "userConfig": {
-                    "fn": "updateFooter",
-                    "designer|params": [
-                        "footer"
-                    ],
-                    "implHandler": [
-                        "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
-                        "    this.insert(0, footer);\r",
                         "}"
                     ]
                 }
@@ -1186,11 +1185,9 @@
                         "    headerEl  = me.down('#touchtreegridheader').element,\r",
                         "    dataIndex = el.getAttribute('dataIndex'),\r",
                         "    sorters   = store.getSorters(),\r",
-                        "    sorter    = sorters[0],\r",
-                        "    dir       = sorter ? sorter.getDirection() : 'ASC',\r",
                         "    asc       = 'x-grid-sort-asc',\r",
                         "    desc      = 'x-grid-sort-desc',\r",
-                        "    c, column, colEl;\r",
+                        "    c, column, colEl, sorter, dir, grouper, grouperSortProperty, grouperDirection;\r",
                         "\r",
                         "if (!dataIndex) return;  //Included in event of extra toolbar space at far right\r",
                         "\r",
@@ -1201,7 +1198,26 @@
                         "\r",
                         "if (!column.sortable) return;\r",
                         "\r",
-                        "store.sort(dataIndex, dir === 'DESC' ? 'ASC' : 'DESC');\r",
+                        "grouper = store.getGrouper();\r",
+                        "if (!Ext.isEmpty(grouper)) {\r",
+                        "   grouperSortProperty = grouper.getSortProperty();\r",
+                        "   grouperDirection = grouper.getDirection();\r",
+                        "}    \r",
+                        "\r",
+                        "// Sort items within grouper if defined\r",
+                        "if (Ext.isEmpty(grouperSortProperty)) {\r",
+                        "    sorter    = sorters[0];\r",
+                        "    dir       = sorter ? sorter.getDirection() : 'ASC';\r",
+                        "    store.sort([{property: dataIndex, direction: dir === 'DESC' ? 'ASC' : 'DESC'}]);\r",
+                        "} else {\r",
+                        "    sorter    = sorters[2];  // 1st index is auto-added grouper sort,\r",
+                        "                             // 2nd index is default sorter defined in store (required for now!),\r",
+                        "                             // this 3rd index is user pressed column to sort\r",
+                        "    dir       = sorter ? sorter.getDirection() : 'ASC';\r",
+                        "    store.sort([{property: grouperSortProperty, direction: grouperDirection},\r",
+                        "           {property: dataIndex, direction: dir === 'DESC' ? 'ASC' : 'DESC'}]);\r",
+                        "}    \r",
+                        "\r",
                         "list.refresh();\r",
                         "\r",
                         "// Remove any prior sort indicators \r",
@@ -1217,6 +1233,25 @@
                         "el.addCls(dir === 'DESC' ? desc : asc);    \r",
                         "\r",
                         ""
+                    ]
+                }
+            },
+            {
+                "type": "basicfunction",
+                "reference": {
+                    "name": "items",
+                    "type": "array"
+                },
+                "codeClass": null,
+                "userConfig": {
+                    "fn": "updateFooter",
+                    "designer|params": [
+                        "footer"
+                    ],
+                    "implHandler": [
+                        "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
+                        "    this.insert(0, footer);\r",
+                        "}"
                     ]
                 }
             }

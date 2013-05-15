@@ -74,6 +74,9 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
             },
             "titlebar": {
                 gridhelp: 'onTitlebarGridhelp'
+            },
+            "tabpanel#liststabpanel": {
+                activeitemchange: 'onListsTabpanelActiveItemChange'
             }
         }
     },
@@ -223,7 +226,7 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
     },
 
     onMainTabpanelActiveItemChange: function(container, value, oldValue, eOpts) {
-        newcont = value.getItemId();
+        var newcont = value.getItemId();
         var grid, gridcont, numNodes, mydata, numRecords;
 
 
@@ -251,12 +254,25 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
             if (numNodes === 0) {this.loadExample2Store(gridcont);}  
         }
 
-        if (newcont === 'dow2012container'){
+        if (newcont === 'listscontainerXXX'){
             numRecords = grid.getStore().getData().length;
             if (numRecords === 0) {
                 Ext.Viewport.setMasked({
                     xtype: 'loadmask',
                     message: 'Loading DOW 2012...'
+                });
+                grid.getStore().load();
+                gridcont.doRefreshList();
+                Ext.Viewport.setMasked(false);
+            }  
+        }
+
+        if (newcont === 'listscontainer'){
+            numRecords = grid.getStore().getData().length;
+            if (numRecords === 0) {
+                Ext.Viewport.setMasked({
+                    xtype: 'loadmask',
+                    message: 'Loading List #1...'
                 });
                 grid.getStore().load();
                 gridcont.doRefreshList();
@@ -317,11 +333,14 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
 
         var currItem = Ext.Viewport.down('#maintabpanel').getActiveItem();
 
-        var grid, projex=false;
+        var grid;
         if (currItem.getItemId() === 'projecttab') {
             // Project example contained within sub tab panel so need to get active item of that 
-            projex=true;
             grid = currItem.down('#projecttabpanel').getActiveItem().down('touchtreegrid');
+        } 
+        else if (currItem.getItemId() === 'listscontainer') {
+            // Lists example contained within sub tab panel so need to get active item of that 
+            grid = currItem.down('#liststabpanel').getActiveItem().down('touchtreegrid');
         } else
         {    
             grid = currItem.down('touchtreegrid');
@@ -351,6 +370,54 @@ Ext.define('TouchTreeGrid.controller.TouchTreeGridController', {
         if (record.get('leaf')) {
             this.onExample2ListDiscloseOrHold(record, target, index);
         }
+    },
+
+    onListsTabpanelActiveItemChange: function(container, value, oldValue, eOpts) {
+        var newcont = value.getItemId();
+        var grid, gridcont, numNodes, mydata, numRecords;
+
+        gridcont = value.down('touchtreegrid');
+        grid = gridcont.down('#'+gridcont.getListItemId());
+
+        if (newcont === 'dow2012Cont'){
+            numRecords = grid.getStore().getData().length;
+            if (numRecords === 0) {
+                Ext.Viewport.setMasked({
+                    xtype: 'loadmask',
+                    message: 'Loading List#1...'
+                });
+                grid.getStore().load();
+                gridcont.doRefreshList();
+                Ext.Viewport.setMasked(false);
+            }  
+        }
+
+        if (newcont === 'dow2012grouperCont'){
+            numRecords = grid.getStore().getData().length;
+            if (numRecords === 0) {
+                Ext.Viewport.setMasked({
+                    xtype: 'loadmask',
+                    message: 'Loading List#2 ...'
+                });
+                grid.getStore().load();
+                gridcont.doRefreshList();
+                Ext.Viewport.setMasked(false);
+            }  
+        }
+
+        if (newcont === 'dow2012HorizCont'){
+            numRecords = grid.getStore().getData().length;
+            if (numRecords === 0) {
+                Ext.Viewport.setMasked({
+                    xtype: 'loadmask',
+                    message: 'Loading List#3 ...'
+                });
+                grid.getStore().load();
+                gridcont.doRefreshList();
+                Ext.Viewport.setMasked(false);
+            }  
+        }
+
     },
 
     loadExample2Store: function(gridcont) {

@@ -161,12 +161,37 @@
                 "app/store/TaskAccordion.js"
             ],
             "className": "TaskAccordion"
+        },
+        "9a1b5746-d7e3-4333-8728-02028726129c": {
+            "paths": [
+                "metadata/store/Dow2012grouper",
+                "app/store/override/Dow2012grouper.js",
+                "app/store/Dow2012grouper.js"
+            ],
+            "className": "Dow2012grouper"
+        },
+        "e962ecfd-8927-49d2-9de3-9d99522fcc4a": {
+            "paths": [
+                "metadata/view/ListsContainer",
+                "app/view/override/ListsContainer.js",
+                "app/view/ListsContainer.js"
+            ],
+            "className": "ListsContainer"
+        },
+        "8bd25b78-0281-4421-9d34-b0f92d1f5dfa": {
+            "paths": [
+                "metadata/store/Dow2012Horiz",
+                "app/store/override/Dow2012Horiz.js",
+                "app/store/Dow2012Horiz.js"
+            ],
+            "className": "Dow2012Horiz"
         }
     },
     "viewOrderMap": {
         "view": [
             "8c274233-2c62-4f46-b103-76d6c9f0def6",
             "34e87089-9f09-4c61-9b97-8fcb52f62e0d",
+            "e962ecfd-8927-49d2-9de3-9d99522fcc4a",
             "88563679-8cb3-4a20-9b12-690c42275ed7",
             "4c8cf420-dc3a-4258-87f3-37d85eb42fce",
             "f69ccd2f-9818-4a4a-ae44-35a96e2d82f3",
@@ -177,7 +202,9 @@
             "e3cd3555-a9f6-4600-b74d-38fdbc1973f9",
             "dbc02c5d-f3c6-4a17-95d9-cf19ebf9e830",
             "78f87ea9-233f-440a-a9bb-c0416f6d09c0",
-            "3ead9a44-1e8c-4852-8efd-bdf62a00c3bf"
+            "3ead9a44-1e8c-4852-8efd-bdf62a00c3bf",
+            "9a1b5746-d7e3-4333-8728-02028726129c",
+            "8bd25b78-0281-4421-9d34-b0f92d1f5dfa"
         ],
         "controller": [
             "ac3c8037-b03d-45af-ac33-d2b07600986d"

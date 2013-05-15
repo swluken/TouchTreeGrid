@@ -1,0 +1,71 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "groupField": null,
+        "model": "Dow2012",
+        "storeId": "Dow2012grouper",
+        "designer|userClassName": "Dow2012grouper"
+    },
+    "designerId": "9a1b5746-d7e3-4333-8728-02028726129c",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "./data/dow2012grouper.json"
+            },
+            "designerId": "f8d5fcb1-b8af-4d58-bede-404e1dc27294",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "clientIdProperty": null,
+                        "rootProperty": "datalist"
+                    },
+                    "designerId": "0885ff1c-5e6e-4258-bcee-430c0104b13a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.util.Grouper",
+            "reference": {
+                "name": "grouper",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "direction": "DESC",
+                "property": "grouper",
+                "sortProperty": "YearMonth"
+            },
+            "designerId": "19f50f43-3f6f-44d6-973e-3f8abbab0cf9"
+        },
+        {
+            "type": "Ext.util.Sorter",
+            "reference": {
+                "name": "sorters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "direction": "DESC",
+                "property": "CloseDate"
+            },
+            "designerId": "1a300445-f36a-4c03-a58d-6af97ffc0b51"
+        }
+    ]
+}

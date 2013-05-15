@@ -1,0 +1,43 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "model": "Dow2012",
+        "storeId": "Dow2012Horiz",
+        "designer|userClassName": "Dow2012Horiz"
+    },
+    "designerId": "8bd25b78-0281-4421-9d34-b0f92d1f5dfa",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "./data/dow2012horiz.json"
+            },
+            "designerId": "446666e9-9812-46c1-9de3-ec9851d8155e",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "clientIdProperty": null,
+                        "rootProperty": "datalist"
+                    },
+                    "designerId": "4891b43b-c02e-4cea-b080-68bb7f4ab828"
+                }
+            ]
+        }
+    ]
+}

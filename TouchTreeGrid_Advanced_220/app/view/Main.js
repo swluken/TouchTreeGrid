@@ -19,7 +19,8 @@ Ext.define('TouchTreeGrid.view.Main', {
 
     requires: [
         'TouchTreeGrid.view.TouchTreeGrid',
-        'TouchTreeGrid.view.ProjectContainer'
+        'TouchTreeGrid.view.ProjectContainer',
+        'TouchTreeGrid.view.ListsContainer'
     ],
 
     config: {
@@ -141,81 +142,15 @@ Ext.define('TouchTreeGrid.view.Main', {
                     },
                     {
                         xtype: 'container',
-                        title: 'DOW Hist',
-                        iconCls: 'time',
-                        itemId: 'dow2012container',
+                        title: 'Lists...',
+                        iconCls: 'action',
+                        itemId: 'listscontainer',
                         layout: {
                             type: 'fit'
                         },
                         items: [
                             {
-                                xtype: 'touchtreegrid',
-                                store: 'dow2012store',
-                                columns: [
-                                    {
-                                        header: 'CloseDate',
-                                        dataIndex: 'CloseDate',
-                                        width: '25%',
-                                        style: 'text-align: left; font-weight: bold; color: #008abc;',
-                                        headerStyle: 'text-align: left; color: #ccc;',
-                                        renderer: 'Ext.Date.format(values.CloseDate, "n/j/Y")',
-                                        sortable: true
-                                    },
-                                    {
-                                        header: 'Close',
-                                        dataIndex: 'Close',
-                                        width: '20%',
-                                        style: 'text-align: right;font-weight: bold;',
-                                        headerStyle: 'text-align: right; padding-right: .5em !important; color: #ccc;',
-                                        renderer: 'this.formatNumbers(values.Close, 0)',
-                                        sortable: true
-                                    },
-                                    {
-                                        header: 'Chg',
-                                        dataIndex: 'Chg',
-                                        width: '20%',
-                                        style: 'text-align: right;font-weight: bold;',
-                                        headerStyle: 'text-align: right; padding-right: .5em !important; color: #ccc;',
-                                        renderer: 'this.renderer_formatWithColor(values.Chg, 0)',
-                                        sortable: true
-                                    },
-                                    {
-                                        header: 'Chg%',
-                                        dataIndex: 'ChgPct',
-                                        width: '20%',
-                                        style: 'text-align: right;font-weight: bold;',
-                                        headerStyle: 'text-align: right; padding-right: .5em !important; color: #ccc;',
-                                        renderer: 'this.renderer_formatWithColor(values.ChgPct, 2, "", "%")',
-                                        sortable: true
-                                    }
-                                ],
-                                header: {
-                                    xtype: 'toolbar',
-                                    docked: 'top',
-                                    cls: 'touchtreegrid-header',
-                                    maxHeight: '2.6em',
-                                    minHeight: '2.6em',
-                                    padding: '.6em 0 0 0 !important'
-                                },
-                                listItemId: 'dow2012list',
-                                listPlugins: {
-                                    xclass: 'Ext.plugin.PullRefresh'
-                                },
-                                renderers: {
-                                    renderer_formatWithColor: function (value, decPlaces, prefix, suffix, thouSeparator, decSeparator)
-                                {var clr = (value >= 0) ? 'green' : 'red';
-                                return '<span style="color:' + clr + ';">' + this.formatNumbers(value, decPlaces, prefix, suffix, thouSeparator, decSeparator) +
-                                    '</span>';}
-                                },
-                                helpHtml: './resources/html/DOW2012Example.html',
-                                simpleList: true,
-                                columnSorting: true,
-                                styleCategRow: 'max-width: 85% !important;',
-                                cls: [
-                                    'x-touchtreegrid-list',
-                                    'x-touchtreegrid-list-dow2012'
-                                ],
-                                itemId: 'dow2012'
+                                xtype: 'listscontainer'
                             }
                         ]
                     },

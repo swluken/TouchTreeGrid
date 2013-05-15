@@ -104,6 +104,21 @@
 }
 
 
+/******************** DOW2012 GRID OVERRIDES ************************/
+.x-touchtreegrid-list-dow2012 .touchtreegrid-simplelist-cell{ /* simple list cells  */  
+    background-color: transparent;  /* needed for alternate shading */
+}
+
+.x-touchtreegrid-list-dow2012 .x-touchtreegrid-item:nth-child(even) {  /* for alternate shading */
+    background-color: #f5f5f5 !important;
+}
+
+/******************** DOW2012 HORIZ SCROLLING GRID OVERRIDES ************************/
+.x-touchtreegrid-list-dow2012Horiz .touchtreegrid-simplelist-cell{ /* simple list cells  */
+   height: 47px !important;
+}
+
+
 /******************** CENSUS DETAIL PANEL COLUMN TEXT OVERRIDES *********************/
 .censusdetailpanel .detailtextfields {
     text-align: right;

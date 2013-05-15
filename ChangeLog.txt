@@ -1,6 +1,58 @@
+5/15/2013 Commit Change Log:
+Summary: Sorting enhancement for grouped rows + New 2.2 Examples
+
+Touch 2.2 modifications(./TouchTreeGrid_Advanced_220/ directory):
+
+Modifications to 2.2 and 2.1 TouchTreeGrid components (all changes backward compatible)
+ - Created new version of Touch 2.2 architect component:  TouchTreeGrid.xdc
+ - Backward compatible mods to handleColumnSort() method within
+   TouchTreeGrid component to support column sorting within
+   Store Grouper rows.
+ - Changed TouchTreeGrid layout from FIT to VBOX and height = '100%' is default
+   when creating List component (this allows us to specify widths in pixels/em's
+   to support Horiz scrolling .. if not defined than width = 100% is implied)
+ - When creating list within updateStore() method, added logic to apply
+   following configs to List component if defined in linked TouchTreeGrid 
+   instance:  width, minWidth, height, minHeight
+   (width, minWidth, height must be specified in pixels/em's for Horiz scrolling) 
+ 
+Modifications to 2.2 examples:   
+ - Created ListsContainer.js to house all simple list examples
+    "Basic"   - DOW Hist with shaded rows
+    "Grouper" - "Basic" with row grouper and column sorting
+                within each grouping
+    "Horiz"   - Horizontal scrolling example
+
+ - Added 'grouper' and 'YearMonth' fields to Dow2012 Model
+ - Created Dow2012grouper Store defining grouper/sorter
+ - Created Dow2012Horiz Store
+ - Alternate shading to DOW History example via treegriddemo.css
+   Note sporadic shading issue will be fixed 2.2.1 release:
+   http://www.sencha.com/forum/showthread.php?253800-Sencha-2.1-List-Zebra-Stripes-Working-Incorrectly       
+ - treegriddemo.css updated for Horiz scrolling example to 
+   make cell height = 47 pixels matching item list height
+   (.x-touchtreegrid-list-dow2012Horiz .touchtreegrid-simplelist-cell).
+ - Modified onMainTabpanelActiveItemChange() in Controller to load 
+   DOW History store when Lists tab clicked
+ - Added onListsTabpanelActiveItemChange() in Controler to load
+   data for List examples (if not already loaded).  Included
+   Initialize() function to disable horizontal scrolling and 
+   make grid width match screen width > original grid width (576 pixels)
+ - Removed styleCategRow confiig from "Basic" as not applicable
+ - singleExpand = false (ProjectContainer, itemId='example2B')
+ - Fixed link to GITHUB link in README.md
+ - Updated HELP HTML files
+ - Updated "TouchTreeGrid - Documentation.pdf"
+   
+Touch 2.1 modifications(./TouchTreeGrid_Advanced_21/ and
+ ./TouchTreeGrid_Basic_21/ directories):
+ - Updated Touch 2.1 architect component:  TouchTreeGrid.xdc
+ - Refer to 2.2 for other component changes also made to 2.1 version.
+ 
+
 5/6/2013 Commit Change Log:
-Summary: Correct duplicate PullRefresh issue for DOW Hist example
 NOTE:  Changes to Examples only...NO changes to TouchTreeGrid component in this commit.
+Summary: Correct duplicate PullRefresh issue for DOW Hist example
  - Deleted TouchTreeGrid.xdc from parent directory to avoid confusion as each subdirectory
    contains Touch-specific versions:
      ./TouchTreeGrid_Advanced_21/TouchTreeGrid.xdc (Touch 2.1)

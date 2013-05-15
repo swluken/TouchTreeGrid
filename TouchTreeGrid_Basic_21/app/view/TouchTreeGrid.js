@@ -683,11 +683,9 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
             headerEl  = me.down('#touchtreegridheader').element,
             dataIndex = el.getAttribute('dataIndex'),
             sorters   = store.getSorters(),
-            sorter    = sorters[0],
-            dir       = sorter ? sorter.getDirection() : 'ASC',
             asc       = 'x-grid-sort-asc',
             desc      = 'x-grid-sort-desc',
-            c, column, colEl;
+            c, column, colEl, sorter, dir, grouper, grouperSortProperty, grouperDirection;
 
         if (!dataIndex) return;  //Included in event of extra toolbar space at far right
 
@@ -698,7 +696,26 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
         if (!column.sortable) return;
 
-        store.sort(dataIndex, dir === 'DESC' ? 'ASC' : 'DESC');
+        grouper = store.getGrouper();
+        if (!Ext.isEmpty(grouper)) {
+            grouperSortProperty = grouper.getSortProperty();
+            grouperDirection = grouper.getDirection();
+        }    
+
+        // Sort items within grouper if defined
+        if (Ext.isEmpty(grouperSortProperty)) {
+            sorter    = sorters[0];
+            dir       = sorter ? sorter.getDirection() : 'ASC';
+            store.sort([{property: dataIndex, direction: dir === 'DESC' ? 'ASC' : 'DESC'}]);
+        } else {
+            sorter    = sorters[2];  // 1st index is auto-added grouper sort,
+            // 2nd index is default sorter defined in store (required for now!),
+            // this 3rd index is user pressed column to sort
+            dir       = sorter ? sorter.getDirection() : 'ASC';
+            store.sort([{property: grouperSortProperty, direction: grouperDirection},
+            {property: dataIndex, direction: dir === 'DESC' ? 'ASC' : 'DESC'}]);
+        }    
+
         list.refresh();
 
         // Remove any prior sort indicators 
@@ -712,7 +729,6 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
         // Apply sort indicator to tapped column
         el.addCls(dir === 'DESC' ? desc : asc);    
-
 
     }
 

@@ -316,9 +316,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "title": "DOW Hist",
-                        "iconCls": "time",
-                        "itemId": "dow2012container",
+                        "title": "Lists...",
+                        "iconCls": "action",
+                        "itemId": "listscontainer",
                         "layout": "fit"
                     },
                     "designerId": "9cfe9d93-25c0-43b0-8436-5e537cb2160e",
@@ -330,91 +330,8 @@
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "userConfig": {
-                                "store": [
-                                    "dow2012store"
-                                ],
-                                "columns": [
-                                    "[\r",
-                                    "    {\r",
-                                    "        header: 'CloseDate',\r",
-                                    "        dataIndex: 'CloseDate',\r",
-                                    "        width: '25%',\r",
-                                    "        style: 'text-align: left; font-weight: bold; color: #008abc;',\r",
-                                    "        headerStyle: 'text-align: left; color: #ccc;',\r",
-                                    "        renderer: 'Ext.Date.format(values.CloseDate, \"n/j/Y\")',\r",
-                                    "        sortable: true\r",
-                                    "    },\r",
-                                    "    {\r",
-                                    "        header: 'Close',\r",
-                                    "        dataIndex: 'Close',\r",
-                                    "        width: '20%',\r",
-                                    "        style: 'text-align: right;font-weight: bold;',\r",
-                                    "        headerStyle: 'text-align: right; padding-right: .5em !important; color: #ccc;',\r",
-                                    "        renderer: 'this.formatNumbers(values.Close, 0)',\r",
-                                    "        sortable: true\r",
-                                    "    },\r",
-                                    "    {\r",
-                                    "        header: 'Chg',\r",
-                                    "        dataIndex: 'Chg',\r",
-                                    "        width: '20%',\r",
-                                    "        style: 'text-align: right;font-weight: bold;',\r",
-                                    "        headerStyle: 'text-align: right; padding-right: .5em !important; color: #ccc;',\r",
-                                    "        renderer: 'this.renderer_formatWithColor(values.Chg, 0)',\r",
-                                    "        sortable: true\r",
-                                    "    },\r",
-                                    "    {\r",
-                                    "        header: 'Chg%',\r",
-                                    "        dataIndex: 'ChgPct',\r",
-                                    "        width: '20%',\r",
-                                    "        style: 'text-align: right;font-weight: bold;',\r",
-                                    "        headerStyle: 'text-align: right; padding-right: .5em !important; color: #ccc;',\r",
-                                    "        renderer: 'this.renderer_formatWithColor(values.ChgPct, 2, \"\", \"%\")',\r",
-                                    "        sortable: true\r",
-                                    "    }\r",
-                                    "    ]"
-                                ],
-                                "header": [
-                                    "{\"xtype\":\"toolbar\",\r",
-                                    " \"docked\":\"top\",\r",
-                                    " \"cls\":\"touchtreegrid-header\",\r",
-                                    " \"maxHeight\":\"2.6em\",\r",
-                                    " \"minHeight\":\"2.6em\",\r",
-                                    " padding : \".6em 0 0 0 !important\"\r",
-                                    "}"
-                                ],
-                                "listItemId": "dow2012list",
-                                "listPlugins": [
-                                    "{\r",
-                                    "    xclass: 'Ext.plugin.PullRefresh'\r",
-                                    "}"
-                                ],
-                                "renderers": [
-                                    "{renderer_formatWithColor: function (value, decPlaces, prefix, suffix, thouSeparator, decSeparator)\r",
-                                    "{var clr = (value >= 0) ? 'green' : 'red';\r",
-                                    "return '<span style=\"color:' + clr + ';\">' + this.formatNumbers(value, decPlaces, prefix, suffix, thouSeparator, decSeparator) +\r",
-                                    "    '</span>';}}"
-                                ],
-                                "helpHtml": "./resources/html/DOW2012Example.html",
-                                "simpleList": true,
-                                "columnSorting": true,
-                                "styleCategRow": "max-width: 85% !important;",
-                                "additionalListConfigs": null,
-                                "mode": null,
-                                "cls": [
-                                    "x-touchtreegrid-list",
-                                    "x-touchtreegrid-list-dow2012"
-                                ],
-                                "itemId": "dow2012"
-                            },
-                            "configAlternates": {
-                                "simpleList": "boolean",
-                                "headerSorting": "boolean",
-                                "columnSorting": "boolean",
-                                "additionalListConfigs": "object"
-                            },
-                            "designerId": "b7f89498-54f0-4079-bb0c-2e71379c96f9",
-                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                            "designerId": "634531c0-5a8d-4675-a6fb-97a1646419b8",
+                            "masterInstanceId": "e962ecfd-8927-49d2-9de3-9d99522fcc4a"
                         }
                     ]
                 },

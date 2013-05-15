@@ -91,7 +91,7 @@
 
 
 .x-touchtreegrid-list .touchtreegrid-header {  /* Titlebar with column headers  */
-    width:100%;
+  /*  width:100%;  */
     padding:0.4em 0 0 0;
     margin:0;
     color: #fff;

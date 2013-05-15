@@ -139,6 +139,32 @@
                 "name": "ID"
             },
             "designerId": "b860dfa5-f118-4e2d-b3e1-a34476a890c2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "grouper",
+                "type": "string"
+            },
+            "designerId": "104d8b11-d568-4d25-b37b-94e61f6ceade"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "YearMonth",
+                "type": "int"
+            },
+            "designerId": "d9546419-063f-4475-9294-7187960cedbb"
         }
     ]
 }

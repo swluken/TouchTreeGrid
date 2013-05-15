@@ -57,6 +57,14 @@ Ext.define('TouchTreeGrid.model.Dow2012', {
             },
             {
                 name: 'ID'
+            },
+            {
+                name: 'grouper',
+                type: 'string'
+            },
+            {
+                name: 'YearMonth',
+                type: 'int'
             }
         ]
     }
