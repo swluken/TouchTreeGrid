@@ -35,14 +35,24 @@ Requires webkit-enabled browser:  Chrome, Safari, or actual mobile device.
 
 Planned Enhancements (pending feedback)
 ---------------
-- Support for Row Renderer function that will specify different CSS selector based on data attribute
-- Support option to define different column layouts/widths/contents for Category and Header rows (TreeGrids)
-- Support for check  boxes, icons/pix and other components within cells
-- Column show/hide example
-- More renderer function examples
-- Support of optional auto-generated Ext.dataview.DataView (vs. Ext.dataview.List) for grid
-- Possible support to add custom buttons to auto-generated Footer toolbar
-- Possible support for locked columns
+   - Support initially sorted shading feature    
+   - Support optional column CLS references in lieu of Styles. Example:
+
+     cls, sortedCls, categCls, categSortedCls, headerCls, headerSortedCls 
+     instead of (or in addition to) existing style equivalents:
+     style, styleSorted, categStyle, categStyleSorted, headerStyle, headerStyleSorted
+            
+   - Treestore filtering example
+   - Column sorting within TreeGrid categories.
+   - Multi-column sorting feature
+   - Support for Row Renderer function that will specify different CSS selector based on data attribute
+   - Example supporting check  boxes, icons/pix and other components within cells
+   - Column show/hide/add example with accompaning methods
+   - More renderer function examples
+   - Easy config options to auto-add buttons to footer to "auto-display" different sets of columns 
+    (or provide methods for custom buttons)
+   - Possible support for locked columns   
+   - Seeking interest on supporting config option to use Ext.dataview vs. Ext.dataview.List
 
 Getting Started
 ---------------
@@ -56,4 +66,4 @@ License
 Copyright (c) 2013 Steve Luken. 
 This software is free to use (refer to associated MIT.LISCENSE) .
 
-**Don't forget to star this repository to be notified for frequent changes !!
+**Don't forget to STAR this repository in GITHUB to be notified for frequent changes !!

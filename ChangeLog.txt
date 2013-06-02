@@ -1,3 +1,101 @@
+6/2/2013 COMMIT CHANGE LOG:
+Summary: Multiple new Features and Examples.
+
+*** MODIFICATIONS THAT REQUIRE UPDATES TO PRIOR IMPLEMENTATIONS ***
+ - Renamed "./TouchTreeGrid_Advanced_220/" directory to "./TouchTreeGrid_Advanced_22/"
+   as this will always contain the latest version of Touch 2.2x  (currently 2.2.1)
+   
+ - Add following CSS selector to your TouchTreeGrid.css file
+   (or simply replace your version with one in download as any
+    custom CSS changes should really be done on your custom CSS file anyway):
+     .x-touchtreegrid-list .touchtreegrid-header-cell {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip; 
+     }   
+-  In TouchTreeGrid.css removed the string 'LEFT CENTER' from end of
+   'background' attribute in selectors: 
+      '.x-touchtreegrid-list .x-grid-sort-desc'
+      '.x-touchtreegrid-list .x-grid-sort-asc '
+    (again, if you never change this file and only
+     update your custom CSS file you can simply overlay the new file)    
+     
+- Add 'display: -webkit-box;-webkit-box-orient: horizontal;' to 
+  following configs if these configs are customized in any linked instances of 
+  TouchTreeGrid (not common):
+  styleContentRow, styleCategRow, styleHeaderRow
+  Note:  This style string is now the default for any future implementations. 
+  
+- Changed default for landscapeIcon config from './resources/images/Recycle.png' to ''
+  If anyone was using the feature to display this icon when their phone was rotated
+  to landscape position, they will need to redefine it for their linked instances.
+  This is more of a nice-to-have feature and should not be a required resource for new implementations.
+
+- Changed default data type for 'store' config from OBJECT to STRING.  
+  Doesn't seem like Architect will allow entry of Ext.create.store(....) statements
+  (or functions returning this) in an object as I was hoping. 
+  Keeping the type as string will simplify use for most users going forward.
+  I'm not expecting this to impact pre-existing implementations.  You can check
+  store config in your generated views after upgrading the component and saving to see if anything
+  was corruptted in the config and fix it back in Architect if ncecessary.
+  
+
+*** MODIFICATIONS TO TOUCH 2.2x AND 2.1x TOUCHTREEGRID VERSION COMPONENTS ***
+ - TouchTreeGrid.xdc components (Touch 2.2x and 2.1x versions) converted to latest
+   Architect Version: 2.2.2 Build: 991
+ 
+ - Added config arrowPctWidth (default = 4%) to allow control over percent screen width
+   that category arrow consumes (example: tablet configs would want to use less width ... 2%)
+   Updated methods accordingly: updateColumns() and doRefreshList()
+   
+ - Added CSS selector "touchtreegrid-header-cell" to construction of Header cells
+   and added entry to TouchTreeGrid.css.  Updated handleColumnSort() to reference this selector name.
+   You can override via custom CSS file.
+   Removed hardcoded styles in DIV statement within doRefreshList().
+   Added width and max-width configs to defintion of header cell.
+   
+ - Added customColumnSortEvent config which if defined is the name of the event fired when
+   handling column sort tap.  Built-in logic will be bypassed.  This allows for custom
+   column sort functionality without modifying the component.  Example would be when
+   sort needs to occur on the server-side or to toggle between more states:
+   ASC, DESC, ABS(ASC), ABS(DESC), etc...  Refer to logic in 
+   handleColumnSort() for parameters passed with event.
+   
+ - Modified handleColumnSort() to apply following new configs on the sorted column (if defined):
+   styleSorted, categStyleSorted, headerStyleSorted
+   
+ - New config: categColumns[] (refer to example Lists=> Grouper2)
+   This allows for separate definition of Category columns from Detail row columns.  
+   I originally wanted to support this as an array of array (i.e. different configs for 
+   each category level), but ran into performance issues and backed out the code to 
+   only support one CategColumns config for all levels.  Since category rows share the
+   same dataIndex, you can still populate and customize the display for each level to
+   some extent.
+   Note on implementation:  If updating categColumns[] in controller code, you MUST update 
+   this config before updating columns[] config.  If you update categColumns[] within your
+   linked view instance than order doesn't matter.
+   
+ - TouchTreeGrid styleContentRow config defaulted to 'display: -webkit-box;-webkit-box-orient: horizontal;' instead
+   of hardcoding in updateColumns() method.  This allows for more developer control.  If custom styles
+   were added via styleContent in  linked instances then those definitions need to be modified to include the "display.."
+   string to function the same as before.  Note:  styleContentRow for TaskList example had to be modified
+   as a result of this.
+   
+ - Same change made to styleContentRow and styleHeaderRow configs for same reason.   Updates are required to 
+   linked instances to include 'display: -webkit-box;-webkit-box-orient: horizontal;' if either of these configs
+   were previously used.
+ 
+ - Added disableExpandCollapse config if it is desired to prevent expand/collapse when category rows pressed
+  (default = false) for backward compatibility.  Note:  'nodeItemTap' event will still be fired.
+   Modified onItemTap() method accordingly. Note:  expand/collapse buttons on footer will not be disabled
+   in event this feature is still desired.
+   
+ - Removed 'height : 1.6em;' from '.x-touchtreegrid-list .touchtreegrid-header' selector in TouchTreeGrid.css
+   to avoid confusion as Header heights can only be modified using header{} object in linked instance currently.
+ 
+
+
+
 5/15/2013 Commit Change Log:
 Summary: Sorting enhancement for grouped rows + New 2.2 Examples
 

@@ -46,12 +46,15 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         pressedCls: 'touchtreegrid-item-pressed',
         simpleList: false,
         columnSorting: false,
-        styleContentRow: '',
-        styleCategRow: '',
-        styleHeaderRow: '',
+        styleContentRow: 'display: -webkit-box;-webkit-box-orient: horizontal;',
+        styleCategRow: 'display: -webkit-box;-webkit-box-orient: horizontal;',
+        styleHeaderRow: 'display: -webkit-box;-webkit-box-orient: horizontal;',
         singleExpand: false,
         selectedCls: 'touchtreegrid-item-selected',
         mode: 'SINGLE',
+        arrowPctWidth: '4',
+        customColumnSortEvent: '',
+        disableExpandCollapse: false,
         cls: 'x-touchtreegrid-list',
         layout: {
             type: 'fit'
@@ -91,7 +94,10 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         },
         additionalListConfigs: {
             
-        }
+        },
+        categColumns: [
+            
+        ]
     },
 
     initialize: function(config) {
@@ -117,24 +123,31 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         // Proceed to build TPL for header row
         var styleStr = '', rendStr='';
         var categ = me.getCategItemTplOverride();
-        var indent = me.getCategIndentPct().toString(); // % of window to indent per level (starting at 0%)
+        var indent = me.getCategIndentPct().toString().replace("%", ""); // % of window to indent per level (starting at 0% ... default =3%)
+        var arrowWid = me.getArrowPctWidth().toString().replace("%", ""); // allow control over percent screen width that category arrow consumes (def = 4%)
+
+
+        var categStyle = Ext.isEmpty(me.getStyleCategRow()) ? '' : ' style="' + me.getStyleCategRow() + '"';
+        var contentStyle = Ext.isEmpty(me.getStyleContentRow()) ? '' : ' style="' + me.getStyleContentRow() + '"';
 
         var indentCol = me.getColNumberToTruncateForIndents()-1; // This column width value will be truncated to account for indent
         // Subtract 1 from column number to array index # applied below.
         // Width expected to be in pct format as last '%' character will be stripped for computation : '25%'
 
-        var data = me.getColumns();
+        var data = me.getColumns(); // single dimention array of objects defining each column
+        var categData = me.getCategColumns(); // optional multi-dimension array of objects of category columns defs by level
+
         if (this.isObjectEmpty(data)) {  
             // Initialize column data for scenario where column array updated within controller after component initialization
             data ={header: '', dataIndex: '', width: '', style: '', categStyle: '', headerStyle: ''};
         }
 
-        if (categ==='' && !simpleList) {   // Use default if not provided by user
-            var shellArr = 
+        var shellArr=[], i, k, categArr=[],
+            prefixArr = 
             [
-            '<div style="display: -webkit-box; -webkit-box-orient: horizontal;'+me.getStyleCategRow()+'">',
+            '<div' + categStyle + '>',
             '<p align="left" style="width:{[(values.depth-1)*'+indent+']}%;"</p>',    // 3% per depth starting at 0% 
-            '<p align="left" style="width:4%;min-width:4%;max-width:4%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">', 
+            '<p align="left" style="width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+'%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">', 
             '<span class="touchtreegrid-details-img ',
             '<tpl if="this.isExpanded(values)">',   
             'touchtreegrid-details-img-open" </span></p>',
@@ -143,10 +156,13 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
             '</tpl>'
             ];
 
+        if (categ==='' && !simpleList && Ext.isEmpty(categData)) {   
+            // Process category row TPL (same TPL for all category rows defined via Columns array)
 
-            for (var i=0; i<data.length; i++) {
+            shellArr.push(prefixArr.join(''));
+            for (i=0; i<data.length; i++) {
 
-                // Use categStyle if exists, else applie detail row style to category row
+                // Use categStyle if exists, else apply detail row style to category row
                 if (data[i].categStyle && data[i].categStyle > '') {styleStr = data[i].categStyle;}
                 else if (data[i].style) {styleStr = data[i].style;}
                 else {styleStr = '';}
@@ -154,12 +170,13 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                 // Substitute user-defined renderer string from Columns array if defined
                 rendStr = ((!data[i].renderer) ? data[i].dataIndex : '[' + data[i].renderer + ']');
 
-                if (i===indentCol) {     
+                if (i===indentCol) {    
+                    // Subtract percentage width based on level          
                     shellArr.push('<p class="touchtreegrid-list-categ-cell" style="' +
-                    'min-width:{[' + data[i].width.substr(0, data[i].width.length-1) + '-((values.depth-1)*'+indent+')]}% !important;' + 
-                    'max-width:{[' + data[i].width.substr(0, data[i].width.length-1) + '-((values.depth-1)*'+indent+')]}% !important;' + 
-                    'width:{[' + data[i].width.substr(0, data[i].width.length-1) + '-((values.depth-1)*'+indent+')]}% !important;' + 
-                    styleStr + '" >{' + data[i].dataIndex + '}</p>');                       
+                    'min-width:{[' + data[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
+                    'max-width:{[' + data[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
+                    'width:{[' + data[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
+                    styleStr + '" >{' + rendStr + '}</p>');                       
                 } else {           
                     shellArr.push('<p class="touchtreegrid-list-categ-cell" style="' +
                     'min-width:' + data[i].width + ' !important;' + 
@@ -171,17 +188,57 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
             shellArr.push('</div>');  
             categ=shellArr.join('');
+            me.setCategItemTpl(categ);
         }
+        else if (categ==='' && !simpleList && !Ext.isEmpty(categData)) {
+            // Process category row TPL as defined in categColumns.  
 
-        var categrows = me.setCategItemTpl(categ);
+            shellArr = []; 
+            shellArr.push(prefixArr.join(''));  // Initialize with arrow and row style definitions
+
+            for (i=0; i<categData.length; i++) {  // loop for each object defined in current sub-array
+
+                // Use categStyle if exists, else apply detail row style to category row
+                if (categData[i].categStyle && categData[i].categStyle > '') {styleStr = categData[i].categStyle;}
+                else if (categData[i].style) {styleStr = categData[i].style;}
+                else {styleStr = '';}
+
+                // Substitute user-defined renderer string from Columns array if defined
+                rendStr = ((!categData[i].renderer) ? categData[i].dataIndex : '[' + categData[i].renderer + ']');
+
+                if (i===indentCol) {     
+                    // Subtract percentage width based on level             
+                    shellArr.push('<p class="touchtreegrid-list-categ-cell" style="' +
+                    'min-width:{[' + categData[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
+                    'max-width:{[' + categData[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
+                    'width:{[' + categData[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
+                    styleStr + '" >{' + rendStr + '}</p>');                       
+                } else {           
+                    shellArr.push('<p class="touchtreegrid-list-categ-cell" style="' +
+                    'min-width:' + data[i].width + ' !important;' + 
+                    'max-width:' + data[i].width + ' !important;' + 
+                    'width:' + data[i].width + ' !important;' + 
+                    styleStr + '" >{' + rendStr + '}</p>');
+                }  
+            }
+
+            shellArr.push('</div>');  
+            categArr=shellArr.join('');
+
+            me.setCategItemTpl(categArr);  
+
+        }
+        else {me.setCategItemTpl(categ);}  // simply update with TPL provided in CategItemTplOverride config (ignored for simpleList=true)
+
+
 
         var detail = me.getContentItemTplOverride();
         var detailArr, j;
         if (detail==='' && !simpleList) {
             detailArr = [
-            '<div style="display: -webkit-box;-webkit-box-orient: horizontal;'+me.getStyleContentRow()+'">',
+            '<div' + contentStyle + '>',
             '<p align="left" style="width:{[(values.depth-1)*'+indent+']}%;"</p>',    // 3% per depth starting at 0%         
-            '<p align="left" style="width:4%;min-width:4%;max-width:4%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">&nbsp;</p>'
+            '<p align="left" style="width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+'%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">&nbsp;</p>'
             ];
 
             for (j=0; j<data.length; j++) {
@@ -190,12 +247,13 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                 rendStr = ((!data[j].renderer) ? data[j].dataIndex : '[' + data[j].renderer + ']');
 
                 if (j===indentCol) {     
+                    // Subtract percentage width based on level
                     detailArr.push('<p class="touchtreegrid-list-content-cell" style="' +
-                    'min-width:{[' + data[j].width.substr(0, data[j].width.length-1) + '-((values.depth-1)*'+indent+')]}% !important;' + 
-                    'max-width:{[' + data[j].width.substr(0, data[j].width.length-1) + '-((values.depth-1)*'+indent+')]}% !important;' + 
-                    'width:{[' + data[j].width.substr(0, data[j].width.length-1) + '-((values.depth-1)*'+indent+')]}% !important;' + 
+                    'min-width:{[' + data[j].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
+                    'max-width:{[' + data[j].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
+                    'width:{[' + data[j].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
                     ((data[j].style === '') ? '' : data[j].style) + '" ' +
-                    '>{' + data[j].dataIndex + '}</p>');                  
+                    '>{' + rendStr + '}</p>');                  
                 } else {           
                     detailArr.push('<p class="touchtreegrid-list-content-cell" style="' +
                     'min-width:' + data[j].width + ' !important;' + 
@@ -235,7 +293,6 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
             detail=detailArr.join('');    
         }   
         var content = me.setContentItemTpl(detail);    
-
 
     },
 
@@ -322,7 +379,8 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         */
 
         var store = list.getStore(),
-            node = store.getAt(index);
+            node = store.getAt(index),
+            disabledExpColl = this.getDisableExpandCollapse();
 
         if (this.getSimpleList() || node.isLeaf()) {
             this.fireEvent('leafItemTap', this, list, index, target, record, e);
@@ -330,30 +388,34 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         } 
         else if (this.getSingleExpand() && !node.isExpanded()) {
             // If node collapsed, then expand this one and collapse all sibling nodes
-            this.fireEvent('nodeItemTap', this, list, index, target, record, e);  
-            debugger; 
-            node.expand(false);
-            var parent = node.parentNode;
-            var children = parent.childNodes;
-            for (var i=0; i<children.length; i++) {
-                if (children[i] !== node && children[i].isExpanded()) {
-                    children[i].collapse();
+            this.fireEvent('nodeItemTap', this, list, index, target, record, e);
+
+            if (!disabledExpColl) {
+                node.expand(false);
+                var parent = node.parentNode;
+                var children = parent.childNodes;
+                for (var i=0; i<children.length; i++) {
+                    if (children[i] !== node && children[i].isExpanded()) {
+                        children[i].collapse();
+                    }
                 }
             }
         }
         else {
             this.fireEvent('nodeItemTap', this, list, index, target, record, e);  
 
-            var xPosition = list.getScrollable().getScroller().position.x;
-            var yPosition = list.getScrollable().getScroller().position.y;
+            if (!disabledExpColl) {
+                var xPosition = list.getScrollable().getScroller().position.x;
+                var yPosition = list.getScrollable().getScroller().position.y;
 
-            if (node.isExpanded()) {
-                node.collapse();
-            } else {
-                node.expand(false);
+                if (node.isExpanded()) {
+                    node.collapse();
+                } else {
+                    node.expand(false);
+                }
+
+                list.getScrollable().getScroller().scrollTo(xPosition, yPosition, {duration: 0});
             }
-
-            list.getScrollable().getScroller().scrollTo(xPosition, yPosition, {duration: 0});
 
         }
     },
@@ -466,7 +528,7 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         // Fire custom event for expand/collapse if specified
         var customEvent = this.getCustomExpCollapseEvent();
         if (customEvent !== '') {
-            this.fireEvent(customEvent, {collapseLevel: depth});
+            this.fireEvent(customEvent, {collapseLevel: depth, list: list, gridcont: this});
             return;
         }
 
@@ -480,7 +542,6 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
             }
         }
         store.each(expandDepth, this);
-
 
     },
 
@@ -496,29 +557,33 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         var colorArr = me.getCategDepthColorsArr();
         var colorDepth = me.getCategDepthColors();
         var colorDepthButtons = me.getCategDepthColorButtons();
+        var arrowWid = me.getArrowPctWidth(); // allow control over percent screen width that category arrow consumes (def = 4%)
+
         var itemTpl;
 
         // Customize TPL to change colors by category depth as defined in colorArr
-        var colorStyle = (colorDepth ? 'style="background-color: {[this.depthColor(values)]} !important;"' : '');
+        var colorStyle = (colorDepth ? ' style="background-color: {[this.depthColor(values)]} !important;"' : '');
+        var categArrSize = me.getCategItemTpl().length-1;
 
         var tpl;
         if (!simpleList) {
+
             tpl = [
             '<tpl if="leaf">',
             '<div class="touchtreegrid-list-content">',
             me.getContentItemTpl(),
-            '</div>',
+            '</div>', 
             '<tpl else>',
-            '<div class="touchtreegrid-list-categ" '+colorStyle + '>',
+            '<div class="touchtreegrid-list-categ" '+colorStyle + '> ',
             me.getCategItemTpl(),
-            '</div>',
+            '</div>',  
             '</tpl>'
             ].join('');
-        }
-        else {
+
+        } else {
             tpl = [
             //    '<div class="touchtreegrid-list-content">',
-            me.getContentItemTpl(),
+            me.getContentItemTpl()
             //   '</div>'
             ].join('');
         }
@@ -547,14 +612,18 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         var data = me.getColumns();
 
         var styleStr;
+        var headerStyle = Ext.isEmpty(me.getStyleHeaderRow()) ? '' : ' style="' + me.getStyleHeaderRow() + '"';
+
         var headerTpl = me.getHeaderTplOverride();
         if (headerTpl==='') {
 
             var headerTplArr = [
-            '<div style="display: -webkit-box;-webkit-box-orient: horizontal;'+me.getStyleHeaderRow()+'">'    
+            '<div' + headerStyle + '>'
             ];
             if (!simpleList) {
-                headerTplArr.push('<p align="left" style="width:4%;min-width:4%;max-width:4%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">&nbsp;</p>');
+                // Include spacer width for category arrow
+                headerTplArr.push('<p align="left" style="width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+
+                '%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">&nbsp;</p>');
             }
 
             for (var j=0; j<data.length; j++) {
@@ -564,8 +633,10 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                 else if (data[j].style) {styleStr = data[j].style;}
                 else {styleStr = '';}        
 
-                headerTplArr.push('<p class="grid-cell-hd" style="min-width:' + data[j].width +
-                ';white-space: nowrap;overflow:hidden;text-overflow:clip;' +
+                headerTplArr.push('<p class="touchtreegrid-header-cell' +
+                (!Ext.isEmpty(data[j].initSortCls) ? ' '+data[j].initSortCls : '') + // see comments in handleColumnSort()
+                '" style="min-width:' + data[j].width +' !important;' +
+                'max-width:'+data[j].width + ' !important; width:' + data[j].width + ' !important;' +
                 styleStr + '" dataIndex="'+data[j].dataIndex+'">' + data[j].header + '</p>');               
             }
             headerTplArr.push('</div>');  
@@ -676,6 +747,7 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
         var me        = this,
             list      = me.getList(),
+            grouped   = list.getGrouped(),
             columns   = me.getColumns(),
             cNum      = columns.length,
             store     = list.getStore(),
@@ -685,50 +757,131 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
             sorters   = store.getSorters(),
             asc       = 'x-grid-sort-asc',
             desc      = 'x-grid-sort-desc',
-            c, column, colEl, sorter, dir, grouper, grouperSortProperty, grouperDirection;
+            myEvent   = me.getCustomColumnSortEvent(),
+            columnsUpdated = false,
+            c, colIndex, column, columnsUpd=[], colEl, sorter, dir,
+            grouper, grouperSortProperty, grouperDirection, grouperProperty, mySortIdx, newDirCls;
 
-        if (!dataIndex) return;  //Included in event of extra toolbar space at far right
+        if (!dataIndex) return;  //Included in event of tap on extra toolbar space at far right
 
         for (c=0; c < cNum; c++) {
             column = columns[c];
             if (column.dataIndex === dataIndex) {break;}
+        }
+        colIndex = c;
+
+        if (myEvent !== '') {
+            // Custom event specified to be fired in lieu of default processing
+            me.fireEvent(myEvent,{me: me, e: e, t: t,  el: el, headerEl: headerEl,
+            dataIndex: dataIndex, column: column});
+            return;    
         }
 
         if (!column.sortable) return;
 
         grouper = store.getGrouper();
         if (!Ext.isEmpty(grouper)) {
+            grouperProperty = grouper.getProperty();
             grouperSortProperty = grouper.getSortProperty();
-            grouperDirection = grouper.getDirection();
-        }    
+            grouperDirection = Ext.isEmpty(grouper.getDirection()) ? 'ASC' : grouper.getDirection();
+        }
+
+        // sorters array may be prefilled with grouper-related sorts, last index is one for my current column sort
+        mySortIdx = sorters.length-1;
+        sorter    = sorters[mySortIdx];
+        dir       = sorter ? sorter.getDirection() : 'ASC';    
+        newDirCls = (dir === 'DESC' ? desc : asc);
+
 
         // Sort items within grouper if defined
-        if (Ext.isEmpty(grouperSortProperty)) {
-            sorter    = sorters[0];
-            dir       = sorter ? sorter.getDirection() : 'ASC';
-            store.sort([{property: dataIndex, direction: dir === 'DESC' ? 'ASC' : 'DESC'}]);
+        if (Ext.isEmpty(grouper)){
+            store.sort([{property: dataIndex, direction: dir === 'DESC' ? 'ASC' : 'DESC'}]);    
         } else {
-            sorter    = sorters[2];  // 1st index is auto-added grouper sort,
-            // 2nd index is default sorter defined in store (required for now!),
-            // this 3rd index is user pressed column to sort
-            dir       = sorter ? sorter.getDirection() : 'ASC';
             store.sort([{property: grouperSortProperty, direction: grouperDirection},
             {property: dataIndex, direction: dir === 'DESC' ? 'ASC' : 'DESC'}]);
         }    
 
-        list.refresh();
+        // Copy columns[], update the copy then restore so that updateColumns() method isn't 
+        // invoked via updateColumns() method until all updates are complete
+        columnsUpd = Ext.clone(columns); 
 
         // Remove any prior sort indicators 
         for (c=0; c < cNum; c++) {
-            colEl = Ext.get(headerEl.down('p.grid-cell-hd[dataIndex=' + columns[c].dataIndex + ']'));
+            colEl = Ext.get(headerEl.down('p.touchtreegrid-header-cell[dataIndex=' + columns[c].dataIndex + ']'));
             if (!me.isObjectEmpty(colEl)) {
                 colEl.removeCls(asc);
                 colEl.removeCls(desc);
-            }    
+            } 
+
+
+            // Process column shading if sorted properties are defined in columns[] array:
+            // => headerStyleSorted, categStyleSorted, styleSorted
+            if (c===colIndex) {
+                // Save Original styles and update with sorted styles
+                if (!Ext.isEmpty(columnsUpd[c].headerStyleSorted) && !Ext.isEmpty(columnsUpd[c].headerStyle)) {
+                    if (Ext.isEmpty(columnsUpd[c].headerStyleOrig)) {
+                        columnsUpd[c].headerStyleOrig = columnsUpd[c].headerStyle;
+                    }
+                    if (columnsUpd[c].headerStyle !== columnsUpd[c].headerStyleSorted) {
+                        columnsUpd[c].headerStyle = columnsUpd[c].headerStyleSorted;
+                        columnsUpd[c].initSortCls = newDirCls;   // Store new CLS to array so that doRefreshList() will render sort arrow correctly when redrawing         
+                        columnsUpdated = true;
+                    }                
+
+                }
+                if (!Ext.isEmpty(columnsUpd[c].categStyleSorted) && !Ext.isEmpty(columnsUpd[c].categStyle)) {
+                    if (Ext.isEmpty(columnsUpd[c].categStyleOrig)) {
+                        columnsUpd[c].categStyleOrig = columnsUpd[c].categStyle;
+                    }
+                    if (columnsUpd[c].categStyle !== columnsUpd[c].categStyleSorted) {
+                        columnsUpd[c].categStyle = columnsUpd[c].categStyleSorted;
+                        columnsUpdated = true;
+                    }                
+                }        
+                if (!Ext.isEmpty(columnsUpd[c].styleSorted) && !Ext.isEmpty(columnsUpd[c].style)) {
+                    if (Ext.isEmpty(columnsUpd[c].styleOrig)) {
+                        columnsUpd[c].styleOrig = columnsUpd[c].style;
+                    }
+                    if (columnsUpd[c].style !== columnsUpd[c].styleSorted) {
+                        columnsUpd[c].style = columnsUpd[c].styleSorted;
+                        columnsUpdated = true;
+                    }                
+                }
+            } else {
+                // Restore Original styles for non-sorted columnsUpd
+                if (!Ext.isEmpty(columnsUpd[c].headerStyleOrig) && !Ext.isEmpty(columnsUpd[c].headerStyle)) {
+                    if (columnsUpd[c].headerStyle !== columnsUpd[c].headerStyleOrig) {
+                        columnsUpd[c].headerStyle = columnsUpd[c].headerStyleOrig;
+                        columnsUpd[c].initSortCls = '';      // reset                       
+                        columnsUpdated = true;
+                    }                
+                }
+                if (!Ext.isEmpty(columnsUpd[c].categStyleOrig) && !Ext.isEmpty(columnsUpd[c].categStyle)) {
+                    if (columnsUpd[c].categStyle !== columnsUpd[c].categStyleOrig) {
+                        columnsUpd[c].categStyle = columnsUpd[c].categStyleOrig;
+                        columnsUpdated = true;
+                    }                
+                }        
+                if (!Ext.isEmpty(columnsUpd[c].styleOrig) && !Ext.isEmpty(columnsUpd[c].style)) {
+                    if (columnsUpd[c].style !== columnsUpd[c].styleOrig) {
+                        columnsUpd[c].style = columnsUpd[c].styleOrig;
+                        columnsUpdated = true;
+                    }                
+                }        
+            }
         }
 
-        // Apply sort indicator to tapped column
-        el.addCls(dir === 'DESC' ? desc : asc);    
+        if (columnsUpdated) {
+            me.setColumns(columnsUpd);  
+            me.doRefreshList();
+        }
+        else {list.refresh();}
+
+        // Apply sort indicator to tapped column  (need this after doRefreshList() called .. but also handled in doRefreshList do to race conditioons)
+        var newEl = el.addCls(newDirCls);    
+
+
+
 
     }
 

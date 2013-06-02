@@ -7,12 +7,13 @@
     "codeClass": null,
     "userConfig": {
         "height": "85%",
+        "ui": "light",
         "width": "85%",
         "designer|userClassName": "GridHelpPanel",
         "designer|userAlias": "gridHelpPanel",
         "hideOnMaskTap": true,
         "modal": true,
-        "scrollable": "both"
+        "scrollable": false
     },
     "designerId": "f69ccd2f-9818-4a4a-ae44-35a96e2d82f3"
 }

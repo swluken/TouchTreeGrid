@@ -1,0 +1,68 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": "85%",
+        "width": "85%",
+        "designer|userClassName": "GridHelpPanel",
+        "designer|userAlias": "gridHelpPanel",
+        "hideOnMaskTap": true,
+        "modal": true,
+        "scrollable": "both"
+    },
+    "designerId": "f69ccd2f-9818-4a4a-ae44-35a96e2d82f3",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": null,
+                "container|pack": null,
+                "docked": "top",
+                "ui": "light"
+            },
+            "designerId": "fef26bee-f682-4d76-83a1-c445427b2307",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconMask": true,
+                        "docked": "right",
+                        "itemId": "helpPanelCloseBtn",
+                        "margin": null,
+                        "maxWidth": null,
+                        "padding": null,
+                        "ui": "action",
+                        "width": null,
+                        "iconCls": "delete",
+                        "text": null
+                    },
+                    "configAlternates": {
+                        "iconMask": "boolean"
+                    },
+                    "designerId": "056e6c78-c01e-48d0-abe1-ca90b674b5c6",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "iconMask",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

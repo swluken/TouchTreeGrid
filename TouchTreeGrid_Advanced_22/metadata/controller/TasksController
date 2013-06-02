@@ -1,0 +1,124 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Task"
+        ],
+        "stores": [
+            "TaskAccordion",
+            "Task2Store",
+            "Task3Store"
+        ],
+        "views": [
+            "TasksContainer"
+        ],
+        "designer|userClassName": "TasksController"
+    },
+    "designerId": "ef805fac-adb6-4c2e-85d0-9f3f02bd67de",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTasksTabpanelActiveItemChange",
+                "implHandler": [
+                    "var me = this;\r",
+                    "var newcont = value.getItemId();\r",
+                    "var grid, gridcont, numNodes, mydata, numRecords, gridListItemId;\r",
+                    "\r",
+                    "gridcont = value.down('touchtreegrid');\r",
+                    "gridListItemId = '#'+gridcont.getListItemId();\r",
+                    "grid = gridcont.down(gridListItemId);\r",
+                    "\r",
+                    "if (newcont === 'task2cont'){\r",
+                    "    Ext.Msg.alert('Collapse disabled!');\r",
+                    "}\r",
+                    "if (newcont === 'task3cont'){\r",
+                    "    grid.getScrollable().getScroller().setDisabled(true);\r",
+                    "    Ext.Msg.alert('Non-scrolling!');    \r",
+                    "}\r",
+                    ""
+                ],
+                "name": "activeitemchange",
+                "designer|targetType": "Ext.tab.Panel",
+                "designer|controlQuery": "tabpanel#tasksTabPanel"
+            },
+            "designerId": "7af22e5c-d2b3-4841-aacf-cf4ee5db4921"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTask2LeafItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "Ext.Msg.alert('You tapped leaf! : ' + record.get('text'));\r",
+                    ""
+                ],
+                "name": "leafItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#task2"
+            },
+            "designerId": "ed27f2d2-6f14-4081-b2db-a225d786bc7c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTask2NodeItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "Ext.Msg.alert('You tapped Node! : ' + record.get('text'));\r",
+                    ""
+                ],
+                "name": "nodeItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#task2"
+            },
+            "designerId": "d4b9fb56-cde6-452d-b497-b4d3ed480e13"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTask3LeafItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "Ext.Msg.alert('You tapped leaf! : ' + record.get('text'));\r",
+                    ""
+                ],
+                "name": "leafItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#task3"
+            },
+            "designerId": "4b9a5fb3-69a2-4290-802c-47fa85e6134d"
+        }
+    ]
+}

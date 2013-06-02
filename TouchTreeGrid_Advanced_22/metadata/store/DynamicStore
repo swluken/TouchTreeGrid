@@ -1,0 +1,37 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "comments": "Dummy store to avoid console warning when implementing dynamic grids",
+        "model": null,
+        "storeId": "dynamicstore",
+        "designer|userClassName": "DynamicStore",
+        "designer|userAlias": "dynamicstore"
+    },
+    "designerId": "a9f5fb5a-805b-42ea-babc-f98f967de226",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "comments",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "dynamicfield"
+            },
+            "designerId": "ef3b402e-0a5f-4672-8c6b-a5377d944c58"
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "data": null,
+        "model": "Task",
+        "storeId": "task3Store",
+        "designer|userClassName": "Task3Store",
+        "designer|userAlias": "task3Store",
+        "defaultRootProperty": "items",
+        "root": [
+            "{\r",
+            "                items: [{\r",
+            "                  text: 'Today',\r",
+            "                  items: [{\r",
+            "                    text: 'Mow Grass',\r",
+            "                    leaf: true\r",
+            "                  }, {\r",
+            "                    text: 'Buy Groceries',\r",
+            "                    leaf: true\r",
+            "                  }, {\r",
+            "                    text: 'Watch Game',\r",
+            "                    leaf: true\r",
+            "                  }\r",
+            "                         ]\r",
+            "                }, {\r",
+            "                  text: 'Tomorrow',\r",
+            "                  items: [{\r",
+            "                    text: 'Frisbee',\r",
+            "                    leaf: true\r",
+            "                  }, {\r",
+            "                    text: 'Cookout',\r",
+            "                    leaf: true\r",
+            "                  }]\r",
+            "                }]\r",
+            "              }"
+        ]
+    },
+    "designerId": "9d82e4a8-c317-4a42-aaf9-1a76ed32ccfe"
+}

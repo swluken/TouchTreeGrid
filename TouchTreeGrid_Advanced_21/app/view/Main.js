@@ -85,7 +85,7 @@ Ext.define('TouchTreeGrid.view.Main', {
                                 store: 'TaskAccordionStore',
                                 includeHeader: false,
                                 defaultCollapseLevel: 1,
-                                styleCategRow: 'height: 2.6em;',
+                                styleCategRow: 'height: 2.6em; display: -webkit-box;-webkit-box-orient: horizontal;',
                                 singleExpand: true,
                                 cls: [
                                     'x-touchtreegrid-list',

@@ -19,10 +19,11 @@ Ext.define('TouchTreeGrid.view.GridHelpPanel', {
 
     config: {
         height: '85%',
+        ui: 'light',
         width: '85%',
         hideOnMaskTap: true,
         modal: true,
-        scrollable: 'both'
+        scrollable: false
     }
 
 });

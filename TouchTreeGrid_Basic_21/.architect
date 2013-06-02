@@ -7,6 +7,7 @@
         "resource": true,
         "8c274233-2c62-4f46-b103-76d6c9f0def6": {
             "id": "8c274233-2c62-4f46-b103-76d6c9f0def6",
+            "expanded": false,
             "cn": [
                 {
                     "id": "7594443e-ac98-4a9c-ad66-560a2c6c6375"
@@ -108,7 +109,8 @@
             "ac3c8037-b03d-45af-ac33-d2b07600986d",
             "0908d481-13f2-47c2-8ba8-4d1dbed2f9f6",
             "7d6de964-323e-4c82-a7f6-45d73c89f642",
-            "edd7cdca-5c64-4ae6-9342-57c41820ab1d"
+            "edd7cdca-5c64-4ae6-9342-57c41820ab1d",
+            "9d18a977-daa6-4040-ac61-39c2369b822d"
         ]
     },
     "canvasState": {

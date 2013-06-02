@@ -1,0 +1,246 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Projects"
+        ],
+        "stores": [
+            "ProjectsStore"
+        ],
+        "views": [
+            "ProjectContainer"
+        ],
+        "designer|userClassName": "ProjectController"
+    },
+    "designerId": "3f5c95e4-bfd6-4102-932e-353f34b0201c",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExample2ListDisclose",
+                "implHandler": [
+                    "this.onExample2ListDiscloseOrHold(record, target, index);"
+                ],
+                "name": "disclose",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list#example2list"
+            },
+            "designerId": "60068ced-cce8-46d7-9422-ae08205fca4e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExample2BListDisclose",
+                "implHandler": [
+                    "//Ext.Msg.alert('You disclosed record: ' + record.get('task'));\r",
+                    "\r",
+                    "\r",
+                    "var swapcont = this.getProjectContainer().down('#example2Bcontainer');   \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    var newcont = commonController.getGriddetailpanel(\r",
+                    "    {\r",
+                    "        title : 'Example 2B Detail',\r",
+                    "        id : 'example2Bdetail',\r",
+                    "        layout: {type: 'fit'},\r",
+                    "        itemId: 'griddetailpanel'\r",
+                    "    }\r",
+                    "    );\r",
+                    "\r",
+                    "    var gridItemId = swapcont.down('touchtreegrid').getItemId();\r",
+                    "    newcont.swapcont = swapcont;\r",
+                    "    newcont.gridItemId = gridItemId;\r",
+                    "\r",
+                    "    if (newcont)\r",
+                    "    {\r",
+                    "        var newLabel = newcont.down('#griddetaillabel');    \r",
+                    "        newLabel.setHtml(record.get('task'));       \r",
+                    "\r",
+                    "        var fldSet = newcont.down('#griddetailfieldset');\r",
+                    "        var result = fldSet.setConfig({\r",
+                    "            items : [\r",
+                    "            {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, \r",
+                    "            {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, \r",
+                    "            {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, \r",
+                    "            {label: 'Done?', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done}\r",
+                    "        ]}); \r",
+                    "\r",
+                    "        swapcont.add(newcont);\r",
+                    "        swapcont.setActiveItem(newcont);     \r",
+                    "    }\r",
+                    "}"
+                ],
+                "name": "disclose",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list#example2Blist"
+            },
+            "designerId": "a7788f96-838e-42e7-9c49-706eed7618f0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExample2ListItemTaphold",
+                "implHandler": [
+                    "// Example where we can treat long presses same as disclose event to improve on \r",
+                    "// sensitivity issues with smaller icon.\r",
+                    "// Note:  long press (1 second) works on full item, but not actually on icon itself\r",
+                    "if (record.get('leaf')) {\r",
+                    "    this.onExample2ListDiscloseOrHold(record, target, index);\r",
+                    "}"
+                ],
+                "name": "itemtaphold",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list#example2list"
+            },
+            "designerId": "6916c8ac-6b5c-4e06-946e-a05039f90a61"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExample2ListPullrefresh",
+                "designer|params": [
+                    "container"
+                ],
+                "implHandler": [
+                    "this.loadExample2Store(container);\r",
+                    ""
+                ],
+                "name": "pullrefresh",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#example2"
+            },
+            "designerId": "aa3b4ba8-82ed-4764-89a8-494347bf2e04"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "projectContainer",
+                "selector": "projectContainer",
+                "xtype": "projectContainer"
+            },
+            "designerId": "71de8a1c-b7f8-4543-9fb0-04379187cd12"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "example2",
+                "selector": "#example2"
+            },
+            "designerId": "6667a590-3cb7-41e1-9816-14fd4f1d906b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExample2ListDiscloseOrHold",
+                "designer|params": [
+                    "record",
+                    "target",
+                    "index"
+                ],
+                "implHandler": [
+                    "//Ext.Msg.alert('You disclosed record: ' + record.get('task'));\r",
+                    "\r",
+                    "\r",
+                    "var swapcont = this.getProjectContainer().down('#example2container');   \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    var newcont = commonController.getGriddetailpanel(\r",
+                    "    {\r",
+                    "        title : 'Example 2 Detail',\r",
+                    "        id : 'example2detail',\r",
+                    "        layout: {type: 'fit'},\r",
+                    "        itemId: 'griddetailpanel'\r",
+                    "    }\r",
+                    "    );\r",
+                    "\r",
+                    "    var gridItemId = swapcont.down('touchtreegrid').getItemId();\r",
+                    "    newcont.swapcont = swapcont;\r",
+                    "    newcont.gridItemId = gridItemId;\r",
+                    "\r",
+                    "    if (newcont)\r",
+                    "    {\r",
+                    "        var newLabel = newcont.down('#griddetaillabel');    \r",
+                    "        newLabel.setHtml(record.get('task'));       \r",
+                    "\r",
+                    "        var fldSet = newcont.down('#griddetailfieldset');\r",
+                    "        var result = fldSet.setConfig({\r",
+                    "            items : [\r",
+                    "            {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, \r",
+                    "            {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, \r",
+                    "            {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, \r",
+                    "            {label: 'Done?', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done}\r",
+                    "        ]}); \r",
+                    "\r",
+                    "        swapcont.add(newcont);\r",
+                    "        swapcont.setActiveItem(newcont);     \r",
+                    "    }\r",
+                    "}"
+                ]
+            },
+            "designerId": "27c04002-0e2e-4457-85cb-51d1aa0e8c06"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadExample2Store",
+                "designer|params": [
+                    "gridcont"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "var gridurl = 'data/treegrid.json';\r",
+                    "\r",
+                    "commonController.loadStore(me, gridcont, gridurl, 'Loading Project...');\r",
+                    ""
+                ]
+            },
+            "designerId": "3d4387c3-fac7-4730-850e-834ca24a8a72"
+        }
+    ]
+}

@@ -1,0 +1,272 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Dow2012"
+        ],
+        "stores": [
+            "Dow2012grouper",
+            "Dow2012",
+            "DynamicStore",
+            "dow2012TreeStore",
+            "Dow2012Horiz"
+        ],
+        "views": [
+            "ListsContainer"
+        ],
+        "designer|userClassName": "ListsController"
+    },
+    "designerId": "22e7fb54-fa16-4daf-b45a-e5205f9f9cc4",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onListsTabpanelActiveItemChange",
+                "implHandler": [
+                    "var me = this;\r",
+                    "var newcont = value.getItemId();\r",
+                    "var grid, gridcont, numNodes, mydata, numRecords, gridListItemId;\r",
+                    "\r",
+                    "gridcont = value.down('touchtreegrid');\r",
+                    "gridListItemId = '#'+gridcont.getListItemId();\r",
+                    "grid = gridcont.down(gridListItemId);\r",
+                    "\r",
+                    "if (newcont === 'dow2012Cont'){\r",
+                    "    numRecords = grid.getStore().getData().length;\r",
+                    "    if (numRecords === 0) {\r",
+                    "        Ext.Viewport.setMasked({\r",
+                    "            xtype: 'loadmask',\r",
+                    "            message: 'Loading Basic...'\r",
+                    "        });\r",
+                    "        grid.getStore().load();\r",
+                    "        gridcont.doRefreshList();\r",
+                    "        Ext.Viewport.setMasked(false);\r",
+                    "    }  \r",
+                    "}\r",
+                    "\r",
+                    "if (newcont === 'dow2012grouperCont'){\r",
+                    "    numRecords = grid.getStore().getData().length;\r",
+                    "    if (numRecords === 0) {\r",
+                    "        Ext.Viewport.setMasked({\r",
+                    "            xtype: 'loadmask',\r",
+                    "            message: 'Loading Grouper ...'\r",
+                    "        });\r",
+                    "        grid.getStore().load();\r",
+                    "        gridcont.doRefreshList();\r",
+                    "        Ext.Viewport.setMasked(false);\r",
+                    "    }  \r",
+                    "}\r",
+                    "\r",
+                    "if (newcont === 'dow2012grouper2Cont'){\r",
+                    "    numRecords = grid.getStore().getData().length;\r",
+                    "    if (numRecords === 0) {\r",
+                    "        Ext.Viewport.setMasked({\r",
+                    "            xtype: 'loadmask',\r",
+                    "            message: 'Loading Grouper#2 ...'\r",
+                    "        });\r",
+                    "        this.loadDow2012Grouper2Store(gridcont, grid);  \r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    "if (newcont === 'dow2012HorizCont'){\r",
+                    "    numRecords = grid.getStore().getData().length;\r",
+                    "    if (numRecords === 0) {\r",
+                    "        Ext.Viewport.setMasked({\r",
+                    "            xtype: 'loadmask',\r",
+                    "            message: 'Loading Horiz ...'\r",
+                    "        });\r",
+                    "        grid.getStore().load();\r",
+                    "        gridcont.doRefreshList();\r",
+                    "        Ext.Viewport.setMasked(false);\r",
+                    "    }  \r",
+                    "}\r",
+                    "\r",
+                    "if (newcont === 'dow2012DynamicCont'){\r",
+                    "    // Reload each time pressed for dynamic grid example\r",
+                    "    this.loadDow2012DynamicStore(gridcont, grid);  \r",
+                    "\r",
+                    "}\r",
+                    ""
+                ],
+                "name": "activeitemchange",
+                "designer|targetType": "Ext.tab.Panel",
+                "designer|controlQuery": "tabpanel#liststabpanel"
+            },
+            "designerId": "f819cf6f-1f84-420b-bf2a-191ca00a8367"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDow2012grouper2ExpCollapse",
+                "designer|params": [
+                    "params"
+                ],
+                "implHandler": [
+                    "// For really large data sets seems to expand/collapse faster by refreshing the treestore with appropriate collapse level\r",
+                    "var collapseLevel = params.collapseLevel;\r",
+                    "var list = params.list;\r",
+                    "var gridcont = params.gridcont;\r",
+                    "\r",
+                    "gridcont.collapseLevel = collapseLevel;\r",
+                    "\r",
+                    "this.loadDow2012Grouper2Store(gridcont, list);\r",
+                    "\r",
+                    "list.setMasked(false);\r",
+                    ""
+                ],
+                "name": "expCollapse",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#dow2012grouper2"
+            },
+            "designerId": "515808fc-e200-4571-a9ff-a9480c105601"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onHorizGridLeafItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "// Example of how we can code to only act if CloseDate element touched\r",
+                    "var myDate = Ext.Date.format(record.get('CloseDate'), \"n/j/Y\");\r",
+                    "if (myDate !== e.target.innerText) {return;}\r",
+                    "\r",
+                    "Ext.Msg.alert('You tapped: ' + myDate);\r",
+                    "console.log('onHorizGridLeafItemTap record tapped:');\r",
+                    "console.log(record);\r",
+                    ""
+                ],
+                "name": "leafItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#dow2012horiz"
+            },
+            "designerId": "eca558c0-632e-42fc-aa28-79ddd3ad6f69"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDynamicGridLeafItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "// Example of how we can code to only act if CloseDate element touched\r",
+                    "var myDate = Ext.Date.format(record.get('CloseDate'), \"n/j/Y\");\r",
+                    "if (myDate !== e.target.innerText) {return;}\r",
+                    "\r",
+                    "Ext.Msg.alert('You tapped: ' + myDate);\r",
+                    "console.log('onDynamicGridLeafItemTap record tapped:');\r",
+                    "console.log(record);\r",
+                    ""
+                ],
+                "name": "leafItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#dow2012Dynamic"
+            },
+            "designerId": "db740a71-7bf2-4b67-aa21-d262ea8e0914"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dow2012",
+                "selector": "#dow2012"
+            },
+            "designerId": "7edb09b4-c7e7-4a90-bbb4-46278bcb42de"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "listscontainer",
+                "selector": "listscontainer",
+                "xtype": "listscontainer"
+            },
+            "designerId": "aa135572-10e9-44a3-8838-f612b197aa93"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadDow2012Grouper2Store",
+                "designer|params": [
+                    "gridcont, grid"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "var gridurl = 'data/dow2012categ.json';\r",
+                    "\r",
+                    "// Passing loadStoreInPostProcess=true because for this example we will \r",
+                    "// be loading dow2012TreeStore (flatfile format) and then post-processing\r",
+                    "// into treestore format \r",
+                    "commonController.loadStore(me, gridcont, gridurl, 'Loading Grouper#2...', true);\r",
+                    ""
+                ]
+            },
+            "designerId": "b03d6942-ac5f-417f-b57f-5fbe71cb0db0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadDow2012DynamicStore",
+                "designer|params": [
+                    "gridcont",
+                    "grid"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "var gridurl = 'data/dow2012dynamic.json';\r",
+                    "\r",
+                    "commonController.loadDynamicStore(me, gridcont, gridurl, 'Loading Dynamic...', false);\r",
+                    ""
+                ]
+            },
+            "designerId": "52f0543f-225f-488b-b69b-74f8986ddde8"
+        }
+    ]
+}
