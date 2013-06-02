@@ -24,7 +24,7 @@ This software can be downloaded at <a href="https://github.com/swluken/TouchTree
 <div>(Test orientation changes by rotating phone from Portrait to Landscape ... or resizing browser window)   </div>
 <div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a></div>
 <div>(Census tab configured unique for tablets ... rotate Portrait vs. Landscape for column changes ... or resize browser window)  </div> 
-
+<div> </div>
 <div>See 2.2 Sample code run under 2.1 framework: (includes Example:  Lists => Grouper#2)</div>
 <div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app21.html?deviceType=Phone">TouchTreeGrid (Phone)</a></div>
 <div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app21.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a></div>
