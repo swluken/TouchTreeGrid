@@ -21,11 +21,16 @@ This software can be downloaded at <a href="https://github.com/swluken/TouchTree
 
 To see a working demo [Touch 2.2 version], visit 
 
-Phone specific usage   - <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html?deviceType=Phone">TouchTreeGrid (Phone)</a>
-(Test orientation changes by rotating phone from Portrait to Landscape ... or resizing browser window)
+See working Touch 2.2 Demo at:
+   <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html?deviceType=Phone">TouchTreeGrid (Phone)</a>
+(Test orientation changes by rotating phone from Portrait to Landscape ... or resizing browser window)   
+   <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a>
+ (Census tab configured unique for tablets ... rotate Portrait vs. Landscape for column changes ... or resize browser window)   
 
-Tablet specific usage  - <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a>
- (Census tab configured unique for tablets ... rotate Portrait vs. Landscape for column changes ... or resize browser window)
+See 2.2 Sample code run under 2.1 framework:
+   (includes Example:  Lists => Grouper#2)
+   <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app21.html?deviceType=Phone">TouchTreeGrid (Phone)</a>
+   <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app21.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a>
 
 Click on the <?> icon at top of each screen for further explanation.
 
