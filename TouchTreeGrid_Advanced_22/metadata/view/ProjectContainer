@@ -222,6 +222,9 @@
                                 "styleContentRow": null,
                                 "styleCategRow": null,
                                 "styleHeaderRow": null,
+                                "categCssArr": [
+                                    "['touchtreegrid-list-categ0', 'touchtreegrid-list-categ', 'touchtreegrid-list-categ']"
+                                ],
                                 "cls": [
                                     "x-touchtreegrid-list",
                                     "x-touchtreegrid-list-example2",

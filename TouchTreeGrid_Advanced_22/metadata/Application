@@ -7,7 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "stores": [
-            "OverrideStore"
+            "OverrideStore",
+            "CensusFilterStore"
         ],
         "views": [
             "Main",

@@ -1,0 +1,358 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CensusContainer",
+        "designer|userAlias": "censusContainer",
+        "layout": "fit"
+    },
+    "designerId": "27f12204-ed18-4d2a-a68d-327fc5755833",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "censustabpanel"
+            },
+            "designerId": "26d78821-4bfd-499a-bda5-01efdd87677b",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Census",
+                        "itemId": "censusmainecontainer",
+                        "layout": "card"
+                    },
+                    "designerId": "8074f290-09e2-478b-a1fd-26d1009445a4",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "plugins": null,
+                                "listPlugins": null,
+                                "categIndentPct": "2",
+                                "store": "censusmaine2000store",
+                                "onItemDisclosure": true,
+                                "columns": null,
+                                "disclosureProperty": null,
+                                "listItemId": "censusmainelist",
+                                "categDepthColors": true,
+                                "customExpCollapseEvent": null,
+                                "renderers": [
+                                    "{ renderer_displayIn1000s: function(value)\r",
+                                    " {return this.formatNumbers(Math.round(Number(value)/1000), 0);}}"
+                                ],
+                                "defaultCollapseLevel": 2,
+                                "landscapeIcon": "./resources/images/Recycle.png",
+                                "helpHtml": "./resources/html/CensusExample.html",
+                                "cls": [
+                                    "x-touchtreegrid-list",
+                                    "x-touchtreegrid-list-censusmaine"
+                                ],
+                                "itemId": "censusmaine",
+                                "designer|createAlias": null
+                            },
+                            "configAlternates": {
+                                "plugins": "object",
+                                "listPlugins": "object",
+                                "colNumberToTruncateForIndents": "number",
+                                "renderers": "object",
+                                "applyDefaultCollapseLevel": "boolean",
+                                "defaultCollapseLevel": "number"
+                            },
+                            "designerId": "b4e4ff1e-9de4-4c74-ba4e-8533d174c965",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "plugins",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "listPlugins",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "categIndentPct",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "colNumberToTruncateForIndents",
+                                    "type": "string"
+                                }
+                            ],
+                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "FilterEx",
+                        "cls": [
+                            "census-filter-cont"
+                        ],
+                        "itemId": "censusfiltercont",
+                        "layout": "card"
+                    },
+                    "designerId": "188d050a-43ef-43f7-a048-17503d6779f7",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "censusfiltersubcont",
+                                "layout": "fit"
+                            },
+                            "designerId": "0f7764ab-3119-481e-9e22-27fcaea130fe",
+                            "cn": [
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "plugins": null,
+                                        "listPlugins": null,
+                                        "categIndentPct": "2",
+                                        "store": "censusFilterStore",
+                                        "onItemDisclosure": true,
+                                        "columns": null,
+                                        "disclosureProperty": null,
+                                        "listItemId": "censusfilterlist",
+                                        "includeFooter": false,
+                                        "categDepthColors": true,
+                                        "customExpCollapseEvent": null,
+                                        "renderers": [
+                                            "{ renderer_displayIn1000s: function(value)\r",
+                                            " {return this.formatNumbers(Math.round(Number(value)/1000), 0);}}"
+                                        ],
+                                        "defaultCollapseLevel": 2,
+                                        "landscapeIcon": "./resources/images/Recycle.png",
+                                        "helpHtml": "./resources/html/CensusFilterExample.html",
+                                        "cls": [
+                                            "x-touchtreegrid-list",
+                                            "x-touchtreegrid-list-censusmaine"
+                                        ],
+                                        "itemId": "censusfilter",
+                                        "designer|createAlias": null
+                                    },
+                                    "configAlternates": {
+                                        "plugins": "object",
+                                        "listPlugins": "object",
+                                        "colNumberToTruncateForIndents": "number",
+                                        "renderers": "object",
+                                        "applyDefaultCollapseLevel": "boolean",
+                                        "defaultCollapseLevel": "number"
+                                    },
+                                    "designerId": "8b94d9d6-9639-4ad1-8b53-c063f18f44be",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "plugins",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "listPlugins",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "categIndentPct",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "colNumberToTruncateForIndents",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                                },
+                                {
+                                    "type": "Ext.Toolbar",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": "bottom",
+                                        "margin": null,
+                                        "padding": null,
+                                        "style": "background-color: #8dc2e9;",
+                                        "ui": "light"
+                                    },
+                                    "designerId": "a9b0cccd-bb69-487b-b392-6bbe63f26486",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.SegmentedButton",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "docked": "left",
+                                                "margin": ".3em 0 0 0"
+                                            },
+                                            "designerId": "2784c904-9c71-4fe4-8c32-2c950a567f32",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "censusfilterexpandbtn",
+                                                        "text": "Expand"
+                                                    },
+                                                    "designerId": "630d9eae-909b-488f-ad73-89c86862edec"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "censusfiltercollapsebtn",
+                                                        "text": "Collapse"
+                                                    },
+                                                    "designerId": "387a7b45-3404-44e4-86f8-e106b94dc1c8"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.field.Select",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "docked": "right",
+                                                "height": "1.7em",
+                                                "itemId": "censusfilterselect",
+                                                "margin": ".7em 0 0 0",
+                                                "maxWidth": "12em",
+                                                "minWidth": "10em",
+                                                "padding": null,
+                                                "style": "font-size: .8em; ",
+                                                "width": "10em",
+                                                "label": null,
+                                                "options": [
+                                                    "[\r",
+                                                    " {\r",
+                                                    "     text: 'All',\r",
+                                                    "     value: '0'\r",
+                                                    " },\r",
+                                                    " {\r",
+                                                    "     text: 'Males > Females',\r",
+                                                    "     value: '1'\r",
+                                                    " },\r",
+                                                    " {\r",
+                                                    "     text: 'Females > Males',\r",
+                                                    "     value: '2'\r",
+                                                    " },\r",
+                                                    " {\r",
+                                                    "     text: 'Population > 10k',\r",
+                                                    "     value: '3'\r",
+                                                    " }\r",
+                                                    "]"
+                                                ],
+                                                "usePicker": [
+                                                    "false\r",
+                                                    "\r",
+                                                    ""
+                                                ]
+                                            },
+                                            "designerId": "07d3c0a0-e81d-48d5-9e38-5f2994253ff2"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.tab.Bar",
+                    "reference": {
+                        "name": "tabBar",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "projectTabBar"
+                        ],
+                        "docked": "top",
+                        "style": "background-image: -webkit-linear-gradient(top, rgb(86, 167, 223), rgb(43, 145, 215) 3%, rgb(33, 117, 175));",
+                        "ui": "light"
+                    },
+                    "designerId": "a0c5ffeb-d05d-4ec4-bb0b-3575751340fd"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "\r",
+                    "var device = ((Ext.os.is.Phone) ? 'phone' : 'tablet');\r",
+                    "\r",
+                    "censusmaine = this.down('#censusmaine');\r",
+                    "censusfilter = this.down('#censusfilter');\r",
+                    "\r",
+                    "if (device === 'phone') {\r",
+                    "    censusmaine.setCls(['x-touchtreegrid-list', 'x-touchtreegrid-list-censusmaine-phone']);\r",
+                    "    censusfilter.setCls(['x-touchtreegrid-list', 'x-touchtreegrid-list-censusmaine-phone']);\r",
+                    "}"
+                ]
+            },
+            "designerId": "5fd5bdf0-d157-471a-9d1a-dc5d94fb98e4"
+        }
+    ]
+}

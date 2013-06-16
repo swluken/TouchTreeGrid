@@ -1,0 +1,138 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Task"
+        ],
+        "stores": [
+            "TaskAccordion",
+            "Task2Store",
+            "Task3Store"
+        ],
+        "views": [
+            "AccordionCont",
+            "Task2Cont",
+            "Task3Cont"
+        ],
+        "designer|userClassName": "TasksController"
+    },
+    "designerId": "905a52d6-de2c-41aa-90cb-6f86e22ac728",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTask2LeafItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "Ext.Msg.alert('You tapped leaf! : ' + record.get('text'));\r",
+                    ""
+                ],
+                "name": "leafItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#task2"
+            },
+            "designerId": "59d5bde4-d648-46c9-91f2-c48a9bdbc3ad"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTask2NodeItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "Ext.Msg.alert('You tapped Node! : ' + record.get('text'));\r",
+                    ""
+                ],
+                "name": "nodeItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#task2"
+            },
+            "designerId": "c07b153c-20c6-4fc0-bb24-ef78a6cdce50"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTask3LeafItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "Ext.Msg.alert('You tapped leaf! : ' + record.get('text'));\r",
+                    ""
+                ],
+                "name": "leafItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#task3"
+            },
+            "designerId": "ead1f438-ee60-40c8-9466-b2d76ffd311e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "accordionCont",
+                "selector": "accordionCont",
+                "xtype": "accordionCont"
+            },
+            "designerId": "72541776-e2f7-4d5d-b7c5-33859127c3f7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "task2Cont",
+                "selector": "task2Cont",
+                "xtype": "task2Cont"
+            },
+            "designerId": "a555501e-3a54-411a-9384-02fa29e46aed"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "task3Cont",
+                "selector": "task3Cont",
+                "xtype": "task3Cont"
+            },
+            "designerId": "659b7c9f-a47f-44d4-b3df-a393438ba907"
+        }
+    ]
+}

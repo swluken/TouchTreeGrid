@@ -1,0 +1,166 @@
+.x-touchtreegrid-list .x-touchtreegrid-item {  /* default color all expanded grid rows including background color for shaded category rows */
+    background-color: white;
+}
+
+/* 2.1 selectors to eliminate lines  ... 2nd set is for Touch 2.2 */
+.x-touchtreegrid-list .x-list-normal .x-list-item .x-dock-horizontal,
+.x-touchtreegrid-list .x-list-normal .x-list-item.x-list-item-tpl{
+  /* border: none;  */    /* Uncomment this as needed */
+}
+
+/* .touchtreegrid-disclose-spacer referenced by doRefreshList function to create 
+   %screen shift in header approximately lining up headers with list items when ondisclosure icons displayed (because they shift their row data) */
+.touchtreegrid-disclose-spacer {
+ /* max-width: 95%;    */
+}
+
+.x-touchtreegrid-list .x-list-item-body {  /* controls padding around shaded category rows */
+    padding: 0 !important;
+}
+
+/* Touch 2.2 selectors to eliminate padding around category tpl */
+.x-touchtreegrid-list .x-list-item-tpl .x-innerhtml {
+    padding: 0 !important;
+}    
+
+.x-touchtreegrid-list .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+  background-color: #ddd !important;
+  background-image: none !important;
+  color: black;
+  border-top: 1px solid #4D80BC;
+  border-bottom: 1px solid #2D4E76;
+  font-weight: normal;
+  min-height:2.6em !important; 
+  padding:0.6em 0 0 0 !important; 
+/*  width:100% !important; */
+  font-size: .7em !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
+}
+
+.x-touchtreegrid-list .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    color: black;
+    background-color:white;
+   /* width:100%; */
+    padding:1em 0 0 0;
+    margin:0;
+    font-size: .8em !important;    
+}
+
+.x-touchtreegrid-list .touchtreegrid-list-categ-cell{ /* Category cells  */
+    overflow       : hidden;
+    text-overflow  : clip;
+	white-space    : nowrap;     
+}
+
+
+
+.x-touchtreegrid-list .touchtreegrid-list-content-cell{ /* Detail (leaf) cells  */
+    overflow       : hidden;
+    text-overflow  : clip;
+	white-space    : nowrap;    
+
+}
+
+.x-touchtreegrid-list .touchtreegrid-simplelist-cell{ /* simple list cells  */
+    display        : inline-block; 
+    overflow       : hidden;
+    text-overflow  : clip;
+	white-space    : nowrap;   
+    color: black;
+    background-color:white;
+    padding:1em 0 0 0;
+    margin:0;
+    font-size: .8em !important;   
+}
+
+/* Handle colors for simple grid list item "selected" and "pressing" 
+   Selectors for Treegrid selection not provided as deemed not appropriate but handled similarly */
+.x-touchtreegrid-list .touchtreegrid-item-selected,
+.x-touchtreegrid-list .touchtreegrid-item-selected .touchtreegrid-simplelist-cell{ 
+    background-color: #006bb6 !important;  /* Sencha 2.1 default color for selected */
+    color: white !important;
+}   
+.x-touchtreegrid-list .touchtreegrid-item-selected .x-list-disclosure {
+  background: #fff none;  /* reverses color on disclosure icon for selected rows */
+}
+.x-touchtreegrid-list .touchtreegrid-item-pressed, 
+.x-touchtreegrid-list .touchtreegrid-item-pressed .touchtreegrid-simplelist-cell{
+    background-color: #b6e1ff !important;  /* Sencha 2.1 default color for pressing */
+    color: white !important;
+}   
+
+
+.x-touchtreegrid-list .touchtreegrid-header {  /* Titlebar with column headers  */
+  /*  width:100%;  */
+    padding:0.4em 0 0 0;
+    margin:0;
+    color: #fff;
+    font-size: .8em !important;
+    
+    background: rgb(94,98,102); /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iIzVlNjI2NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzM2M2M0MSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1ZTYyNjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(94,98,102,1) 1%, rgba(54,60,65,1) 50%, rgba(94,98,102,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(94,98,102,1)), color-stop(50%,rgba(54,60,65,1)), color-stop(100%,rgba(94,98,102,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(94,98,102,1) 1%,rgba(54,60,65,1) 50%,rgba(94,98,102,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(94,98,102,1) 1%,rgba(54,60,65,1) 50%,rgba(94,98,102,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(94,98,102,1) 1%,rgba(54,60,65,1) 50%,rgba(94,98,102,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(94,98,102,1) 1%,rgba(54,60,65,1) 50%,rgba(94,98,102,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e6266', endColorstr='#5e6266',GradientType=0 ); /* IE6-8 */
+}
+
+.x-touchtreegrid-list .touchtreegrid-details-img {   /* category row arrow */
+  width: 18px;
+  min-height: 18px;
+  height: 100%;
+  display: -moz-inline-box;
+  display: inline-block;
+  background-image: url('data:image/gif;base64,R0lGODlhJAAkAMQbAOPj45WVlTs7O9DQ0Pb29oyMjO7u7qysrMHBwfn5+Z+fn7Gxsc7Ozr+/v3t7e1xcXHFxcV5eXpGRkdXV1UtLS6GhoZKSkri4uERERDY2NomJifv6+gAAAAAAAAAAAAAAACH5BAEAABsALAAAAAAkACQAAAWl4CaOZGmeaKqubOu+cHsYMATAWoEkbiYEBJdmGJi0MkjKpTVsVm4qpDQyWDWvjahUalFdczut9BdMXRe01dYB9WoUbXXmUW1JGDDMIcbv+/+AgYKDhIWGh4gpB19DEikQW1IYKQYFjHgoAAKRGXspCF8KKwGRDywBV3EnBBRbdSoTTQstF1IOLhU5aSwRPqopABoILwMZATANPC8WZYnOz9DR0oAhADs=');
+  background-repeat: no-repeat;
+  vertical-align: top;
+  cursor: pointer;
+  border: 0;
+  border-image: initial;
+}
+
+.x-touchtreegrid-list .touchtreegrid-details-img-open {  /* 2nd arrow sprite pointing down for open category */
+  background-position: 0 -18px;
+}
+
+.x-touchtreegrid-list .touchtreegrid-details-img-close {  /* 1st arrow sprite pointing right for closed category */
+  background-position: 0 0;
+}
+
+.x-touchtreegrid-list .touchtreegrid-footer {  
+}
+
+.x-touchtreegrid-list .touchtreegrid-expand-collapse-buttons { 
+    margin-top: .4em;
+}    
+.x-touchtreegrid-list .touchtreegrid-landscape-label { 
+    margin: .7em .5em 0 0;
+}  
+.x-touchtreegrid-list .touchtreegrid-landscape-icon { 
+    height: 1.5em !important;
+    margin: .5em .5em 0 0;
+    width: 1.5em !important;
+}  
+
+.x-touchtreegrid-list .x-grid-sort-desc {
+    background: url('data:image/gif;base64,R0lGODlhDQAFAIcAAGGQzUD/QOPu+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAMAAAEALAAAAAANAAUAAAgbAAMIDABgoEGDABIeRJhQ4cKGEA8KmEiRosGAADs=') no-repeat;
+    background-position: right top;
+}
+
+.x-touchtreegrid-list .x-grid-sort-asc {
+    background: url('data:image/gif;base64,R0lGODlhDQAFAIcAAGGQzUD/QOPu+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAMAAAEALAAAAAANAAUAAAgeAAUAGEgQgIAACBEKLHgwYcKFBh1KFNhQosOKEgMCADs=') no-repeat;
+    background-position: right top;
+}    
+
+/* Added 5/26/2013 */
+.x-touchtreegrid-list .touchtreegrid-header-cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip; 
+} 
+
+

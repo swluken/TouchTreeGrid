@@ -18,7 +18,8 @@ Ext.define('TouchTreeGrid.controller.ListsController', {
 
     config: {
         models: [
-            'Dow2012'
+            'Dow2012',
+            'Dow2012Tree'
         ],
         stores: [
             'Dow2012grouper',
@@ -65,7 +66,7 @@ Ext.define('TouchTreeGrid.controller.ListsController', {
         gridListItemId = '#'+gridcont.getListItemId();
         grid = gridcont.down(gridListItemId);
 
-        if (newcont === 'dow2012Cont'){
+        if (newcont === 'dow2012Cont'  || newcont === 'dow2012Basic2Cont'){
             numRecords = grid.getStore().getData().length;
             if (numRecords === 0) {
                 Ext.Viewport.setMasked({
@@ -88,39 +89,39 @@ Ext.define('TouchTreeGrid.controller.ListsController', {
                 grid.getStore().load();
                 gridcont.doRefreshList();
                 Ext.Viewport.setMasked(false);
-            }  
-        }
-
-        if (newcont === 'dow2012grouper2Cont'){
-            numRecords = grid.getStore().getData().length;
-            if (numRecords === 0) {
-                Ext.Viewport.setMasked({
-                    xtype: 'loadmask',
-                    message: 'Loading Grouper#2 ...'
-                });
-                this.loadDow2012Grouper2Store(gridcont, grid);  
+            }  else {grid.refresh();}
             }
-        }
+
+            if (newcont === 'dow2012grouper2Cont'){
+                numRecords = grid.getStore().getData().length;
+                if (numRecords === 0) {
+                    Ext.Viewport.setMasked({
+                        xtype: 'loadmask',
+                        message: 'Loading Grouper#2 ...'
+                    });
+                    this.loadDow2012Grouper2Store(gridcont, grid);  
+                }  else {grid.refresh();}
+                }
 
 
-        if (newcont === 'dow2012HorizCont'){
-            numRecords = grid.getStore().getData().length;
-            if (numRecords === 0) {
-                Ext.Viewport.setMasked({
-                    xtype: 'loadmask',
-                    message: 'Loading Horiz ...'
-                });
-                grid.getStore().load();
-                gridcont.doRefreshList();
-                Ext.Viewport.setMasked(false);
-            }  
-        }
+                if (newcont === 'dow2012HorizCont'){
+                    numRecords = grid.getStore().getData().length;
+                    if (numRecords === 0) {
+                        Ext.Viewport.setMasked({
+                            xtype: 'loadmask',
+                            message: 'Loading Horiz ...'
+                        });
+                        grid.getStore().load();
+                        gridcont.doRefreshList();
+                        Ext.Viewport.setMasked(false);
+                    }  
+                }
 
-        if (newcont === 'dow2012DynamicCont'){
-            // Reload each time pressed for dynamic grid example
-            this.loadDow2012DynamicStore(gridcont, grid);  
+                if (newcont === 'dow2012DynamicCont'){
+                    // Reload each time pressed for dynamic grid example
+                    this.loadDow2012DynamicStore(gridcont, grid);  
 
-        }
+                }
 
     },
 
@@ -173,7 +174,7 @@ Ext.define('TouchTreeGrid.controller.ListsController', {
 
     loadDow2012DynamicStore: function(gridcont, grid) {
         var me = this;
-        var gridurl = 'data/dow2012dynamic.json';
+        var gridurl = 'data/dow2012dynamicCss.json';
 
         commonController.loadDynamicStore(me, gridcont, gridurl, 'Loading Dynamic...', false);
 

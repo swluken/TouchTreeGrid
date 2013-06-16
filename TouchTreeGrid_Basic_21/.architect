@@ -7,7 +7,6 @@
         "resource": true,
         "8c274233-2c62-4f46-b103-76d6c9f0def6": {
             "id": "8c274233-2c62-4f46-b103-76d6c9f0def6",
-            "expanded": false,
             "cn": [
                 {
                     "id": "7594443e-ac98-4a9c-ad66-560a2c6c6375"
@@ -114,14 +113,14 @@
         ]
     },
     "canvasState": {
-        "topInstance": "8c274233-2c62-4f46-b103-76d6c9f0def6"
+        "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "8c274233-2c62-4f46-b103-76d6c9f0def6",
-        "selectedInstance": "8c274233-2c62-4f46-b103-76d6c9f0def6"
+        "topInstance": "7d6de964-323e-4c82-a7f6-45d73c89f642",
+        "selectedInstance": "5df30a86-dd3b-46b1-83d9-163285d999c5"
     },
     "codeState": {
-        "topInstance": "8c274233-2c62-4f46-b103-76d6c9f0def6"
+        "topInstance": "7d6de964-323e-4c82-a7f6-45d73c89f642"
     },
-    "editMode": "design"
+    "editMode": "code"
 }

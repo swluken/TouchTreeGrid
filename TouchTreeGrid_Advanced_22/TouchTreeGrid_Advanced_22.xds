@@ -1,5 +1,5 @@
 {
-    "name": "TouchTreeGrid_Advanced",
+    "name": "TouchTreeGrid_Advanced_22",
     "settings": {
         "urlPrefix": "http://localhost/TouchTreeGrid/TouchTreeGrid_Advanced_22/",
         "spacesToIndent": 4,
@@ -257,6 +257,30 @@
                 "app/controller/CensusController.js"
             ],
             "className": "CensusController"
+        },
+        "27f12204-ed18-4d2a-a68d-327fc5755833": {
+            "paths": [
+                "metadata/view/CensusContainer",
+                "app/view/override/CensusContainer.js",
+                "app/view/CensusContainer.js"
+            ],
+            "className": "CensusContainer"
+        },
+        "00a8c5a3-7f0e-4cb3-95a7-d6f574b5d059": {
+            "paths": [
+                "metadata/store/CensusFilterStore",
+                "app/store/override/CensusFilterStore.js",
+                "app/store/CensusFilterStore.js"
+            ],
+            "className": "CensusFilterStore"
+        },
+        "8cb94bff-bed7-46f6-9138-8368f3374ca3": {
+            "paths": [
+                "metadata/model/Dow2012Tree",
+                "app/model/override/Dow2012Tree.js",
+                "app/model/Dow2012Tree.js"
+            ],
+            "className": "Dow2012Tree"
         }
     },
     "viewOrderMap": {
@@ -264,6 +288,7 @@
             "8c274233-2c62-4f46-b103-76d6c9f0def6",
             "2c9a64bf-c048-4811-b743-90c70542d8f6",
             "34e87089-9f09-4c61-9b97-8fcb52f62e0d",
+            "27f12204-ed18-4d2a-a68d-327fc5755833",
             "e962ecfd-8927-49d2-9de3-9d99522fcc4a",
             "88563679-8cb3-4a20-9b12-690c42275ed7",
             "4c8cf420-dc3a-4258-87f3-37d85eb42fce",
@@ -277,6 +302,7 @@
             "9d82e4a8-c317-4a42-aaf9-1a76ed32ccfe",
             "dbc02c5d-f3c6-4a17-95d9-cf19ebf9e830",
             "78f87ea9-233f-440a-a9bb-c0416f6d09c0",
+            "00a8c5a3-7f0e-4cb3-95a7-d6f574b5d059",
             "3ead9a44-1e8c-4852-8efd-bdf62a00c3bf",
             "9a1b5746-d7e3-4333-8728-02028726129c",
             "8bd25b78-0281-4421-9d34-b0f92d1f5dfa",
@@ -294,7 +320,8 @@
             "bb95e1bf-6755-4cc6-a8ca-2ab3b5790c33",
             "33f28e9c-2e63-41cc-97a3-e1c59f43ba15",
             "d0ecd8a4-9aa3-45fa-9ad1-7ae5f4c4e5f5",
-            "a07428af-5d8d-4081-b354-613004c06dba"
+            "a07428af-5d8d-4081-b354-613004c06dba",
+            "8cb94bff-bed7-46f6-9138-8368f3374ca3"
         ],
         "resource": [
             "edd7cdca-5c64-4ae6-9342-57c41820ab1d",

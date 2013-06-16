@@ -20,8 +20,9 @@ Ext.define('TouchTreeGrid.view.Main', {
     requires: [
         'TouchTreeGrid.view.TasksContainer',
         'TouchTreeGrid.view.ProjectContainer',
-        'TouchTreeGrid.view.TouchTreeGrid',
-        'TouchTreeGrid.view.ListsContainer'
+        'TouchTreeGrid.view.CensusContainer',
+        'TouchTreeGrid.view.ListsContainer',
+        'TouchTreeGrid.view.TouchTreeGrid'
     ],
 
     config: {
@@ -93,30 +94,13 @@ Ext.define('TouchTreeGrid.view.Main', {
                         xtype: 'container',
                         title: 'CENSUS',
                         iconCls: 'team',
-                        itemId: 'censusmainecontainer',
+                        itemId: 'censustab',
                         layout: {
-                            type: 'card'
+                            type: 'fit'
                         },
                         items: [
                             {
-                                xtype: 'touchtreegrid',
-                                categIndentPct: '2',
-                                store: 'censusmaine2000store',
-                                onItemDisclosure: true,
-                                listItemId: 'censusmainelist',
-                                categDepthColors: true,
-                                renderers: {
-                                    renderer_displayIn1000s: function(value)
-                                 {return this.formatNumbers(Math.round(Number(value)/1000), 0);}
-                                },
-                                defaultCollapseLevel: 2,
-                                landscapeIcon: './resources/images/Recycle.png',
-                                helpHtml: './resources/html/CensusExample.html',
-                                cls: [
-                                    'x-touchtreegrid-list',
-                                    'x-touchtreegrid-list-censusmaine'
-                                ],
-                                itemId: 'censusmaine'
+                                xtype: 'censusContainer'
                             }
                         ]
                     },

@@ -20,7 +20,8 @@ Ext.Loader.setConfig({
 
 Ext.application({
     stores: [
-        'OverrideStore'
+        'OverrideStore',
+        'CensusFilterStore'
     ],
     views: [
         'Main',

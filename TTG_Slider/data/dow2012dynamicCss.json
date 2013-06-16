@@ -1,0 +1,187 @@
+{"success": true, "datalist":[
+{"CloseDate":"12\/28\/2012","Open":"13095.08","High":"13095.46","Low":"12926.86","Close":"12938.11","Volume":"859800","AdjClose":"12938.11","Chg":"-158.199999999999","ChgPct":"-1.20797384912238","ID":"65"}
+,{"CloseDate":"12\/27\/2012","Open":"13114.97","High":"13141.74","Low":"12964.08","Close":"13096.31","Volume":"1001600","AdjClose":"13096.31","Chg":"-18.2800000000007","ChgPct":"-0.13938674407664","ID":"66"}
+,{"CloseDate":"12\/26\/2012","Open":"13138.85","High":"13174.88","Low":"13076.87","Close":"13114.59","Volume":"794100","AdjClose":"13114.59","Chg":"-24.3400000000001","ChgPct":"-0.18525100597994","ID":"67"}
+,{"CloseDate":"12\/24\/2012","Open":"13190.15","High":"13190.38","Low":"13128.55","Close":"13138.93","Volume":"477100","AdjClose":"13138.93","Chg":"-51.9099999999999","ChgPct":"-0.393530662186789","ID":"68"}
+,{"CloseDate":"12\/21\/2012","Open":"13309.95","High":"13309.95","Low":"13122.53","Close":"13190.84","Volume":"4132700","AdjClose":"13190.84","Chg":"-120.879999999999","ChgPct":"-0.908071984687172","ID":"69"}
+,{"CloseDate":"12\/20\/2012","Open":"13246.67","High":"13314.64","Low":"13216.03","Close":"13311.72","Volume":"1198000","AdjClose":"13311.72","Chg":"59.75","ChgPct":"0.450876360269454","ID":"70"}
+,{"CloseDate":"12\/19\/2012","Open":"13351.04","High":"13357.7","Low":"13251.74","Close":"13251.97","Volume":"1490200","AdjClose":"13251.97","Chg":"-98.9899999999998","ChgPct":"-0.74144480996123","ID":"71"}
+,{"CloseDate":"12\/18\/2012","Open":"13236.61","High":"13365.86","Low":"13232.58","Close":"13350.96","Volume":"1529200","AdjClose":"13350.96","Chg":"115.57","ChgPct":"0.873189229784689","ID":"72"}
+,{"CloseDate":"12\/17\/2012","Open":"13135.17","High":"13244.33","Low":"13134.63","Close":"13235.39","Volume":"1429800","AdjClose":"13235.39","Chg":"100.379999999999","ChgPct":"0.764217157048218","ID":"73"}
+,{"CloseDate":"12\/14\/2012","Open":"13170.8","High":"13190.41","Low":"13118.46","Close":"13135.01","Volume":"1176200","AdjClose":"13135.01","Chg":"-35.7099999999991","ChgPct":"-0.27113172248745","ID":"74"}
+,{"CloseDate":"12\/13\/2012","Open":"13241.38","High":"13264.41","Low":"13147.19","Close":"13170.72","Volume":"1011900","AdjClose":"13170.72","Chg":"-74.7300000000014","ChgPct":"-0.564193742001981","ID":"75"}
+,{"CloseDate":"12\/12\/2012","Open":"13250.05","High":"13329.44","Low":"13227.44","Close":"13245.45","Volume":"1275100","AdjClose":"13245.45","Chg":"-2.98999999999978","ChgPct":"-2.25686948803012E-02","ID":"76"}
+,{"CloseDate":"12\/11\/2012","Open":"13170.34","High":"13306.57","Low":"13170.34","Close":"13248.44","Volume":"1245100","AdjClose":"13248.44","Chg":"78.5600000000013","ChgPct":"0.596512648558691","ID":"77"}
+,{"CloseDate":"12\/10\/2012","Open":"13154.89","High":"13195.35","Low":"13139.08","Close":"13169.88","Volume":"1185300","AdjClose":"13169.88","Chg":"14.75","ChgPct":"0.112123559402302","ID":"78"}
+,{"CloseDate":"12\/7\/2012","Open":"13072.87","High":"13157.28","Low":"13072.87","Close":"13155.13","Volume":"1241300","AdjClose":"13155.13","Chg":"81.0899999999983","ChgPct":"0.620236743959773","ID":"79"}
+,{"CloseDate":"12\/6\/2012","Open":"13026.19","High":"13076.88","Low":"13007.84","Close":"13074.04","Volume":"1168500","AdjClose":"13074.04","Chg":"39.5500000000011","ChgPct":"0.303425757356069","ID":"80"}
+,{"CloseDate":"12\/5\/2012","Open":"12948.96","High":"13089.11","Low":"12923.44","Close":"13034.49","Volume":"1612300","AdjClose":"13034.49","Chg":"82.7099999999991","ChgPct":"0.638599482078904","ID":"81"}
+,{"CloseDate":"12\/4\/2012","Open":"12966.45","High":"13022.51","Low":"12940.07","Close":"12951.78","Volume":"1252900","AdjClose":"12951.78","Chg":"-13.8199999999997","ChgPct":"-0.106589745171837","ID":"82"}
+,{"CloseDate":"12\/3\/2012","Open":"13027.73","High":"13087.32","Low":"12959.42","Close":"12965.6","Volume":"1129000","AdjClose":"12965.6","Chg":"-59.9799999999996","ChgPct":"-0.46047853531282","ID":"83"}
+,{"CloseDate":"11\/30\/2012","Open":"13022.05","High":"13053.74","Low":"12988.68","Close":"13025.58","Volume":"1710700","AdjClose":"13025.58","Chg":"3.76000000000022","ChgPct":"0.028874611997403","ID":"84"}
+,{"CloseDate":"11\/29\/2012","Open":"12977.35","High":"13062.56","Low":"12961.92","Close":"13021.82","Volume":"1136200","AdjClose":"13021.82","Chg":"36.7099999999991","ChgPct":"0.282708425265547","ID":"85"}
+,{"CloseDate":"11\/28\/2012","Open":"12875.56","High":"12989.1","Low":"12765.32","Close":"12985.11","Volume":"1310000","AdjClose":"12985.11","Chg":"106.980000000001","ChgPct":"0.830710669949763","ID":"86"}
+,{"CloseDate":"11\/27\/2012","Open":"12963.38","High":"12980.19","Low":"12868.26","Close":"12878.13","Volume":"1179000","AdjClose":"12878.13","Chg":"-89.2400000000016","ChgPct":"-0.688188892581931","ID":"87"}
+,{"CloseDate":"11\/26\/2012","Open":"13008.45","High":"13008.45","Low":"12900.17","Close":"12967.37","Volume":"1143600","AdjClose":"12967.37","Chg":"-42.1599999999999","ChgPct":"-0.324070123978344","ID":"88"}
+,{"CloseDate":"11\/23\/2012","Open":"12833.13","High":"13011.45","Low":"12832.98","Close":"13009.53","Volume":"611100","AdjClose":"13009.53","Chg":"172.640000000001","ChgPct":"1.34487403101531","ID":"89"}
+,{"CloseDate":"11\/21\/2012","Open":"12788.36","High":"12845.99","Low":"12786.13","Close":"12836.89","Volume":"973000","AdjClose":"12836.89","Chg":"48.3799999999992","ChgPct":"0.378308340846582","ID":"90"}
+,{"CloseDate":"11\/20\/2012","Open":"12790.89","High":"12808.56","Low":"12701.07","Close":"12788.51","Volume":"1341600","AdjClose":"12788.51","Chg":"-7.44999999999891","ChgPct":"-5.82215011612955E-02","ID":"91"}
+,{"CloseDate":"11\/19\/2012","Open":"12590.23","High":"12796.19","Low":"12590.23","Close":"12795.96","Volume":"1369100","AdjClose":"12795.96","Chg":"207.65","ChgPct":"1.64954628540288","ID":"92"}
+,{"CloseDate":"11\/16\/2012","Open":"12542.31","High":"12604.17","Low":"12471.49","Close":"12588.31","Volume":"1971100","AdjClose":"12588.31","Chg":"45.9300000000003","ChgPct":"0.366198440806293","ID":"93"}
+,{"CloseDate":"11\/15\/2012","Open":"12571.1","High":"12600.59","Low":"12496.56","Close":"12542.38","Volume":"1291500","AdjClose":"12542.38","Chg":"-28.5700000000015","ChgPct":"-0.227270015392644","ID":"94"}
+,{"CloseDate":"11\/14\/2012","Open":"12746.54","High":"12797.73","Low":"12542.68","Close":"12570.95","Volume":"1621800","AdjClose":"12570.95","Chg":"-185.23","ChgPct":"-1.45208048177432","ID":"95"}
+,{"CloseDate":"11\/13\/2012","Open":"12808.71","High":"12898.25","Low":"12748.51","Close":"12756.18","Volume":"1422000","AdjClose":"12756.18","Chg":"-58.8999999999996","ChgPct":"-0.459614766353387","ID":"96"}
+,{"CloseDate":"11\/12\/2012","Open":"12815.93","High":"12861.28","Low":"12783","Close":"12815.08","Volume":"623600","AdjClose":"12815.08","Chg":"-0.309999999999491","ChgPct":"-2.41896657065833E-03","ID":"97"}
+,{"CloseDate":"11\/9\/2012","Open":"12811.17","High":"12890.19","Low":"12743.39","Close":"12815.39","Volume":"1316700","AdjClose":"12815.39","Chg":"4.06999999999971","ChgPct":"3.17687794856401E-02","ID":"98"}
+,{"CloseDate":"11\/8\/2012","Open":"12932.81","High":"12980.23","Low":"12811.24","Close":"12811.32","Volume":"1383500","AdjClose":"12811.32","Chg":"-121.41","ChgPct":"-0.938780907047467","ID":"99"}
+,{"CloseDate":"11\/7\/2012","Open":"13228.24","High":"13228.32","Low":"12876.6","Close":"12932.73","Volume":"1642500","AdjClose":"12932.73","Chg":"-312.950000000001","ChgPct":"-2.36265710782686","ID":"100"}
+,{"CloseDate":"11\/6\/2012","Open":"13112.9","High":"13290.75","Low":"13112.9","Close":"13245.68","Volume":"1057100","AdjClose":"13245.68","Chg":"133.24","ChgPct":"1.01613429689669","ID":"101"}
+,{"CloseDate":"11\/5\/2012","Open":"13092.28","High":"13140.58","Low":"13038.71","Close":"13112.44","Volume":"953500","AdjClose":"13112.44","Chg":"19.2800000000007","ChgPct":"0.147252458535607","ID":"102"}
+,{"CloseDate":"11\/2\/2012","Open":"13232.62","High":"13289.45","Low":"13076.57","Close":"13093.16","Volume":"1376600","AdjClose":"13093.16","Chg":"-139.460000000001","ChgPct":"-1.05391071458261","ID":"103"}
+,{"CloseDate":"11\/1\/2012","Open":"13099.19","High":"13273.71","Low":"13099.11","Close":"13232.62","Volume":"1405100","AdjClose":"13232.62","Chg":"136.160000000002","ChgPct":"1.03967026204029","ID":"104"}
+],
+"columnsPhonePortrait":[
+    {
+        "header": "Close<br>Date",
+        "dataIndex": "CloseDate",
+        "width": "6em",
+        "css": "dynamic-detail-closedate",
+        "cssSorted": "dynamic-detail-closedate-sorted",        
+        "headerCss": "dynamic-header-center",       
+        "headerCssSorted": "dynamic-header-center-sorted",               
+        "renderer": "Ext.Date.format(values.CloseDate, 'n/j/Y')",
+        "sortable": "true"
+    },
+    {
+        "header": "Open<br>Price",
+        "dataIndex": "Open",
+        "width": "4.375em",
+        "css": "dynamic-detail-right",        
+        "cssSorted": "dynamic-detail-right-sorted",                
+        "headerCss": "dynamic-header-center",               
+        "headerCssSorted": "dynamic-header-center-sorted",                       
+        "renderer": "this.formatNumbers(values.Open, 0)",
+        "sortable": "true"
+    },
+    {
+        "header": "High<br>Price",
+        "dataIndex": "High",
+        "width": "4.375em",
+        "css": "dynamic-detail-right",        
+        "cssSorted": "dynamic-detail-right-sorted",                        
+        "headerCss": "dynamic-header-center",                       
+        "headerCssSorted": "dynamic-header-center-sorted",                       
+        "renderer": "this.formatNumbers(values.High, 0)",
+        "sortable": "true"
+    },
+    {
+        "header": "Low<br>Price",
+        "dataIndex": "Low",
+        "width": "4.375em",
+        "css": "dynamic-detail-right",        
+        "cssSorted": "dynamic-detail-right-sorted",                        
+        "headerCss": "dynamic-header-center",                       
+        "headerCssSorted": "dynamic-header-center-sorted",                               
+        "renderer": "this.formatNumbers(values.Low, 0)",
+        "sortable": "true"
+    },    
+    {
+        "header": "Close<br>Price",
+        "dataIndex": "Close",
+        "width": "4.375em",
+        "css": "dynamic-detail-right-bold",        
+        "cssSorted": "dynamic-detail-right-bold-sorted",                        
+        "headerCss": "dynamic-header-center",                       
+        "headerCssSorted": "dynamic-header-center-sorted",                               
+        "renderer": "this.formatNumbers(values.Close, 0)",
+        "sortable": "true"
+    },
+    {
+        "header": "<br>Volume",
+        "dataIndex": "Volume",
+        "width": "5.625em",
+        "css": "dynamic-detail-right-border",                
+        "cssSorted": "dynamic-detail-right-border-sorted",                        
+        "headerCss": "dynamic-header-center",                       
+        "headerCssSorted": "dynamic-header-center-sorted",                               
+        "renderer": "this.formatNumbers(values.Volume, 0)",
+        "sortable": "true"
+    },    
+    {
+        "header": "<br>Chg",
+        "dataIndex": "Chg",
+        "width": "3.125em",
+        "css": "dynamic-detail-right",                
+        "cssSorted": "dynamic-detail-right-sorted",                        
+        "headerCss": "dynamic-header-center",                       
+        "headerCssSorted": "dynamic-header-center-sorted",                               
+        "renderer": "this.renderer_formatWithColorCls(values.Chg, 0)",
+        "sortable": "true"
+    },
+    {
+        "header": "<br>Chg%",
+        "dataIndex": "ChgPct",
+        "width": "4.375em",
+        "css": "dynamic-detail-right",                
+        "cssSorted": "dynamic-detail-right-sorted",                        
+        "headerCss": "dynamic-header-center",                       
+        "headerCssSorted": "dynamic-header-center-sorted",                               
+        "renderer": "this.renderer_formatWithColorCls(values.ChgPct, 2, '', '%')",
+        "sortable": "true"
+    }
+],
+"fields": [
+            {
+                "name": "CloseDate",
+                "type": "date"
+            },
+            {
+                "name": "Open",
+                "type": "float"
+            },
+            {
+                "name": "High",
+                "type": "float"
+            },
+            {
+                "name": "Low",
+                "type": "float"
+            },
+            {
+                "name": "Close",
+                "type": "float"
+            },
+            {
+                "name": "Volume",
+                "type": "float"
+            },
+            {
+                "name": "AdjClose",
+                "type": "float"
+            },
+            {
+                "name": "Chg",
+                "type": "float"
+            },
+            {
+                "name": "ChgPct",
+                "type": "float"
+            },
+            {
+                "name": "ID",
+                "type": "string"
+            },
+            {
+                "name": "grouper",
+                "type": "string"
+            },
+            {
+                "name": "YearMonth",
+                "type": "int"
+            },
+            {
+                "name": "PARENT_ID",
+                "type": "string"
+            }
+]
+}

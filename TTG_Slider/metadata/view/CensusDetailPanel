@@ -1,0 +1,265 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "cls": [
+            "censusdetailpanel"
+        ],
+        "designer|userClassName": "CensusDetailPanel",
+        "designer|userAlias": "censusdetailpanel",
+        "layout": "vbox",
+        "scrollable": false
+    },
+    "designerId": "e3f9b86c-65ad-4ff7-8b2d-a5d8a0bfc34d",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "center",
+                "docked": "top",
+                "margin": null,
+                "padding": ".4em 0 0 0"
+            },
+            "designerId": "700a44c1-f028-4aa7-a488-df35b8b48743",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "itemId": "censusdetailbackbtn",
+                        "maxWidth": 80,
+                        "minWidth": 80,
+                        "ui": "back",
+                        "text": "Back"
+                    },
+                    "designerId": "ab10b656-2e18-4a11-96a1-cc567eab33a4"
+                },
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 10
+                    },
+                    "designerId": "b608dad2-7407-438a-87cf-7c1813ec897e"
+                },
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": null,
+                        "itemId": "censusdetaillabel",
+                        "maxWidth": "10em",
+                        "style": "color : white",
+                        "width": null
+                    },
+                    "designerId": "5d00d06c-ad01-430e-929f-2fe75b4d2bf1"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "minHeight": "1.5em",
+                "style": "background: #5e6266; font-size: .8em;"
+            },
+            "designerId": "299ad372-ff89-48ba-8713-56cdac0b8f01",
+            "cn": [
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "docked": "left",
+                        "html": "Number",
+                        "style": "text-align: right; padding-right: 1em; padding-top: .1em;",
+                        "width": "66.666%"
+                    },
+                    "designerId": "7a3a85fb-000e-4530-85ff-31a48c59df37"
+                },
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "docked": "right",
+                        "html": "Percent",
+                        "style": "padding-right: 1em; padding-top: .1em;"
+                    },
+                    "designerId": "941676e1-22e3-49a3-bb3d-d57975911047"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "cls": [
+                    "censusfieldset1"
+                ],
+                "height": "70em",
+                "itemId": "censusscrollcont",
+                "maxHeight": "70em",
+                "minHeight": "70em",
+                "layout": "hbox",
+                "scrollable": "vertical"
+            },
+            "designerId": "16e4075f-730e-4668-95fc-6a79436780a8",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 2,
+                        "cls": [
+                            "censusfieldset1"
+                        ],
+                        "height": "70em",
+                        "maxHeight": "70em",
+                        "minHeight": "70em",
+                        "layout": "vbox"
+                    },
+                    "designerId": "28b0647f-8e7a-407a-b3f0-7b77f470d9bf",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "height": "70em",
+                                "itemId": "censusfieldset1",
+                                "maxHeight": "70em",
+                                "minHeight": "70em",
+                                "style": null,
+                                "scrollable": false,
+                                "title": null
+                            },
+                            "designerId": "9739ae5b-4844-4137-a01a-f15bc5297d38",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "inputCls": "detailtextfields",
+                                        "label": "Field",
+                                        "labelWidth": "60%",
+                                        "readOnly": true
+                                    },
+                                    "designerId": "4353e927-ea3c-4efd-be39-f99bfde8346c"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "cls": [
+                            "censusfieldset2"
+                        ],
+                        "height": "70em",
+                        "maxHeight": "70em",
+                        "minHeight": "70em",
+                        "layout": "vbox"
+                    },
+                    "designerId": "dbfdc194-03c0-4559-a3e2-53452f8edfde",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "height": "70em",
+                                "itemId": "censusfieldset2",
+                                "maxHeight": "70em",
+                                "minHeight": "70em",
+                                "scrollable": false,
+                                "title": null
+                            },
+                            "designerId": "553a0eac-51cd-4152-a9a8-598e0a02027e",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "label": null,
+                                        "readOnly": true
+                                    },
+                                    "designerId": "7405d386-6bee-4275-b6bf-4f7c10c185da"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

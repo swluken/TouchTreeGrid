@@ -149,8 +149,8 @@
                     "userConfig": {
                         "title": "CENSUS",
                         "iconCls": "team",
-                        "itemId": "censusmainecontainer",
-                        "layout": "card"
+                        "itemId": "censustab",
+                        "layout": "fit"
                     },
                     "designerId": "a7d944c5-4cc1-4324-a604-abaaada1dc75",
                     "cn": [
@@ -161,63 +161,8 @@
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "userConfig": {
-                                "plugins": null,
-                                "listPlugins": null,
-                                "categIndentPct": "2",
-                                "store": "censusmaine2000store",
-                                "onItemDisclosure": true,
-                                "columns": null,
-                                "disclosureProperty": null,
-                                "listItemId": "censusmainelist",
-                                "categDepthColors": true,
-                                "customExpCollapseEvent": null,
-                                "renderers": [
-                                    "{ renderer_displayIn1000s: function(value)\r",
-                                    " {return this.formatNumbers(Math.round(Number(value)/1000), 0);}}"
-                                ],
-                                "defaultCollapseLevel": 2,
-                                "landscapeIcon": "./resources/images/Recycle.png",
-                                "helpHtml": "./resources/html/CensusExample.html",
-                                "cls": [
-                                    "x-touchtreegrid-list",
-                                    "x-touchtreegrid-list-censusmaine"
-                                ],
-                                "itemId": "censusmaine",
-                                "designer|createAlias": null
-                            },
-                            "configAlternates": {
-                                "plugins": "object",
-                                "listPlugins": "object",
-                                "colNumberToTruncateForIndents": "number",
-                                "renderers": "object",
-                                "applyDefaultCollapseLevel": "boolean",
-                                "defaultCollapseLevel": "number"
-                            },
-                            "designerId": "addd07fd-bcd3-477c-88a5-4c889f2879bd",
-                            "customConfigs": [
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "plugins",
-                                    "type": "string"
-                                },
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "listPlugins",
-                                    "type": "string"
-                                },
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "categIndentPct",
-                                    "type": "string"
-                                },
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "colNumberToTruncateForIndents",
-                                    "type": "string"
-                                }
-                            ],
-                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                            "designerId": "6ba05af9-6a30-478a-b201-3625ffd87db3",
+                            "masterInstanceId": "27f12204-ed18-4d2a-a68d-327fc5755833"
                         }
                     ]
                 },

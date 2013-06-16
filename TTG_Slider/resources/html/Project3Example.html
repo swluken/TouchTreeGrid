@@ -1,0 +1,39 @@
+<div>Project #3 Example</div>
+<div>&nbsp;</div>
+<div style="font-size: .8em; max-width: 75% !important;">
+
+<p>>Same as Project #2 using CSS to show traditional tree grid with white category colors</p>
+<p>&nbsp;</p>
+<p>>Disclose icon removed</p>
+<p>&nbsp;</p>
+<p>>Implements row rendering for leaf rows where done=true using styleContentRow config:</p>
+<p>	background-color: {[(values.done && values.leaf ? "#adbe87" : "none")]};</p>
+<p>&nbsp;</p>
+<p>>Also conditionally displays checkmark png using cell rendering.
+<p>&nbsp;</p>
+<p style="font-weight:bold;">	columns[] Array:</p>
+<div style="color: blue;">
+<p>	    {</p>
+<p>&nbsp;        header: 'Done?',</p>
+<p>&nbsp;        dataIndex: 'done',</p>
+<p>&nbsp;        width: '25%',</p>
+<p>&nbsp;        style: 'padding-left: 10%; margin: 0px 0 0px 0;',</p>
+<p>&nbsp;        categStyle: 'text-align: left; padding-left: .5em;',</p>
+<p>&nbsp;        headerStyle: 'text-align: center; color: #ccc;',</p>
+<p>&nbsp;        renderer: 'this.renderer_checkMark(values)'</p>
+<p>    } </p>
+<p>&nbsp;</p>
+</div>
+<p style="font-weight:bold;">	renderers{} Object:</p>
+<div style="color: blue;">
+
+<p>{renderer_checkMark: function (values) {</p>
+<p> return  values.done ? "<img src='./resources/images/check_box.png'>" : '';}}</p>
+<p>&nbsp;</p>
+</div>
+
+
+
+ </div>
+
+	

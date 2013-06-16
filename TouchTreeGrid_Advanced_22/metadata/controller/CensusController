@@ -13,7 +13,8 @@
             "CensusMaine2000"
         ],
         "views": [
-            "CensusDetailPanel"
+            "CensusDetailPanel",
+            "CensusContainer"
         ],
         "designer|userClassName": "CensusController"
     },
@@ -27,19 +28,70 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "onCensusTabpanelActiveItemChange",
+                "implHandler": [
+                    "var me = this;\r",
+                    "var newcont = value.getItemId();\r",
+                    "var grid, gridcont, numNodes, mydata, numRecords, gridListItemId;\r",
+                    "\r",
+                    "gridcont = value.down('touchtreegrid');\r",
+                    "gridListItemId = '#'+gridcont.getListItemId();\r",
+                    "grid = gridcont.down(gridListItemId);\r",
+                    "\r",
+                    "\r",
+                    "if (newcont === 'censusmainecontainer'){\r",
+                    "    numRecords = grid.getStore().getData().length;\r",
+                    "    if (numRecords === 0) {\r",
+                    "        me.loadCensusMaine2000Store();\r",
+                    "    }  \r",
+                    "}\r",
+                    "\r",
+                    "if (newcont === 'censusfiltercont'){\r",
+                    "    numRecords = grid.getStore().getData().length;\r",
+                    "    if (numRecords === 0) {\r",
+                    "        me.loadCensusFilterStore(gridcont, grid);\r",
+                    "    }      \r",
+                    "\r",
+                    "}\r",
+                    ""
+                ],
+                "name": "activeitemchange",
+                "designer|targetType": "Ext.tab.Panel",
+                "designer|controlQuery": "tabpanel#censustabpanel"
+            },
+            "designerId": "1c99d723-c644-4953-8775-424f658deb25"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "onCensusMaineListDisclose",
                 "implHandler": [
-                    "var swapcont = commonController.getMain().down('#censusmainecontainer');   \r",
+                    "var swapcont;\r",
+                    "var listitemid = list.getItemId();\r",
+                    "if (listitemid === 'censusmainelist') {\r",
+                    "    swapcont = this.getCensusContainer().down('#censusmainecontainer');  \r",
+                    "}\r",
+                    "if (listitemid === 'censusfilterlist') {\r",
+                    "    swapcont = this.getCensusContainer().down('#censusfiltercont');      \r",
+                    "}\r",
+                    "myList = swapcont.down('touchtreegrid');\r",
+                    "\r",
                     "if (swapcont)\r",
                     "{\r",
                     "    var newcont = this.getCensusdetailpanel(\r",
                     "    {\r",
                     "        title : '2000 Census (Maine)',\r",
-                    "        id : 'censusmainedetail',\r",
+                    "        itemId : 'censusmainedetail',\r",
                     "        layout: {type: 'vbox'},\r",
                     "        scrollable: 'vertical'\r",
                     "    }\r",
                     "    );\r",
+                    "    newcont.swapcont = swapcont;  // store with component for use in back button\r",
                     "\r",
                     "    var device = ((Ext.os.is.Phone) ? 'phone' : 'tablet');\r",
                     "    var orient = ((Ext.Viewport.getWindowWidth() > Ext.Viewport.getWindowHeight()) ? 'landscape' : 'portrait');\r",
@@ -48,7 +100,6 @@
                     "\r",
                     "    if (newcont)\r",
                     "    {\r",
-                    "        var myList = this.getCensusmaine();\r",
                     "        var newLabel = newcont.down('#censusdetaillabel');    \r",
                     "        newLabel.setHtml(record.get('CATEG'));       \r",
                     "\r",
@@ -130,13 +181,35 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "onCensusFilterListDisclose",
+                "implHandler": [
+                    "this.onCensusMaineListDisclose(list, record, target, index, e, eOpts);"
+                ],
+                "name": "disclose",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list#censusfilterlist"
+            },
+            "designerId": "6637aefc-4f7e-43de-ba49-fb8f9c370aeb"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "onCensusDetailBackButtonTap",
                 "implHandler": [
-                    "var swapcont = commonController.getMain().down('#censusmainecontainer');   \r",
+                    "// Resusing this back button method for both Censusmaine and Censusfilter items\r",
+                    "var priorcont =  button.up('#censusmainedetail'); \r",
+                    "\r",
+                    "// Get parent containder for detail window (stored with priorcont component at creation)\r",
+                    "var swapcont = priorcont.swapcont;  \r",
+                    "\r",
                     "if (swapcont)\r",
                     "{\r",
-                    "    var newcont = swapcont.down('#censusmaine'); \r",
-                    "    var priorcont = swapcont.down('#censusmainedetail'); \r",
+                    "    var newcont = swapcont.down('container'); \r",
                     "\r",
                     "    newcont.setShowAnimation({type :\"slide\", direction : \"right\"});\r",
                     "    swapcont.setActiveItem(newcont);  \r",
@@ -156,10 +229,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "censusmaine",
-                "selector": "#censusmaine"
+                "autoCreate": true,
+                "ref": "censusdetailpanel",
+                "selector": "censusdetailpanel",
+                "xtype": "censusdetailpanel"
             },
-            "designerId": "dbcbbc8e-ac8c-43fe-b38c-b3d4c89a91ab"
+            "designerId": "94974b8e-4d5c-41f5-8f34-63572bfb73e4"
         },
         {
             "type": "controllerref",
@@ -169,12 +244,24 @@
             },
             "codeClass": null,
             "userConfig": {
-                "autoCreate": true,
-                "ref": "censusdetailpanel",
-                "selector": "censusdetailpanel",
-                "xtype": "censusdetailpanel"
+                "ref": "censusContainer",
+                "selector": "censusContainer",
+                "xtype": "censusContainer"
             },
-            "designerId": "94974b8e-4d5c-41f5-8f34-63572bfb73e4"
+            "designerId": "6e484f09-604a-4bf3-aa0f-64ba3a9f2232"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "censusmaine",
+                "selector": "#censusmaine"
+            },
+            "designerId": "0618909d-51f8-403b-ac5f-f4c97baa69dd"
         },
         {
             "type": "basicfunction",
@@ -207,6 +294,10 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "loadColumnsCensusMaine",
+                "designer|params": [
+                    "gridcont",
+                    "noRefresh"
+                ],
                 "implHandler": [
                     "/* Demo grid column changes based on device (phone vs. tablet) and orientation (portrait vs. landscape) */\r",
                     "/* NOTE:  When connected to data source suggest storing array configruations in a table \r",
@@ -460,13 +551,165 @@
                     "\r",
                     "}\r",
                     "\r",
-                    "var gridcont = this.getCensusmaine();\r",
+                    "\r",
                     "gridcont.setColumns(colArr);\r",
-                    "gridcont.doRefreshList(true);   // Don't change collapse levels when refreshing\r",
+                    "if (!noRefresh) {\r",
+                    "    gridcont.doRefreshList(true);   // Don't change collapse levels when refreshing\r",
+                    "}    \r",
                     ""
                 ]
             },
             "designerId": "a98bc4b8-c63b-4bb5-9519-d97b52ee92e0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadCensusFilterStore",
+                "designer|params": [
+                    "gridcont",
+                    "grid"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "var gridurl = 'data/censusmaine2000FLAT.json';\r",
+                    "\r",
+                    "// Passing loadStoreInPostProcess=true because for this example we will \r",
+                    "// be loading census store (flatfile format) and then post-processing\r",
+                    "// into treestore format \r",
+                    "commonController.loadStore(me, gridcont, gridurl, 'Loading Census Filter...', true);\r",
+                    ""
+                ]
+            },
+            "designerId": "c80628c1-b500-4a45-8698-3b78b1e620ac"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCensusFilterExpandButtonTap",
+                "implHandler": [
+                    "var gridcont = button.up('#censusfiltersubcont').down('touchtreegrid');\r",
+                    "var selectValue = button.up('toolbar').down('#censusfilterselect').getValue();\r",
+                    "this.applyCensusFilter(gridcont, selectValue, 99);"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button#censusfilterexpandbtn"
+            },
+            "designerId": "d6be840e-84e0-43e3-b6f2-a974cab4f340"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCensusFilterCollapseButtonTap",
+                "implHandler": [
+                    "var gridcont = button.up('#censusfiltersubcont').down('touchtreegrid');\r",
+                    "var selectValue = button.up('toolbar').down('#censusfilterselect').getValue();\r",
+                    "this.applyCensusFilter(gridcont, selectValue, 0);"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button#censusfiltercollapsebtn"
+            },
+            "designerId": "ceeb4663-d2cf-4ccf-94df-f2e52133d9c7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCensusFilterSelectfieldChange",
+                "implHandler": [
+                    "var gridcont = selectfield.up('#censusfiltersubcont').down('touchtreegrid');\r",
+                    "this.applyCensusFilter(gridcont, newValue);"
+                ],
+                "name": "change",
+                "designer|targetType": "Ext.field.Select",
+                "designer|controlQuery": "selectfield#censusfilterselect"
+            },
+            "designerId": "257eb86e-0260-474b-9f0e-78aac9ff7444"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "applyCensusFilter",
+                "designer|params": [
+                    "gridcont",
+                    "selectFieldValue",
+                    "collapseTo"
+                ],
+                "implHandler": [
+                    "var gridlistname = gridcont.getListItemId();\r",
+                    "var gridlist = gridcont.down('#'+gridlistname);\r",
+                    "var ArrRef = gridlist.ArrRef;\r",
+                    "var myFilt, skipApplyDefaultCollapseLevel;\r",
+                    "\r",
+                    "\r",
+                    "if (selectFieldValue === '0') {\r",
+                    "\r",
+                    "    collapseLvl = (Ext.isEmpty(gridcont.collapseLevel) ? 1 : gridcont.collapseLevel);\r",
+                    "    skipApplyDefaultCollapseLevel = false;\r",
+                    "    // Refer to expCollapse() method where collapseLevel could be updated for manual expand processing\r",
+                    "    myFilt = {};\r",
+                    "\r",
+                    "} else {\r",
+                    "    collapseLvl = 99; // Fully expand filtered output\r",
+                    "    skipApplyDefaultCollapseLevel = true;\r",
+                    "    myFilt = {\r",
+                    "        enabled: true,\r",
+                    "        displayNodesWithAllMembersFilteredAsLeafs: true\r",
+                    "    };\r",
+                    "\r",
+                    "    if (selectFieldValue === '1') {  // Males > Females             \r",
+                    "        // Alternative way to define function if building dynamically\r",
+                    "        var v1 = 'Male';\r",
+                    "        var v2 = 'Female';\r",
+                    "        var oper = '>=';\r",
+                    "\r",
+                    "        // myFilt.filterFn = function (rowObj) {return (parseInt(rowObj.Male) >= parseInt(rowObj.Female));};\r",
+                    "        // var func = new Function(\"x\", \"y\", \"return x*y;\");\r",
+                    "        myFilt.filterFn = new Function(\"rowObj\", \"return (parseInt(rowObj.\" + v1 + ') ' + oper +\r",
+                    "        ' parseInt(rowObj.' + v2 + \"));\");        \r",
+                    "    }\r",
+                    "    if (selectFieldValue === '2') {  // Females > Males\r",
+                    "        myFilt.filterFn = function (rowObj) {return (parseInt(rowObj.Female) >= parseInt(rowObj.Male));};\r",
+                    "    }    \r",
+                    "    if (selectFieldValue === '3') {  // Population > 10k\r",
+                    "        myFilt.filterFn = function (rowObj) {return (parseInt(rowObj.TotalPopulation) >= 10000);};\r",
+                    "    }     \r",
+                    "}    \r",
+                    "\r",
+                    "commonController.loadTree((Ext.isEmpty(collapseTo) ? collapseLvl : collapseTo),\r",
+                    "ArrRef, [], gridcont, null, true, myFilt, \r",
+                    "(Ext.isEmpty(collapseTo) ? skipApplyDefaultCollapseLevel : true)); \r",
+                    "\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "df480e5f-c223-4fba-a39f-4b8b046249ec"
         }
     ]
 }

@@ -162,6 +162,11 @@ Ext.define('TouchTreeGrid.view.ProjectContainer', {
                                 applyDefaultCollapseLevel: false,
                                 landscapeIcon: './resources/images/Recycle.png',
                                 helpHtml: './resources/html/Project2Example.html',
+                                categCssArr: [
+                                    'touchtreegrid-list-categ0',
+                                    'touchtreegrid-list-categ',
+                                    'touchtreegrid-list-categ'
+                                ],
                                 cls: [
                                     'x-touchtreegrid-list',
                                     'x-touchtreegrid-list-example2',

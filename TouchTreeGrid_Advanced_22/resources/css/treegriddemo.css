@@ -140,6 +140,21 @@
     padding:.6em 0 0 0;
 }
 
+.x-touchtreegrid-list-example2B .touchtreegrid-list-categ0 {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+    
+  background-color: #ddd !important;
+  background-image: none !important;
+  border-top: 1px solid #4D80BC;
+  border-bottom: 1px solid #2D4E76;
+  min-height:2.6em !important; 
+  padding:0.6em 0 0 0 !important; 
+  font-size: .7em !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);    
+}
+
 
 /******************** BEGIN PROJECT #3 EXAMPLE OVERRIDES *********************/
 .x-touchtreegrid-list-example2C .touchtreegrid-list-categ {  
@@ -192,6 +207,71 @@
     background-image: none !important;
 }
 
+/******************** CENSUS EXAMPLE OVERRIDES *********************/
+
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+  font-weight: normal;
+  padding:0.6em 0 0 0 !important; 
+  font-size: .7em !important;
+}
+
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    padding:1.5em 0 0 0;
+    font-size: .7em !important;    
+}
+.x-touchtreegrid-list-censusmaine .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0.4em 0 0 0;
+    font-size: .8em !important;
+}
+
+.x-touchtreegrid-list-censusmaine-phone .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+  font-weight: normal;
+  padding:0.6em 0 0 0 !important; 
+  font-size: .6em !important;
+}
+
+.x-touchtreegrid-list-censusmaine-phone .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    padding:1.5em 0 0 0;
+    font-size: .6em !important;    
+}
+.x-touchtreegrid-list-censusmaine-phone .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0.6em 0 0 0;
+    font-size: .6em !important;
+}
+
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer, 
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer.x-button-back:after, 
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer.x-button-forward:after, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-back:after, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-forward:after, 
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer:before, 
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer:before.x-button-back:after, 
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer:before.x-button-forward:after, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-back:after, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-forward:after {
+      background-image: none !important;
+      background-color: #FF6F00 !important;
+}
+
+/******************** CENSUS DETAIL PANEL COLUMN TEXT OVERRIDES *********************/
+.censusdetailpanel .detailtextfields {
+    text-align: right;
+}   
+.censusdetailpanel .detailtextfields-phone-portrait {
+    text-align: left;
+    font-size: .7em;
+}    
+.censusdetailpanel .censusfieldset2 .x-form-fieldset {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+.censusdetailpanel .censusfieldset1 .x-form-fieldset {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+}
+
 
 /******************** DOW2012 GRID OVERRIDES ************************/
 .x-touchtreegrid-list-dow2012 .touchtreegrid-simplelist-cell{ /* simple list cells  */  
@@ -231,6 +311,57 @@
 } 
 /** End DOW2012 CSS required to support row selection for simplelist rows **/
 
+/******************** DOW2012Basic2 GRID OVERRIDES ************************/
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-simplelist-cell{ /* simple list cells  */  
+    background-color: transparent;  /* needed for alternate shading */
+    padding-top:0 !important;
+    line-height: 32px;
+}
+
+.x-touchtreegrid-list-dow2012Basic2 .cellrend-positive {
+    color: green;
+}
+.x-touchtreegrid-list-dow2012Basic2 .cellrend-negative {
+    color: red;
+}
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .cellrend-positive {
+    color: white !important;
+}
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .cellrend-negative {
+    color: white !important;
+}
+
+
+.x-touchtreegrid-list-dow2012Basic2 .x-touchtreegrid-item:nth-child(even) {  /* for alternate shading */
+    background-color: #f5f5f5 !important;
+}
+
+/** Begin DOW2012 CSS required to support row selection for simplelist rows **/
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected,
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected.x-touchtreegrid-item:nth-child(even) { 
+/* Notice no space b/t last 2 selectors .. not sure why this is necessary but it works for shaded rows*/
+    background-color: #006bb6 !important;  /* color for selected row */
+}    
+
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .touchtreegrid-simplelist-cell{
+    background-color: #006bb6 !important;  /* cells need to match row color */
+    color: white !important;  /* Change selected text color to white */
+} 
+
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-pressed,
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-pressed.x-touchtreegrid-item:nth-child(even),
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-pressed .touchtreegrid-simplelist-cell {
+    background-color: #b6e1ff !important;  /* color for selected row */
+}   
+
+/* Below would control selected color of Disclosure Icon if onDisclosure=true */
+.x-touchtreegrid-list-dow2012 .touchtreegrid-item-selected .x-list-disclosure{  
+    background-color: white;
+}
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .x-list-disclosure:before{  
+    color: #006bb6;
+} 
+/** End DOW2012 CSS required to support row selection for simplelist rows **/
 
 
 /******************** DOW2012 HORIZ SCROLLING GRID OVERRIDES ************************/
@@ -254,24 +385,81 @@
     font-weight: bold;
 }
 
+/******************** DOW2012 DYNAMIC SCROLLING GRID OVERRIDES ************************/
+/*                    (DOW2012 HORIZ ALSO APPLIES)                                    */
 
-/******************** CENSUS DETAIL PANEL COLUMN TEXT OVERRIDES *********************/
-.censusdetailpanel .detailtextfields {
-    text-align: right;
-}   
-.censusdetailpanel .detailtextfields-phone-portrait {
-    text-align: left;
-    font-size: .7em;
-}    
-.censusdetailpanel .censusfieldset2 .x-form-fieldset {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-header-center {
+   text-align: center;
 }
-.censusdetailpanel .censusfieldset1 .x-form-fieldset {
-    padding-right: 0 !important;
-    margin-right: 0 !important;
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-header-center-sorted {
+   text-align: center;
+   background-color: #dedede;    
 }
 
+
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-closedate {
+   text-align: center; 
+   font-weight: bold; 
+   color: #008abc; 
+   border-right: 1px solid #9b9b9b;
+}
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-closedate-sorted {
+   text-align: center; 
+   font-weight: bold; 
+   color: #008abc; 
+   border-right: 1px solid #9b9b9b;
+   background-color: #dedede;
+}
+
+
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right {
+   text-align: right;
+   font-weight: normal; 
+   padding-right: .4em;
+}
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right-sorted {
+   text-align: right;
+   font-weight: normal; 
+   padding-right: .4em;
+   background-color: #dedede;    
+}
+
+
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right-bold {
+   text-align: right;
+   font-weight: bold; 
+   padding-right: .4em;
+}
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right-bold-sorted {
+   text-align: right;
+   font-weight: bold; 
+   padding-right: .4em;
+   background-color: #dedede;        
+}
+
+
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right-border {
+   text-align: right;
+   font-weight: normal; 
+   padding-right: .4em; 
+   border-right: 1px solid #9b9b9b;
+}
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right-border-sorted {
+   text-align: right;
+   font-weight: normal; 
+   padding-right: .4em; 
+   border-right: 1px solid #9b9b9b;
+   background-color: #dedede;        
+}
+
+
+.x-touchtreegrid-list-dow2012Dynamic .cellrend-positive {
+    color: green;    
+    }
+
+.x-touchtreegrid-list-dow2012Dynamic .cellrend-negative {
+    color: red;    
+    }
 
 /******************** MANUAL OVERRIDE EXAMPLE OVERRIDES *********************/
 .x-touchtreegrid-list-override .touchtreegrid-list-categ {

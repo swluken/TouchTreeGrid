@@ -155,6 +155,124 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "title": "Basic2",
+                        "itemId": "dow2012Basic2Cont",
+                        "layout": "card"
+                    },
+                    "designerId": "ca603aab-2179-42e2-a5ec-6afcf819f1e1",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "store": "dow2012store",
+                                "disableSelection": false,
+                                "columns": [
+                                    "[\r",
+                                    "    {\r",
+                                    "        header: 'CloseDate',\r",
+                                    "        dataIndex: 'CloseDate',\r",
+                                    "        width: '25%',\r",
+                                    "        style: 'text-align: left; font-weight: bold; color: #008abc;',\r",
+                                    "        styleSorted: 'text-align: left; font-weight: bold; padding-right: .4em; color: #008abc; background-color: #dedede;',      \r",
+                                    "        headerStyle: 'text-align: left; color: #ccc;',\r",
+                                    "        renderer: 'Ext.Date.format(values.CloseDate, \"n/j/Y\")',\r",
+                                    "        sortable: true\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'Close',\r",
+                                    "        dataIndex: 'Close',\r",
+                                    "        width: '20%',\r",
+                                    "        style: 'text-align: right;font-weight: bold;padding-right: .4em;',\r",
+                                    "        styleSorted: 'text-align: right;font-weight: bold; padding-right: .4em; bold; background-color: #dedede;',\r",
+                                    "        headerStyle: 'text-align: right; padding-right: .5em !important; color: #ccc;',\r",
+                                    "        renderer: 'this.formatNumbers(values.Close, 0)',\r",
+                                    "        sortable: true\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'Chg',\r",
+                                    "        dataIndex: 'Chg',\r",
+                                    "        width: '20%',\r",
+                                    "        style: 'text-align: right;font-weight: bold;padding-right: .4em;',\r",
+                                    "        styleSorted: 'text-align: right;font-weight: bold; padding-right: .4em; background-color: #dedede;',\r",
+                                    "        headerStyle: 'text-align: right; padding-right: .5em !important; color: #ccc;',\r",
+                                    "        renderer: 'this.renderer_formatWithColorCls(values.Chg, 0)',\r",
+                                    "        sortable: true\r",
+                                    "    },\r",
+                                    "    {\r",
+                                    "        header: 'Chg%',\r",
+                                    "        dataIndex: 'ChgPct',\r",
+                                    "        width: '20%',\r",
+                                    "        style: 'text-align: right;font-weight: bold;padding-right: .4em;',\r",
+                                    "        styleSorted: 'text-align: right;font-weight: bold; padding-right: .4em; background-color: #dedede;',\r",
+                                    "        headerStyle: 'text-align: right; padding-right: .5em !important; color: #ccc;',\r",
+                                    "        renderer: 'this.renderer_formatWithColorCls(values.ChgPct, 2, \"\", \"%\")',\r",
+                                    "        sortable: true\r",
+                                    "    }\r",
+                                    "    ]"
+                                ],
+                                "header": [
+                                    "{\"xtype\":\"toolbar\",\r",
+                                    " \"docked\":\"top\",\r",
+                                    " \"cls\":\"touchtreegrid-header\",\r",
+                                    " \"maxHeight\":\"2.6em\",\r",
+                                    " \"minHeight\":\"2.6em\",\r",
+                                    " padding : \".6em 0 0 0 !important\"\r",
+                                    "}"
+                                ],
+                                "variableHeights": false,
+                                "itemHeight": 32,
+                                "listItemId": "dow2012lBasic2ist",
+                                "listPlugins": [
+                                    "{\r",
+                                    "    xclass: 'Ext.plugin.PullRefresh'\r",
+                                    "}"
+                                ],
+                                "renderers": [
+                                    "{renderer_formatWithColorCls: function (value, decPlaces, prefix, suffix, thouSeparator, decSeparator)\r",
+                                    "{var cls = (value >= 0) ? 'cellrend-positive' : 'cellrend-negative';\r",
+                                    "return '<span class=\"' + cls + '\">' + this.formatNumbers(value, decPlaces, prefix, suffix, thouSeparator, decSeparator) +\r",
+                                    "    '</span>';}}"
+                                ],
+                                "landscapeIcon": null,
+                                "helpHtml": "./resources/html/DOW2012Basic2Example.html",
+                                "simpleList": true,
+                                "columnSorting": true,
+                                "styleCategRow": null,
+                                "additionalListConfigs": null,
+                                "mode": null,
+                                "cls": [
+                                    "x-touchtreegrid-list",
+                                    "x-touchtreegrid-list-dow2012Basic2"
+                                ],
+                                "itemId": "dow2012Basic2"
+                            },
+                            "configAlternates": {
+                                "simpleList": "boolean",
+                                "headerSorting": "boolean",
+                                "columnSorting": "boolean",
+                                "additionalListConfigs": "object",
+                                "scrollable": "object",
+                                "listScrollable": "object",
+                                "storeFn": "object"
+                            },
+                            "designerId": "3f725499-a2a0-4079-aecc-c23a3b3de088",
+                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "title": "Grouper",
                         "itemId": "dow2012grouperCont",
                         "layout": "card"
@@ -575,9 +693,9 @@
                                 "listItemId": "dow2012Dynamiclist",
                                 "listPlugins": null,
                                 "renderers": [
-                                    "{renderer_formatWithColor: function (value, decPlaces, prefix, suffix, thouSeparator, decSeparator)\r",
-                                    "{var clr = (value >= 0) ? 'green' : 'red';\r",
-                                    "return '<span style=\"color:' + clr + ';\">' + this.formatNumbers(value, decPlaces, prefix, suffix, thouSeparator, decSeparator) +\r",
+                                    "{renderer_formatWithColorCls: function (value, decPlaces, prefix, suffix, thouSeparator, decSeparator)\r",
+                                    "{var cls = (value >= 0) ? 'cellrend-positive' : 'cellrend-negative';\r",
+                                    "return '<span class=\"' + cls + '\">' + this.formatNumbers(value, decPlaces, prefix, suffix, thouSeparator, decSeparator) +\r",
                                     "    '</span>';}}"
                                 ],
                                 "landscapeIcon": null,

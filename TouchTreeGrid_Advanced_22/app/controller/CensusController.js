@@ -24,40 +24,97 @@ Ext.define('TouchTreeGrid.controller.CensusController', {
             'CensusMaine2000'
         ],
         views: [
-            'CensusDetailPanel'
+            'CensusDetailPanel',
+            'CensusContainer'
         ],
 
         refs: {
-            censusmaine: '#censusmaine',
             censusdetailpanel: {
                 autoCreate: true,
                 selector: 'censusdetailpanel',
                 xtype: 'censusdetailpanel'
-            }
+            },
+            censusContainer: {
+                selector: 'censusContainer',
+                xtype: 'censusContainer'
+            },
+            censusmaine: '#censusmaine'
         },
 
         control: {
+            "tabpanel#censustabpanel": {
+                activeitemchange: 'onCensusTabpanelActiveItemChange'
+            },
             "list#censusmainelist": {
                 disclose: 'onCensusMaineListDisclose'
             },
+            "list#censusfilterlist": {
+                disclose: 'onCensusFilterListDisclose'
+            },
             "button#censusdetailbackbtn": {
                 tap: 'onCensusDetailBackButtonTap'
+            },
+            "button#censusfilterexpandbtn": {
+                tap: 'onCensusFilterExpandButtonTap'
+            },
+            "button#censusfiltercollapsebtn": {
+                tap: 'onCensusFilterCollapseButtonTap'
+            },
+            "selectfield#censusfilterselect": {
+                change: 'onCensusFilterSelectfieldChange'
             }
         }
     },
 
+    onCensusTabpanelActiveItemChange: function(container, value, oldValue, eOpts) {
+        var me = this;
+        var newcont = value.getItemId();
+        var grid, gridcont, numNodes, mydata, numRecords, gridListItemId;
+
+        gridcont = value.down('touchtreegrid');
+        gridListItemId = '#'+gridcont.getListItemId();
+        grid = gridcont.down(gridListItemId);
+
+
+        if (newcont === 'censusmainecontainer'){
+            numRecords = grid.getStore().getData().length;
+            if (numRecords === 0) {
+                me.loadCensusMaine2000Store();
+            }  
+        }
+
+        if (newcont === 'censusfiltercont'){
+            numRecords = grid.getStore().getData().length;
+            if (numRecords === 0) {
+                me.loadCensusFilterStore(gridcont, grid);
+            }      
+
+        }
+
+    },
+
     onCensusMaineListDisclose: function(list, record, target, index, e, eOpts) {
-        var swapcont = commonController.getMain().down('#censusmainecontainer');   
+        var swapcont;
+        var listitemid = list.getItemId();
+        if (listitemid === 'censusmainelist') {
+            swapcont = this.getCensusContainer().down('#censusmainecontainer');  
+        }
+        if (listitemid === 'censusfilterlist') {
+            swapcont = this.getCensusContainer().down('#censusfiltercont');      
+        }
+        myList = swapcont.down('touchtreegrid');
+
         if (swapcont)
         {
             var newcont = this.getCensusdetailpanel(
             {
                 title : '2000 Census (Maine)',
-                id : 'censusmainedetail',
+                itemId : 'censusmainedetail',
                 layout: {type: 'vbox'},
                 scrollable: 'vertical'
             }
             );
+            newcont.swapcont = swapcont;  // store with component for use in back button
 
             var device = ((Ext.os.is.Phone) ? 'phone' : 'tablet');
             var orient = ((Ext.Viewport.getWindowWidth() > Ext.Viewport.getWindowHeight()) ? 'landscape' : 'portrait');
@@ -66,7 +123,6 @@ Ext.define('TouchTreeGrid.controller.CensusController', {
 
             if (newcont)
             {
-                var myList = this.getCensusmaine();
                 var newLabel = newcont.down('#censusdetaillabel');    
                 newLabel.setHtml(record.get('CATEG'));       
 
@@ -135,16 +191,41 @@ Ext.define('TouchTreeGrid.controller.CensusController', {
         }
     },
 
+    onCensusFilterListDisclose: function(list, record, target, index, e, eOpts) {
+        this.onCensusMaineListDisclose(list, record, target, index, e, eOpts);
+    },
+
     onCensusDetailBackButtonTap: function(button, e, eOpts) {
-        var swapcont = commonController.getMain().down('#censusmainecontainer');   
+        // Resusing this back button method for both Censusmaine and Censusfilter items
+        var priorcont =  button.up('#censusmainedetail'); 
+
+        // Get parent containder for detail window (stored with priorcont component at creation)
+        var swapcont = priorcont.swapcont;  
+
         if (swapcont)
         {
-            var newcont = swapcont.down('#censusmaine'); 
-            var priorcont = swapcont.down('#censusmainedetail'); 
+            var newcont = swapcont.down('container'); 
 
             newcont.setShowAnimation({type :"slide", direction : "right"});
             swapcont.setActiveItem(newcont);  
         }    
+    },
+
+    onCensusFilterExpandButtonTap: function(button, e, eOpts) {
+        var gridcont = button.up('#censusfiltersubcont').down('touchtreegrid');
+        var selectValue = button.up('toolbar').down('#censusfilterselect').getValue();
+        this.applyCensusFilter(gridcont, selectValue, 99);
+    },
+
+    onCensusFilterCollapseButtonTap: function(button, e, eOpts) {
+        var gridcont = button.up('#censusfiltersubcont').down('touchtreegrid');
+        var selectValue = button.up('toolbar').down('#censusfilterselect').getValue();
+        this.applyCensusFilter(gridcont, selectValue, 0);
+    },
+
+    onCensusFilterSelectfieldChange: function(selectfield, newValue, oldValue, eOpts) {
+        var gridcont = selectfield.up('#censusfiltersubcont').down('touchtreegrid');
+        this.applyCensusFilter(gridcont, newValue);
     },
 
     loadCensusMaine2000Store: function() {
@@ -158,7 +239,7 @@ Ext.define('TouchTreeGrid.controller.CensusController', {
 
     },
 
-    loadColumnsCensusMaine: function() {
+    loadColumnsCensusMaine: function(gridcont, noRefresh) {
         /* Demo grid column changes based on device (phone vs. tablet) and orientation (portrait vs. landscape) */
         /* NOTE:  When connected to data source suggest storing array configruations in a table 
         for each grid, device and orienation configuration */ 
@@ -411,9 +492,71 @@ Ext.define('TouchTreeGrid.controller.CensusController', {
 
         }
 
-        var gridcont = this.getCensusmaine();
+
         gridcont.setColumns(colArr);
-        gridcont.doRefreshList(true);   // Don't change collapse levels when refreshing
+        if (!noRefresh) {
+            gridcont.doRefreshList(true);   // Don't change collapse levels when refreshing
+        }    
+
+    },
+
+    loadCensusFilterStore: function(gridcont, grid) {
+        var me = this;
+        var gridurl = 'data/censusmaine2000FLAT.json';
+
+        // Passing loadStoreInPostProcess=true because for this example we will 
+        // be loading census store (flatfile format) and then post-processing
+        // into treestore format 
+        commonController.loadStore(me, gridcont, gridurl, 'Loading Census Filter...', true);
+
+    },
+
+    applyCensusFilter: function(gridcont, selectFieldValue, collapseTo) {
+        var gridlistname = gridcont.getListItemId();
+        var gridlist = gridcont.down('#'+gridlistname);
+        var ArrRef = gridlist.ArrRef;
+        var myFilt, skipApplyDefaultCollapseLevel;
+
+
+        if (selectFieldValue === '0') {
+
+            collapseLvl = (Ext.isEmpty(gridcont.collapseLevel) ? 1 : gridcont.collapseLevel);
+            skipApplyDefaultCollapseLevel = false;
+            // Refer to expCollapse() method where collapseLevel could be updated for manual expand processing
+            myFilt = {};
+
+        } else {
+            collapseLvl = 99; // Fully expand filtered output
+            skipApplyDefaultCollapseLevel = true;
+            myFilt = {
+                enabled: true,
+                displayNodesWithAllMembersFilteredAsLeafs: true
+            };
+
+            if (selectFieldValue === '1') {  // Males > Females             
+                // Alternative way to define function if building dynamically
+                var v1 = 'Male';
+                var v2 = 'Female';
+                var oper = '>=';
+
+                // myFilt.filterFn = function (rowObj) {return (parseInt(rowObj.Male) >= parseInt(rowObj.Female));};
+                // var func = new Function("x", "y", "return x*y;");
+                myFilt.filterFn = new Function("rowObj", "return (parseInt(rowObj." + v1 + ') ' + oper +
+                ' parseInt(rowObj.' + v2 + "));");        
+            }
+            if (selectFieldValue === '2') {  // Females > Males
+                myFilt.filterFn = function (rowObj) {return (parseInt(rowObj.Female) >= parseInt(rowObj.Male));};
+            }    
+            if (selectFieldValue === '3') {  // Population > 10k
+                myFilt.filterFn = function (rowObj) {return (parseInt(rowObj.TotalPopulation) >= 10000);};
+            }     
+        }    
+
+        commonController.loadTree((Ext.isEmpty(collapseTo) ? collapseLvl : collapseTo),
+        ArrRef, [], gridcont, null, true, myFilt, 
+        (Ext.isEmpty(collapseTo) ? skipApplyDefaultCollapseLevel : true)); 
+
+
 
     }
 

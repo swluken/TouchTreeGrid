@@ -1,3 +1,131 @@
+6/16/2013 COMMIT CHANGE LOG:
+Summary: TouchTreeGrid as Slider Menu + TreeStore Filtering
+
+NEW FEATURES AND EXAMPLES
+
+   - New set of examples that utilize TouchTreeGrid component as 
+     Accordion Slide Navigation Menu (i.e. Facebook style menu, but collapsible)
+     for Phones and as scrolling collapsible category menu for Tablets.
+        > All menu items easily defined in store 
+        > Scrolling navigation menu with spring disabled such that user
+          can not scroll past top or bottom of list.
+   
+   - Example of easy to implement TreeStore filter solution.  There are a few
+     forum threads suggesting Sencha does not correctly support TreeStore filtering for
+     Touch or EXTJS.  This example utilizes provided TreeStore generation algorithm
+     to rebuild TreeStore from saved array applying custom filter conditions. 
+       > Census Filter Ex#1
+         (refer to "TouchTreeGrid - Documentation.pdf" for this example).
+   
+   - Examples of embedded images within grid cells
+        > Sliding Menu => PNG file displayed on Category rows
+        > Project Tree Examples => Project #3 displays checkmarks
+          (Slide Navigation example only)
+        
+   - Example of leaf row rendering function using styleContentRow config:
+        > Project Tree Examples => Project #3 rows shaded green where done
+        > Use styleCategRow config to style category rows
+   
+   - Example of cell rendering function using CSS selector as opposed to Styles (Basic List #2).
+     Allows red/green cells to display as white text with blue background when selected.
+   
+   - Added logic to differentiate handling of list disclose event vs. item tap as 
+     tap of new Touch 2.2 disclosure icon triggers both events causing category rows 
+     to expand/collapse when disclose event was intended.
+     
+   - Added logic to not allow expand/collapse of specific node if expandable=false
+     for store defined node.
+     
+   - Support optional column[] array CLS references in lieu of Styles. Example:
+     cls, sortedCls, categCls, categSortedCls, headerCls, headerSortedCls 
+     instead of (or in addition to) existing style equivalents:
+     style, styleSorted, categStyle, categStyleSorted, headerStyle, headerStyleSorted  
+        > Lists => Dynamic
+          Refer to ./data/dow2012dynamicCss.json for css-based column definitions
+     
+   - Support different CSS selectors for each category level.  
+     Default selector is ".touchtreegrid-list-categ".  New config categCssArr[]
+     allows for specification of different CSS selectors for each level in same
+     way that categColorArr[] allows for basic color shading.
+        > Projects => Ex #2
+        > First category level in white italics using custom selector for that level.
+          Remaining levels use default selector.
+
+   - Corrected implementation of Grouper #2 example to work in Touch 2.2
+     Issue found was that in 2.2 you can't use same Model for Store and a TreeStore
+     (else you will observere strange behaviour when bouncing between two views
+      configured as such)
+         
+   - All new Slider Menu examples found in ./TTG_Slider/ directory.
+     Refer to "TouchTreeGrid - documentation.pdf" (Summary of Provided Examples) in download for
+     further discussion on each of the examples.
+    
+   - "TouchTreeGrid - Documentation.pdf" updated for new examples and Slider Menu implementation.
+          
+See working Touch 2.2 Slider Demo at:
+   <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app.html?deviceType=Phone">TouchTreeGrid (Phone)</a>
+   <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a>
+
+See 2.2 Sample code run under 2.1 framework:
+   <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app21.html?deviceType=Phone">TouchTreeGrid (Phone)</a>
+   <a href="http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app21.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a>
+ 
+Refer to CommitLog.txt for update summary.
+
+Refer to "Appendix C - Upgrading TouchTreeGrid component" in 
+   "TouchTreeGrid - Documentation.pdf" for how to upgrade your
+   component within Architect.
+ 
+ 
+PLANNED ENHANCEMENTS:      
+    
+   - Column sorting within TreeGrid categories.
+   - Multi-column sorting feature
+   - Support initially sorted shading feature      
+   - Column show/hide/add/update example with accompaning methods
+   - More renderer function examples
+   - Easy config options to auto-add buttons to footer to "auto-display" different sets of columns 
+     (or provide methods for custom buttons)
+   - Support for editable cells
+   - Possible support for locked columns   
+   - Seeking interest on supporting config option to use Ext.dataview.DataView vs. Ext.dataview.List
+
+*** MODIFICATIONS THAT REQUIRE UPDATES TO PRIOR IMPLEMENTATIONS ***
+  No configuration updates required.  All changes are backward compatible to prior release.
+
+
+*** MODIFICATIONS TO TOUCH 2.2x AND 2.1x TOUCHTREEGRID VERSION COMPONENTS ***
+   - Provided Architect components generated using latest version of 
+     Architect (v2.2.2 Build 991)
+     
+   - Added node.isExpandable() condition to onItemTap() method
+     if (!disabledExpColl && node.isExpandable()) {
+        
+   - Added logic to onItemTap() method to ignore ItemTap if Disclose event processed
+     Ref:  http://www.sencha.com/forum/showthread.php?261518-List-onItemDisclosure-ST-2.2
+
+   - Added config categCssArr[] to allow different CSS selector for each category level.
+     If not defined at all, or not for specific level then default 'touchtreegrid-list-categ' selector applied.
+     
+   - Added skipApplyDefaultCollapseLevel parameter to doRefreshList().  
+     Added logic for columns.headerCss.
+     Added logic to apply CSS to category rows by level if defined in categCssArr[] config. 
+   
+   - Added Ext.isEmpty() conditions to updateColumns() method to better handle missing column[] 
+     array attributes.  Added logic for columns.css, columns.categCss, categColumns.css, categColumns.categCss.
+     
+   
+
+
+*** Example Updates ***
+ ./TTG_Slider/.
+   - Added all new sliding mneu examples to this directory for both phone and tablet.
+     Run app.html for Touch 2.2 and app21.html for Touch 2.1
+   
+ ./TouchTreeGrid_Advanced_22/.
+   - Added examples Lists => Basic #2, Census => Census Filter Ex#1
+   
+ 
 6/2/2013 COMMIT CHANGE LOG:
 Summary: Multiple new Features and Examples.
 

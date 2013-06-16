@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "model": "Dow2012",
+        "model": "Dow2012Tree",
         "storeId": "dow2012treestore",
         "designer|userClassName": "dow2012TreeStore",
         "designer|userAlias": "dow2012treestore",

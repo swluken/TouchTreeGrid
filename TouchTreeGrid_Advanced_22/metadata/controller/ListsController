@@ -7,7 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "Dow2012"
+            "Dow2012",
+            "Dow2012Tree"
         ],
         "stores": [
             "Dow2012grouper",
@@ -41,7 +42,7 @@
                     "gridListItemId = '#'+gridcont.getListItemId();\r",
                     "grid = gridcont.down(gridListItemId);\r",
                     "\r",
-                    "if (newcont === 'dow2012Cont'){\r",
+                    "if (newcont === 'dow2012Cont'  || newcont === 'dow2012Basic2Cont'){\r",
                     "    numRecords = grid.getStore().getData().length;\r",
                     "    if (numRecords === 0) {\r",
                     "        Ext.Viewport.setMasked({\r",
@@ -64,7 +65,7 @@
                     "        grid.getStore().load();\r",
                     "        gridcont.doRefreshList();\r",
                     "        Ext.Viewport.setMasked(false);\r",
-                    "    }  \r",
+                    "    }  else {grid.refresh();}\r",
                     "}\r",
                     "\r",
                     "if (newcont === 'dow2012grouper2Cont'){\r",
@@ -75,7 +76,7 @@
                     "            message: 'Loading Grouper#2 ...'\r",
                     "        });\r",
                     "        this.loadDow2012Grouper2Store(gridcont, grid);  \r",
-                    "    }\r",
+                    "    }  else {grid.refresh();}\r",
                     "}\r",
                     "\r",
                     "\r",
@@ -260,7 +261,7 @@
                 ],
                 "implHandler": [
                     "var me = this;\r",
-                    "var gridurl = 'data/dow2012dynamic.json';\r",
+                    "var gridurl = 'data/dow2012dynamicCss.json';\r",
                     "\r",
                     "commonController.loadDynamicStore(me, gridcont, gridurl, 'Loading Dynamic...', false);\r",
                     ""

@@ -10,26 +10,24 @@ supported for leafs and optionally for category rows.
 
 TouchTreeGrid was developed entirely within Sencha Architect designer product and
 can also be used without Architect.  An Architect component is provided for import into
-your toolbox (TouchTreeGrid.xdc - Sencha Architect Version: 2.2.2 Build: 971).
+your toolbox (TouchTreeGrid.xdc - Sencha Architect Version: 2.2.2 Build: 991).
 Using Sencha Architect you can implement this component
-for new grid implementations very rapidly.  Both basic and advanced examples are included
-in the download.   Scrolling and overall functionality was found to be very fast for a
-larger data example containing +3000 rows and 3 category levels .  
+for new grid implementations very rapidly.  Basic, Advanced TabPanel and Advanced Slide Navigation 
+examples are included in the download.   Scrolling and overall functionality was
+found to be very fast for a larger data example containing +3000 rows and 3 category levels .  
 
 This software can be downloaded at <a href="https://github.com/swluken/TouchTreeGrid">https://github.com/swluken/TouchTreeGrid</a>
   
 
 <div>See working Touch 2.2 Demo at:</div>
-<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html?deviceType=Phone">TouchTreeGrid (Phone)</a></div>
+<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app.html?deviceType=Phone">TouchTreeGrid (Phone)</a></div>
 <div>(Test orientation changes by rotating phone from Portrait to Landscape ... or resizing browser window)   </div>
-<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a></div>
+<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a></div>
 <div>(Census tab configured unique for tablets ... rotate Portrait vs. Landscape for column changes ... or resize browser window)  </div> 
 <div> </div>
 <div>See 2.2 Sample code run under 2.1 framework: (includes Example:  Lists => Grouper#2)</div>
-<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app21.html?deviceType=Phone">TouchTreeGrid (Phone)</a></div>
-<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app21.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a></div>
-
-Click on the <?> icon at top of each screen for further explanation.
+<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app21.html?deviceType=Phone">TouchTreeGrid (Phone)</a></div>
+<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app21.html?deviceType=Tablet">TouchTreeGrid (Tablet)</a></div>
 
 Requires webkit-enabled browser:  Chrome, Safari, or actual mobile device.
 
@@ -37,24 +35,16 @@ Requires webkit-enabled browser:  Chrome, Safari, or actual mobile device.
 
 Planned Enhancements (pending feedback)
 ---------------
-   - Support initially sorted shading feature    
-   - Support optional column CLS references in lieu of Styles. Example:
-
-     cls, sortedCls, categCls, categSortedCls, headerCls, headerSortedCls 
-     instead of (or in addition to) existing style equivalents:
-     style, styleSorted, categStyle, categStyleSorted, headerStyle, headerStyleSorted
-            
-   - Treestore filtering example
    - Column sorting within TreeGrid categories.
    - Multi-column sorting feature
-   - Support for Row Renderer function that will specify different CSS selector based on data attribute
-   - Example supporting check  boxes, icons/pix and other components within cells
-   - Column show/hide/add example with accompaning methods
+   - Support initially sorted shading feature      
+   - Column show/hide/add/update example with accompaning methods
    - More renderer function examples
    - Easy config options to auto-add buttons to footer to "auto-display" different sets of columns 
-    (or provide methods for custom buttons)
+     (or provide methods for custom buttons)
+   - Support for editable cells
    - Possible support for locked columns   
-   - Seeking interest on supporting config option to use Ext.dataview vs. Ext.dataview.List
+   - Seeking interest on supporting config option to use Ext.dataview.DataView vs. Ext.dataview.List
 
 Getting Started
 ---------------
