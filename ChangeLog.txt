@@ -1,3 +1,9 @@
+6/18/2013 COMMIT CHANGE LOG:
+Summary:  Fixed scrolling issue with Horiz and Dynamic examples.
+
+- Deleted "height: 1000" config from all linked instances.
+  
+
 6/16/2013 COMMIT CHANGE LOG:
 Summary: TouchTreeGrid as Slider Menu + TreeStore Filtering
 

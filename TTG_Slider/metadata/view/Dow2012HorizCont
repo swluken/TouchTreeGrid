@@ -190,7 +190,7 @@
                     "x-touchtreegrid-list",
                     "x-touchtreegrid-list-dow2012Horiz"
                 ],
-                "height": 1000,
+                "height": null,
                 "itemId": "dow2012horiz",
                 "minWidth": "36em",
                 "width": "36em",

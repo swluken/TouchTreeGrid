@@ -138,7 +138,6 @@ Ext.define('TouchTreeGrid.view.Dow2012HorizCont', {
                     'x-touchtreegrid-list',
                     'x-touchtreegrid-list-dow2012Horiz'
                 ],
-                height: 1000,
                 itemId: 'dow2012horiz',
                 minWidth: '36em',
                 width: '36em'

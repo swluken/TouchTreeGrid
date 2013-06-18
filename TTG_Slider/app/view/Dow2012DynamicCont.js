@@ -50,7 +50,6 @@ Ext.define('TouchTreeGrid.view.Dow2012DynamicCont', {
                     'x-touchtreegrid-list-dow2012Horiz',
                     'x-touchtreegrid-list-dow2012Dynamic'
                 ],
-                height: 1000,
                 itemId: 'dow2012Dynamic',
                 minWidth: '36em',
                 width: '36em'
