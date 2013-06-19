@@ -2,6 +2,8 @@
 Summary:  Fixed scrolling issue with Horiz and Dynamic examples.
 
 - Deleted "height: 1000" config from all linked instances.
+- Fixed minHeight issue when scrolling menu for Tablets after collapse
+  followed by manual expand of each category
   
 
 6/16/2013 COMMIT CHANGE LOG:

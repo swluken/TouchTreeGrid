@@ -357,8 +357,10 @@ Ext.define('TouchTreeGrid.controller.CommonController', {
     onMenuOptCollapseImageTap: function(image, e, eOpts) {
         var grid = this.getMenuopt();
         var gridlist = grid.down('#'+grid.getListItemId());
-        grid.setMinHeight((2.6*5).toString()+'em');
-        gridlist.setMinHeight((2.6*5).toString()+'em');
+        if (Ext.os.is.Phone) {
+            grid.setMinHeight((2.6*5).toString()+'em');
+            gridlist.setMinHeight((2.6*5).toString()+'em');
+        } 
         grid.doExpandDepth(1);
         //gridlist.refresh;
     },

@@ -1174,8 +1174,10 @@
                 "implHandler": [
                     "var grid = this.getMenuopt();\r",
                     "var gridlist = grid.down('#'+grid.getListItemId());\r",
-                    "grid.setMinHeight((2.6*5).toString()+'em');\r",
-                    "gridlist.setMinHeight((2.6*5).toString()+'em');\r",
+                    "if (Ext.os.is.Phone) {\r",
+                    "    grid.setMinHeight((2.6*5).toString()+'em');\r",
+                    "    gridlist.setMinHeight((2.6*5).toString()+'em');\r",
+                    "} \r",
                     "grid.doExpandDepth(1);\r",
                     "//gridlist.refresh;"
                 ],
