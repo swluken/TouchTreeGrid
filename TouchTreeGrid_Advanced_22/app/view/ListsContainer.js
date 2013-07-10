@@ -380,7 +380,8 @@ Ext.define('TouchTreeGrid.view.ListsContainer', {
                                         headerStyle: 'text-align: center;',
                                         headerStyleSorted: 'text-align: center; background-color: #dedede',
                                         renderer: 'Ext.Date.format(values.CloseDate, "n/j/Y")',
-                                        sortable: true
+                                        sortable: true,
+                                        addDataIndexToDiv: true// test cell tapping for Close Date
                                     },
                                     {
                                         header: 'Open<br>Price',
@@ -424,7 +425,8 @@ Ext.define('TouchTreeGrid.view.ListsContainer', {
                                         headerStyle: 'text-align: center;',
                                         headerStyleSorted: 'text-align: center; background-color: #dedede',
                                         renderer: 'this.formatNumbers(values.Close, 0)',
-                                        sortable: true
+                                        sortable: true,
+                                        addDataIndexToDiv: true// test cell tapping for Close Date
                                     },
                                     {
                                         header: '<br>Volume',
@@ -501,7 +503,6 @@ Ext.define('TouchTreeGrid.view.ListsContainer', {
                         items: [
                             {
                                 xtype: 'touchtreegrid',
-                                store: 'dynamicstore',
                                 header: {
                                     xtype: 'toolbar',
                                     docked: 'top',

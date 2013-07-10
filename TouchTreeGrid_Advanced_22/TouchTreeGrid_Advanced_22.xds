@@ -210,14 +210,6 @@
             ],
             "className": "Task3Store"
         },
-        "a9f5fb5a-805b-42ea-babc-f98f967de226": {
-            "paths": [
-                "metadata/store/DynamicStore",
-                "app/store/override/DynamicStore.js",
-                "app/store/DynamicStore.js"
-            ],
-            "className": "DynamicStore"
-        },
         "6d3ffdfd-d975-4bf7-a5e3-14d24c1d8f72": {
             "paths": [
                 "metadata/controller/CommonController",
@@ -306,8 +298,7 @@
             "3ead9a44-1e8c-4852-8efd-bdf62a00c3bf",
             "9a1b5746-d7e3-4333-8728-02028726129c",
             "8bd25b78-0281-4421-9d34-b0f92d1f5dfa",
-            "91245a8e-c281-47e5-b756-23d2ab3a94ce",
-            "a9f5fb5a-805b-42ea-babc-f98f967de226"
+            "91245a8e-c281-47e5-b756-23d2ab3a94ce"
         ],
         "controller": [
             "6d3ffdfd-d975-4bf7-a5e3-14d24c1d8f72",

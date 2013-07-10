@@ -201,14 +201,6 @@
             ],
             "className": "dow2012TreeStore"
         },
-        "c5239e5c-303b-430e-9d63-9dc36bd46c61": {
-            "paths": [
-                "metadata/store/DynamicStore",
-                "app/store/override/DynamicStore.js",
-                "app/store/DynamicStore.js"
-            ],
-            "className": "DynamicStore"
-        },
         "31f07016-1978-48ac-b3c9-0d682e8e398a": {
             "paths": [
                 "metadata/store/MenuOptsStore",
@@ -404,8 +396,7 @@
             "3307a78a-f902-4a81-aed1-8866d3fe8958",
             "ae80e82c-b678-421d-a92e-af61a89d84de",
             "b62265f3-705d-4cbf-88ae-9031bea8f98b",
-            "7c864c2f-402a-45da-8912-943e5b41bc84",
-            "c5239e5c-303b-430e-9d63-9dc36bd46c61"
+            "7c864c2f-402a-45da-8912-943e5b41bc84"
         ],
         "controller": [
             "97a4c3a2-9a08-4611-87a1-12b030c85f82",

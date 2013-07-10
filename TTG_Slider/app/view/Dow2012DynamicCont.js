@@ -29,7 +29,6 @@ Ext.define('TouchTreeGrid.view.Dow2012DynamicCont', {
         items: [
             {
                 xtype: 'touchtreegrid',
-                store: 'dynamicstore',
                 header: {
                     maxHeight: '3.2em',
                     minHeight: '3.2em'

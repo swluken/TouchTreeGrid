@@ -28,7 +28,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "store": "dynamicstore",
+                "store": null,
                 "displayField": null,
                 "listScrollable": null,
                 "headerItemTpl": null,

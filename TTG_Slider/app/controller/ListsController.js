@@ -24,7 +24,6 @@ Ext.define('TouchTreeGrid.controller.ListsController', {
         stores: [
             'Dow2012grouper',
             'Dow2012',
-            'DynamicStore',
             'dow2012TreeStore',
             'Dow2012Horiz'
         ],
@@ -84,24 +83,55 @@ Ext.define('TouchTreeGrid.controller.ListsController', {
     },
 
     onHorizGridLeafItemTap: function(me, list, index, target, record, e) {
-        // Example of how we can code to only act if CloseDate element touched
-        var myDate = Ext.Date.format(record.get('CloseDate'), "n/j/Y");
-        if (myDate !== e.target.innerText) {return;}
+        // Example of how we can code to only act if CloseDate or Close (Price) elements are tapped
+        // (requires that columns[] array have "addDataIndexToDiv: true" attribute defined for each of these
+        // columns)
 
-        Ext.Msg.alert('You tapped: ' + myDate);
-        console.log('onHorizGridLeafItemTap record tapped:');
-        console.log(record);
+        var myField = e.target.getAttribute('dataIndex');
+        var tapped = true;
+
+        if (myField === 'CloseDate') {
+            var myDate = Ext.Date.format(record.get('CloseDate'), "n/j/Y");
+            Ext.Msg.alert('Close Date: ' + myDate);
+        }
+        else if (myField === 'Close') {
+            Ext.Msg.alert('Close Price: ' + record.get('Close'));    
+        }
+        else {
+            // For this example no other fields were defined with dataIndex attribute within DIV
+            tapped = false;
+        }
+
+        if (tapped) {
+            console.log('onHorizGridLeafItemTap record tapped:');
+            console.log(record);
+        }
 
     },
 
     onDynamicGridLeafItemTap: function(me, list, index, target, record, e) {
-        // Example of how we can code to only act if CloseDate element touched
-        var myDate = Ext.Date.format(record.get('CloseDate'), "n/j/Y");
-        if (myDate !== e.target.innerText) {return;}
+        // Example of how we can code to only act if CloseDate or Close (Price) elements are tapped
+        // (requires that columns[] array have "addDataIndexToDiv: true" attribute defined for each of these columns)
 
-        Ext.Msg.alert('You tapped: ' + myDate);
-        console.log('onDynamicGridLeafItemTap record tapped:');
-        console.log(record);
+        var myField = e.target.getAttribute('dataIndex');
+        var tapped = true;
+
+        if (myField === 'CloseDate') {
+            var myDate = Ext.Date.format(record.get('CloseDate'), "n/j/Y");
+            Ext.Msg.alert('Close Date: ' + myDate);
+        }
+        else if (myField === 'Close') {
+            Ext.Msg.alert('Close Price: ' + record.get('Close'));    
+        }
+        else {
+            // For this example no other fields were defined with dataIndex attribute within DIV
+            tapped = false;
+        }
+
+        if (tapped) {
+            console.log('onHorizGridLeafItemTap record tapped:');
+            console.log(record);
+        }
 
     },
 

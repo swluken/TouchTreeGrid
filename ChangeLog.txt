@@ -1,3 +1,34 @@
+7/9/2013 COMMIT CHANGE LOG:
+Summary: Minor updates to better support Dynamic grids and individual cell taps.
+
+*** MODIFICATIONS THAT REQUIRE UPDATES TO PRIOR IMPLEMENTATIONS ***
+  No configuration updates required.  All changes are backward compatible to prior release.
+
+*** MODIFICATIONS TO TOUCH 2.2x TOUCHTREEGRID VERSION COMPONENT (2.1x version not updated) ***  
+- updateStore() method modified to create temporary store if not defined within configuration 
+  for purposes of supporting dynamic grids without requiring creation and reference to temporary store:
+      if (newStore === "") {
+        newStore = Ext.create('Ext.data.Store', {fields: {"name" : "dynamic"}});
+      }  
+  Store config removed from DOW2012 Dynamic example and DynamicStore.js removed from TTG_Slider and
+  TouchTreeGrid_Advanced_22 projects (Store and Controller reference).
+  
+- Updated updateColumns() method to add 'dataIndex = "column name"' attribute to each cell DIV if columns
+  array has addDataIndexToDiv=true config for that column.  This inserts unique identifier for each DIV representing
+  the row and allows for trapping of unique cell tap (same method for how header cell tap works).
+  Note I didn't want to pollute the DOM by globally adding this to DIV for all cells by default. 
+  Added "addDataIndexToDiv: true" attribute to column[] array for Horizontal Scrolling and Dyunamic grid 
+  examples (columns CloseDate and ClosePrice only).
+  Refer to onHorizGridLeafItemTap() and onDynamicGridLeafItemTap() methods within ListsController
+  (TTG_Slider and TouchTreeGrid_Advanced_22 projects)
+  
+- Refer to documenation "Lists => Horiz (DOW History Example with Horizontal Scrolling" (Program Flow section)
+  on how to simulate a hyperlink substring within the text of a specific cell.
+
+- Documenation updated per above.  Refer to "Appendix C - Upgrading TouchTreeGrid component" in 
+  "TouchTreeGrid - Documentation.pdf" for how to upgrade your component within Architect.
+
+
 6/18/2013 COMMIT CHANGE LOG:
 Summary:  Fixed scrolling issue with Horiz and Dynamic examples.
 

@@ -40,7 +40,8 @@ Ext.define('TouchTreeGrid.view.Dow2012HorizCont', {
                         headerStyle: 'text-align: center;',
                         headerStyleSorted: 'text-align: center; background-color: #dedede',
                         renderer: 'Ext.Date.format(values.CloseDate, "n/j/Y")',
-                        sortable: true
+                        sortable: true,
+                        addDataIndexToDiv: true// test cell tapping for Close Date
                     },
                     {
                         header: 'Open<br>Price',
@@ -84,7 +85,8 @@ Ext.define('TouchTreeGrid.view.Dow2012HorizCont', {
                         headerStyle: 'text-align: center;',
                         headerStyleSorted: 'text-align: center; background-color: #dedede',
                         renderer: 'this.formatNumbers(values.Close, 0)',
-                        sortable: true
+                        sortable: true,
+                        addDataIndexToDiv: true// test cell tapping for Close Price 
                     },
                     {
                         header: '<br>Volume',

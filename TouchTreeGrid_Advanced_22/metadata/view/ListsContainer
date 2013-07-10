@@ -523,7 +523,8 @@
                                     "        headerStyle: 'text-align: center;',\r",
                                     "        headerStyleSorted: 'text-align: center; background-color: #dedede',\r",
                                     "        renderer: 'Ext.Date.format(values.CloseDate, \"n/j/Y\")',\r",
-                                    "        sortable: true\r",
+                                    "        sortable: true,\r",
+                                    "        addDataIndexToDiv: true  // test cell tapping for Close Date\r",
                                     "    },\r",
                                     "    {\r",
                                     "        header: 'Open<br>Price',\r",
@@ -567,7 +568,8 @@
                                     "        headerStyle: 'text-align: center;',\r",
                                     "        headerStyleSorted: 'text-align: center; background-color: #dedede',\r",
                                     "        renderer: 'this.formatNumbers(values.Close, 0)',\r",
-                                    "        sortable: true\r",
+                                    "        sortable: true,\r",
+                                    "        addDataIndexToDiv: true  // test cell tapping for Close Date\r",
                                     "    },\r",
                                     "    {\r",
                                     "        header: '<br>Volume',\r",
@@ -680,7 +682,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "store": "dynamicstore",
+                                "store": null,
                                 "header": [
                                     "{\"xtype\":\"toolbar\",\r",
                                     " \"docked\":\"top\",\r",

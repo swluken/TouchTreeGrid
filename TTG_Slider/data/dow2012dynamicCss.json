@@ -50,7 +50,8 @@
         "headerCss": "dynamic-header-center",       
         "headerCssSorted": "dynamic-header-center-sorted",               
         "renderer": "Ext.Date.format(values.CloseDate, 'n/j/Y')",
-        "sortable": "true"
+        "sortable": "true",
+        "addDataIndexToDiv": "true"
     },
     {
         "header": "Open<br>Price",
@@ -94,7 +95,8 @@
         "headerCss": "dynamic-header-center",                       
         "headerCssSorted": "dynamic-header-center-sorted",                               
         "renderer": "this.formatNumbers(values.Close, 0)",
-        "sortable": "true"
+        "sortable": "true",
+        "addDataIndexToDiv": "true"
     },
     {
         "header": "<br>Volume",

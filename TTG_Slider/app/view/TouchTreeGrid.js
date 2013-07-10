@@ -124,7 +124,7 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         var simpleList = me.getSimpleList();
 
         // Proceed to build TPL for header row
-        var styleStr = '', rendStr='', cssStr='';
+        var styleStr = '', rendStr='', cssStr='', idxStr = '';
         var categ = me.getCategItemTplOverride();
         var indent = me.getCategIndentPct().toString().replace("%", ""); // % of window to indent per level (starting at 0% ... default =3%)
         var arrowWid = me.getArrowPctWidth().toString().replace("%", ""); // allow control over percent screen width that category arrow consumes (def = 4%)
@@ -178,19 +178,22 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                 // Substitute user-defined renderer string from Columns array if defined
                 rendStr = (Ext.isEmpty(data[i].renderer) ? (Ext.isEmpty(data[i].dataIndex) ? '' : data[i].dataIndex) : '[' + data[i].renderer + ']');
 
+                // Add dataIndex attribute to this DIV if requested in Columns array (for purposes of trapping cell tap)
+                idxStr = ((!data[i].addDataIndexToDiv) ? '' : ' dataIndex="' + data[i].dataIndex + '"');        
+
                 if (i===indentCol) {    
                     // Subtract percentage width based on level          
                     shellArr.push('<p class="touchtreegrid-list-categ-cell ' + cssStr + '" style="' +
                     'min-width:{[' + data[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
                     'max-width:{[' + data[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
                     'width:{[' + data[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
-                    styleStr + '" >{' + rendStr + '}</p>');                       
+                    styleStr + '"' + idxStr + ' >{' + rendStr + '}</p>');                       
                 } else {           
                     shellArr.push('<p class="touchtreegrid-list-categ-cell " style="' +
                     'min-width:' + data[i].width + ' !important;' + 
                     'max-width:' + data[i].width + ' !important;' + 
                     'width:' + data[i].width + ' !important;' + 
-                    styleStr + '" >{' + rendStr + '}</p>');
+                    styleStr + '"' + idxStr + ' >{' + rendStr + '}</p>');
                 }  
             }
 
@@ -219,19 +222,23 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                 // Substitute user-defined renderer string from Columns array if defined
                 rendStr = ((!categData[i].renderer) ? (Ext.isEmpty(categData[i].dataIndex) ? '' : categData[i].dataIndex) : '[' + categData[i].renderer + ']');
 
+                // Add dataIndex attribute to this DIV if requested in Columns array (for purposes of trapping cell tap)
+                idxStr = ((!categData[i].addDataIndexToDiv) ? '' : ' dataIndex="' + categData[i].dataIndex + '"');
+
+
                 if (i===indentCol) {     
                     // Subtract percentage width based on level             
                     shellArr.push('<p class="touchtreegrid-list-categ-cell ' + cssStr + '" style="' +
                     'min-width:{[' + categData[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
                     'max-width:{[' + categData[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
                     'width:{[' + categData[i].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
-                    styleStr + '" >{' + rendStr + '}</p>');                       
+                    styleStr + '"' + idxStr + ' >{' + rendStr + '}</p>');                       
                 } else {           
                     shellArr.push('<p class="touchtreegrid-list-categ-cell ' + cssStr + '" style="' +
                     'min-width:' + data[i].width + ' !important;' + 
                     'max-width:' + data[i].width + ' !important;' + 
                     'width:' + data[i].width + ' !important;' + 
-                    styleStr + '" >{' + rendStr + '}</p>');
+                    styleStr + '"' + idxStr + ' >{' + rendStr + '}</p>');
                 }  
             }
 
@@ -259,6 +266,9 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                 // Substitute user-defined renderer string from Columns array if defined
                 rendStr = ((!data[j].renderer) ? (Ext.isEmpty(data[j].dataIndex) ? '' : data[j].dataIndex) : '[' + data[j].renderer + ']');
 
+                // Add dataIndex attribute to this DIV if requested in Columns array (for purposes of trapping cell tap)
+                idxStr = ((!data[j].addDataIndexToDiv) ? '' : ' dataIndex="' + data[j].dataIndex + '"');
+
                 cssStr = (Ext.isEmpty(data[j].css)) ? '' : data[j].css;        
 
                 if (j===indentCol) {     
@@ -267,14 +277,14 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                     'min-width:{[' + data[j].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
                     'max-width:{[' + data[j].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
                     'width:{[' + data[j].width.replace("%", "") + '-((values.depth-1)*'+indent+')]}% !important;' + 
-                    (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '" ' +
+                    (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '" ' + idxStr +
                     '>{' + rendStr + '}</p>');                  
                 } else {           
                     detailArr.push('<p class="touchtreegrid-list-content-cell " style="' +
                     'min-width:' + data[j].width + ' !important;' + 
                     'max-width:' + data[j].width + ' !important;' + 
                     'width:' + data[j].width + ' !important;' + 
-                    (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '" ' +
+                    (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '" ' + idxStr + 
                     '>{' + rendStr + '}</p>');
                 }          
 
@@ -294,15 +304,17 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                 // Substitute user-defined renderer string from Columns array if defined
                 rendStr = ((!data[j].renderer) ? data[j].dataIndex : '[' + data[j].renderer + ']');
 
+                // Add dataIndex attribute to this DIV if requested in Columns array (for purposes of trapping cell tap)
+                idxStr = ((!data[j].addDataIndexToDiv) ? '' : ' dataIndex="' + data[j].dataIndex + '"');
+
                 cssStr = (Ext.isEmpty(data[j].css)) ? '' : data[j].css;        
 
                 detailArr.push('<p class="touchtreegrid-simplelist-cell ' + cssStr + '" style="' +
                 'min-width:' + data[j].width + ' !important;' + 
                 'max-width:' + data[j].width + ' !important;' + 
                 'width:' + data[j].width + ' !important;' + 
-                (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '" ' +
+                (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '" ' + idxStr +
                 '>{' + rendStr + '}</p>');
-
             }
 
             //   detailArr.push('</div>');  
@@ -326,6 +338,12 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         var variableHeights = me.getVariableHeights();
         var infinite = me.getInfinite();
         var useSimpleItems = me.getUseSimpleItems();
+
+        // Added 6/28/2013
+        if (newStore === "") {
+            // Assume we are implementing dynamic grid and create temporary store to allow creation of List component
+            newStore = Ext.create('Ext.data.Store', {fields: {"name" : "dynamic"}});
+        }
 
         if (this.isObjectEmpty(list)) {
 
