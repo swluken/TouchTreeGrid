@@ -1,0 +1,21 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "CalendarPicker",
+            "TouchTreeGrid",
+            "DateExamples",
+            "overlayPanel"
+        ],
+        "controllers": [
+            "MyController"
+        ],
+        "name": "MyApp"
+    },
+    "designerId": "application"
+}

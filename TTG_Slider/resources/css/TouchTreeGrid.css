@@ -112,6 +112,7 @@
 .x-touchtreegrid-list .touchtreegrid-details-img {   /* category row arrow */
   width: 18px;
   min-height: 18px;
+  max-height: 18px;  /* Added 8/24/13 */   
   height: 100%;
   display: -moz-inline-box;
   display: inline-block;
@@ -163,4 +164,28 @@
     text-overflow: clip; 
 } 
 
-
+/* Added 8/19/2013 */
+.x-touchtreegrid-list .css-categ-row {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -ms-flex-direction: row;
+}
+.x-touchtreegrid-list .css-content-row {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -ms-flex-direction: row;
+}
+.x-touchtreegrid-list .css-header-row {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -ms-flex-direction: row;
+}

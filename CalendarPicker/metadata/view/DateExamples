@@ -1,0 +1,1117 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "dateexamples",
+        "style": "background: white;",
+        "designer|userClassName": "DateExamples",
+        "designer|userAlias": "dateexamples",
+        "designer|initialView": true,
+        "layout": "card"
+    },
+    "designerId": "889cc880-c791-4408-9eef-32aa9889cd48",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "kayak-toolbar"
+                ],
+                "docked": "top",
+                "itemId": "appTitle",
+                "style": null,
+                "ui": "plain",
+                "title": "Calendar Picker Examples"
+            },
+            "designerId": "3b31107b-8d2b-4611-859e-f4cb8d8042f1"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "firstSet",
+                "style": "background: white;",
+                "scrollable": "vertical"
+            },
+            "designerId": "70c94ca9-02b1-4c5d-93ea-93dd2acf94ce",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": "6em",
+                        "itemId": "example1",
+                        "style": "border: 1px solid gray;",
+                        "designer|displayName": null,
+                        "layout": "hbox"
+                    },
+                    "designerId": "33bcec3d-5f04-484b-8c45-a6bd2df6fdf1",
+                    "cn": [
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": "2em",
+                                "margin": "1em .5em 0 .5em",
+                                "width": "2em",
+                                "src": "./resources/images/calendar.png"
+                            },
+                            "designerId": "1225e28a-f5df-49ac-8922-5b04c418a501"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "maxWidth": "10em",
+                                "layout": "vbox"
+                            },
+                            "designerId": "8133fd72-d9d5-4b4c-a5af-ee9efbd04316",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "height": "1.5em",
+                                        "html": "CHECK IN",
+                                        "style": "padding-top: .2em; font-size: .8em; color: orange;"
+                                    },
+                                    "designerId": "3735128d-ac0d-4816-abc4-cbea03648473"
+                                },
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "listeners": [
+                                            "{\r",
+                                            "  tap: {\r",
+                                            "      fn: function() {\r",
+                                            "          this.fireEvent('checkin', this.up('container'));\r",
+                                            "      },\r",
+                                            "      element: 'element'\r",
+                                            "  }\r",
+                                            "}"
+                                        ],
+                                        "layout|flex": 1,
+                                        "cls": [
+                                            "kayak-button"
+                                        ],
+                                        "itemId": "checkin_btn",
+                                        "margin": null,
+                                        "maxWidth": "8em",
+                                        "style": null,
+                                        "layout": "hbox"
+                                    },
+                                    "configAlternates": {
+                                        "listeners": "object"
+                                    },
+                                    "designerId": "2552e642-a2da-4441-8446-49dbfdf8516f",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "listeners",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "cls": [
+                                                    "kayak-button-dayname-month"
+                                                ],
+                                                "html": null,
+                                                "itemId": "checkin_dayname_month",
+                                                "style": null,
+                                                "width": null
+                                            },
+                                            "designerId": "4eeddd6f-804d-46e5-aa50-04bbfd564fa7"
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "cls": [
+                                                    "kayak-button-select"
+                                                ],
+                                                "html": "Select",
+                                                "itemId": "checkin_day",
+                                                "style": null
+                                            },
+                                            "designerId": "7687ea82-a2f3-485e-896f-1a11fd8ac6a5"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "maxWidth": "10em",
+                                "layout": "vbox"
+                            },
+                            "designerId": "ce7adb49-12d6-4d9c-9d32-8fc81abadb19",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "height": "1.5em",
+                                        "html": "CHECK OUT",
+                                        "style": "padding-top: .2em; font-size: .8em; color: orange;"
+                                    },
+                                    "designerId": "1499cc1f-d83a-4fce-a0a4-f68e370dff24"
+                                },
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "listeners": [
+                                            "{\r",
+                                            "  tap: {\r",
+                                            "      fn: function() {\r",
+                                            "          this.fireEvent('checkout', this.up('container'));\r",
+                                            "      },\r",
+                                            "      element: 'element'\r",
+                                            "  }\r",
+                                            "}"
+                                        ],
+                                        "layout|flex": 1,
+                                        "cls": [
+                                            "kayak-button"
+                                        ],
+                                        "itemId": "checkout_btn",
+                                        "margin": null,
+                                        "maxWidth": "8em",
+                                        "style": null,
+                                        "layout": "hbox"
+                                    },
+                                    "configAlternates": {
+                                        "listeners": "object"
+                                    },
+                                    "designerId": "86702ad3-7971-4135-b0a4-a95e5de6f34b",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "listeners",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "cls": [
+                                                    "kayak-button-dayname-month"
+                                                ],
+                                                "html": null,
+                                                "itemId": "checkout_dayname_month",
+                                                "style": null,
+                                                "width": null
+                                            },
+                                            "designerId": "2d625ab6-9941-4ed7-afad-e16aee821adf"
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "cls": [
+                                                    "kayak-button-select"
+                                                ],
+                                                "html": "Select",
+                                                "itemId": "checkout_day",
+                                                "style": null
+                                            },
+                                            "designerId": "5de168c0-bc6c-4277-86b7-c8a15bfa4ec8"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "bottom",
+                                "height": "",
+                                "html": "Kayak Droid/IOS-style selection (collapsible)",
+                                "maxHeight": "3em",
+                                "minHeight": "1.5em",
+                                "styleHtmlCls": "example-descr-html",
+                                "styleHtmlContent": true,
+                                "designer|displayName": "example_descr",
+                                "scrollable": null
+                            },
+                            "designerId": "33c88fbc-888a-44a4-92eb-cc0763b4e77b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": "6em",
+                        "itemId": "example2",
+                        "style": "border: 1px solid gray;",
+                        "designer|displayName": null,
+                        "layout": "hbox"
+                    },
+                    "designerId": "16424b8b-c530-44d2-939b-bd785f3a3462",
+                    "cn": [
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": "2em",
+                                "margin": "1em .5em 0 .5em",
+                                "width": "2em",
+                                "src": "./resources/images/calendar.png"
+                            },
+                            "designerId": "9c1684d0-00f4-4a08-a8b1-aa0c08b055a7"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "maxWidth": "10em",
+                                "layout": "vbox"
+                            },
+                            "designerId": "d011fa06-d92a-492d-9786-b5a1dcc3a1d2",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "height": "1.5em",
+                                        "html": "CHECK IN",
+                                        "style": "padding-top: .2em; font-size: .8em; color: orange;"
+                                    },
+                                    "designerId": "236cd12e-d546-4d29-8943-a7dc1337b658"
+                                },
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "listeners": [
+                                            "{\r",
+                                            "  tap: {\r",
+                                            "      fn: function() {\r",
+                                            "          this.fireEvent('checkin2', this.up('container'));\r",
+                                            "      },\r",
+                                            "      element: 'element'\r",
+                                            "  }\r",
+                                            "}"
+                                        ],
+                                        "layout|flex": 1,
+                                        "cls": [
+                                            "kayak-button"
+                                        ],
+                                        "itemId": "checkin_btn2",
+                                        "margin": null,
+                                        "maxWidth": "8em",
+                                        "style": null,
+                                        "layout": "hbox"
+                                    },
+                                    "configAlternates": {
+                                        "listeners": "object"
+                                    },
+                                    "designerId": "a1ff94b1-3c5f-4ae2-81d7-065aeb37ec9c",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "listeners",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "cls": [
+                                                    "kayak-button-dayname-month"
+                                                ],
+                                                "html": null,
+                                                "itemId": "checkin_dayname_month2",
+                                                "style": null,
+                                                "width": null
+                                            },
+                                            "designerId": "92e7b365-2bf4-4d12-8306-84aeacf70fb9"
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "cls": [
+                                                    "kayak-button-select"
+                                                ],
+                                                "html": "Select",
+                                                "itemId": "checkin_day2",
+                                                "style": null
+                                            },
+                                            "designerId": "9dbfb7a3-ddd5-4096-b05f-ec3410287943"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "maxWidth": "10em",
+                                "layout": "vbox"
+                            },
+                            "designerId": "305f1b88-e00c-40a2-9a48-c251a7caf8d8",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "height": "1.5em",
+                                        "html": "CHECK OUT",
+                                        "style": "padding-top: .2em; font-size: .8em; color: orange;"
+                                    },
+                                    "designerId": "b5a6b04f-0c6b-4f0e-a62d-35223810dcda"
+                                },
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "listeners": [
+                                            "{\r",
+                                            "  tap: {\r",
+                                            "      fn: function() {\r",
+                                            "          this.fireEvent('checkin2', this.up('container'));\r",
+                                            "      },\r",
+                                            "      element: 'element'\r",
+                                            "  }\r",
+                                            "}"
+                                        ],
+                                        "layout|flex": 1,
+                                        "cls": [
+                                            "kayak-button"
+                                        ],
+                                        "itemId": "checkout_btn2",
+                                        "margin": null,
+                                        "maxWidth": "8em",
+                                        "style": null,
+                                        "layout": "hbox"
+                                    },
+                                    "configAlternates": {
+                                        "listeners": "object"
+                                    },
+                                    "designerId": "2eed38eb-e082-4e39-af6e-52ebe5d017a9",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "listeners",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "cls": [
+                                                    "kayak-button-dayname-month"
+                                                ],
+                                                "html": null,
+                                                "itemId": "checkout_dayname_month2",
+                                                "style": null,
+                                                "width": null
+                                            },
+                                            "designerId": "2a7e89a4-0c45-489d-9085-ed04ea73294e"
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "cls": [
+                                                    "kayak-button-select"
+                                                ],
+                                                "html": "Select",
+                                                "itemId": "checkout_day2",
+                                                "style": null
+                                            },
+                                            "designerId": "b97e19ff-08c3-4f31-a855-395972daab50"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "bottom",
+                                "height": "",
+                                "html": "Range selection in same calendar popup",
+                                "maxHeight": "3em",
+                                "minHeight": "1.5em",
+                                "styleHtmlCls": "example-descr-html",
+                                "styleHtmlContent": true,
+                                "designer|displayName": "example_descr",
+                                "scrollable": null
+                            },
+                            "designerId": "ca23c887-fbe5-48df-a9f0-6c0f1fe605a0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": "6em",
+                        "itemId": "example3",
+                        "style": "border: 1px solid gray;",
+                        "designer|displayName": null,
+                        "layout": "hbox"
+                    },
+                    "designerId": "1da67a09-fdf0-464b-bf6a-fec98613437f",
+                    "cn": [
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": "2em",
+                                "margin": "1em .5em 0 .5em",
+                                "width": "2em",
+                                "src": "./resources/images/calendar.png"
+                            },
+                            "designerId": "5a9657e4-8228-4883-9daa-819a0ac11172"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "maxWidth": "5em",
+                                "layout": "fit"
+                            },
+                            "designerId": "649a5af5-63b9-472f-9ccc-a38007080817",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "listeners": [
+                                            "{\r",
+                                            "  tap: {\r",
+                                            "      fn: function() {\r",
+                                            "          this.fireEvent('multisel_btn', this.up('container'));\r",
+                                            "      },\r",
+                                            "      element: 'element'\r",
+                                            "  }\r",
+                                            "}"
+                                        ],
+                                        "cls": [
+                                            "multisel-button"
+                                        ],
+                                        "html": "Select",
+                                        "itemId": "multisel_btn",
+                                        "margin": null,
+                                        "maxWidth": "8em",
+                                        "style": null,
+                                        "layout": "fit"
+                                    },
+                                    "configAlternates": {
+                                        "listeners": "object"
+                                    },
+                                    "designerId": "3366a7fe-f0c6-4879-838e-60b3050bc14d",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "listeners",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "html": "2013-09-11, 2013-09-17, 2013-11-06",
+                                "itemId": "multisel_dates_html",
+                                "maxWidth": "10em",
+                                "styleHtmlCls": "multisel-dates-html",
+                                "styleHtmlContent": true,
+                                "layout": "fit",
+                                "scrollable": false
+                            },
+                            "designerId": "bc8bcfb2-0697-4a89-a9fe-dbc485532033"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "bottom",
+                                "height": "",
+                                "html": "Multi-selection (Weekends+Holidays disabled)",
+                                "maxHeight": "3em",
+                                "minHeight": "1.5em",
+                                "styleHtmlCls": "example-descr-html",
+                                "styleHtmlContent": true,
+                                "designer|displayName": "example_descr",
+                                "scrollable": null
+                            },
+                            "designerId": "08a56f19-c35c-4add-8acc-949800eba437"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": "6em",
+                        "itemId": "example4",
+                        "style": "border: 1px solid gray;",
+                        "designer|displayName": null,
+                        "layout": "hbox"
+                    },
+                    "designerId": "7aca58d2-1a45-4633-b998-1bca92befac6",
+                    "cn": [
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": "2.5em",
+                                "margin": ".5em .5em 0 .5em",
+                                "width": "2em",
+                                "src": "./resources/images/date_edit.png"
+                            },
+                            "designerId": "83598251-4538-477b-a639-f6c7ee863bde"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "maxWidth": "7em",
+                                "layout": "fit"
+                            },
+                            "designerId": "5a74ee64-4519-4984-a204-6d87734b57a4",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "listeners": [
+                                            "{\r",
+                                            "  tap: {\r",
+                                            "      fn: function() {\r",
+                                            "          this.fireEvent('lookup_btn', this.up('container'));\r",
+                                            "      },\r",
+                                            "      element: 'element'\r",
+                                            "  }\r",
+                                            "}"
+                                        ],
+                                        "cls": [
+                                            "lookup-btn"
+                                        ],
+                                        "height": "",
+                                        "html": "Calendar",
+                                        "itemId": "lookup_btn",
+                                        "margin": null,
+                                        "maxHeight": "2.5em",
+                                        "maxWidth": "7em",
+                                        "style": null,
+                                        "layout": "fit"
+                                    },
+                                    "configAlternates": {
+                                        "listeners": "object"
+                                    },
+                                    "designerId": "cae6e1b1-586e-4560-a2aa-bd9a38f33bd4",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "listeners",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "html": "",
+                                "itemId": null,
+                                "maxWidth": "10em",
+                                "styleHtmlCls": "multisel-dates-html",
+                                "styleHtmlContent": true,
+                                "layout": "fit",
+                                "scrollable": "vertical"
+                            },
+                            "designerId": "db8ed901-99a8-422e-a01f-c1e1d25616fe"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "bottom",
+                                "height": "",
+                                "html": "Day Planner (under construction).  Select any date for Day Planner.  Buttons docked top. ",
+                                "maxHeight": "2em",
+                                "minHeight": "2em",
+                                "styleHtmlCls": "example-descr-html",
+                                "styleHtmlContent": true,
+                                "designer|displayName": "example_descr",
+                                "scrollable": null
+                            },
+                            "designerId": "2369dbe3-fa14-437f-9979-805a0c7fb04f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": "8em",
+                        "itemId": "example5",
+                        "style": "border: 1px solid gray;",
+                        "designer|displayName": null,
+                        "layout": "hbox"
+                    },
+                    "designerId": "184943f5-4b2c-479b-a12d-d4a0693771b0",
+                    "cn": [
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": "2.5em",
+                                "margin": ".5em .5em 0 .5em",
+                                "width": "2em",
+                                "src": "./resources/images/santa.png"
+                            },
+                            "designerId": "d6a4f473-a2f8-443e-8e5d-b2dc07b58dc3"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "maxWidth": "7em",
+                                "layout": "fit"
+                            },
+                            "designerId": "e6c51033-670e-4c3f-9a86-b3308f241e5b",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "listeners": [
+                                            "{\r",
+                                            "  tap: {\r",
+                                            "      fn: function() {\r",
+                                            "          this.fireEvent('filter_btn', this.up('container'));\r",
+                                            "      },\r",
+                                            "      element: 'element'\r",
+                                            "  }\r",
+                                            "}"
+                                        ],
+                                        "cls": [
+                                            "christmas-btn"
+                                        ],
+                                        "html": "Calendar",
+                                        "itemId": "filter_btn",
+                                        "margin": null,
+                                        "maxWidth": "7em",
+                                        "style": null,
+                                        "layout": "fit"
+                                    },
+                                    "configAlternates": {
+                                        "listeners": "object"
+                                    },
+                                    "designerId": "f2a03877-38bd-4ce3-adc5-4187d517a2f9",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "listeners",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "html": "",
+                                "itemId": null,
+                                "maxWidth": "10em",
+                                "styleHtmlCls": "multisel-dates-html",
+                                "styleHtmlContent": true,
+                                "layout": "fit",
+                                "scrollable": "vertical"
+                            },
+                            "designerId": "2cbd0f09-af05-458f-98bc-993cfc2f8670"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "bottom",
+                                "height": "",
+                                "html": "Custom Filter example (Christmas calendar for next 12 years).  Filters can be used to only include months with Selected or Custom dates.",
+                                "maxHeight": "4.5em",
+                                "minHeight": "4.5em",
+                                "styleHtmlCls": "example-descr-html",
+                                "styleHtmlContent": true,
+                                "designer|displayName": "example_descr",
+                                "scrollable": null
+                            },
+                            "designerId": "f6ac40f8-ba86-4a5a-abea-c6aa335e3565"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "datePlanner",
+                "layout": "hbox"
+            },
+            "designerId": "e44df4a6-9599-49be-959c-56363bcd7661",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "planner_cal",
+                        "maxWidth": "17em",
+                        "width": "17em",
+                        "layout": "card"
+                    },
+                    "designerId": "b7e36160-afbb-4bd0-9140-1c1e73edd3e8"
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "planner_detail",
+                        "maxWidth": "20em",
+                        "style": "background-color: white;",
+                        "width": "20em",
+                        "layout": "vbox"
+                    },
+                    "designerId": "48114142-45b2-41c0-923b-c529df24d322",
+                    "cn": [
+                        {
+                            "type": "Ext.Toolbar",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "top",
+                                "style": "background: #5e6266; color: white;",
+                                "styleHtmlContent": true,
+                                "ui": "plain",
+                                "title": "Under Construction"
+                            },
+                            "designerId": "3eb48155-3442-4e60-9186-d8dc090ce130"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": "5em",
+                                "html": "Plan is to support Day Planner.  Click on any date to see update below.  \"dateSelected\" event is fired for each selected date.",
+                                "style": "border: 1px solid gray;"
+                            },
+                            "designerId": "a0ee9bcc-d65d-465c-8694-56da01bd45b5"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "height": null,
+                                "itemId": "plannerDetailText",
+                                "style": "border: 1px solid gray;",
+                                "styleHtmlCls": "planner-detail-text",
+                                "styleHtmlContent": true
+                            },
+                            "designerId": "2e126899-5930-493e-871e-2e2c384a7828"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "itemId": "planner_extra",
+                        "layout": "fit"
+                    },
+                    "designerId": "f187f651-97f1-407a-ac21-3ee79ccfa82b"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "\r",
+                    "var datePlanner = this.down('#datePlanner');\r",
+                    "var planner = this.down('#planner_cal');\r",
+                    "if (Ext.os.is.Phone) {\r",
+                    "    datePlanner.remove(datePlanner.down('#planner_detail'), true);\r",
+                    "    datePlanner.remove(datePlanner.down('#planner_extra'), true);\r",
+                    "    planner.setMaxWidth('100%');\r",
+                    "    planner.setWidth('100%'); \r",
+                    "}    \r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "2b2f02a0-003c-4a78-b2e5-fd271c209ae0"
+        }
+    ]
+}

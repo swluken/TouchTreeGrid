@@ -85,9 +85,9 @@
             "pressedCls": "touchtreegrid-item-pressed",
             "simpleList": false,
             "columnSorting": false,
-            "styleContentRow": "display: -webkit-box; -webkit-box-orient: horizontal;",
-            "styleCategRow": "display: -webkit-box; -webkit-box-orient: horizontal;",
-            "styleHeaderRow": "display: -webkit-box; -webkit-box-orient: horizontal;",
+            "styleContentRow": "",
+            "styleCategRow": "",
+            "styleHeaderRow": "",
             "singleExpand": false,
             "additionalListConfigs": [
                 "{}"
@@ -105,6 +105,15 @@
             "categCssArr": [
                 "[]"
             ],
+            "cssContentRow": "css-content-row ",
+            "cssCategRow": "css-categ-row ",
+            "cssHeaderRow": "css-header-row ",
+            "customFooterItems": [
+                "{}"
+            ],
+            "includeCustomFooterItems": false,
+            "footerDock": "bottom",
+            "hideExpandCollapseBtns": false,
             "cls": [
                 "x-touchtreegrid-list"
             ],
@@ -151,7 +160,11 @@
             "scrollable": "object",
             "disableExpandCollapse": "boolean",
             "categColumns": "array",
-            "categCssArr": "array"
+            "categCssArr": "array",
+            "customFooterItems": "object",
+            "includeCustomFooterItems": "boolean",
+            "dockFooterAboveHeader": "boolean",
+            "hideExpandCollapseBtns": "boolean"
         },
         "customConfigs": [
             {
@@ -453,6 +466,41 @@
                 "group": "(Custom Properties)",
                 "name": "categCssArr",
                 "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "cssContentRow",
+                "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "cssCategRow",
+                "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "cssHeaderRow",
+                "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "customFooterItems",
+                "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "includeCustomFooterItems",
+                "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "footerDock",
+                "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "hideExpandCollapseBtns",
+                "type": "string"
             }
         ],
         "cn": [
@@ -508,6 +556,9 @@
                         "var categStyle = Ext.isEmpty(me.getStyleCategRow()) ? '' : ' style=\"' + me.getStyleCategRow() + '\"';\r",
                         "var contentStyle = Ext.isEmpty(me.getStyleContentRow()) ? '' : ' style=\"' + me.getStyleContentRow() + '\"';\r",
                         "\r",
+                        "var categCss = Ext.isEmpty(me.getCssCategRow()) ? '' : ' class=\"' + me.getCssCategRow() + '\"';\r",
+                        "var contentCss = Ext.isEmpty(me.getCssContentRow()) ? '' : ' class=\"' + me.getCssContentRow() + '\"';\r",
+                        "\r",
                         "var indentCol = me.getColNumberToTruncateForIndents()-1; // This column width value will be truncated to account for indent\r",
                         "// Subtract 1 from column number to array index # applied below.\r",
                         "// Width expected to be in pct format as last '%' character will be stripped for computation : '25%'\r",
@@ -523,7 +574,7 @@
                         "var shellArr=[], i, k, categArr=[],\r",
                         "    prefixArr = \r",
                         "    [\r",
-                        "    '<div' + categStyle + '>',\r",
+                        "    '<div' + categStyle + categCss + '>',\r",
                         "    '<p align=\"left\" style=\"width:{[(values.depth-1)*'+indent+']}%;\"</p>',    // 3% per depth starting at 0% \r",
                         "    '<p align=\"left\" style=\"width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+'%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;\">', \r",
                         "    '<span class=\"touchtreegrid-details-img ',\r",
@@ -599,7 +650,7 @@
                         "\r",
                         "        // Add dataIndex attribute to this DIV if requested in Columns array (for purposes of trapping cell tap)\r",
                         "        idxStr = ((!categData[i].addDataIndexToDiv) ? '' : ' dataIndex=\"' + categData[i].dataIndex + '\"');\r",
-                        "        \r",
+                        "\r",
                         "\r",
                         "        if (i===indentCol) {     \r",
                         "            // Subtract percentage width based on level             \r",
@@ -631,7 +682,7 @@
                         "var detailArr, j;\r",
                         "if (detail==='' && !simpleList) {\r",
                         "    detailArr = [\r",
-                        "    '<div' + contentStyle + '>',\r",
+                        "    '<div' + contentStyle + contentCss + '>',\r",
                         "    '<p align=\"left\" style=\"width:{[(values.depth-1)*'+indent+']}%;\"</p>',    // 3% per depth starting at 0%         \r",
                         "    '<p align=\"left\" style=\"width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+'%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;\">&nbsp;</p>'\r",
                         "    ];\r",
@@ -655,7 +706,7 @@
                         "            (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '\" ' + idxStr +\r",
                         "            '>{' + rendStr + '}</p>');                  \r",
                         "        } else {           \r",
-                        "            detailArr.push('<p class=\"touchtreegrid-list-content-cell \" style=\"' +\r",
+                        "            detailArr.push('<p class=\"touchtreegrid-list-content-cell ' + cssStr + '\" style=\"' +\r",
                         "            'min-width:' + data[j].width + ' !important;' + \r",
                         "            'max-width:' + data[j].width + ' !important;' + \r",
                         "            'width:' + data[j].width + ' !important;' + \r",
@@ -946,12 +997,12 @@
                     ],
                     "implHandler": [
                         "var me = this;\r",
-                        "\r",
+                        "var footerDock = me.getFooterDock();\r",
+                        "var hideExpandCollapseBtns = me.getHideExpandCollapseBtns();\r",
                         "var img = me.getLandscapeIcon();\r",
-                        "\r",
                         "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
                         "    Ext.apply(config, {\r",
-                        "        docked : 'bottom',\r",
+                        "        docked : footerDock,\r",
                         "        cls    : 'touchtreegrid-footer',\r",
                         "        itemId : 'touchtreegridbuttons',\r",
                         "\r",
@@ -975,6 +1026,7 @@
                         "        {\r",
                         "            xtype: 'segmentedbutton',\r",
                         "            itemId : 'touchtreegridsegmentedbuttons',\r",
+                        "            hidden: hideExpandCollapseBtns,\r",
                         "            items: [\r",
                         "            {\r",
                         "                xtype: 'button',\r",
@@ -1051,6 +1103,10 @@
                         "    }\r",
                         "}\r",
                         "store.each(expandDepth, this);\r",
+                        "\r",
+                        "// Added 8/19/2013\r",
+                        "var scroller = list.getScrollable().getScroller();\r",
+                        "scroller.scrollTo(0,1);  \r",
                         "\r",
                         ""
                     ]
@@ -1138,12 +1194,13 @@
                         "\r",
                         "var styleStr='', cssStr='';\r",
                         "var headerStyle = Ext.isEmpty(me.getStyleHeaderRow()) ? '' : ' style=\"' + me.getStyleHeaderRow() + '\"';\r",
+                        "var headerCss = Ext.isEmpty(me.getCssHeaderRow()) ? '' : ' class=\"' + me.getCssHeaderRow() + '\"';\r",
                         "\r",
                         "var headerTpl = me.getHeaderTplOverride();\r",
                         "if (headerTpl==='') {\r",
                         "\r",
                         "    var headerTplArr = [\r",
-                        "    '<div' + headerStyle + '>'\r",
+                        "    '<div' + headerStyle + headerCss + '>'\r",
                         "    ];\r",
                         "    if (!simpleList) {\r",
                         "        // Include spacer width for category arrow\r",
@@ -1193,6 +1250,15 @@
                         "    me.doExpandDepth(me.getDefaultCollapseLevel());\r",
                         "}\r",
                         "\r",
+                        "var btns = me.down('#touchtreegridbuttons');\r",
+                        "var customFooterItems = me.getCustomFooterItems();\r",
+                        "var includeCustomFooterItems = me.getIncludeCustomFooterItems();\r",
+                        "\r",
+                        "if (me.getIncludeFooter() && !simpleList && !me.isObjectEmpty(customFooterItems) && !Ext.isEmpty(btns) &&\r",
+                        "Ext.isEmpty(btns.down('#'+customFooterItems.itemId)) && includeCustomFooterItems) {\r",
+                        "    btns.add(customFooterItems);\r",
+                        "}\r",
+                        "\r",
                         "if (me.getIncludeFooter() && me.getIncludeFooterLevels() && !simpleList) {\r",
                         "    // Proceed to add expand/collapse levels  (horizontal scrolling toolbar LATER)\r",
                         "\r",
@@ -1209,15 +1275,20 @@
                         "    }\r",
                         "    store.each(doDrillDown, me);   \r",
                         "\r",
-                        "    if (maxDepth>1) {\r",
+                        "    if (maxDepth>1 && !Ext.isEmpty(btns)) {\r",
                         "        // Remove button items 1+ if they exist\r",
                         "\r",
-                        "        var btns = me.down('#touchtreegridbuttons');\r",
                         "        var itms = btns.getItems();\r",
                         "        var itmsOrigLength = itms.items.length;\r",
-                        "        for (var k=itmsOrigLength-1; k>2; k--) {\r",
-                        "            btns.remove(itms.items[k], true);\r",
+                        "        var thisItemId, k;\r",
+                        "\r",
+                        "        for (k = 2; k<10; k++) {  // blindly loop to delete up to 8 category level buttons with matching ItemId names\r",
+                        "            thisItem = btns.down('#touchtreegriddepth'+k.toString());\r",
+                        "            if (!Ext.isEmpty(thisItem)) {\r",
+                        "                btns.remove(thisItem, true);\r",
+                        "            }\r",
                         "        }\r",
+                        "\r",
                         "\r",
                         "        var btnStyle = {};\r",
                         "\r",

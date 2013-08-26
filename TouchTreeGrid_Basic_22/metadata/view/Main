@@ -1,0 +1,75 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "main",
+        "designer|userClassName": "Main",
+        "designer|userAlias": "main",
+        "designer|initialView": true,
+        "layout": "vbox"
+    },
+    "designerId": "8c274233-2c62-4f46-b103-76d6c9f0def6",
+    "cn": [
+        {
+            "type": "Ext.TitleBar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "itemId": "maintitlebar",
+                "minHeight": "2.2em",
+                "title": "TouchTreeGrid Demo"
+            },
+            "designerId": "7594443e-ac98-4a9c-ad66-560a2c6c6375"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "layout": "fit"
+            },
+            "designerId": "26326c10-0cc1-45c1-8f44-df9774c3fc97",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "store": "TaskStore",
+                        "columns": [
+                            "[\r",
+                            "                            {\r",
+                            "                                header: 'Task',\r",
+                            "                                dataIndex: 'text',\r",
+                            "                                width: '35%',\r",
+                            "                                style: ' text-align: left;',\r",
+                            "                                categStyle: 'font-weight: bold; text-align: left; color: blue;',\r",
+                            "                                headerStyle: 'text-align: left; color: #ccc;'\r",
+                            "                            }\r",
+                            "                        ]"
+                        ],
+                        "listItemId": "firstexamplelist",
+                        "itemId": "firstexample"
+                    },
+                    "designerId": "07b63102-7d78-4f65-86e1-14368d2ae59b",
+                    "masterInstanceId": "a6ffc5b9-d0cb-48fb-a0d7-4fa2d2eaab99"
+                }
+            ]
+        }
+    ]
+}

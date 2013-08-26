@@ -1,3 +1,81 @@
+8/25/2013 COMMIT CHANGE LOG:  
+Summary:  Modifications to support IE10.  Added Configs such that all styling can be supported via CSS (vs. Style).
+          Added more flexible features to TouchTreeGrid to support new "CalendarPicker" component.
+
+*** MODIFICATIONS THAT REQUIRE UPDATES TO PRIOR IMPLEMENTATIONS ***
+  All changes are backward compatible with the EXCEPTION that CRUCIAL configs [styleContentRow, styleCategRow, styleHeaderRow]
+  are replaced with following new configs as the default:
+     cssContentRow: 'css-content-row ',
+     cssCategRow: 'css-categ-row ', 
+     cssHeaderRow: 'css-header-row '
+  
+  If your implementations always accepted the default values for styleContentRow, styleCategRow, styleHeaderRow configs, then 
+  you should not require code changes so long as you upgrade both TouchTreeGrid.js and TouchTreeGrid.css.
+  Notes:  1) TouchTreeGrid.css updated with new css configs and also to support IE10 (refer below).
+          2) Slide Navigation in TTG_Slider still requires further modifications for IE10, 
+             but TouchTreeGrid_Advanced_22 and CalenderPicker work in IE10.
+
+
+*** MODIFICATIONS TO TOUCH 2.2x TOUCHTREEGRID VERSION COMPONENT (2.1x version not updated) ***  
+
+- Refer to "TouchTreeGrid - Documentation.pdf", Appendix D for new/updated config summary (red text with 8/25/13 datestamp).
+
+- updateStore() method modified to correctly apply css defined in columns[] array for TreeGrid content rows (Bug fix).
+
+- Added configs:  cssContentRow: 'css-content-row ', cssCategRow: 'css-categ-row ', cssHeaderRow: 'css-header-row '
+  (space-delimited list of CSS selectors to apply to that row to be used instead of styleContentRow, styleCategRow, styleHeaderRow)
+  Updated updateStore(), updateColumns(), doRefreshList() methods accordingly.
+    -   Added corresponding selectors to TouchTreeGrid.css to also support IE10.  Note:  TTG_Slider example still requires further 
+        modifications for IE10 as Slide Navigation does not work correctly.  TouchTreeGrid_Advanced_22 does work correctly for IE10
+        with below changes to TouchTreeGrid.css (although few styling changes still outstanding):
+    
+            .x-touchtreegrid-list .css-categ-row {
+                display: flex;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                flex-direction: row;
+                -webkit-box-orient: horizontal;
+                -ms-flex-direction: row;
+            }
+            .x-touchtreegrid-list .css-content-row {
+                display: flex;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                flex-direction: row;
+                -webkit-box-orient: horizontal;
+                -ms-flex-direction: row;
+            }
+            .x-touchtreegrid-list .css-header-row {
+                display: flex;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                flex-direction: row;
+                -webkit-box-orient: horizontal;
+                -ms-flex-direction: row;
+            }
+            
+*** Changed default for configs styleContentRow, styleCategRow, styleHeaderRow
+        from:  'display: -webkit-box; -webkit-box-orient: horizontal;'
+          to:  ''
+          
+- Added "max-height: 18px;" to TouchTreeGrid.css:
+        .x-touchtreegrid-list .touchtreegrid-details-img {   /* category row arrow */
+             max-height: 18px;  /* Added 8/24/13 */   
+ 
+- Added lines to doExpandDepth() to correct issue when scrolling to bottom of fully expanded list, then collapsing.
+    var scroller = list.getScrollable().getScroller();
+    scroller.scrollTo(0,1);           
+    
+- Modified doRefreshList() method when re-creating collapse-to buttons to support addition of custom button object
+  to footer toolbar via new customFooterItems{} object and includeCustomFooterItems boolean configs.
+  
+- Added footerDock (default='bottom') config to allow footer to be docked above Header.  Modified applyFooter() method.
+
+- Added hideExpandCollapseBtns boolean config to hide Expand/Collapse buttons, but allow addition of customFooterItems{}
+
+
+
+
 7/9/2013 COMMIT CHANGE LOG:
 Summary: Minor updates to better support Dynamic grids and individual cell taps.
 

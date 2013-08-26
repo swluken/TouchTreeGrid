@@ -47,9 +47,9 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         pressedCls: 'touchtreegrid-item-pressed',
         simpleList: false,
         columnSorting: false,
-        styleContentRow: 'display: -webkit-box; -webkit-box-orient: horizontal;',
-        styleCategRow: 'display: -webkit-box; -webkit-box-orient: horizontal;',
-        styleHeaderRow: 'display: -webkit-box; -webkit-box-orient: horizontal;',
+        styleContentRow: '',
+        styleCategRow: '',
+        styleHeaderRow: '',
         singleExpand: false,
         selectedCls: 'touchtreegrid-item-selected',
         mode: 'SINGLE',
@@ -58,6 +58,12 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         arrowPctWidth: '4',
         customColumnSortEvent: '',
         disableExpandCollapse: false,
+        cssContentRow: 'css-content-row ',
+        cssCategRow: 'css-categ-row ',
+        cssHeaderRow: 'css-header-row ',
+        includeCustomFooterItems: false,
+        footerDock: 'bottom',
+        hideExpandCollapseBtns: false,
         cls: 'x-touchtreegrid-list',
         layout: {
             type: 'vbox'
@@ -100,7 +106,10 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         ],
         categCssArr: [
             
-        ]
+        ],
+        customFooterItems: {
+            
+        }
     },
 
     initialize: function(config) {
@@ -133,6 +142,9 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         var categStyle = Ext.isEmpty(me.getStyleCategRow()) ? '' : ' style="' + me.getStyleCategRow() + '"';
         var contentStyle = Ext.isEmpty(me.getStyleContentRow()) ? '' : ' style="' + me.getStyleContentRow() + '"';
 
+        var categCss = Ext.isEmpty(me.getCssCategRow()) ? '' : ' class="' + me.getCssCategRow() + '"';
+        var contentCss = Ext.isEmpty(me.getCssContentRow()) ? '' : ' class="' + me.getCssContentRow() + '"';
+
         var indentCol = me.getColNumberToTruncateForIndents()-1; // This column width value will be truncated to account for indent
         // Subtract 1 from column number to array index # applied below.
         // Width expected to be in pct format as last '%' character will be stripped for computation : '25%'
@@ -148,7 +160,7 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         var shellArr=[], i, k, categArr=[],
             prefixArr = 
             [
-            '<div' + categStyle + '>',
+            '<div' + categStyle + categCss + '>',
             '<p align="left" style="width:{[(values.depth-1)*'+indent+']}%;"</p>',    // 3% per depth starting at 0% 
             '<p align="left" style="width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+'%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">', 
             '<span class="touchtreegrid-details-img ',
@@ -256,7 +268,7 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         var detailArr, j;
         if (detail==='' && !simpleList) {
             detailArr = [
-            '<div' + contentStyle + '>',
+            '<div' + contentStyle + contentCss + '>',
             '<p align="left" style="width:{[(values.depth-1)*'+indent+']}%;"</p>',    // 3% per depth starting at 0%         
             '<p align="left" style="width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+'%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">&nbsp;</p>'
             ];
@@ -280,7 +292,7 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                     (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '" ' + idxStr +
                     '>{' + rendStr + '}</p>');                  
                 } else {           
-                    detailArr.push('<p class="touchtreegrid-list-content-cell " style="' +
+                    detailArr.push('<p class="touchtreegrid-list-content-cell ' + cssStr + '" style="' +
                     'min-width:' + data[j].width + ' !important;' + 
                     'max-width:' + data[j].width + ' !important;' + 
                     'width:' + data[j].width + ' !important;' + 
@@ -417,7 +429,6 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
 
 
-
     },
 
     onItemTap: function(list, index, target, record, e) {
@@ -501,12 +512,12 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
     applyFooter: function(config) {
         var me = this;
-
+        var footerDock = me.getFooterDock();
+        var hideExpandCollapseBtns = me.getHideExpandCollapseBtns();
         var img = me.getLandscapeIcon();
-
         if (this.getIncludeFooter() && !this.getSimpleList()) {
             Ext.apply(config, {
-                docked : 'bottom',
+                docked : footerDock,
                 cls    : 'touchtreegrid-footer',
                 itemId : 'touchtreegridbuttons',
 
@@ -530,6 +541,7 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
                 {
                     xtype: 'segmentedbutton',
                     itemId : 'touchtreegridsegmentedbuttons',
+                    hidden: hideExpandCollapseBtns,
                     items: [
                     {
                         xtype: 'button',
@@ -593,6 +605,9 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         }
         store.each(expandDepth, this);
 
+        // Added 8/19/2013
+        var scroller = list.getScrollable().getScroller();
+        scroller.scrollTo(0,1);  
 
     },
 
@@ -666,12 +681,13 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
 
         var styleStr='', cssStr='';
         var headerStyle = Ext.isEmpty(me.getStyleHeaderRow()) ? '' : ' style="' + me.getStyleHeaderRow() + '"';
+        var headerCss = Ext.isEmpty(me.getCssHeaderRow()) ? '' : ' class="' + me.getCssHeaderRow() + '"';
 
         var headerTpl = me.getHeaderTplOverride();
         if (headerTpl==='') {
 
             var headerTplArr = [
-            '<div' + headerStyle + '>'
+            '<div' + headerStyle + headerCss + '>'
             ];
             if (!simpleList) {
                 // Include spacer width for category arrow
@@ -721,6 +737,15 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
             me.doExpandDepth(me.getDefaultCollapseLevel());
         }
 
+        var btns = me.down('#touchtreegridbuttons');
+        var customFooterItems = me.getCustomFooterItems();
+        var includeCustomFooterItems = me.getIncludeCustomFooterItems();
+
+        if (me.getIncludeFooter() && !simpleList && !me.isObjectEmpty(customFooterItems) && !Ext.isEmpty(btns) &&
+        Ext.isEmpty(btns.down('#'+customFooterItems.itemId)) && includeCustomFooterItems) {
+            btns.add(customFooterItems);
+        }
+
         if (me.getIncludeFooter() && me.getIncludeFooterLevels() && !simpleList) {
             // Proceed to add expand/collapse levels  (horizontal scrolling toolbar LATER)
 
@@ -737,15 +762,20 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
             }
             store.each(doDrillDown, me);   
 
-            if (maxDepth>1) {
+            if (maxDepth>1 && !Ext.isEmpty(btns)) {
                 // Remove button items 1+ if they exist
 
-                var btns = me.down('#touchtreegridbuttons');
                 var itms = btns.getItems();
                 var itmsOrigLength = itms.items.length;
-                for (var k=itmsOrigLength-1; k>2; k--) {
-                    btns.remove(itms.items[k], true);
+                var thisItemId, k;
+
+                for (k = 2; k<10; k++) {  // blindly loop to delete up to 8 category level buttons with matching ItemId names
+                    thisItem = btns.down('#touchtreegriddepth'+k.toString());
+                    if (!Ext.isEmpty(thisItem)) {
+                        btns.remove(thisItem, true);
+                    }
                 }
+
 
                 var btnStyle = {};
 
