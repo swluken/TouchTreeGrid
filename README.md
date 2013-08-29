@@ -28,29 +28,24 @@ Basic 2.2, Advanced TabPanel 2.2 and Advanced Slide Navigation 2.2 examples are 
 This software can be downloaded at <a href="https://github.com/swluken/TouchTreeGrid">https://github.com/swluken/TouchTreeGrid</a>
   
 
-<div>See working Touch 2.2 Calendar Picker Demo at:</div>
-<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/CalenderPicker/appChrome29fix.html?deviceType=Phone">CalenderPicker (Chrome 29 Fix - Phone simulation)</a>
-<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/CalenderPicker/appChrome29fix.html?deviceType=Tablet">CalenderPicker (Chrome 29 Fix - Tablet simulation)</a>
-<div>Actual Mobile device and non-Chrome Browser link: www.lincolnwaterfrontrentals.com/Sencha/CalenderPicker/app.html
+See working Touch 2.2 Calendar Picker Demo with Chrome 29 Fix at:
+http://www.lincolnwaterfrontrentals.com/Sencha/CalendarPicker/appChrome29fix.html
+Actual Mobile device and non-Chrome Browser link: 
+http://www.lincolnwaterfrontrentals.com/Sencha/CalendarPicker/app.html
 
+<div>&nbsp;</div>
+See working Touch 2.2 Slide Navigation Demo with Chrome 29 Fix at:
+http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/appChrome29fix.html
+Actual Mobile device and non-Chrome Browser link: 
+http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app.html
 
-<div>See working Touch 2.2 Slider Demo at:</div>
-<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/appChrome29fix.html?deviceType=Phone">CalenderPicker (Chrome 29 Fix - Phone simulation)</a></div>
-<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/appChrome29fix.html?deviceType=Tablet">CalenderPicker (Chrome 29 Fix - Tablet simulation)</a></div>
-<div>Actual Mobile device and non-Chrome Browser: www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app.html</div>
-<div>(Note: Slide navigation not fixed yet for IE10)</div>
+<div>&nbsp;</div>
+See working Touch 2.2 TouchTreeGrid Demo with Chrome 29 Fix at:
+http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/appChrome29fix.html
+Actual Mobile device and non-Chrome Browser link: 
+http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html
+<div>&nbsp;</div>
 
-
-<div>Test TouchTreeGrid_Advanced_22:</div>
-<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/appChrome29fix.html?deviceType=Phone">CalenderPicker (Chrome 29 Fix - Phone simulation)</a></div>
-<div><a href="http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/appChrome29fix.html?deviceType=Tablet">CalenderPicker (Chrome 29 Fix - Tablet simulation)</a></div>
-<div>Actual Mobile device and non-Chrome Browser: www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html</div>
-<div>(Note:  some styling corrections required for IE10)</div>
-
-
-Requires webkit-enabled browser:  Chrome, Safari, or actual mobile device.
-
-<div><b>Feeback appreciated at:</b> </div> http://www.sencha.com/forum/showthread.php?259616-TouchTreeGrid-component
 
 PLANNED ENHANCEMENTS TO TouchTreeGrid:      
     
