@@ -27,7 +27,7 @@ Basic 2.2, Advanced TabPanel 2.2 and Advanced Slide Navigation 2.2 examples are 
 
 This software can be downloaded at <a href="https://github.com/swluken/TouchTreeGrid">https://github.com/swluken/TouchTreeGrid</a>
   
-NOTE:  DEMO CODE WILL NOT WORK UNTIL CDN IS PATCHED ... REFER TO THREAD:
+<div style="color:red; font-weight: bold;">NOTE:  DEMO CODE WILL NOT WORK UNTIL CDN IS PATCHED ... REFER TO THREAD:</div>
       http://www.sencha.com/forum/showthread.php?271475-Today-nameMap.apply-error-in-sencha-touch-all.js-also-in-old-project!!
 
 See working Touch 2.2 Calendar Picker Demo with Chrome 29 Fix at:
