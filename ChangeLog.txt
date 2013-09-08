@@ -1,3 +1,66 @@
+**************************************************************************************************
+9/8/2013 COMMIT CHANGE LOG:  
+
+New CalendarPicker Features and Examples:
+
+   - IPhone-style calendar layout examples
+       - Range selection (Example #2B).  Also changes background transparency to white instead of default gray behind modal panel.
+       - Form textfield selection (Example #2C)
+       - Financial DayCount (Example #6)
+       
+   - Added Financial Calendar examples
+       - Daycounts from today using custom day renderer (Example #6)
+       - MarketWatch-style Options Expiration Calendar with auto-generated Legend (Example #7)
+       
+   - Support for multiple categories of custom dates within same calendar, each with unique styling and auto-generated Legend (Example #7)
+   
+   - Sped up Expand All/ Collapse All for large calendars.
+   
+   - Enhanced logic to auto-scroll to first month with pre-selected dates.
+   
+   - Added pull-refresh style option to allow user to insert more months into beginning of calendar (Example #2C).
+   
+   - Added paging-plugin style option to allow user to append more months at end of calendar (Example #2B).
+
+*** MODIFICATIONS THAT REQUIRE UPDATES TO PRIOR IMPLEMENTATIONS *** 
+    None
+ 
+*** MODIFICATIONS TO CALENDARPICKER COMPONENT ***    
+
+  - Updated Component:  CalendarPicker.js, CalendarPicker.xdc  
+  - Updated CSS Files:  calendarpicker.css, custom.css.  Additions to calendarpicker.css include:
+      .customDates-default {background-color: orange;}
+      .calendarpicker-legend {font-size: .7em;}
+      .calendarpicker-legend-cls-override {} 
+   
+  - Updated initialize() method to correctly process configs for itemHeight and variableHeights.
+  - Config 'customExpCollapseEvent' defaulted to 'monthExpCollapse' and handled by component unless overridden by custom event name.
+    Modified initiate() method to listen for monthExpCollapse event from TouchTreegrid and call new onExpCollapse() method
+    to rebuild TreeStore for full Expand/Collapse operations as this has better performance than using
+    Sencha-provided expand/collapse methods.
+  - Added logic to unregister temporary stores from Ext.data.StoreManager for each instance of Calendar once destroyed by developer (new onDestroy method).
+  - Updated loadStore() method to further improve performance and correct issue when expand/collapse all after prior selections
+  - Updated customBtns() method for CLEAR:   dtPkr.setLastSelectedDate('');  
+  - Cleaned up DateExamples view configs
+  - Added customDateTypes[] config
+  - Added expandCurrentMonth config  (ignored if collapsing all via bottom toolbar button, or if auto-expanding months with prior-selected dates after current month)
+  - Added monthNodeHeightInPixels config (default = 32 pixels).  Needed for scroller to scroll to correct month
+  - Added allowMonthAdditions (default false) and monthsToAppend/monthsToInsert (default 3 months) configs.  Following related configs also added:
+     - If monthsToInsert>0 then pullRefresh style plugin implemented to allow user to insert months at start of Calendar (currently supported for Touch 2.2+ versions only)
+       (Note:  need to keep track of new backMonths/forwardMonths in case user relaunches calendar to review selections 
+               ...refer to onExample2C_TextfieldClosed() and onExample2C_Textfield() for example
+     - monthsToAppendText: 'Append more Months...',
+     - monthsToInsertPullText: 'Pull to Insert Months...',
+     - monthsToInsertRefreshText: 'Release to Insert Months...',  
+  - Updated default "renderers" config to support custom dates (customType = 'default')
+  - Added Container itemId = 'calendarpicker-legend' for optional custom dates legend.
+    Added corresponding config:  includeCustomDatesLegend
+ 
+  
+*** MODIFICATIONS TO TOUCHTREEGRID COMPONENT ***       
+    None
+
+**************************************************************************************************
 8/25/2013 COMMIT CHANGE LOG:  
 Summary:  Modifications to support IE10.  Added Configs such that all styling can be supported via CSS (vs. Style).
           Added more flexible features to TouchTreeGrid to support new "CalendarPicker" component.

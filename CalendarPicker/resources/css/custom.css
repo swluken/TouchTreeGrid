@@ -1,5 +1,6 @@
 .example-descr-html {
     font-size: .8em;
+    padding-left: 1em;
     color: gray;
     }
 
@@ -18,7 +19,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb732', end
     color: white;
 }
 
-.kayak-button, .multisel-button, .lookup-btn {
+.kayak-button, .multisel-button, .lookup-btn, .financial-btn {
 background: #f2f2f2; /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
 background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyZjJmMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjY2NjY2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -38,7 +39,7 @@ margin:  0 1.5em .6em 0;
 }
 .lookup-btn {
   margin:  0.8em 0.5em .6em .5em !important;
-  padding: .6em 0 0 .8em !important;  
+  padding: 2em 0 0 .8em !important;  
   color: blue;
   font-size: 1em;
   font-weight: bolder;
@@ -60,15 +61,15 @@ margin:  0 1.5em .6em 0;
 }
 
 .kayak-button-select {
-    padding: .6em 0 0 0; 
+    padding: .8em 0 0 0; 
     margin: 0 0 0 -2em;
     text-align: left;
     font-size: 1em; 
     font-weight: bold;    
 }
 .multisel-button {
-    padding: .6em 0 0 .9em; 
-    margin: 1em 0 1em 0;
+    padding: 0.5em 0 0 .9em; 
+    margin: .5em 0 2.5em 0;
     text-align: left;
     font-size: 1em; 
     font-weight: bold;    
@@ -270,3 +271,209 @@ padding: .5em 0 0 .8em;
     font-weight: bold;
 }
 
+
+/*********************  BEGIN CUSTOM CSS FOR IOS EXAMPLE 2B **************************/
+.calendarpicker-ios .calendarpicker-month {
+    text-align:  left;
+    color: #321ede;
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+.calendarpicker-ios .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+
+
+background: rgb(255,255,255) !important; /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 90%, rgba(204,204,204,1) 100%) !important; /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(90%,rgba(255,255,255,1)), color-stop(100%,rgba(204,204,204,1))) !important; /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 90%,rgba(204,204,204,1) 100%) !important; /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 90%,rgba(204,204,204,1) 100%) !important; /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 90%,rgba(204,204,204,1) 100%) !important; /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 90%,rgba(204,204,204,1) 100%) !important; /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=0 ) !important; /* IE6-9 */
+    
+    
+  color: white;
+  border-top: none;
+  border-bottom: none;
+  font-weight: bold;
+  min-height: 32px !important; 
+  height: 32px !important; 
+  max-height: 32px !important; 
+  padding:0.5em 0 0 0 !important; 
+  font-size: .8em !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);   
+}
+
+.calendarpicker-ios .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    color: black;
+   /* width:100%; */
+    margin: 0;
+    max-height: inherit;
+    line-height: 38px;   /* Computed as 17em max width * 16px/em divided by 7 days/week   */
+    font-size: 1em !important;    
+    padding-top:0 !important;
+
+background: #cccccc; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlMGUwZTAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #cccccc 0%, #e0e0e0 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #cccccc 0%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #cccccc 0%,#e0e0e0 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #cccccc 0%,#e0e0e0 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #cccccc 0%,#e0e0e0 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-8 */
+}
+
+.calendarpicker-ios .calendarpicker-days {  /* General selector for all days in calendar */
+   border-right: 1px solid gray;   
+   border-bottom: 1px solid gray; 
+   border-left:  none;
+   border-top: none;
+   -moz-box-shadow: 0 0 4px white;
+   -webkit-box-shadow: 0 0 4px white;
+   box-shadow: 0 0 4px white;
+    
+}
+.calendarpicker-ios .calendarpicker-selected {  /* custom selector for selected days as selected by user and defined in selDtArr[] */
+background: #6db3f2; /* Old browsers */
+background: -moz-linear-gradient(top,  #6db3f2 0%, #54a3ee 50%, #3690f0 51%, #1e69de 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6db3f2), color-stop(50%,#54a3ee), color-stop(51%,#3690f0), color-stop(100%,#1e69de)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #6db3f2 0%,#54a3ee 50%,#3690f0 51%,#1e69de 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #6db3f2 0%,#54a3ee 50%,#3690f0 51%,#1e69de 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #6db3f2 0%,#54a3ee 50%,#3690f0 51%,#1e69de 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #6db3f2 0%,#54a3ee 50%,#3690f0 51%,#1e69de 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=0 ); /* IE6-9 */
+
+    color: white;
+    font-weight: bolder;
+    border-right: 1px solid gray;   
+    border-bottom: 1px solid gray;
+    border-left:  none;
+    border-top: none;
+    border-radius: 0;
+   -moz-box-shadow: 0 0 4px white;
+   -webkit-box-shadow: 0 0 4px white;
+    box-shadow: 0 0 4px white;    
+}
+
+.calendarpicker-ios .calendarpicker-disabled {  /* custom selector for current day */
+   color: #808080;
+   font-weight: normal;    
+}
+
+.calendarpicker-ios .calendarpicker-today { /* custom selector for current day */
+  color: white;
+  font-weight: bolder;    
+background: rgb(76,76,76); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(76,76,76,1)), color-stop(12%,rgba(89,89,89,1)), color-stop(25%,rgba(102,102,102,1)), color-stop(39%,rgba(71,71,71,1)), color-stop(50%,rgba(44,44,44,1)), color-stop(51%,rgba(0,0,0,1)), color-stop(60%,rgba(17,17,17,1)), color-stop(76%,rgba(43,43,43,1)), color-stop(91%,rgba(28,28,28,1)), color-stop(100%,rgba(19,19,19,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
+
+    
+}
+
+.calendarpicker-ios .calendarpicker-header {
+    border:none;
+   -moz-box-shadow: none;
+   -webkit-box-shadow: none;
+    box-shadow: none;      
+}
+
+.calendarpicker-ios .calendarpicker-header-rowtype{
+  max-height: 24px !important;
+  background-color: #cccccc;    
+  height: 16px !important;
+  line-height: 16px;
+  font-size: .6em;
+  font-weight: bold;
+  padding-top:0em !important;
+ /* text-shadow: 1px 1px white; */
+  color: black;
+}
+
+.calendarpicker-ios .touchtreegrid-list-content-cell{ /* Detail (leaf) cells  */
+
+}
+
+/*********************  BEGIN CUSTOM CSS FOR IOS EXAMPLE 2C **************************/
+.sel-date-label {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: blue;
+    }
+
+.sel-date .x-form-label span {
+    font-size: 1.1em;
+    font-weight: bold;
+    
+    }
+
+/*********************  BEGIN CUSTOM CSS FOR FINANCIAL DAYCOUNT EXAMPLE 6 **************************/
+.daycount-outer {
+    line-height: 50%;
+    padding-top: .85em;
+}
+.daycount-inner {
+    padding-left: 1em;
+    font-size: .6em;
+    color: #921ede;
+}
+
+.financial-btn {
+  margin:  0.8em 0.5em .6em .5em !important;
+  padding: .6em 0 0 0 !important;  
+  color: blue;
+  font-size: 1em;
+  font-weight: bolder;
+}
+
+/*********************  BEGIN CUSTOM CSS FOR FINANCIAL OPTION DATES EXAMPLE 7 **************************/
+
+.calendarpicker-optionDates .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+background: rgb(231,231,231) !important; /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(231,231,231,1) 0%, rgba(245,245,245,1) 100%) !important; /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(231,231,231,1)), color-stop(100%,rgba(245,245,245,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* IE10+ */
+background: linear-gradient(to bottom,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', endColorstr='#f5f5f5',GradientType=0 ) !important; /* IE6-9 */
+   
+  -webkit-box-shadow: none;
+}
+
+.calendarpicker-optionDates .calendarpicker-month {
+    text-align:  center;
+    color: black;
+    font-weight: bolder;
+}
+
+.calendarpicker-optionDates .calendarpicker-today { /* custom selector for current day */
+  color: white;
+  font-weight: bold;    
+  background-color: blue; 
+}
+
+.optionDates-holiday {
+   background: url(cal-holiday.png) no-repeat center;        // Images must be stored in ./resources/css/ directory as referenced
+}
+.optionDates-stopTrading {
+   background: url(cal-stop-trading.png) no-repeat center;        
+}
+.optionDates-optionsExpire {
+   background: url(cal-expiration.png) no-repeat center;        
+}
+.optionDates-quarterlyExpiration {
+   background: url(cal-quarterly-expiration.png) no-repeat center;    
+}
+
+.calendarpicker-optionDates .calendarpicker-legend-cls-override {
+    background-size: 80% 80% !important;
+    padding-right: 1em ;
+}

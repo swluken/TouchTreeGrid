@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('MyApp.view.overlayPanel', {
+Ext.define('CalendarPicker.view.overlayPanel', {
     extend: 'Ext.Panel',
     alias: 'widget.overlayPanel',
 

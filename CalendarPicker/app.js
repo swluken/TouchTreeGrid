@@ -19,20 +19,23 @@ Ext.Loader.setConfig({
 });
 
 Ext.application({
+    stores: [
+        'optionDates'
+    ],
     views: [
         'CalendarPicker',
-        'TouchTreeGrid',
         'DateExamples',
-        'overlayPanel'
+        'overlayPanel',
+        'TouchTreeGrid'
     ],
     controllers: [
-        'MyController'
+        'DateExamplesController'
     ],
-    name: 'MyApp',
+    name: 'CalendarPicker',
 
     launch: function() {
 
-        Ext.create('MyApp.view.DateExamples', {fullscreen: true});
+        Ext.create('CalendarPicker.view.DateExamples', {fullscreen: true});
     }
 
 });

@@ -6,16 +6,19 @@
     },
     "codeClass": null,
     "userConfig": {
+        "stores": [
+            "optionDates"
+        ],
         "views": [
             "CalendarPicker",
-            "TouchTreeGrid",
             "DateExamples",
-            "overlayPanel"
+            "overlayPanel",
+            "TouchTreeGrid"
         ],
         "controllers": [
-            "MyController"
+            "DateExamplesController"
         ],
-        "name": "MyApp"
+        "name": "CalendarPicker"
     },
     "designerId": "application"
 }

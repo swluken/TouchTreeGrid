@@ -163,7 +163,7 @@
         "dockFooterAboveHeader": "boolean",
         "hideExpandCollapseBtns": "boolean"
     },
-    "designerId": "cf1597e7-3793-4d84-9883-72ff5debd075",
+    "designerId": "84bbedcc-c5f1-43e4-a467-ca06fc95df99",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
@@ -525,7 +525,7 @@
                     ""
                 ]
             },
-            "designerId": "bb877162-728d-4827-bac0-8fa65b7acb62"
+            "designerId": "db9f5d5a-02f0-4db8-8778-52f9e1a3cc3a"
         },
         {
             "type": "basicfunction",
@@ -749,7 +749,7 @@
                     ""
                 ]
             },
-            "designerId": "d9f1d963-d285-4085-ae65-61957f090bf3"
+            "designerId": "9cdd22e4-b8be-4042-8288-4202cb14fb84"
         },
         {
             "type": "basicfunction",
@@ -860,7 +860,7 @@
                     ""
                 ]
             },
-            "designerId": "a2bbd600-7243-45a5-8316-dee1fe036d5b"
+            "designerId": "b2128e48-d3dd-49cd-a708-e3f466636916"
         },
         {
             "type": "basicfunction",
@@ -934,7 +934,7 @@
                     "}"
                 ]
             },
-            "designerId": "5dff91a6-e485-427a-9983-8d312e75ee97"
+            "designerId": "9a3d79e8-9540-4624-b1cc-a9362a3e1bb3"
         },
         {
             "type": "basicfunction",
@@ -960,7 +960,7 @@
                     "}    "
                 ]
             },
-            "designerId": "1b06e11a-69a8-4db3-b07d-1a9da77f1033"
+            "designerId": "81efdd90-bde0-4ecb-9bec-974fe644c908"
         },
         {
             "type": "basicfunction",
@@ -985,7 +985,7 @@
                     "}    "
                 ]
             },
-            "designerId": "a992e078-c87f-405b-8d21-1f88a6eb6aa1"
+            "designerId": "e469fa21-e0a4-4a00-9a35-bf58aebfcdf5"
         },
         {
             "type": "basicfunction",
@@ -1066,7 +1066,7 @@
                     "}"
                 ]
             },
-            "designerId": "ad73af02-cf01-4599-ac6d-9bc29f5138ad"
+            "designerId": "0b5295dd-41ab-44dd-ae53-2096f4e0db57"
         },
         {
             "type": "basicfunction",
@@ -1116,7 +1116,7 @@
                     ""
                 ]
             },
-            "designerId": "4c03f66d-b1ca-4adb-aa98-d7c5305cce72"
+            "designerId": "5318a154-4472-4f84-8da9-1641c6aa038a"
         },
         {
             "type": "basicfunction",
@@ -1323,7 +1323,7 @@
                     ""
                 ]
             },
-            "designerId": "272445df-ba09-4435-b780-4de3ec16e02c"
+            "designerId": "6dda0cd5-e1fe-4074-bb86-053fc4486c3c"
         },
         {
             "type": "basicfunction",
@@ -1358,7 +1358,7 @@
                     "(decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : \"\") + suffix;"
                 ]
             },
-            "designerId": "f60311f9-9fdc-478a-a0a3-c1fc624d2cbe"
+            "designerId": "7b64ae02-ec25-4210-b181-2081ae73577a"
         },
         {
             "type": "basicfunction",
@@ -1381,7 +1381,7 @@
                     "return true;"
                 ]
             },
-            "designerId": "b3df017f-1505-403d-b6db-28e678594978"
+            "designerId": "f731f9fe-2c96-4e23-8ca9-da14570e7d6c"
         },
         {
             "type": "basicfunction",
@@ -1593,7 +1593,7 @@
                     ""
                 ]
             },
-            "designerId": "fc30c1d5-d73e-4190-ba68-f7a36d2abe3b"
+            "designerId": "dd4c7668-220d-409a-bbe9-e6c9e4e81534"
         },
         {
             "type": "basicfunction",
@@ -1613,7 +1613,7 @@
                     "}"
                 ]
             },
-            "designerId": "c882b61d-90ea-43e6-a0df-6de3f8507de0"
+            "designerId": "a1e6884f-ac45-457c-876c-b7bf81db7be4"
         }
     ]
 }

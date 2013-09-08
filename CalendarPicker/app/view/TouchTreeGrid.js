@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('MyApp.view.TouchTreeGrid', {
+Ext.define('CalendarPicker.view.TouchTreeGrid', {
     extend: 'Ext.Container',
     alias: 'widget.touchtreegrid',
 

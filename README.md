@@ -27,24 +27,15 @@ Basic 2.2, Advanced TabPanel 2.2 and Advanced Slide Navigation 2.2 examples are 
 
 This software can be downloaded at <a href="https://github.com/swluken/TouchTreeGrid">https://github.com/swluken/TouchTreeGrid</a>
   
-NOTE:  DEMO CODE WILL NOT WORK UNTIL CDN IS PATCHED ... REFER TO THREAD:
-      http://www.sencha.com/forum/showthread.php?271475-Today-nameMap.apply-error-in-sencha-touch-all.js-also-in-old-project!!
-
-See working Touch 2.2 Calendar Picker Demo with Chrome 29 Fix at:
-http://www.lincolnwaterfrontrentals.com/Sencha/CalendarPicker/appChrome29fix.html
-Actual Mobile device and non-Chrome Browser link: 
+See working Touch 2.2 Calendar Picker Demo at:
 http://www.lincolnwaterfrontrentals.com/Sencha/CalendarPicker/app.html
 
 <div>&nbsp;</div>
-See working Touch 2.2 Slide Navigation Demo with Chrome 29 Fix at:
-http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/appChrome29fix.html
-Actual Mobile device and non-Chrome Browser link: 
+See working Touch 2.2 Slide Navigation Demo at:
 http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app.html
 
 <div>&nbsp;</div>
-See working Touch 2.2 TouchTreeGrid Demo with Chrome 29 Fix at:
-http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/appChrome29fix.html
-Actual Mobile device and non-Chrome Browser link: 
+See working Touch 2.2 TouchTreeGrid Demo at:
 http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html
 <div>&nbsp;</div>
 
@@ -65,13 +56,10 @@ PLANNED ENHANCEMENTS TO TouchTreeGrid:
    
 PLANNED ENHANCEMENTS TO CalendarPicker:      
 
-   - More examples including IPhone-style calendar layout    
-   - Method+button to allow user to add more months to displayed calendar
    - Auto-generation of re-occuring custom dates with descriptions (i.e. anniverseries, birthdates, meetings, etc)
    - Day Planner support
    - Feature to expand/collapse months using user-defined Function 
    - Horizontal scrolling calendars
-   - Speed up Expand All/ Collapse All for large calendars.
    - Optional categorize by Year feature.
    - Soliciting other good ideas to integrate with this component
 

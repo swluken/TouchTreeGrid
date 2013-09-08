@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('MyApp.view.CalendarPicker', {
+Ext.define('CalendarPicker.view.CalendarPicker', {
     extend: 'Ext.Container',
     alias: 'widget.calendarpicker',
 
@@ -31,7 +31,7 @@ Ext.define('MyApp.view.CalendarPicker', {
         disableExpandCollapse: false,
         variableHeights: false,
         categDepthColors: true,
-        customExpCollapseEvent: '',
+        customExpCollapseEvent: 'monthExpCollapse',
         defaultCollapseLevel: 99,
         itemHeight: 32,
         selectMode: 'SINGLE',
@@ -44,6 +44,15 @@ Ext.define('MyApp.view.CalendarPicker', {
         footerDock: 'bottom',
         hideExpandCollapseBtns: false,
         enableQuickDaySelection: false,
+        includeCustomDatesLegend: false,
+        allowMonthAdditions: false,
+        monthsToInsert: 3,
+        monthsToAppend: 3,
+        monthsToAppendText: 'Append more Months...',
+        monthsToInsertPullText: 'Pull to Insert Months...',
+        monthsToInsertRefreshText: 'Release to Insert Months...',
+        expandCurrentMonth: true,
+        monthNodeHeightInPixels: 32,
         cls: 'x-touchtreegrid-list-calendar',
         itemId: 'calendarpicker',
         hideOnMaskTap: false,
@@ -117,12 +126,14 @@ Ext.define('MyApp.view.CalendarPicker', {
            var elem=values[fldName];
            return elem;},
             cls_renderer_dates: function (fldName, values)
-         {var cls="", dt, sel, hol, dis, par = this.scope.parent;
+         {var cls="", dt, sel, hol, dis, par = this.scope.parent, cust;
           dt = values['dt_'+fldName];
           hol = values['isHoliday_'+fldName];
           dis = values['isDisabled_'+fldName];
+          cust = values['customCls_'+fldName];
         
-          if (values.rowType === 'H') {}  // do nothing for header rows
+          if (values.rowType === 'H') {
+             cls = cls + ' calendarpicker-header';}  
           else if (Ext.isEmpty(dt)) {} // do nothing for empty dates
           else {
              sel = (par.getSelDtArr().indexOf(Ext.Date.format(dt, 'Y-m-d'))>-1);
@@ -130,6 +141,7 @@ Ext.define('MyApp.view.CalendarPicker', {
                cls = cls+' calendarpicker-weekend';
              }   
              if (hol){cls = cls+' calendarpicker-holiday';}
+             if (!Ext.isEmpty(cust)) {cls = cls + ' ' + cust;}
              if (!Ext.isEmpty(this.scope.todayDt)){
                if (this.scope.todayDt === Ext.Date.format(dt, 'Y-m-d')) {
                   cls = cls+' calendarpicker-today';
@@ -210,6 +222,17 @@ Ext.define('MyApp.view.CalendarPicker', {
         customCls: [
             
         ],
+        customDateTypes: [
+            {
+                customType: 'default',
+                customDescr: 'Custom',
+                useCustomDtArr: true,
+                storeId: null,
+                priority: 1,
+                disabled: false,
+                cls: 'customDates-default'
+            }
+        ],
         items: [
             {
                 xtype: 'toolbar',
@@ -218,6 +241,13 @@ Ext.define('MyApp.view.CalendarPicker', {
                 itemId: 'calendarpicker-toolbar',
                 ui: 'plain',
                 title: ''
+            },
+            {
+                xtype: 'container',
+                cls: 'calendarpicker-legend',
+                docked: 'top',
+                html: '',
+                itemId: 'calendarpicker-legend'
             },
             {
                 xtype: 'touchtreegrid',
@@ -280,7 +310,6 @@ Ext.define('MyApp.view.CalendarPicker', {
                 pressedCls: 'touchtreegrid-item-pressed',
                 simpleList: false,
                 columnSorting: false,
-                styleContentRow: '',
                 styleCategRow: '',
                 styleHeaderRow: '',
                 singleExpand: false,
@@ -292,7 +321,6 @@ Ext.define('MyApp.view.CalendarPicker', {
                 useSimpleItems: true,
                 infinite: true,
                 arrowPctWidth: '0',
-                customColumnSortEvent: '',
                 disableExpandCollapse: false,
                 categColumns: [
                     
@@ -324,13 +352,21 @@ Ext.define('MyApp.view.CalendarPicker', {
     initialize: function() {
         this.callParent();
 
-        var me = this, i, newCls, newCls2;
+
+        var me
+        = this, i, newCls, newCls2;
 
         var titleBar = me.down('#calendarpicker-toolbar');
         if (me.getHideTitleBar()) {titleBar.hide();}
 
         var gridcont = this.down('#calendar');
         var gridlist = this.down('#calendarlist');
+        var scroller = gridlist.getScrollable().getScroller();
+
+        // Store primary components with CalendarPicker component for faster reference
+        me.gridcont = gridcont;
+        me.gridlist = gridlist;
+        me.scroller = scroller;
 
         // Pass common configs from CalendarPicker component to underlying TouchTreeGrid component
         gridcont.setCategColumns(me.getCategColumns());
@@ -348,6 +384,10 @@ Ext.define('MyApp.view.CalendarPicker', {
         gridcont.setItemHeight(me.getItemHeight());
         gridcont.setFooterDock(me.getFooterDock());
         gridcont.setHideExpandCollapseBtns(me.getHideExpandCollapseBtns());
+
+        // Version 2 Mods
+        gridlist.setVariableHeights(me.getVariableHeights());
+        gridlist.setItemHeight(me.getItemHeight());
 
 
         // Save original state of selections in case of clear or cancel
@@ -407,11 +447,461 @@ Ext.define('MyApp.view.CalendarPicker', {
         }
 
 
+        var monthsToInsert = me.getMonthsToInsert();
+        var monthsToAppend = me.getMonthsToAppend();
+        if (me.getAllowMonthAdditions() && monthsToInsert>0 ) {
+            // Update listPlugins such that PullRefresh auto-adds 
+            gridlist.setPlugins({
+                xclass: 'Ext.plugin.PullRefresh',
+                pullRefreshText: me.getMonthsToInsertPullText(),
+                releaseRefreshText: me.getMonthsToInsertRefreshText(),
+                listeners: {
+                    latestfetched: function() {this.up('calendarpicker').fireEvent('insertMonths', this.up('calendarpicker'));}
+                }
+            });
+        }
 
-        me.loadStore(me, gridcont, gridlist);
+        if (me.getAllowMonthAdditions() && monthsToAppend>0) {
+            // Add Load More button at bottom of list 
+
+            gridlist.add({
+                xtype: 'component',
+                html: me.getMonthsToAppendText(),
+                cls: 'months-to-append-html',
+                scrollDock: 'bottom',
+                listeners: {
+                    tap: {
+                        fn: me.onAppendMonths,
+                        scope: me,
+                        element: 'element'
+                    }        
+                }
+            });
+        }
+
+        me.createStore(me, gridcont, gridlist);
 
         // Handle leafItemTap event from TouchTreeGrid for day selection processing
         gridcont.on('leafItemTap', me.onLeafItemTap, me);
+
+        // Handle monthExpCollapse event from TouchTreeGrid for rapid expand/collapse
+        gridcont.on('monthExpCollapse', me.onExpCollapse, me);
+
+        // Add listener when this component is destroyed to also destroy associated Store
+        me.on('destroy', me.onDestroy, me);
+
+        // Add listener for Pull to Add Months event
+        me.on('insertMonths', me.onInsertMonths, me);
+
+        // Add listener for when list is shown to then scroll to designated node
+        scroller.on('refresh',  me.onScrollerRefresh, me);
+
+
+
+
+    },
+
+    createStore: function(me, gridcont, gridlist, expandCollapse) {
+        var backMoInp = me.getBackMonths(), fwdMoInp = me.getForwardMonths();
+
+
+        var backMo=Ext.isEmpty(backMoInp) ? 0 : backMoInp;  // allow negatives to support future start months
+        var fwdMo=Ext.isEmpty(fwdMoInp) ? 0 : Math.abs(fwdMoInp);
+
+        var selDtArr = me.getSelDtArr();
+        var holidayDtArr = me.getHolidayDtArr();
+        var disableDtArr = me.getDisableDtArr();
+        var disableFutureDates = me.getDisableFutureDates();
+        var disableHolidays = me.getDisableHolidays();
+        var disableWeekends = me.getDisableWeekends();
+        var disablePastDates = me.getDisablePastDates();
+
+
+        var today= Ext.Date.clearTime(new Date(Date(Ext.Date.now())), true);
+        var currMonth = Ext.Date.format(today, 'm');
+        var currYear = Ext.Date.format(today, 'Y');
+
+        gridcont.todayDt = Ext.Date.format(today, 'Y-m-d');
+
+        var firstdt = Ext.Date.clearTime(Ext.Date.getFirstDateOfMonth(today), true);
+
+        var startFirstDt = Ext.Date.clearTime(Ext.Date.add(firstdt, Ext.Date.MONTH, -1*backMo), true);
+        var endFirstDt = Ext.Date.clearTime(Ext.Date.add(firstdt, Ext.Date.MONTH, fwdMo), true);
+
+        var endLastDt  = Ext.Date.clearTime(Ext.Date.getLastDateOfMonth(endFirstDt), true);
+
+        var dateArr = [], done=false, dt=startFirstDt, dtStr, mo, moFullNm, yrNm, numDays,
+            firstDayIdx, lastDayIdx, wk, i, j, k, m, n, id=0, parId, weekNum, wkArr=[], wkDtArr=[], moCnt=0,
+            wkIsDisArr=[], wkIsHolArr=[], wkCustClsArr=[], wkCustHtmlArr=[], wkHolHtmlArr=[];
+
+        // Process customDateTypes[]
+        var customDateTypes = me.getCustomDateTypes();
+        var customDtArr = me.getCustomDtArr();
+        var customDtArrMod = [], storeId, store;
+        var includeCustomDatesLegend = me.getIncludeCustomDatesLegend();
+        var legend = me.down('#calendarpicker-legend');
+        var legendHtml='';
+
+        for (i=0; i<customDateTypes.length; i++) {
+            if (customDateTypes[0].customType==='default' && customDateTypes[0].useCustomDtArr && customDtArr.length>0) {
+                // Use customDtArr as provided if default entry found in 1st index position and dates have been supplied in customDtArr[]
+                for (j=0; j<customDtArr.length; j++) {
+                    customDtArrMod.push({customType: 'default', dateStr: customDtArr[j], descr: ''});
+                }
+                break;
+            }
+
+            // Else process one or more customDateTypes as defined in customDateTypes[] by building customDtArrMod[] for each customType 
+            // Custom Dates must be provided from store 
+            storeId = customDateTypes[i].storeId;
+            store = Ext.data.StoreManager.getByKey(storeId);
+            if (!Ext.isEmpty(store)){
+                // Loop through store and update customDtArrMod[] for matching rows for current customType
+                store.each(function (item, index, length) {
+                    var htmlDescr = (Ext.isEmpty(item.get('descr')) ? '' : item.get('descr'));
+                    if (item.get('customType')===customDateTypes[i].customType) {
+                        customDtArrMod.push({customType: customDateTypes[i].customType, dateStr: item.get('dateStr'), descr: htmlDescr});
+                        if (customDateTypes[i].disabled) {
+                            disableDtArr.push(item.get('dateStr'));
+                        }
+                    }
+                });           
+            }
+
+            // Update HTML for Custom Dates Legend if applicable  (order of customType definition)
+            legendHtml = legendHtml + (Ext.isEmpty(legendHtml) ? '' : '<br>') + 
+            '<span class="'+customDateTypes[i].cls+' calendarpicker-legend-cls-override">&nbsp;</span>'+customDateTypes[i].customDescr;
+        }
+        if (includeCustomDatesLegend && customDtArrMod.length>0) {legend.setHtml(legendHtml);}
+
+
+        // Sort customDateTypes by descending priority when applying CLS
+        // (priority 1 CLS overrides priority 2 if 2 custom dates must be rendered for same date)
+        customDateTypes.sort(orderByPriorityDesc);
+
+        // Sort function to sort CustomDateTypes[] array of objects by descending priority
+        function orderByPriorityDesc(b, a) {
+            if (a.priority == b.priority) {
+                return 0;
+            } else if (a.priority > b.priority) {
+                return 1;
+            }
+            return -1;
+        }
+
+        do {    
+            // Loop for each month
+            mo=Ext.Date.format(dt, 'm');
+            moFullNm = Ext.Date.format(dt, 'F');
+            yrNm = Ext.Date.format(dt, 'Y');
+
+            numDays = Ext.Date.getDaysInMonth(dt);
+            firstDayIdx = Ext.Date.getFirstDayOfMonth(dt);
+            lastDayIdx = Ext.Date.getLastDayOfMonth(dt); 
+            firstDtIdx = Ext.Date.clearTime(Ext.Date.getFirstDateOfMonth(dt), true);
+            lastDtIdx = Ext.Date.clearTime(Ext.Date.getLastDateOfMonth(dt), true); 
+
+            // Insert node for current month
+            dateArr.push({           
+                month: moFullNm,
+                mo: mo,
+                year: yrNm,
+                numDays: numDays,
+                rowType: 'P',   // parent row type  
+                ID: id,
+                PARENT_ID: null
+            });
+            parId = id;
+
+            moCnt++;
+            id++;  // increment next id
+
+            // add empty row type for start of month 
+            dateArr.push(
+            {           
+                month: moFullNm,
+                mo: mo,
+                year: yrNm,
+                numDays: numDays,
+                rowType: 'H',   // header row type    
+                ID: id,
+                PARENT_ID: parId,
+                dow0: 'Sun',
+                dow1: 'Mon',
+                dow2: 'Tue',
+                dow3: 'Wed',
+                dow4: 'Thu',
+                dow5: 'Fri',
+                dow6: 'Sat'
+            }); 
+            id++;  // increment next id 
+            weekNum = 1;
+            i = 1;
+            do {  // Loop for all days in current month
+
+                dtStr = Ext.Date.format(dt, 'Y-m-d');
+
+                // Loop for each week of month
+                for (j=0; j<=6; j++) {
+                    if ((dtStr===Ext.Date.format(firstDtIdx, 'Y-m-d') && j<firstDayIdx) || 
+                    (dtStr>=Ext.Date.format(lastDtIdx, 'Y-m-d') && j>lastDayIdx)) {
+                        wkArr[j] = null;
+                        wkDtArr[j] = null;
+                        wkIsDisArr[j] = null;
+                        wkIsHolArr[j] = null;
+                        wkCustClsArr[j] = null;
+                        wkCustHtmlArr[j] = null;
+                        wkHolHtmlArr[j] = null;                
+                    } else {
+                        wkArr[j] = i;
+                        wkDtArr[j] = dt;  
+                        wkIsDisArr[j] = ((disableDtArr.indexOf(dtStr) !== -1) ||
+                        (disableFutureDates && (dtStr > gridcont.todayDt) ) ||
+                        (disableWeekends && (Ext.Date.format(dt, 'w')==='0' || Ext.Date.format(dt, 'w')==='6')) ||
+                        (disableHolidays && (holidayDtArr.indexOf(dtStr)>-1) ) ||
+                        (disablePastDates && (dtStr < gridcont.todayDt)));
+                        wkIsHolArr[j] = (holidayDtArr.indexOf(dtStr) !== -1);
+
+                        wkCustClsArr[j]='';   // Initialize
+                        wkCustHtmlArr[j]='';  // Initialize
+                        wkHolHtmlArr[j] = ''; // LATER                                
+
+                        // Update Custom classes and Html for each overlapping date, by reverse priority
+                        for (k=0; k<customDateTypes.length; k++) {
+                            for (m=0; m<customDtArrMod.length; m++) {
+                                if ( customDtArrMod[m].customType===customDateTypes[k].customType && 
+                                dtStr === customDtArrMod[m].dateStr ) {
+                                    wkCustClsArr[j]  = (!Ext.isEmpty(wkCustClsArr[j]) ? wkCustClsArr[j]+' ' : '')+customDateTypes[k].cls;
+                                    wkCustHtmlArr[j] = (!Ext.isEmpty(wkCustHtmlArr[j]) ? wkCustHtmlArr[j]+'<br>' : '')+customDtArrMod[m].descr;                            
+                                }
+                            }                    
+                        }
+
+                        i++;  //Increment i
+                        tmp = Ext.Date.clone(dt);  
+                        dt = Ext.Date.add(tmp, Ext.Date.DAY, 1);  // next day
+                        dtStr = Ext.Date.format(dt, 'Y-m-d');                                    
+                        if (Ext.Date.format(tmp, 'Y-m-d')===dtStr) {
+                            // Correct for day light savings changes where add() method only adds 23 hours
+                            dt = Ext.Date.add(dt, Ext.Date.DAY, 1);  // next day
+                            dtStr = Ext.Date.format(dt, 'Y-m-d');                    
+                        }
+                        Ext.Date.clearTime(dt);
+                    }            
+                }
+
+                dateArr.push(
+                {
+                    month: moFullNm,
+                    mo: mo,
+                    year: yrNm,
+                    numDays: numDays,
+                    rowType: 'W',   
+                    weekNum: weekNum,
+                    ID: id,
+                    PARENT_ID: parId,
+                    dow0:  wkArr[0], dt_dow0: wkDtArr[0], isDisabled_dow0: wkIsDisArr[0], isHoliday_dow0: wkIsHolArr[0], customCls_dow0: wkCustClsArr[0], customHtml_dow0: wkCustHtmlArr[0], holidayHtml_dow0: wkHolHtmlArr[0],          
+                    dow1:  wkArr[1], dt_dow1: wkDtArr[1], isDisabled_dow1: wkIsDisArr[1], isHoliday_dow1: wkIsHolArr[1], customCls_dow1: wkCustClsArr[1], customHtml_dow1: wkCustHtmlArr[1], holidayHtml_dow1: wkHolHtmlArr[1],           
+                    dow2:  wkArr[2], dt_dow2: wkDtArr[2], isDisabled_dow2: wkIsDisArr[2], isHoliday_dow2: wkIsHolArr[2], customCls_dow2: wkCustClsArr[2], customHtml_dow2: wkCustHtmlArr[2], holidayHtml_dow2: wkHolHtmlArr[2],   
+                    dow3:  wkArr[3], dt_dow3: wkDtArr[3], isDisabled_dow3: wkIsDisArr[3], isHoliday_dow3: wkIsHolArr[3], customCls_dow3: wkCustClsArr[3], customHtml_dow3: wkCustHtmlArr[3], holidayHtml_dow3: wkHolHtmlArr[3],    
+                    dow4:  wkArr[4], dt_dow4: wkDtArr[4], isDisabled_dow4: wkIsDisArr[4], isHoliday_dow4: wkIsHolArr[4], customCls_dow4: wkCustClsArr[4], customHtml_dow4: wkCustHtmlArr[4], holidayHtml_dow4: wkHolHtmlArr[4],
+                    dow5:  wkArr[5], dt_dow5: wkDtArr[5], isDisabled_dow5: wkIsDisArr[5], isHoliday_dow5: wkIsHolArr[5], customCls_dow5: wkCustClsArr[5], customHtml_dow5: wkCustHtmlArr[5], holidayHtml_dow5: wkHolHtmlArr[5],
+                    dow6:  wkArr[6], dt_dow6: wkDtArr[6], isDisabled_dow6: wkIsDisArr[6], isHoliday_dow6: wkIsHolArr[6], customCls_dow6: wkCustClsArr[6], customHtml_dow6: wkCustHtmlArr[6], holidayHtml_dow6: wkHolHtmlArr[6]
+                }); 
+                id++;
+                weekNum++;
+
+            }  while (i<=numDays && i<32);
+            // Process next month    
+
+
+        } while (dt < endLastDt);
+
+        // Now define and load store from array  (denormalize in store for better rendering performance)
+        var fields = [{name: 'month',type: 'string'},{name: 'mo',type: 'string'}, {name: 'year',type: 'string'},{name: 'numDays',type: 'int'},
+            {name: 'rowType',type: 'string'},{name: 'weekNum',type: 'int'},{name: 'ID'},{name: 'PARENT_ID'},
+            {name: 'dow0'},{name: 'dt_dow0', type: 'date'},
+            {name: 'dow1'},{name: 'dt_dow1',type: 'date'},
+            {name: 'dow2'},{name: 'dt_dow2',type: 'date'},
+            {name: 'dow3'},{name: 'dt_dow3',type: 'date'},
+            {name: 'dow4'},{name: 'dt_dow4',type: 'date'},
+            {name: 'dow5'},{name: 'dt_dow5',type: 'date'},
+            {name: 'dow6'},{name: 'dt_dow6',type: 'date'},
+
+            {name: 'isDisabled_dow0', type: 'boolean'},
+            {name: 'isHoliday_dow0', type: 'boolean'},
+            {name: 'customCls_dow0', type: 'string'},
+            {name: 'customHtml_dow0', type: 'string'},
+            {name: 'holidayHtml_dow0', type: 'string'},
+
+            {name: 'isDisabled_dow1', type: 'boolean'},
+            {name: 'isHoliday_dow1', type: 'boolean'},
+            {name: 'customCls_dow1', type: 'string'},
+            {name: 'customHtml_dow01', type: 'string'},
+            {name: 'holidayHtml_dow1', type: 'string'},
+
+            {name: 'isDisabled_dow2', type: 'boolean'},
+            {name: 'isHoliday_dow2', type: 'boolean'},
+            {name: 'customCls_dow2', type: 'string'},
+            {name: 'customHtml_dow2', type: 'string'},
+            {name: 'holidayHtml_dow2', type: 'string'},
+
+            {name: 'isDisabled_dow3', type: 'boolean'},
+            {name: 'isHoliday_dow3', type: 'boolean'},
+            {name: 'customCls_dow3', type: 'string'},
+            {name: 'customHtml_dow3', type: 'string'},
+            {name: 'holidayHtml_dow3', type: 'string'},
+
+            {name: 'isDisabled_dow4', type: 'boolean'},
+            {name: 'isHoliday_dow4', type: 'boolean'},
+            {name: 'customCls_dow4', type: 'string'},
+            {name: 'customHtml_dow4', type: 'string'},
+            {name: 'holidayHtml_dow4', type: 'string'},
+
+            {name: 'isDisabled_dow5', type: 'boolean'},
+            {name: 'isHoliday_dow5', type: 'boolean'},
+            {name: 'customCls_dow5', type: 'string'},
+            {name: 'customHtml_dow5', type: 'string'},
+            {name: 'holidayHtml_dow5', type: 'string'},   
+
+            {name: 'isDisabled_dow6', type: 'boolean'},
+            {name: 'isHoliday_dow6', type: 'boolean'},
+            {name: 'customCls_dow6', type: 'string'},
+            {name: 'customHtml_dow6', type: 'string'},
+            {name: 'holidayHtml_dow6', type: 'string'}               
+            ];
+
+        var tempstore = gridlist.getStore(); // Created when TouchTreeGrid is instantiated
+
+        var gridstore = Ext.create('Ext.data.TreeStore', {root: {children: []}, fields: fields});  
+
+        gridlist.setStore(gridstore);
+        me.storeId = gridstore.getStoreId();  // Save so that we can destroy it in onDestroy() method when cleaning up
+
+        if (!Ext.isEmpty(tempstore)) {
+            Ext.data.StoreManager.unregister(tempstore);
+        }
+
+        gridlist.dateArr = dateArr; // Store for resuse on expand/collapse all
+
+        me.loadStore(me, gridcont, gridlist, expandCollapse);
+    },
+
+    loadStore: function(me, gridcont, gridlist, expandCollapse) {
+        var i, j;
+
+        var dateArr = gridlist.dateArr;  // Saved in createStore() method
+        var gridstore = gridlist.getStore();
+
+        var selDtArr = me.getSelDtArr();
+
+        var today= Ext.Date.clearTime(new Date(Date(Ext.Date.now())), true);
+        var currMonth = Ext.Date.format(today, 'm');
+        var currYear = Ext.Date.format(today, 'Y');
+        var filter = me.getFilter();
+        var reverseSort = me.getReverseSort();
+        var collapseLevel = gridcont.getDefaultCollapseLevel();
+
+        var fldLstArr = [['month',0],['mo', 0],['year',0],['numDays',0],['rowType',0],['weekNum',0],['ID',0],['PARENT_ID',0],  
+        ['dow0',0],['dt_dow0',0],['dow1',0],['dt_dow1',0],['dow2',0],['dt_dow2',0],['dow3',0],['dt_dow3',0],
+        ['dow4',0],['dt_dow4',0],['dow5',0],['dt_dow5',0],['dow6',0],['dt_dow6',0],
+        ['isDisabled_dow0',0],['isHoliday_dow0',0],
+        ['isDisabled_dow1',0],['isHoliday_dow1',0],
+        ['isDisabled_dow2',0],['isHoliday_dow2',0],
+        ['isDisabled_dow3',0],['isHoliday_dow3',0],
+        ['isDisabled_dow4',0],['isHoliday_dow4',0],
+        ['isDisabled_dow5',0],['isHoliday_dow5',0],
+        ['isDisabled_dow6',0],['isHoliday_dow6',0],
+        ['customCls_dow0',0],['customHtml_dow0',0],['holidayHtml_dow0',0],
+        ['customCls_dow1',0],['customHtml_dow1',0],['holidayHtml_dow1',0],
+        ['customCls_dow2',0],['customHtml_dow2',0],['holidayHtml_dow2',0],
+        ['customCls_dow3',0],['customHtml_dow3',0],['holidayHtml_dow3',0],
+        ['customCls_dow4',0],['customHtml_dow4',0],['holidayHtml_dow4',0],
+        ['customCls_dow5',0],['customHtml_dow5',0],['holidayHtml_dow5',0],
+        ['customCls_dow6',0],['customHtml_dow6',0],['holidayHtml_dow6',0]];
+
+        var treejson = this.getTree(dateArr, null, collapseLevel, fldLstArr, false, filter);
+
+        if (reverseSort) {
+            treejson.children.sort(function(b, a){
+                var nameA=a.year+a.mo, nameB=b.year+b.mo;
+                if (nameA < nameB){ //sort string ascending
+                return -1 ;}
+                if (nameA > nameB){
+                return 1;}
+                return 0; //default return value (no sorting)
+            });
+        }
+
+        gridstore.suspendEvents();
+        gridstore.removeAll();  // Mainly useful for expand/collapse all where we are rebuilding treestore
+        gridstore.resumeEvents(true); // "discard queued events" improves performance when filtering and/or expanding all
+
+
+        var gridloaded = gridstore.setData(treejson);  // setRoot() not working => http://www.sencha.com/forum/showthread.php?242257
+
+
+        // Locate first parent node with selected dates, else current month
+        // Also locate current month node
+        var minDt = Ext.Array.min(selDtArr);
+        var minYr = (!Ext.isEmpty(minDt) ? minDt.substring(0,4) : currYear);   
+        var minMo = (!Ext.isEmpty(minDt) ? minDt.substring(5,7) : currMonth);
+        var currYrMo = currYear+currMonth;
+        var firstYrMo = minYr+minMo;
+        gridcont.firstMoCnt = 0;
+        gridcont.currentMoCnt = 0;
+        for (i=0; i< treejson.children.length; i++) {
+            if (treejson.children[i].year+treejson.children[i].mo===currYrMo) {gridcont.currentMoCnt = i;}    
+            if (treejson.children[i].year+treejson.children[i].mo===firstYrMo) {gridcont.firstMoCnt = i;}
+        }
+        // Update parameters to scroll to appropriate month after scroller is refreshed (via onScrollerRefresh method)
+        me.needToScroll = !Ext.isEmpty(minDt);
+
+
+        // Expand current month  (unless specifically collapsing all)
+        if (!expandCollapse && me.getExpandCurrentMonth()) {
+            var currRec = gridstore.getAt(gridcont.currentMoCnt);
+            if (!Ext.isEmpty(currRec)) {currRec.set('expanded', true);}
+        }
+
+        // autoCollapseMonthsPriorToMinSelDt
+        if (me.getAutoCollapseMonthsPriorToMinSelDt() && selDtArr.length>0 && !expandCollapse) {
+
+            // Now loop through store and collapse parent nodes prior to selection
+            gridstore.each(function (item, index, length) {
+                if (!item.get('leaf') && ((item.get('year') < minYr) || (item.get('year') === minYr && item.get('mo')< minMo))) {
+                    item.set('expanded', false);
+                }
+            });   
+        }
+
+        // autoExpandMonthsWithSelDates
+        var thisYr, thisMo, uniqMoYr=[];
+        if (me.getAutoExpandMonthsWithSelDates() && selDtArr.length>0) {
+            // Optimize to only loop for unique year/month combinations
+            for (i=0; i<selDtArr.length; i++) {
+                if (uniqMoYr.indexOf(selDtArr[i].substring(0,7))===-1) {
+                    uniqMoYr.push(selDtArr[i].substring(0,7));
+                }
+            }
+            uniqMoYr.sort();
+
+            // Now loop through store and collapse parent nodes prior to selection in sorted order
+            gridstore.each(function (item, index, length) {
+                if (item.get('leaf') || item.get('expanded')) {return;} // no need to process this row
+                for (i=0; i<uniqMoYr.length; i++) {
+                    thisYr = uniqMoYr[i].substring(0,4);   
+                    thisMo = uniqMoYr[i].substring(5,7);
+                    if (item.get('year') === thisYr && item.get('mo')=== thisMo) {
+                        item.set('expanded', true);
+                    }
+                }        
+            });
+        }
+
+        var refreshed = gridcont.doRefreshList(true);  
+
+
 
 
 
@@ -421,7 +911,7 @@ Ext.define('MyApp.view.CalendarPicker', {
     onLeafItemTap: function(me, list, index, target, record, e) {
 
         var i, innerText, tgt, dt, doRefresh=false;
-        //debugger;
+
         innerText = e.target.innerText;
         var store = list.getStore();
         var gridcont = me;
@@ -585,19 +1075,17 @@ Ext.define('MyApp.view.CalendarPicker', {
     },
 
     customBtns: function(btnName) {
-        //debugger;
-
         var dtPkr = this;
-        var gridlist = this.down('#calendarlist');
 
         if (btnName === 'CLEAR') {
             dtPkr.setSelDtArr([]);
-            gridlist.refresh();
+            dtPkr.setLastSelectedDate('');           
+            dtPkr.gridlist.refresh();
         }
 
         if (btnName === 'CANCEL') {
             dtPkr.setSelDtArr(dtPkr.origSelDtArr);
-            gridlist.refresh();   
+            dtPkr.gridlist.refresh();   
 
             setTimeout(function(){
                 dtPkr.fireEvent('calendarClosed', dtPkr);
@@ -614,300 +1102,73 @@ Ext.define('MyApp.view.CalendarPicker', {
 
     },
 
-    loadStore: function(me, gridcont, gridlist) {
-        //debugger;
-        var backMoInp = me.getBackMonths(), fwdMoInp = me.getForwardMonths();
-
-
-        var backMo=Ext.isEmpty(backMoInp) ? 0 : backMoInp;  // allow negatives to support future start months
-        var fwdMo=Ext.isEmpty(fwdMoInp) ? 0 : Math.abs(fwdMoInp);
-
-        var selDtArr = me.getSelDtArr();
-        var holidayDtArr = me.getHolidayDtArr();
-        var disableDtArr = me.getDisableDtArr();
-        var disableFutureDates = me.getDisableFutureDates();
-        var disableHolidays = me.getDisableHolidays();
-        var disableWeekends = me.getDisableWeekends();
-        var disablePastDates = me.getDisablePastDates();
-        var filter = me.getFilter();
-        var reverseSort = me.getReverseSort();
-
-        var today= Ext.Date.clearTime(new Date(Date(Ext.Date.now())), true);
-        var currMonth = Ext.Date.format(today, 'm');
-        var currYear = Ext.Date.format(today, 'Y');
-
-        gridcont.todayDt = Ext.Date.format(today, 'Y-m-d');
-
-        var firstdt = Ext.Date.clearTime(Ext.Date.getFirstDateOfMonth(today), true);
-
-        var startFirstDt = Ext.Date.clearTime(Ext.Date.add(firstdt, Ext.Date.MONTH, -1*backMo), true);
-        var endFirstDt = Ext.Date.clearTime(Ext.Date.add(firstdt, Ext.Date.MONTH, fwdMo), true);
-
-        var endLastDt  = Ext.Date.clearTime(Ext.Date.getLastDateOfMonth(endFirstDt), true);
-
-        var dateArr = [], done=false, dt=startFirstDt, dtStr, mo, moFullNm, yrNm, numDays,
-            firstDayIdx, lastDayIdx, wk, i, j, k, id=0, parId, weekNum, wkArr=[], wkDtArr=[], moCnt=0,
-            wkIsDisArr=[], wkIsHolArr=[], wkCustClsArr=[], wkCustHtmlArr=[], wkHolHtmlArr=[];
-        do {    
-            // Loop for each month
-            mo=Ext.Date.format(dt, 'm');
-            moFullNm = Ext.Date.format(dt, 'F');
-            yrNm = Ext.Date.format(dt, 'Y');
-
-            numDays = Ext.Date.getDaysInMonth(dt);
-            firstDayIdx = Ext.Date.getFirstDayOfMonth(dt);
-            lastDayIdx = Ext.Date.getLastDayOfMonth(dt); 
-            firstDtIdx = Ext.Date.clearTime(Ext.Date.getFirstDateOfMonth(dt), true);
-            lastDtIdx = Ext.Date.clearTime(Ext.Date.getLastDateOfMonth(dt), true); 
-
-            // Insert node for current month
-            dateArr.push({           
-                month: moFullNm,
-                mo: mo,
-                year: yrNm,
-                numDays: numDays,
-                rowType: 'P',   // parent row type  
-                ID: id,
-                PARENT_ID: null
-            });
-            parId = id;
-
-            moCnt++;
-            id++;  // increment next id
-
-            // add empty row type for start of month 
-            dateArr.push(
-            {           
-                month: moFullNm,
-                mo: mo,
-                year: yrNm,
-                numDays: numDays,
-                rowType: 'H',   // header row type    
-                ID: id,
-                PARENT_ID: parId,
-                dow0: 'Sun',
-                dow1: 'Mon',
-                dow2: 'Tue',
-                dow3: 'Wed',
-                dow4: 'Thu',
-                dow5: 'Fri',
-                dow6: 'Sat'
-            }); 
-            id++;  // increment next id 
-            weekNum = 1;
-            i = 1;
-            do {  // Loop for all days in current month
-
-                dtStr = Ext.Date.format(dt, 'Y-m-d');
-
-                // Loop for each week of month
-                for (j=0; j<=6; j++) {
-                    if ((dtStr===Ext.Date.format(firstDtIdx, 'Y-m-d') && j<firstDayIdx) || 
-                    (dtStr>=Ext.Date.format(lastDtIdx, 'Y-m-d') && j>lastDayIdx)) {
-                        wkArr[j] = null;
-                        wkDtArr[j] = null;
-                        wkIsDisArr[j] = null;
-                        wkIsHolArr[j] = null;
-                        wkCustClsArr[j] = null;
-                        wkCustHtmlArr[j] = null;
-                        wkHolHtmlArr[j] = null;                
-                    } else {
-                        wkArr[j] = i;
-                        wkDtArr[j] = dt;  
-                        wkIsDisArr[j] = ((disableDtArr.indexOf(dtStr) !== -1) ||
-                        (disableFutureDates && (dtStr > gridcont.todayDt) ) ||
-                        (disableWeekends && (Ext.Date.format(dt, 'w')==='0' || Ext.Date.format(dt, 'w')==='6')) ||
-                        (disableHolidays && (holidayDtArr.indexOf(dtStr)>-1) ) ||
-                        (disablePastDates && (dtStr < gridcont.todayDt)));
-                        wkIsHolArr[j] = (holidayDtArr.indexOf(dtStr) !== -1);
-                        wkCustClsArr[j] = '';   // LATER
-                        wkCustHtmlArr[j] = '';  // LATER
-                        wkHolHtmlArr[j] = '';   // LATER                
-
-                        i++;  //Increment i
-                        tmp = Ext.Date.clone(dt);
-                        dt = Ext.Date.add(tmp, Ext.Date.DAY, 1);  // next day
-                        dtStr = Ext.Date.format(dt, 'Y-m-d');                                    
-                        if (Ext.Date.format(tmp, 'Y-m-d')===dtStr) {
-                            // Correct for day light savings changes were add() method only adds 23 hours
-                            dt = Ext.Date.add(dt, Ext.Date.DAY, 1);  // next day
-                            dtStr = Ext.Date.format(dt, 'Y-m-d');                    
-                        }
-                        Ext.Date.clearTime(dt);
-                    }            
-                }
-
-                dateArr.push(
-                {
-                    month: moFullNm,
-                    mo: mo,
-                    year: yrNm,
-                    numDays: numDays,
-                    rowType: 'W',   
-                    weekNum: weekNum,
-                    ID: id,
-                    PARENT_ID: parId,
-                    dow0:  wkArr[0], dt_dow0: wkDtArr[0], isDisabled_dow0: wkIsDisArr[0], isHoliday_dow0: wkIsHolArr[0], customCls_dow0: wkCustClsArr[0], customHtml_dow0: wkCustHtmlArr[0], holidayHtml_dow0: wkHolHtmlArr[0],          
-                    dow1:  wkArr[1], dt_dow1: wkDtArr[1], isDisabled_dow1: wkIsDisArr[1], isHoliday_dow1: wkIsHolArr[1], customCls_dow1: wkCustClsArr[1], customHtml_dow1: wkCustHtmlArr[1], holidayHtml_dow1: wkHolHtmlArr[1],           
-                    dow2:  wkArr[2], dt_dow2: wkDtArr[2], isDisabled_dow2: wkIsDisArr[2], isHoliday_dow2: wkIsHolArr[2], customCls_dow2: wkCustClsArr[2], customHtml_dow2: wkCustHtmlArr[2], holidayHtml_dow2: wkHolHtmlArr[2],   
-                    dow3:  wkArr[3], dt_dow3: wkDtArr[3], isDisabled_dow3: wkIsDisArr[3], isHoliday_dow3: wkIsHolArr[3], customCls_dow3: wkCustClsArr[3], customHtml_dow3: wkCustHtmlArr[3], holidayHtml_dow3: wkHolHtmlArr[3],    
-                    dow4:  wkArr[4], dt_dow4: wkDtArr[4], isDisabled_dow4: wkIsDisArr[4], isHoliday_dow4: wkIsHolArr[4], customCls_dow4: wkCustClsArr[4], customHtml_dow4: wkCustHtmlArr[4], holidayHtml_dow4: wkHolHtmlArr[4],
-                    dow5:  wkArr[5], dt_dow5: wkDtArr[5], isDisabled_dow5: wkIsDisArr[5], isHoliday_dow5: wkIsHolArr[5], customCls_dow5: wkCustClsArr[5], customHtml_dow5: wkCustHtmlArr[5], holidayHtml_dow5: wkHolHtmlArr[5],
-                    dow6:  wkArr[6], dt_dow6: wkDtArr[6], isDisabled_dow6: wkIsDisArr[6], isHoliday_dow6: wkIsHolArr[6], customCls_dow6: wkCustClsArr[6], customHtml_dow6: wkCustHtmlArr[6], holidayHtml_dow6: wkHolHtmlArr[6]
-                }); 
-                id++;
-                weekNum++;
-
-            }  while (i<=numDays && i<32);
-            // Process next month    
-
-
-        } while (dt < endLastDt);
-
-        // Now define and load store from array  (denormalize in store for better rendering performance)
-        var fields = [{name: 'month',type: 'string'},{name: 'mo',type: 'string'}, {name: 'year',type: 'string'},{name: 'numDays',type: 'int'},
-            {name: 'rowType',type: 'string'},{name: 'weekNum',type: 'int'},{name: 'ID'},{name: 'PARENT_ID'},
-            {name: 'dow0'},{name: 'dt_dow0', type: 'date'},
-            {name: 'dow1'},{name: 'dt_dow1',type: 'date'},
-            {name: 'dow2'},{name: 'dt_dow2',type: 'date'},
-            {name: 'dow3'},{name: 'dt_dow3',type: 'date'},
-            {name: 'dow4'},{name: 'dt_dow4',type: 'date'},
-            {name: 'dow5'},{name: 'dt_dow5',type: 'date'},
-            {name: 'dow6'},{name: 'dt_dow6',type: 'date'},
-
-            {name: 'isDisabled_dow0', type: 'boolean'},
-            {name: 'isHoliday_dow0', type: 'boolean'},
-            {name: 'customCls_dow0', type: 'string'},
-            {name: 'customHtml_dow0', type: 'string'},
-            {name: 'holidayHtml_dow0', type: 'string'},
-
-            {name: 'isDisabled_dow1', type: 'boolean'},
-            {name: 'isHoliday_dow1', type: 'boolean'},
-            {name: 'customCls_dow1', type: 'string'},
-            {name: 'customHtml_dow01', type: 'string'},
-            {name: 'holidayHtml_dow1', type: 'string'},
-
-            {name: 'isDisabled_dow2', type: 'boolean'},
-            {name: 'isHoliday_dow2', type: 'boolean'},
-            {name: 'customCls_dow2', type: 'string'},
-            {name: 'customHtml_dow2', type: 'string'},
-            {name: 'holidayHtml_dow2', type: 'string'},
-
-            {name: 'isDisabled_dow3', type: 'boolean'},
-            {name: 'isHoliday_dow3', type: 'boolean'},
-            {name: 'customCls_dow3', type: 'string'},
-            {name: 'customHtml_dow3', type: 'string'},
-            {name: 'holidayHtml_dow3', type: 'string'},
-
-            {name: 'isDisabled_dow4', type: 'boolean'},
-            {name: 'isHoliday_dow4', type: 'boolean'},
-            {name: 'customCls_dow4', type: 'string'},
-            {name: 'customHtml_dow4', type: 'string'},
-            {name: 'holidayHtml_dow4', type: 'string'},
-
-            {name: 'isDisabled_dow5', type: 'boolean'},
-            {name: 'isHoliday_dow5', type: 'boolean'},
-            {name: 'customCls_dow5', type: 'string'},
-            {name: 'customHtml_dow5', type: 'string'},
-            {name: 'holidayHtml_dow5', type: 'string'},   
-
-            {name: 'isDisabled_dow6', type: 'boolean'},
-            {name: 'isHoliday_dow6', type: 'boolean'},
-            {name: 'customCls_dow6', type: 'string'},
-            {name: 'customHtml_dow6', type: 'string'},
-            {name: 'holidayHtml_dow6', type: 'string'}               
-            ];
-
-        var gridstore = Ext.create('Ext.data.TreeStore', {root: {children: []}, fields: fields});  
-
-        gridlist.setStore(gridstore);
-
-
-        var collapseLevel = gridcont.getDefaultCollapseLevel();
-
-        var fldLstArr = [['month',0],['mo', 0],['year',0],['numDays',0],['rowType',0],['weekNum',0],['ID',0],['PARENT_ID',0],  
-        ['dow0',0],['dt_dow0',0],['dow1',0],['dt_dow1',0],['dow2',0],['dt_dow2',0],['dow3',0],['dt_dow3',0],
-        ['dow4',0],['dt_dow4',0],['dow5',0],['dt_dow5',0],['dow6',0],['dt_dow6',0],
-        ['isDisabled_dow0',0],['isHoliday_dow0',0],
-        ['isDisabled_dow1',0],['isHoliday_dow1',0],
-        ['isDisabled_dow2',0],['isHoliday_dow2',0],
-        ['isDisabled_dow3',0],['isHoliday_dow3',0],
-        ['isDisabled_dow4',0],['isHoliday_dow4',0],
-        ['isDisabled_dow5',0],['isHoliday_dow5',0],
-        ['isDisabled_dow6',0],['isHoliday_dow6',0],
-        ['customCls_dow0',0],['customHtml_dow0',0],['holidayHtml_dow0',0],
-        ['customCls_dow1',0],['customHtml_dow1',0],['holidayHtml_dow1',0],
-        ['customCls_dow2',0],['customHtml_dow2',0],['holidayHtml_dow2',0],
-        ['customCls_dow3',0],['customHtml_dow3',0],['holidayHtml_dow3',0],
-        ['customCls_dow4',0],['customHtml_dow4',0],['holidayHtml_dow4',0],
-        ['customCls_dow5',0],['customHtml_dow5',0],['holidayHtml_dow5',0],
-        ['customCls_dow6',0],['customHtml_dow6',0],['holidayHtml_dow6',0]];
-
-        var treejson = this.getTree(dateArr, null, collapseLevel, fldLstArr, false, filter);
-
-        if (reverseSort) {
-            treejson.children.sort(function(b, a){
-                var nameA=a.year+a.mo, nameB=b.year+b.mo;
-                if (nameA < nameB){ //sort string ascending
-                return -1 ;}
-                if (nameA > nameB){
-                return 1;}
-                return 0; //default return value (no sorting)
-            });
-        }
-
-        var gridloaded = gridstore.setData(treejson);  // setRoot() not working => http://www.sencha.com/forum/showthread.php?242257
-
-        gridcont.currentMoCnt = 0;
-        for (i=0; i< treejson.children.length; i++) {
-            if (treejson.children[i].year === currYear && treejson.children[i].mo===currMonth) {gridcont.currentMoCnt = i;}
+    onScrollerRefresh: function() {
+        // Workaround to get list to scroll to first month with seleted dates (or current month) after scroller has been refreshed
+        if (this.needToScroll && this.gridcont.firstMoCnt>0) {   
+            var list = this.gridlist;
+            var idx  = this.gridcont.firstMoCnt;
+            var monthNodeHeightInPixels = this.getMonthNodeHeightInPixels();    
+            var offset = monthNodeHeightInPixels*idx;
+            this.scroller.scrollTo(0,offset, false); 
         }
 
 
-        // Expand current month
-        var currRec = gridstore.getAt(gridcont.currentMoCnt);
-        if (!Ext.isEmpty(currRec)) {currRec.set('expanded', true);}
 
-        // autoCollapseMonthsPriorToMinSelDt
-        if (me.getAutoCollapseMonthsPriorToMinSelDt() && selDtArr.length>0) {
-            var minDt = Ext.Array.min(selDtArr);
-            var minYr = minDt.substring(0,4);   
-            var minMo = minDt.substring(5,7);
 
-            // Now loop through store and collapse parent nodes prior to selection
-            gridstore.each(function (item, index, length) {
-                if ((item.get('year') < minYr) || (item.get('year') === minYr && item.get('mo')< minMo)) {
-                    item.set('expanded', false);
-                }
-            });
+    },
+
+    onExpCollapse: function(params) {
+        // For larger data sets expand/collapse faster by refreshing the treestore with appropriate collapse level
+        this.gridcont.setDefaultCollapseLevel(params.collapseLevel);
+
+        this.gridlist.setMasked({xtype: 'loadmask', message: "Working..."});
+        this.loadStore(this, this.gridcont, this.gridlist, true);
+        this.gridlist.setMasked(false);
+        this.scroller.scrollTo(0,1);
+
+
+    },
+
+    onDestroy: function() {
+        // Up to Developer to destroy each instance of CalendarPicker component upon selection.
+        // This method does additional cleanup triggered off destroy event to clean up Stores, etc...
+        var me = this;
+
+        var storeId = me.storeId; // saved in createStore() method
+
+        var stores = Ext.data.StoreManager;
+
+        var gridstore = stores.lookup(storeId);
+        if (!Ext.isEmpty(gridstore)) {
+            stores.unregister(gridstore);
         }
 
-        // autoExpandMonthsWithSelDates
-        var thisYr, thisMo;
-        if (me.getAutoExpandMonthsWithSelDates() && selDtArr.length>0) {
-            // Later optimize this to only loop for unique year/month combinations
-            for (i=0; i<selDtArr.length; i++) {
-                thisYr = selDtArr[i].substring(0,4);   
-                thisMo = selDtArr[i].substring(5,7);
+    },
 
-                // Now loop through store and collapse parent nodes prior to selection
-                gridstore.each(function (item, index, length) {
-                    if (item.get('year') === thisYr && item.get('mo')=== thisMo) {
-                        item.set('expanded', true);
-                    }
-                });
-            }
-        }
+    onInsertMonths: function() {
+        // Listens to PullRefresh plugin lastestfetched event to insert months to displayed calendar
+        // Refer to initialize() method:  me.on('insertMonths', me.onInsertMonths, me);
+        var backMonths = this.getBackMonths();
+        var monthsToInsert = this.getMonthsToInsert();
+        this.setBackMonths(backMonths+monthsToInsert);
 
-        var refreshed = gridcont.doRefreshList(true);  
+        this.gridlist.setMasked({xtype: 'loadmask', message: "Working..."});
+        this.createStore(this, this.gridcont, this.gridlist, false);
+        this.gridlist.setMasked(false);
+        this.scroller.scrollTo(0,1); 
 
-        var scroller = gridlist.getScrollable().getScroller();
+    },
 
-        var map = gridlist.getItemMap();
-        var offset = map.map[gridcont.currentMoCnt];
+    onAppendMonths: function() {
+        var forwardMonths = this.getForwardMonths();
+        var monthsToAppend = this.getMonthsToAppend();
+        this.setForwardMonths(forwardMonths+monthsToAppend);
 
-        //scroller.minPosition.y = gridcont.currentMoCnt*32;
-        scroller.scrollTo(0,offset);  
+        this.gridlist.setMasked({xtype: 'loadmask', message: "Working..."});
+        this.createStore(this, this.gridcont, this.gridlist, false);
+        this.gridlist.setMasked(false);
+        this.scroller.scrollToEnd();
+
 
     },
 

@@ -41,14 +41,6 @@
             ],
             "className": "css1"
         },
-        "cf1597e7-3793-4d84-9883-72ff5debd075": {
-            "paths": [
-                "metadata/view/TouchTreeGrid",
-                "app/view/override/TouchTreeGrid.js",
-                "app/view/TouchTreeGrid.js"
-            ],
-            "className": "TouchTreeGrid"
-        },
         "889cc880-c791-4408-9eef-32aa9889cd48": {
             "paths": [
                 "metadata/view/DateExamples",
@@ -65,11 +57,11 @@
         },
         "86531a3e-f268-40f4-b550-e18c5ff85973": {
             "paths": [
-                "metadata/controller/MyController",
-                "app/controller/override/MyController.js",
-                "app/controller/MyController.js"
+                "metadata/controller/DateExamplesController",
+                "app/controller/override/DateExamplesController.js",
+                "app/controller/DateExamplesController.js"
             ],
-            "className": "MyController"
+            "className": "DateExamplesController"
         },
         "95ebf663-f827-4965-8fdc-f620ceb4bbd3": {
             "paths": [
@@ -78,6 +70,22 @@
                 "app/view/overlayPanel.js"
             ],
             "className": "overlayPanel"
+        },
+        "84bbedcc-c5f1-43e4-a467-ca06fc95df99": {
+            "paths": [
+                "metadata/view/TouchTreeGrid",
+                "app/view/override/TouchTreeGrid.js",
+                "app/view/TouchTreeGrid.js"
+            ],
+            "className": "TouchTreeGrid"
+        },
+        "b9d584e1-0cd1-4929-a1ee-e97945888dc4": {
+            "paths": [
+                "metadata/store/optionDates",
+                "app/store/override/optionDates.js",
+                "app/store/optionDates.js"
+            ],
+            "className": "optionDates"
         }
     },
     "viewOrderMap": {
@@ -85,9 +93,11 @@
             "889cc880-c791-4408-9eef-32aa9889cd48",
             "95ebf663-f827-4965-8fdc-f620ceb4bbd3",
             "c0a58990-813a-418c-af34-58d0627d64fe",
-            "cf1597e7-3793-4d84-9883-72ff5debd075"
+            "84bbedcc-c5f1-43e4-a467-ca06fc95df99"
         ],
-        "store": [],
+        "store": [
+            "b9d584e1-0cd1-4929-a1ee-e97945888dc4"
+        ],
         "controller": [
             "86531a3e-f268-40f4-b550-e18c5ff85973"
         ],

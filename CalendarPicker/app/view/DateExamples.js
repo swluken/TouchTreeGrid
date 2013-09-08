@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('MyApp.view.DateExamples', {
+Ext.define('CalendarPicker.view.DateExamples', {
     extend: 'Ext.Container',
     alias: 'widget.dateexamples',
 
@@ -80,8 +80,11 @@ Ext.define('MyApp.view.DateExamples', {
                                         },
                                         flex: 1,
                                         cls: 'kayak-button',
+                                        height: '2.5em',
                                         itemId: 'checkin_btn',
+                                        maxHeight: '2.5em',
                                         maxWidth: '8em',
+                                        minHeight: '2.5em',
                                         layout: {
                                             type: 'hbox'
                                         },
@@ -128,8 +131,11 @@ Ext.define('MyApp.view.DateExamples', {
                                         },
                                         flex: 1,
                                         cls: 'kayak-button',
+                                        height: '2.5em',
                                         itemId: 'checkout_btn',
+                                        maxHeight: '2.5em',
                                         maxWidth: '8em',
+                                        minHeight: '2.5em',
                                         layout: {
                                             type: 'hbox'
                                         },
@@ -204,8 +210,11 @@ Ext.define('MyApp.view.DateExamples', {
                                         },
                                         flex: 1,
                                         cls: 'kayak-button',
+                                        height: '2.5em',
                                         itemId: 'checkin_btn2',
+                                        maxHeight: '2.5em',
                                         maxWidth: '8em',
+                                        minHeight: '2.5em',
                                         layout: {
                                             type: 'hbox'
                                         },
@@ -252,8 +261,11 @@ Ext.define('MyApp.view.DateExamples', {
                                         },
                                         flex: 1,
                                         cls: 'kayak-button',
+                                        height: '2.5em',
                                         itemId: 'checkout_btn2',
+                                        maxHeight: '2.5em',
                                         maxWidth: '8em',
+                                        minHeight: '2.5em',
                                         layout: {
                                             type: 'hbox'
                                         },
@@ -281,6 +293,194 @@ Ext.define('MyApp.view.DateExamples', {
                                 html: 'Range selection in same calendar popup',
                                 maxHeight: '3em',
                                 minHeight: '1.5em',
+                                styleHtmlCls: 'example-descr-html',
+                                styleHtmlContent: true
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'container',
+                        height: '7em',
+                        itemId: 'example2B',
+                        style: 'border: 1px solid gray;',
+                        layout: {
+                            type: 'hbox'
+                        },
+                        items: [
+                            {
+                                xtype: 'image',
+                                height: '2em',
+                                margin: '1em .5em 0 .5em',
+                                width: '2em',
+                                src: './resources/images/calendar.png'
+                            },
+                            {
+                                xtype: 'container',
+                                flex: 1,
+                                maxWidth: '10em',
+                                minHeight: '4.5em',
+                                layout: {
+                                    type: 'vbox'
+                                },
+                                items: [
+                                    {
+                                        xtype: 'container',
+                                        height: '1.5em',
+                                        html: 'CHECK IN',
+                                        style: 'padding-top: .2em; font-size: .8em; color: orange;'
+                                    },
+                                    {
+                                        xtype: 'container',
+                                        listeners: {
+                                            tap: {
+                                                fn: function() {
+                                                      this.fireEvent('checkin2B', this.up('container'));
+                                                  },
+                                                element: 'element'
+                                            }
+                                        },
+                                        flex: 1,
+                                        cls: 'kayak-button',
+                                        height: '2.5em',
+                                        itemId: 'checkin_btn2B',
+                                        maxHeight: '2.5em',
+                                        maxWidth: '8em',
+                                        minHeight: '2.5em',
+                                        layout: {
+                                            type: 'hbox'
+                                        },
+                                        items: [
+                                            {
+                                                xtype: 'container',
+                                                cls: 'kayak-button-dayname-month',
+                                                itemId: 'checkin_dayname_month2B'
+                                            },
+                                            {
+                                                xtype: 'container',
+                                                flex: 1,
+                                                cls: 'kayak-button-select',
+                                                html: 'Select',
+                                                itemId: 'checkin_day2B'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'container',
+                                flex: 1,
+                                maxWidth: '10em',
+                                minHeight: '4.5em',
+                                layout: {
+                                    type: 'vbox'
+                                },
+                                items: [
+                                    {
+                                        xtype: 'container',
+                                        height: '1.5em',
+                                        html: 'CHECK OUT',
+                                        style: 'padding-top: .2em; font-size: .8em; color: orange;'
+                                    },
+                                    {
+                                        xtype: 'container',
+                                        listeners: {
+                                            tap: {
+                                                fn: function() {
+                                                      this.fireEvent('checkin2B', this.up('container'));
+                                                  },
+                                                element: 'element'
+                                            }
+                                        },
+                                        flex: 1,
+                                        cls: 'kayak-button',
+                                        height: '2.5em',
+                                        itemId: 'checkout_btn2B',
+                                        maxHeight: '2.5em',
+                                        maxWidth: '8em',
+                                        minHeight: '2.5em',
+                                        layout: {
+                                            type: 'hbox'
+                                        },
+                                        items: [
+                                            {
+                                                xtype: 'container',
+                                                cls: 'kayak-button-dayname-month',
+                                                itemId: 'checkout_dayname_month2B'
+                                            },
+                                            {
+                                                xtype: 'container',
+                                                flex: 1,
+                                                cls: 'kayak-button-select',
+                                                html: 'Select',
+                                                itemId: 'checkout_day2B'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'container',
+                                docked: 'bottom',
+                                height: '',
+                                html: 'Range selection - IOS Style Calendar.  Demonstrates option at end of list to append more months.',
+                                maxHeight: '3em',
+                                minHeight: '1.5em',
+                                styleHtmlCls: 'example-descr-html',
+                                styleHtmlContent: true
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'container',
+                        itemId: 'example2C',
+                        style: 'border: 1px solid gray;',
+                        layout: {
+                            type: 'hbox'
+                        },
+                        items: [
+                            {
+                                xtype: 'image',
+                                height: '2em',
+                                margin: '1em .5em 0 .5em',
+                                width: '2em',
+                                src: './resources/images/calendar.png'
+                            },
+                            {
+                                xtype: 'fieldset',
+                                flex: 1,
+                                height: '2.6em',
+                                maxWidth: '15em',
+                                items: [
+                                    {
+                                        xtype: 'textfield',
+                                        listeners: {
+                                            tap: {
+                                                fn: function() {
+                                                      this.fireEvent('sel_date', this);
+                                                  },
+                                                element: 'element'
+                                            }
+                                        },
+                                        cls: 'sel-date',
+                                        itemId: 'sel_date',
+                                        styleHtmlCls: 'sel-date-html',
+                                        styleHtmlContent: true,
+                                        clearIcon: false,
+                                        inputCls: 'sel-date-label',
+                                        label: 'Date:',
+                                        labelWidth: '35%',
+                                        placeHolder: 'Select',
+                                        readOnly: true
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'container',
+                                docked: 'bottom',
+                                height: '',
+                                html: 'Single Date Selection (Form Field example), Future Dates Disabled. IOS Style Calendar.  Demonstrates pull-refresh style option to insert more months at beginning.',
+                                maxHeight: '5em',
+                                minHeight: '2em',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
                             }
@@ -321,9 +521,12 @@ Ext.define('MyApp.view.DateExamples', {
                                             }
                                         },
                                         cls: 'multisel-button',
+                                        height: '2.5em',
                                         html: 'Select',
                                         itemId: 'multisel_btn',
+                                        maxHeight: '2.5em',
                                         maxWidth: '8em',
+                                        minHeight: '2.5em',
                                         layout: {
                                             type: 'fit'
                                         }
@@ -348,7 +551,7 @@ Ext.define('MyApp.view.DateExamples', {
                                 docked: 'bottom',
                                 height: '',
                                 html: 'Multi-selection (Weekends+Holidays disabled)',
-                                maxHeight: '3em',
+                                maxHeight: '5em',
                                 minHeight: '1.5em',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
@@ -357,8 +560,8 @@ Ext.define('MyApp.view.DateExamples', {
                     },
                     {
                         xtype: 'container',
-                        height: '6em',
                         itemId: 'example4',
+                        minHeight: '5em',
                         style: 'border: 1px solid gray;',
                         layout: {
                             type: 'hbox'
@@ -369,7 +572,7 @@ Ext.define('MyApp.view.DateExamples', {
                                 height: '2.5em',
                                 margin: '.5em .5em 0 .5em',
                                 width: '2em',
-                                src: './resources/images/date_edit.png'
+                                src: './resources/images/calendar_view_day.png'
                             },
                             {
                                 xtype: 'container',
@@ -389,12 +592,14 @@ Ext.define('MyApp.view.DateExamples', {
                                                 element: 'element'
                                             }
                                         },
-                                        cls: 'lookup-btn',
-                                        height: '',
+                                        cls: 'financial-btn',
+                                        height: '2.5em',
                                         html: 'Calendar',
                                         itemId: 'lookup_btn',
                                         maxHeight: '2.5em',
                                         maxWidth: '7em',
+                                        minHeight: '2.5em',
+                                        padding: '0 0 0 .8em',
                                         layout: {
                                             type: 'fit'
                                         }
@@ -404,14 +609,10 @@ Ext.define('MyApp.view.DateExamples', {
                             {
                                 xtype: 'container',
                                 flex: 1,
-                                html: '',
                                 maxWidth: '10em',
-                                styleHtmlCls: 'multisel-dates-html',
-                                styleHtmlContent: true,
                                 layout: {
                                     type: 'fit'
-                                },
-                                scrollable: 'vertical'
+                                }
                             },
                             {
                                 xtype: 'container',
@@ -419,7 +620,6 @@ Ext.define('MyApp.view.DateExamples', {
                                 height: '',
                                 html: 'Day Planner (under construction).  Select any date for Day Planner.  Buttons docked top. ',
                                 maxHeight: '2em',
-                                minHeight: '2em',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
                             }
@@ -427,8 +627,8 @@ Ext.define('MyApp.view.DateExamples', {
                     },
                     {
                         xtype: 'container',
-                        height: '8em',
                         itemId: 'example5',
+                        minHeight: '6em',
                         style: 'border: 1px solid gray;',
                         layout: {
                             type: 'hbox'
@@ -460,6 +660,7 @@ Ext.define('MyApp.view.DateExamples', {
                                             }
                                         },
                                         cls: 'christmas-btn',
+                                        height: '2.5em',
                                         html: 'Calendar',
                                         itemId: 'filter_btn',
                                         maxWidth: '7em',
@@ -472,22 +673,143 @@ Ext.define('MyApp.view.DateExamples', {
                             {
                                 xtype: 'container',
                                 flex: 1,
-                                html: '',
                                 maxWidth: '10em',
-                                styleHtmlCls: 'multisel-dates-html',
-                                styleHtmlContent: true,
+                                layout: {
+                                    type: 'fit'
+                                }
+                            },
+                            {
+                                xtype: 'container',
+                                docked: 'bottom',
+                                html: 'Custom Filter example (Christmas calendar for next 12 years).  Filters can be used to only include months with Selected or Custom dates.',
+                                maxHeight: '4.5em',
+                                styleHtmlCls: 'example-descr-html',
+                                styleHtmlContent: true
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'container',
+                        itemId: 'example6',
+                        minHeight: '5em',
+                        style: 'border: 1px solid gray;',
+                        layout: {
+                            type: 'hbox'
+                        },
+                        items: [
+                            {
+                                xtype: 'image',
+                                height: '2.5em',
+                                margin: '.5em .5em 0 .5em',
+                                width: '2em',
+                                src: './resources/images/calendar_view_month.png'
+                            },
+                            {
+                                xtype: 'container',
+                                height: '4em',
+                                width: '10em',
                                 layout: {
                                     type: 'fit'
                                 },
-                                scrollable: 'vertical'
+                                items: [
+                                    {
+                                        xtype: 'container',
+                                        listeners: {
+                                            tap: {
+                                                fn: function() {
+                                                      this.fireEvent('day_count_btn', this.up('container'));
+                                                  },
+                                                element: 'element'
+                                            }
+                                        },
+                                        cls: 'financial-btn',
+                                        height: '2.5em',
+                                        html: 'Day Counts',
+                                        itemId: 'day_count_btn',
+                                        style: 'text-align: center',
+                                        layout: {
+                                            type: 'fit'
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'container',
+                                flex: 1,
+                                layout: {
+                                    type: 'fit'
+                                }
                             },
                             {
                                 xtype: 'container',
                                 docked: 'bottom',
                                 height: '',
-                                html: 'Custom Filter example (Christmas calendar for next 12 years).  Filters can be used to only include months with Selected or Custom dates.',
-                                maxHeight: '4.5em',
-                                minHeight: '4.5em',
+                                html: 'Financial Calendar example (Day Counts from Today).',
+                                minHeight: '2.5em',
+                                styleHtmlCls: 'example-descr-html',
+                                styleHtmlContent: true
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'container',
+                        itemId: 'example7',
+                        minHeight: '5em',
+                        style: 'border: 1px solid gray;',
+                        layout: {
+                            type: 'hbox'
+                        },
+                        items: [
+                            {
+                                xtype: 'image',
+                                height: '2.5em',
+                                margin: '.5em .5em 0 .5em',
+                                width: '2em',
+                                src: './resources/images/calendar_view_month.png'
+                            },
+                            {
+                                xtype: 'container',
+                                height: '4em',
+                                width: '10em',
+                                layout: {
+                                    type: 'fit'
+                                },
+                                items: [
+                                    {
+                                        xtype: 'container',
+                                        listeners: {
+                                            tap: {
+                                                fn: function() {
+                                                      this.fireEvent('optionDates_btn', this.up('container'));
+                                                  },
+                                                element: 'element'
+                                            }
+                                        },
+                                        cls: 'financial-btn',
+                                        height: '2.5em',
+                                        html: 'Option Dates',
+                                        itemId: 'optionDates_btn',
+                                        style: 'text-align: center',
+                                        layout: {
+                                            type: 'fit'
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'container',
+                                flex: 1,
+                                maxWidth: '10em',
+                                layout: {
+                                    type: 'fit'
+                                }
+                            },
+                            {
+                                xtype: 'container',
+                                docked: 'bottom',
+                                height: '',
+                                html: 'MarketWatch-style Financial Calendar example (Options Expiration).',
+                                minHeight: '2.5em',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
                             }
