@@ -336,10 +336,6 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
 
         var selDts=(Ext.isEmpty(selDtArr) ? [] : selDtArr), disableDts=[];
 
-        var scrnwid = (window.innerWidth > 0) ? window.innerWidth : screen.width;  // get screen width
-        var maxwid = ((Ext.os.is.Phone) ? scrnwid : 17*16);
-        var itemHt = maxwid/7;
-
         var getDts = Ext.create('widget.calendarpicker', {
             //     xtype: 'calendarpicker',
             title : 'Check In / Check Out',
@@ -368,7 +364,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
         });
 
         var overPnl = this.getOverlayPanel();
-        overPnl.setMaxWidth('17em');  // Prevent resizing for Phone landscape
+        overPnl.setMaxWidth('17em');  // Prevent resizing for Phone landscape since we want square boxes
         overPnl.setModal({ transparent: true });  // Keep background transaparent instead of gray since IOS calendar is already gray
         overPnl.add(getDts);
 
@@ -499,6 +495,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
         getDts.setLastSelectedDate(lastSelDt);  // Needed for single select where user can cancel after navigating back
 
         var overPnl = this.getOverlayPanel();
+        overPnl.setModal({ transparent: true });  // Keep background transaparent instead of gray since IOS calendar is already gray
         overPnl.add(getDts);
         overPnl.showBy(textfield);
 
@@ -527,6 +524,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
         }
 
         var overPnl = this.getOverlayPanel();
+        overPnl.setModal({ transparent: false });  // Reset transparancy for next use
         overPnl.removeAll(true, true);  // remove all items from DOM 
         overPnl.hide();
     },

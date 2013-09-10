@@ -461,7 +461,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', end
 }
 
 .optionDates-holiday {
-   background: url(cal-holiday.png) no-repeat center;        // Images must be stored in ./resources/css/ directory as referenced
+   background: url(cal-holiday.png) no-repeat center;        /* Images must be stored in ./resources/css/ directory as referenced */
 }
 .optionDates-stopTrading {
    background: url(cal-stop-trading.png) no-repeat center;        

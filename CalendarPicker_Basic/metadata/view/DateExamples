@@ -1,0 +1,94 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "dateexamples",
+        "style": "background: white;",
+        "designer|userClassName": "DateExamples",
+        "designer|userAlias": "dateexamples",
+        "designer|initialView": true,
+        "layout": "card"
+    },
+    "designerId": "889cc880-c791-4408-9eef-32aa9889cd48",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "itemId": null,
+                "style": null,
+                "ui": null,
+                "title": "Basic Example"
+            },
+            "designerId": "3b31107b-8d2b-4611-859e-f4cb8d8042f1"
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "2.6em",
+                "maxWidth": "15em"
+            },
+            "designerId": "ca99017d-2223-49f8-9082-690b9d443ca1",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "listeners": [
+                            "{\r",
+                            "  tap: {\r",
+                            "      fn: function() {\r",
+                            "          this.fireEvent('sel_date', this);\r",
+                            "      },\r",
+                            "      element: 'element'\r",
+                            "  }\r",
+                            "}"
+                        ],
+                        "cls": [
+                            "sel-date"
+                        ],
+                        "html": null,
+                        "itemId": "sel_date",
+                        "styleHtmlCls": "sel-date-html",
+                        "styleHtmlContent": true,
+                        "clearIcon": false,
+                        "inputCls": "sel-date-label",
+                        "label": "Date:",
+                        "labelWidth": "35%",
+                        "placeHolder": "Select",
+                        "readOnly": true
+                    },
+                    "configAlternates": {
+                        "listeners": "object"
+                    },
+                    "designerId": "a359aa6f-42dc-4064-8413-428e42b544ec",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "listeners",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

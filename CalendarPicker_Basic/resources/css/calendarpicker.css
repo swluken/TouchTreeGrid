@@ -1,0 +1,175 @@
+.x-touchtreegrid-list-calendar .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+ /* background-color: none !important;
+  background-image: none !important; */
+    
+background: #a66c6c !important; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E2NmM2YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5MDQ4NDgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #a66c6c 0%, #904848 100%) !important; /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a66c6c), color-stop(100%,#904848)) !important; /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #a66c6c 0%,#904848 100%) !important; /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #a66c6c 0%,#904848 100%) !important; /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #a66c6c 0%,#904848 100%) !important; /* IE10+ */
+background: linear-gradient(to bottom,  #a66c6c 0%,#904848 100%) !important; /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a66c6c', endColorstr='#904848',GradientType=0 ); /* IE6-8 */
+    
+  color: white;
+  border-top: none;
+  border-bottom: none;
+  font-weight: bold;
+  min-height: 32px !important; 
+  height: 32px !important; 
+  max-height: 32px !important; 
+  padding:0.5em 0 0 0 !important; 
+  font-size: .8em !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
+}
+
+.x-touchtreegrid-list-calendar .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    color: black;
+    background-color:white;
+   /* width:100%; */
+    margin: 0;
+    max-height: 32px;
+    line-height: 180%; 
+    
+    font-size: .8em !important;    
+   /*  padding-bottom: .4em !important; */
+        padding-top:0 !important;
+
+
+}
+
+.x-touchtreegrid-list-calendar .touchtreegrid-list-content-cell{ /* Detail (leaf) cells  */
+
+
+}
+
+/* 2.1 selectors to eliminate lines  ... 2nd set is for Touch 2.2 */
+.x-touchtreegrid-list-calendar .x-list-normal .x-list-item .x-dock-horizontal,
+.x-touchtreegrid-list-calendar .x-list-normal .x-list-item.x-list-item-tpl{
+   border: none; 
+}
+
+
+.x-touchtreegrid-list-calendar .calendarpicker-month {
+    text-align:  center;
+    color: white;
+    font-weight: bolder;
+}
+
+
+.x-touchtreegrid-list-calendar .calendarpicker-toolbar {
+    color: #fff;
+    font-size: .8em !important;
+    
+    background: rgb(94,98,102); /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iIzVlNjI2NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzM2M2M0MSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1ZTYyNjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(94,98,102,1) 1%, rgba(54,60,65,1) 50%, rgba(94,98,102,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(94,98,102,1)), color-stop(50%,rgba(54,60,65,1)), color-stop(100%,rgba(94,98,102,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(94,98,102,1) 1%,rgba(54,60,65,1) 50%,rgba(94,98,102,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(94,98,102,1) 1%,rgba(54,60,65,1) 50%,rgba(94,98,102,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(94,98,102,1) 1%,rgba(54,60,65,1) 50%,rgba(94,98,102,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(94,98,102,1) 1%,rgba(54,60,65,1) 50%,rgba(94,98,102,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e6266', endColorstr='#5e6266',GradientType=0 ); /* IE6-8 */
+}
+
+.x-touchtreegrid-list-calendar .touchtreegrid-footer {  
+background: #5e6266; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIyJSIgc3RvcC1jb2xvcj0iIzVlNjI2NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzM2M2M0MSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzMjMyMzIiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNWU2MjY2IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+background: -moz-linear-gradient(top,  #5e6266 2%, #363c41 50%, #323232 100%, #5e6266 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,#5e6266), color-stop(50%,#363c41), color-stop(100%,#323232), color-stop(100%,#5e6266)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #5e6266 2%,#363c41 50%,#323232 100%,#5e6266 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #5e6266 2%,#363c41 50%,#323232 100%,#5e6266 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #5e6266 2%,#363c41 50%,#323232 100%,#5e6266 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #5e6266 2%,#363c41 50%,#323232 100%,#5e6266 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e6266', endColorstr='#5e6266',GradientType=0 ); /* IE6-8 */
+
+    max-height: 2em;
+    min-height: 2em;
+    
+}
+.x-touchtreegrid-list-calendar .touchtreegrid-expand-collapse-buttons,
+.x-touchtreegrid-list-calendar .pickerfooterbtns{ 
+    background: #5e6266;
+    border-color: black;
+    max-height: 1.5em;
+    min-height: 1.5em;
+    margin-top: 0.25em;;
+    padding-left: .2em;
+    padding-right: .2em;
+}  
+
+ .x-touchtreegrid-list-calendar .x-button.x-button-pressing, 
+ .x-touchtreegrid-list-calendar .x-button.x-button-pressing:after,
+ .x-touchtreegrid-list-calendar .x-button.x-button-pressed,
+ .x-touchtreegrid-list-calendar .x-button.x-button-pressed:after,
+ .x-touchtreegrid-list-calendar .x-button.x-button-active,
+ .x-touchtreegrid-list-calendar .x-button.x-button-active:after
+{
+  background-image: none;
+  background-color: #979a9c ;
+}
+
+
+.x-touchtreegrid-list-calendar .calendarpicker-header-rowtype{
+    font-size: .8em;
+    font-weight: bold;
+    padding-top:0.5em !important;
+    
+}
+
+.x-touchtreegrid-list-calendar .calendarpicker-days {  /* General selector for all days in calendar */
+    text-align:  center;
+    font-weight: bold;    
+    
+}
+
+.x-touchtreegrid-list-calendar .calendarpicker-today { /* custom selector for current day */
+  color: #0000ff;
+  font-weight: bold;    
+  background-color: #00ff00; 
+}
+
+.x-touchtreegrid-list-calendar .calendarpicker-weekend { /* custom selector for Saturday and Sundays */
+
+}
+
+.x-touchtreegrid-list-calendar .calendarpicker-holiday {  /* custom selector for holidays if defined via holidayDtArr[] */
+    background-color: #FFE800;
+}
+
+.x-touchtreegrid-list-calendar .calendarpicker-selected {  /* custom selector for selected days as selected by user and defined in selDtArr[] */
+    background-color: #0000ff ; 
+    color: white;
+    font-weight: bold;
+    border: 1px solid #00005f;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0.2em 0.4em rgba(0, 0, 0, 0.5);
+
+}
+
+.x-touchtreegrid-list-calendar .calendarpicker-disabled {  /* custom selector for current day */
+   color: #cccccc;
+   font-weight: normal;    
+    
+}
+
+/* Added 9/7/13 */
+.customDates-default {
+    background-color: orange;    
+}
+.calendarpicker-legend {
+    font-size: .7em;   
+}
+.calendarpicker-legend-cls-override {  /* Used to override customType cls used in legend */
+}
+.months-to-append-html {
+  padding: .2em 0; 
+  text-align: center; 
+  font-size: .8em; 
+  font-weight: bold; 
+  color: gray;
+}

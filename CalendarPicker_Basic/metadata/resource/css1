@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css1",
+        "url": "./resources/css/calendarpicker.css"
+    },
+    "designerId": "1430967e-4eed-433b-9b66-5c118908c913"
+}

@@ -1,4 +1,16 @@
 **************************************************************************************************
+9/9/2013 COMMIT CHANGE LOG:  
+
+*** MODIFICATIONS TO CALENDARPICKER COMPONENT *** 
+- Updated CalendarPicker.pdf
+- Further documented the examples in DateExamplesController.js
+- Updated Example 2c to make background transparent behind modal window (same as Example 2b)
+- Updated custom.css
+
+*** NEW CALENDARPICKER BASIC EXAMPLE *** 
+- Basic calendar implementation found in ./CalendarPicker_Basic/ directory
+
+**************************************************************************************************
 9/8/2013 COMMIT CHANGE LOG:  
 
 New CalendarPicker Features and Examples:

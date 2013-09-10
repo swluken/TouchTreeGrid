@@ -1,0 +1,105 @@
+{
+    "name": "CalendarPicker_Basic",
+    "settings": {
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "http://localhost/TouchTreeGrid/CalendarPicker_Basic/",
+        "exportPath": "",
+        "buildShouldOverwriteIndex": true
+    },
+    "xdsVersion": "2.2.2",
+    "xdsBuild": 991,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "touch22",
+    "topInstanceFileMap": {
+        "b8f6c608-d1da-4b6b-8c96-84a26008b3bd": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "c0a58990-813a-418c-af34-58d0627d64fe": {
+            "paths": [
+                "metadata/view/CalendarPicker",
+                "app/view/override/CalendarPicker.js",
+                "app/view/CalendarPicker.js"
+            ],
+            "className": "CalendarPicker"
+        },
+        "ad0c15c8-8959-4b0c-bb67-bc424990b129": {
+            "paths": [
+                "metadata/resource/css"
+            ],
+            "className": "css"
+        },
+        "1430967e-4eed-433b-9b66-5c118908c913": {
+            "paths": [
+                "metadata/resource/css1"
+            ],
+            "className": "css1"
+        },
+        "889cc880-c791-4408-9eef-32aa9889cd48": {
+            "paths": [
+                "metadata/view/DateExamples",
+                "app/view/override/DateExamples.js",
+                "app/view/DateExamples.js"
+            ],
+            "className": "DateExamples"
+        },
+        "86531a3e-f268-40f4-b550-e18c5ff85973": {
+            "paths": [
+                "metadata/controller/DateExamplesController",
+                "app/controller/override/DateExamplesController.js",
+                "app/controller/DateExamplesController.js"
+            ],
+            "className": "DateExamplesController"
+        },
+        "95ebf663-f827-4965-8fdc-f620ceb4bbd3": {
+            "paths": [
+                "metadata/view/overlayPanel",
+                "app/view/override/overlayPanel.js",
+                "app/view/overlayPanel.js"
+            ],
+            "className": "overlayPanel"
+        },
+        "84bbedcc-c5f1-43e4-a467-ca06fc95df99": {
+            "paths": [
+                "metadata/view/TouchTreeGrid",
+                "app/view/override/TouchTreeGrid.js",
+                "app/view/TouchTreeGrid.js"
+            ],
+            "className": "TouchTreeGrid"
+        },
+        "4e8e87b6-e281-4713-b022-fba1c9192ce1": {
+            "paths": [
+                "metadata/resource/css3"
+            ],
+            "className": "css3"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "889cc880-c791-4408-9eef-32aa9889cd48",
+            "95ebf663-f827-4965-8fdc-f620ceb4bbd3",
+            "c0a58990-813a-418c-af34-58d0627d64fe",
+            "84bbedcc-c5f1-43e4-a467-ca06fc95df99"
+        ],
+        "store": [],
+        "controller": [
+            "86531a3e-f268-40f4-b550-e18c5ff85973"
+        ],
+        "model": [],
+        "resource": [
+            "b8f6c608-d1da-4b6b-8c96-84a26008b3bd",
+            "ad0c15c8-8959-4b0c-bb67-bc424990b129",
+            "1430967e-4eed-433b-9b66-5c118908c913",
+            "4e8e87b6-e281-4713-b022-fba1c9192ce1"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

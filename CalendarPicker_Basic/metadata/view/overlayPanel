@@ -1,0 +1,43 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": "95%",
+        "html": null,
+        "maxWidth": "17em",
+        "width": "100%",
+        "designer|userClassName": "overlayPanel",
+        "designer|userAlias": "overlayPanel",
+        "hideOnMaskTap": false,
+        "layout": "fit",
+        "modal": true,
+        "scrollable": null
+    },
+    "designerId": "95ebf663-f827-4965-8fdc-f620ceb4bbd3",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "\r",
+                    "this.setHeight((Ext.os.is.Phone) ? '95%' : '85%');\r",
+                    "this.setWidth((Ext.os.is.Phone) ? '95%' : '85%');\r",
+                    "this.setMaxWidth((Ext.os.is.Phone) ? '' : '17em');\r",
+                    ""
+                ]
+            },
+            "designerId": "2d9fefdd-b161-4c07-8ab1-e887201346b7"
+        }
+    ]
+}

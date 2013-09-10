@@ -1,0 +1,114 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DateExamplesController"
+    },
+    "designerId": "86531a3e-f268-40f4-b550-e18c5ff85973",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "overlayPanel",
+                "selector": "overlayPanel",
+                "xtype": "overlayPanel"
+            },
+            "designerId": "61097911-17de-46af-afb7-4fb60dbc0782"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dateexamples",
+                "selector": "dateexamples",
+                "xtype": "dateexamples"
+            },
+            "designerId": "d7978cb8-6f21-443f-b991-5dbb35b78798"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onSelDate",
+                "designer|params": [
+                    "textfield"
+                ],
+                "implHandler": [
+                    "var returnItem = this.getDateexamples().down('#sel_date');\r",
+                    "var lastSelDt = returnItem.lastSelectedDate;\r",
+                    "\r",
+                    "var selDts=(Ext.isEmpty(lastSelDt) ? [] : [lastSelDt]);\r",
+                    "\r",
+                    "\r",
+                    "var getDts = Ext.create('widget.calendarpicker', {\r",
+                    "    title : 'Select Date',\r",
+                    "    itemId : 'calendar_sel_date',\r",
+                    "    selectMode: 'SINGLE',\r",
+                    "    backMonths: 3,\r",
+                    "    forwardMonths: 3,\r",
+                    "    autoCollapseMonthsPriorToMinSelDt: true, // needed for auto-scroll to prior-selected month\r",
+                    "    returnItem: returnItem,\r",
+                    "    selDtArr: selDts\r",
+                    "});\r",
+                    "\r",
+                    "var overPnl = this.getOverlayPanel();\r",
+                    "overPnl.add(getDts);\r",
+                    "overPnl.showBy(textfield);\r",
+                    ""
+                ],
+                "name": "sel_date",
+                "designer|targetType": "Ext.field.Text",
+                "designer|controlQuery": "textfield#sel_date"
+            },
+            "designerId": "f79f9308-d22b-421d-9611-f42630d0b7b3"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onSelDateClosed",
+                "designer|params": [
+                    "calendarpicker"
+                ],
+                "implHandler": [
+                    "var returnItem=calendarpicker.getReturnItem();\r",
+                    "var lastSelDt = calendarpicker.getLastSelectedDate();\r",
+                    "\r",
+                    "var day = Ext.Date.parse(lastSelDt, 'Y-m-d');\r",
+                    "returnItem.setValue(Ext.Date.format(day, 'm/d/Y'));\r",
+                    "returnItem.lastSelectedDate = lastSelDt;\r",
+                    "\r",
+                    "var overPnl = this.getOverlayPanel();\r",
+                    "overPnl.removeAll(true, true);  // remove all items from DOM \r",
+                    "overPnl.hide();"
+                ],
+                "name": "calendarClosed",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#calendar_sel_date"
+            },
+            "designerId": "5884afa3-7b23-453b-8a08-e676e6a2364e"
+        }
+    ]
+}
