@@ -36,7 +36,6 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
                 checkin2: 'onExample2Checkin',
                 checkin2B: 'onExample2BCheckin',
                 multisel_btn: 'onExample3_Multisel',
-                lookup_btn: 'onExample4_Lookup',
                 filter_btn: 'onExample5_December',
                 day_count_btn: 'onExample6_DayCount',
                 optionDates_btn: 'onExample7_OptionDates'
@@ -61,10 +60,6 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             },
             "container#calendar_multi": {
                 calendarClosed: 'onExample3_MultiselClosed'
-            },
-            "container#calendar_lookup": {
-                dateSelected: 'onExample4_LookupSelected',
-                calendarClosed: 'onExample4_LookupClosed'
             },
             "container#calendar_filter": {
                 calendarClosed: 'onExample5_DecemberClosed'
@@ -91,6 +86,11 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
 
         }
 
+        var holidayDtArr = ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02',
+            '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17', '2014-05-26',
+            '2014-07-04', '2014-09-01', '2014-11-27', '2014-12-25' ];
+
+
         var getDts = Ext.create('widget.calendarpicker', {
             title : 'Choose Check In',
             itemId : 'calendar_checkin',
@@ -101,7 +101,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             autoCollapseMonthsPriorToMinSelDt: true,
             useIconsForExpCollapse: false,
             disablePastDates: true,
-            holidayDtArr: ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02', '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17'],
+            holidayDtArr: holidayDtArr,
             returnItem: returnItem,
             selDtArr: selDts,
             disableDtArr: disableDts,
@@ -158,6 +158,10 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
         var overPnl = this.getOverlayPanel();
         overPnl.removeAll(true, true);  // remove all items from DOM 
         overPnl.hide();
+
+
+        //console.log(Ext.data.StoreManager);
+
     },
 
     onExample1Checkout: function(container) {
@@ -195,6 +199,9 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             } while (tmpDt >= inFirstDt);
         }
 
+        var holidayDtArr = ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02',
+            '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17', '2014-05-26',
+            '2014-07-04', '2014-09-01', '2014-11-27', '2014-12-25' ];
 
 
         var getDts = Ext.create('widget.calendarpicker', {
@@ -207,7 +214,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             forwardMonths: fwd,
             useIconsForExpCollapse: false,
             disablePastDates: true,    
-            holidayDtArr: ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02', '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17'],
+            holidayDtArr: holidayDtArr,
             includeCustomFooterItems: false,
             returnItem: returnItem,
             selDtArr : selDts,
@@ -254,6 +261,11 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
 
         var selDts=(Ext.isEmpty(selDtArr) ? [] : selDtArr), disableDts=[];
 
+        var holidayDtArr = ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02',
+            '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17', '2014-05-26',
+            '2014-07-04', '2014-09-01', '2014-11-27', '2014-12-25' ];
+
+
         var getDts = Ext.create('widget.calendarpicker', {
             //     xtype: 'calendarpicker',
             title : 'Check In / Check Out',
@@ -265,7 +277,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             autoCollapseMonthsPriorToMinSelDt: true,
             useIconsForExpCollapse: true,
             disablePastDates: true,
-            holidayDtArr: ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02', '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17'],
+            holidayDtArr: holidayDtArr,
             includeCustomFooterItems: true,
             returnItem: returnItem,
             defaultCollapseLevel: 99,
@@ -336,6 +348,10 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
 
         var selDts=(Ext.isEmpty(selDtArr) ? [] : selDtArr), disableDts=[];
 
+        var holidayDtArr = ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02',
+            '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17', '2014-05-26',
+            '2014-07-04', '2014-09-01', '2014-11-27', '2014-12-25' ];
+
         var getDts = Ext.create('widget.calendarpicker', {
             //     xtype: 'calendarpicker',
             title : 'Check In / Check Out',
@@ -350,7 +366,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             autoExpandMonthsWithSelDates: true,    
             useIconsForExpCollapse: true,
             disablePastDates: true,
-            holidayDtArr: ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02', '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17'],
+            holidayDtArr: holidayDtArr,
             includeCustomFooterItems: true,
             returnItem: returnItem,
             defaultCollapseLevel: 0,
@@ -466,6 +482,10 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
 
         ]};
 
+        var holidayDtArr = ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02',
+            '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17', '2014-05-26',
+            '2014-07-04', '2014-09-01', '2014-11-27', '2014-12-25' ];
+
         var getDts = Ext.create('widget.calendarpicker', {
             title : 'Select As-Of Date',
             itemId : 'calendar_sel_date',
@@ -477,8 +497,9 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             itemHeight: 16,   // Set minimum value for weekday names row ... use css for other heights
             variableHeights: true,
             autoCollapseMonthsPriorToMinSelDt: true,
+            expandCurrentMonth: Ext.isEmpty(selDts),
             useIconsForExpCollapse: false,
-            holidayDtArr: ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02', '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17'],
+            holidayDtArr: holidayDtArr,
             returnItem: returnItem,
             selDtArr: selDts,
             disableDtArr: disableDts,
@@ -536,6 +557,10 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
 
         var selDts=(Ext.isEmpty(selDtArr) ? initDtArr : selDtArr), disableDts=[];
 
+        var holidayDtArr = ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02',
+            '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17', '2014-05-26',
+            '2014-07-04', '2014-09-01', '2014-11-27', '2014-12-25' ];
+
         var getDts = Ext.create('widget.calendarpicker', {
             //     xtype: 'calendarpicker',
             title : 'Select Multiple Dates',
@@ -549,7 +574,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             disablePastDates: false,
             disableWeekends: true,
             disableHolidays: true,
-            holidayDtArr: ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02', '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17'],
+            holidayDtArr: holidayDtArr,
             includeCustomFooterItems: true,
             returnItem: returnItem,
             defaultCollapseLevel: 1,
@@ -580,106 +605,6 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
         var overPnl = this.getOverlayPanel();
         overPnl.removeAll(true, true);  // remove all items from DOM 
         overPnl.hide();
-    },
-
-    onExample4_Lookup: function(container) {
-        var dateEx = this.getDateexamples();
-        var returnItem = dateEx.down('#example4');
-        var newcont = dateEx.down('#datePlanner');
-
-        // Save title bar state and rename 
-        var appTitle = dateEx.down('#appTitle');
-        appTitle.origTitle = appTitle.getTitle()._title;
-        appTitle.origUi = appTitle.getUi();
-        appTitle.origCls = appTitle.getCls();
-
-        appTitle.setTitle('Custom Calendar');
-        appTitle.setUi('light');
-        appTitle.setCls('');
-
-        var planner_cal = newcont.down('#planner_cal');
-
-
-        var holidayDtArr = ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02', '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17'];
-
-        myCustomBtns = {
-            xtype: 'segmentedbutton',
-            itemId : 'pickerfooterbtns',
-            docked : 'right',
-            items: [
-            {
-                xtype: 'button',
-                text: 'RETURN',
-                iconCls: '',
-                cls: 'pickerfooterbtns',
-                listeners : {
-                    tap: function (button, e, options) {
-                        this.up('calendarpicker').customBtns('CANCEL');
-                    }
-                }
-            }
-        ]};
-
-        var getDts = Ext.create('widget.calendarpicker', {
-            //     xtype: 'calendarpicker',
-            hideTitleBar: true,
-            itemId : 'calendar_lookup',
-            selectMode: 'NONE',
-            backMonths: 3,
-            forwardMonths: 12,
-            useIconsForExpCollapse: false,
-            holidayDtArr: holidayDtArr,
-            returnItem: returnItem,
-            defaultCollapseLevel: 99,
-            enableQuickDaySelection: true,
-            height: '100%',
-            width: '100%',
-            includeCustomFooterItems: true,    
-            customFooterItems: myCustomBtns,
-            footerDock: 'top'
-        });
-
-
-        planner_cal.add(getDts);
-
-        dateEx.setActiveItem(newcont);
-
-
-
-    },
-
-    onExample4_LookupSelected: function(calendarpicker, dateStr, date) {
-
-        var dateEx = this.getDateexamples();
-        var returnItem = dateEx.down('#example4');
-        var plannerDetailText = dateEx.down('#plannerDetailText');
-
-        if (!Ext.isEmpty(plannerDetailText)) {
-            plannerDetailText.setHtml(dateStr);
-        }
-
-    },
-
-    onExample4_LookupClosed: function(calendarpicker) {
-        var dateEx = this.getDateexamples();
-
-        var returnItem=calendarpicker.getReturnItem();
-
-        // Restore title bar state
-        var appTitle = dateEx.down('#appTitle');
-        appTitle.setTitle(appTitle.origTitle);
-        appTitle.setUi(appTitle.origUi);
-        appTitle.setCls(appTitle.origCls);
-
-        var planner_cal = dateEx.down('#planner_cal');
-        var newcont = dateEx.down('#firstSet');
-        dateEx.setActiveItem(newcont);
-        planner_cal.removeAll(true, true);
-
-
-
-
-
     },
 
     onExample5_December: function(container) {
@@ -762,6 +687,9 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
                 filterFn: function(rowObj) {return (rowObj.month === 'December');}
             };
 
+            var holidayDtArr = ['2013-12-25', '2014-12-25', '2015-12-25', '2016-12-26', '2017-12-25', '2018-12-25', '2019-12-25', '2020-12-25', '2021-12-24', '2022-12-26', '2023-12-25', '2024-12-25', '2025-12-25', '2026-12-25', '2027-12-25'];
+
+
             var getDts = Ext.create('widget.calendarpicker', {
                 //     xtype: 'calendarpicker',
                 title : 'Christmas Calendars',
@@ -771,7 +699,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
                 backMonths: 0,
                 forwardMonths: 144,
                 useIconsForExpCollapse: false,
-                holidayDtArr: ['2013-12-25', '2014-12-25', '2015-12-25', '2016-12-26', '2017-12-25', '2018-12-25', '2019-12-25', '2020-12-25', '2021-12-24', '2022-12-26', '2023-12-25', '2024-12-25', '2025-12-25', '2026-12-25', '2027-12-25'],
+                holidayDtArr: holidayDtArr,
                 includeCustomFooterItems: true,
                 returnItem: returnItem,
                 defaultCollapseLevel: 99,
@@ -833,22 +761,17 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
         var myRend = {
             renderer_dates: function (fldName, values) {
                 var elem=values[fldName];
+                if (values.rowType === 'H' || Ext.isEmpty(elem)) {return elem;} // don't process null values
                 var dt = values['dt_'+fldName];
                 var today= Ext.Date.clearTime(new Date(Date(Ext.Date.now())), true);
                 var diff = Ext.Date.diff(today, dt, Ext.Date.DAY);
-                if (diff>0) {
-                    elem = elem+'<span class="daycount-inner"><br>'+diff.toString()+'</span>';
-                }
+                var diffStr = (diff>0 ? diff.toString() : '&nbsp;');
+                elem = elem+'<div class="daycount-inner">'+diffStr+'</div>';
                 return elem;
             },
             cls_renderer_dates: function (fldName, values){
                 var cls="", dt, sel, hol, dis, par = this.scope.parent;
                 dt = values['dt_'+fldName];
-                var today= Ext.Date.clearTime(new Date(Date(Ext.Date.now())), true);
-                var diff = Ext.Date.diff(today, dt, Ext.Date.DAY);
-                if (diff>0) {
-                    cls = cls + ' daycount-outer';
-                }          
                 hol = values['isHoliday_'+fldName];
                 dis = values['isDisabled_'+fldName];
 
@@ -856,6 +779,8 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
                 cls = cls + ' calendarpicker-header';}  
                 else if (Ext.isEmpty(dt)) {} // do nothing for empty dates
                 else {
+                    cls = cls + ' daycount-outer';  // otherwise always apply
+
                     sel = (par.getSelDtArr().indexOf(Ext.Date.format(dt, 'Y-m-d'))>-1);
                     if (Ext.Date.format(dt, 'w')==='0' || Ext.Date.format(dt, 'w')==='6') {
                         cls = cls+' calendarpicker-weekend';
@@ -874,16 +799,20 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             }};
 
 
+            var holidayDtArr = ['2013-01-01', '2013-01-21', '2013-02-18', '2013-05-27', '2013-07-04', '2013-09-02',
+                '2013-11-28', '2013-12-25', '2014-01-01', '2014-01-20', '2014-02-17', '2014-05-26',
+                '2014-07-04', '2014-09-01', '2014-11-27', '2014-12-25' ];
+
             var getDts = Ext.create('widget.calendarpicker', {
                 itemId : 'calendar_daycount',
                 //   customCls : ['calendarpicker-daycount'],
-                customCls : ['calendarpicker-ios'],
+                customCls : ['calendarpicker-ios', 'calendarpicker-daycount'],
 
                 selectMode: 'NONE',
                 backMonths: 0,
                 forwardMonths: 6,
                 useIconsForExpCollapse: false,
-                holidayDtArr: ['2013-12-25', '2014-12-25', '2015-12-25', '2016-12-26', '2017-12-25', '2018-12-25', '2019-12-25', '2020-12-25', '2021-12-24', '2022-12-26', '2023-12-25', '2024-12-25', '2025-12-25', '2026-12-25', '2027-12-25'],
+                holidayDtArr: holidayDtArr,
                 includeCustomFooterItems: true,
                 returnItem: returnItem,
                 defaultCollapseLevel: 99,
@@ -980,7 +909,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             title : 'Options Expiration Calendar',
             selectMode: 'NONE',
             backMonths: 0,
-            forwardMonths: 15,
+            forwardMonths: 12,
             useIconsForExpCollapse: false,
             holidayDtArr: [],
             returnItem: returnItem,
@@ -990,7 +919,8 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             includeCustomFooterItems: true,        
             customFooterItems: myCustomBtns,
             customDateTypes: customDateTypes,
-            includeCustomDatesLegend: true
+            includeCustomDatesLegend: true,
+            customDatesLegendScrollDock: (Ext.os.is.Phone ? 'both' : null)  // dock to top and bottom of scrolling list for phones. to top of container for tablets
 
         });
 

@@ -415,14 +415,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
     }
 
 /*********************  BEGIN CUSTOM CSS FOR FINANCIAL DAYCOUNT EXAMPLE 6 **************************/
-.daycount-outer {
-    line-height: 50%;
-    padding-top: .85em;
+.calendarpicker-daycount .daycount-outer {
+    line-height: 100%;
+    padding-top: .85em;    
 }
-.daycount-inner {
+.calendarpicker-daycount .daycount-inner {
     padding-left: 1em;
+    margin-top: -.5em;
     font-size: .6em;
     color: #921ede;
+    
+}
+.calendarpicker-daycount .calendarpicker-header-rowtype{
+  line-height: 16px;   
+  background-color: #e5e5e5; 
+    
+}
+
+.calendarpicker-daycount .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    background: none;
+    background-color: #e5e5e5; 
 }
 
 .financial-btn {
@@ -444,7 +456,9 @@ background: -o-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 
 background: -ms-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* IE10+ */
 background: linear-gradient(to bottom,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', endColorstr='#f5f5f5',GradientType=0 ) !important; /* IE6-9 */
-   
+  min-height: 32px !important; 
+  height: 32px !important; 
+  max-height: 32px !important; 
   -webkit-box-shadow: none;
 }
 
@@ -473,7 +487,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', end
    background: url(cal-quarterly-expiration.png) no-repeat center;    
 }
 
-.calendarpicker-optionDates .calendarpicker-legend-cls-override {
+.calendarpicker-optionDates .calendarpicker-legend-cls-override {  /* Use to override size of about backgrounds for legend */
     background-size: 80% 80% !important;
     padding-right: 1em ;
 }

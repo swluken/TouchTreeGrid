@@ -21,14 +21,6 @@
             ],
             "className": "Library"
         },
-        "c0a58990-813a-418c-af34-58d0627d64fe": {
-            "paths": [
-                "metadata/view/CalendarPicker",
-                "app/view/override/CalendarPicker.js",
-                "app/view/CalendarPicker.js"
-            ],
-            "className": "CalendarPicker"
-        },
         "ad0c15c8-8959-4b0c-bb67-bc424990b129": {
             "paths": [
                 "metadata/resource/css"
@@ -65,27 +57,35 @@
             ],
             "className": "overlayPanel"
         },
-        "84bbedcc-c5f1-43e4-a467-ca06fc95df99": {
+        "4e8e87b6-e281-4713-b022-fba1c9192ce1": {
+            "paths": [
+                "metadata/resource/css3"
+            ],
+            "className": "css3"
+        },
+        "0174aaa1-7151-450b-8e9b-47a1ae3ab4ba": {
+            "paths": [
+                "metadata/view/CalendarPicker",
+                "app/view/override/CalendarPicker.js",
+                "app/view/CalendarPicker.js"
+            ],
+            "className": "CalendarPicker"
+        },
+        "38927dbc-1774-4c74-8c01-4e54ba91918e": {
             "paths": [
                 "metadata/view/TouchTreeGrid",
                 "app/view/override/TouchTreeGrid.js",
                 "app/view/TouchTreeGrid.js"
             ],
             "className": "TouchTreeGrid"
-        },
-        "4e8e87b6-e281-4713-b022-fba1c9192ce1": {
-            "paths": [
-                "metadata/resource/css3"
-            ],
-            "className": "css3"
         }
     },
     "viewOrderMap": {
         "view": [
             "889cc880-c791-4408-9eef-32aa9889cd48",
             "95ebf663-f827-4965-8fdc-f620ceb4bbd3",
-            "c0a58990-813a-418c-af34-58d0627d64fe",
-            "84bbedcc-c5f1-43e4-a467-ca06fc95df99"
+            "0174aaa1-7151-450b-8e9b-47a1ae3ab4ba",
+            "38927dbc-1774-4c74-8c01-4e54ba91918e"
         ],
         "store": [],
         "controller": [

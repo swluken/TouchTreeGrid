@@ -21,7 +21,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a66c6c', end
   height: 32px !important; 
   max-height: 32px !important; 
   padding:0.5em 0 0 0 !important; 
-  font-size: .8em !important;
+  font-size: 1em !important;
   -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
 }
 
@@ -163,13 +163,53 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e6266', end
 }
 .calendarpicker-legend {
     font-size: .7em;   
+    background-color: white;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
 }
 .calendarpicker-legend-cls-override {  /* Used to override customType cls used in legend */
 }
+  
+
 .months-to-append-html {
   padding: .2em 0; 
   text-align: center; 
   font-size: .8em; 
   font-weight: bold; 
   color: gray;
+}
+
+/* Added 9/??/13:  Used for matrixView only */
+
+.calendarpicker-legend-cls-html {  /* style html in legend */
+   padding-left: .5em;
+}  
+.calendarpicker-matrix-item {
+    margin: .5em
+}
+
+
+.calendarpicker-matrix .matrix-row {
+    }
+.calendarpicker-matrix .matrix-row-last {
+    }
+.calendarpicker-matrix .matrix-column {
+    border: 1px solid gray;
+}
+.calendarpicker-matrix .matrix-column-last {
+    border: 1px solid gray;  
+}
+.calendarpicker-matrix .matrix-column-empty {
+    border: none;
+}    
+.calendarpicker-matrix .x-scroll-container { /* background Scroll container same color as category rows */
+    background-color: white;
+}
+.calendarpicker-matrix-add .x-title { /* Add more months titlebar styling for Matrix view */
+    font-weight: normal;
+}
+.calendarpicker-matrix-add  { /* Add more months titlebar styling for Matrix view */
+    height: 2em;
+    max-height: 2em;
+    min-height: 2em;        
 }

@@ -26,10 +26,14 @@ Ext.application({
         'CalendarPicker',
         'DateExamples',
         'overlayPanel',
+        'matrixView',
+        'matrixViewPhone',
+        'yearMonthSelect',
         'TouchTreeGrid'
     ],
     controllers: [
-        'DateExamplesController'
+        'DateExamplesController',
+        'calendarDetailController'
     ],
     name: 'CalendarPicker',
 

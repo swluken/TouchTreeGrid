@@ -1,0 +1,376 @@
+/*********************  BEGIN CUSTOM CSS FOR Entire Matrix View container **************************/
+
+.matrix-view .dayViewListDetail-html { /* Style HTML for Day View */
+    color: gray;
+    font-size: .8em;
+    font-weight: normal;
+}   
+
+.matrix-view .matrix-view-year .calendarpicker-legend {
+  /*  border: none; */
+}
+
+.matrix-view .matrix-month-img {
+   background: url(tag.png) no-repeat center;    
+}
+
+.matrix-view .matrix-month-gotoToday {
+    color: #1985d0;
+    font-size: .8em;
+    font-weight: bold;
+    border: solid 1px gray;
+    border-radius: 5px;
+    padding: .1em 0 0 .15em;
+}
+
+/*********************  BEGIN CUSTOM CSS FOR Matrix Year View **************************/
+
+.calendarpicker-matrix-year .x-scroll-container { /* background Scroll color*/
+    background-color: white;
+}
+.calendarpicker-matrix-year .calendarpicker-month {
+    color: #1985d0;
+
+}
+.calendarpicker-matrix-year .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+
+background: rgb(231,231,231) !important; /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(231,231,231,1) 0%, rgba(245,245,245,1) 100%) !important; /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(231,231,231,1)), color-stop(100%,rgba(245,245,245,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* IE10+ */
+background: linear-gradient(to bottom,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', endColorstr='#f5f5f5',GradientType=0 ) !important; /* IE6-9 */
+
+  -webkit-box-shadow: none;
+    
+  border-top: none;
+  border-bottom: none;
+  font-weight: bold;
+  min-height: 32px !important; 
+  height: 32px !important; 
+  max-height: 32px !important; 
+  padding:0.5em 0 0 0 !important; 
+  font-size: 1em !important;
+}
+
+.calendarpicker-matrix-year .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+  min-height: 1.5em !important; 
+  height: 1.5em !important; 
+  max-height: 1.5em !important;     
+  line-height: 1.5em;
+       
+}
+
+.calendarpicker-matrix-year .touchtreegrid-footer {  
+background: none;
+background-color: #e7e7e7;
+border: none;
+    
+}
+.calendarpicker-matrix-year .touchtreegrid-expand-collapse-buttons,
+.calendarpicker-matrix-year .pickerfooterbtns{ 
+    background: #b8b8b8;
+    border-color: gray;
+}  
+
+.calendarpicker-matrix-year .x-button.x-button-pressing, 
+.calendarpicker-matrix-year .x-button.x-button-pressing:after,
+.calendarpicker-matrix-year .x-button.x-button-pressed,
+.calendarpicker-matrix-year .x-button.x-button-pressed:after,
+.calendarpicker-matrix-year .x-button.x-button-active,
+.calendarpicker-matrix-year .x-button.x-button-active:after
+{
+  background-image: none;
+  background-color: #cfcfcf ;
+}
+
+
+.calendarpicker-matrix-year .calendarpicker-days {  /* General selector for all days in calendar */
+}
+.calendarpicker-matrix-year .calendarpicker-holiday {  /* custom selector for holidays if defined via holidayDtArr[] */
+   background-color: #FFDD7B;    
+}
+.calendarpicker-matrix-year .calendarpicker-selected {  /* custom selector for selected days as selected by user and defined in selDtArr[] */
+    /* used for quick select only */
+    background-color: #1985d0;       
+    color: white;
+    font-weight: bolder; 
+    border: 1px solid #0f4f7c;
+    border-radius: 0;  
+    -webkit-box-shadow: none;
+}
+
+.calendarpicker-matrix-year .calendarpicker-disabled {  /* custom selector for current day */
+}
+
+.calendarpicker-matrix-year .calendarpicker-today { /* custom selector for current day */
+    background: none;
+    background-color: #d06318;       
+    color: #e5e5e5;
+    font-weight: bolder;   
+   
+}
+
+.calendarpicker-matrix-year .calendarpicker-header {
+}
+
+.calendarpicker-matrix-year .calendarpicker-header-rowtype{
+    font-size: .6em;
+    font-weight: bold;
+    padding-top:0.2em !important;    
+}
+
+.calendarpicker-matrix-year .calendarpicker-legend-cls-override {  /* Use to override size of about backgrounds for legend */
+    background-size: 60% 60% !important;
+    padding-right: 1em;
+    margin-left: .2em;
+}
+
+/*********************  BEGIN CUSTOM CSS FOR Matrix Month View **************************/
+
+.calendarpicker-matrix-month .x-scroll-container { /* background Scroll color*/
+    background-color: white;
+}
+.calendarpicker-matrix-month .calendarpicker-month {
+    color: #1985d0;
+
+}
+.calendarpicker-matrix-month .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+
+background: rgb(231,231,231) !important; /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(231,231,231,1) 0%, rgba(245,245,245,1) 100%) !important; /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(231,231,231,1)), color-stop(100%,rgba(245,245,245,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* IE10+ */
+background: linear-gradient(to bottom,  rgba(231,231,231,1) 0%,rgba(245,245,245,1) 100%) !important; /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', endColorstr='#f5f5f5',GradientType=0 ) !important; /* IE6-9 */
+
+  -webkit-box-shadow: none;
+    
+  border-top: none;
+  border-bottom: none;
+  font-weight: bold;
+  min-height: 32px !important; 
+  height: 32px !important; 
+  max-height: 32px !important; 
+  padding:0.5em 0 0 0 !important; 
+  font-size: 1em !important;
+}
+
+.calendarpicker-matrix-month .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    
+    color: black;
+    margin: 0;
+    
+    max-height: 6em;
+   /* height: 6em;
+    min-height: 6em;    */
+    line-height: 1em; 
+    
+    font-size: 1em !important;    
+    padding-top:0 !important;    
+}
+.calendarpicker-matrix-month .css-content-row {
+    height: 6em;
+    }
+
+.calendarpicker-matrix-month .calendarpicker-days {  /* General selector for all days in calendar */
+   border-right: 1px solid gray;   
+   border-bottom: 1px solid gray; 
+   border-left:  none;
+   border-top: none; 
+   text-align:  right;
+    
+          
+   
+}
+.calendarpicker-matrix-month .calendarpicker-days2 {  
+    text-align:  left;
+    font-weight: bold;  
+}
+.calendarpicker-matrix-month .calendarpicker-holiday {  /* custom selector for holidays if defined via holidayDtArr[] */
+   background-color: none;
+}
+
+.calendarpicker-matrix-month .calendarpicker-selected {  /* custom selector for selected days as selected by user and defined in selDtArr[] */
+    /* used for quick select only */
+    background-color: #1985d0;       
+    color: white;
+    font-weight: bolder; 
+    border: 1px solid #0f4f7c;
+    border-radius: 0;  
+    -webkit-box-shadow: none;
+}
+
+.calendarpicker-matrix-month .calendarpicker-disabled {  /* custom selector for current day */
+   color: #808080;
+   font-weight: normal;    
+}
+
+.calendarpicker-matrix-month .calendarpicker-today { /* custom selector for current day */
+    background: none;
+    background-color: none;       
+    color: #d06318;
+    font-weight: bolder;   
+   
+}
+
+.calendarpicker-matrix-month .calendarpicker-header {
+  padding-top: .5em !important;
+  text-align: center;   
+}
+
+.calendarpicker-matrix-month .calendarpicker-header-rowtype{
+  max-height: 24px !important;
+  min-height: 24px !important;
+  height: 24px !important;
+  line-height: 24px;
+  font-size: .6em;
+  font-weight: bold;
+  padding-top: 0em !important;
+  color: black;
+}
+.calendarpicker-matrix-month .matrix-month-holiday {
+   background: url(cal-holiday.png) no-repeat center;        /* Images must be stored in ./resources/css/ directory as referenced */
+   background-size: 60% 60% !important;  
+   padding-right: 1em;
+   margin-left: 0em;     
+   line-height: .8em;   
+   text-align: left;
+}
+.calendarpicker-matrix-month .calendarpicker-legend-cls-override {  /* Use to override size of about backgrounds for legend */
+}
+
+.calendarpicker-matrix-month .calendarpicker-legend-cls-html {  /* style html in legend */
+   font-size: .6em !important;
+   font-weight: normal;
+   line-height: .8em;       
+   text-align: left;
+   padding-left: 0em;
+} 
+
+
+/*********************  BEGIN CUSTOM CSS FOR Matrix Day View **************************/
+.calendarpicker-matrix-day .calendarpicker-month {
+    color: #1985d0;
+}
+
+.calendarpicker-matrix-day .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */    
+  color: #1985d0;
+  background: none !important;
+  background-color: white;
+  border-top: none;-bottom: none;
+  font-weight: bold;
+  min-height: 32px !important; 
+  height: 32px !important; 
+  max-height: 32px !important; 
+  padding: 0.5 0 0 0 !important; 
+  -webkit-box-shadow: none;  
+}
+
+.calendarpicker-matrix-day .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+   
+}
+
+.calendarpicker-matrix-day .calendarpicker-days {  /* General selector for all days in calendar */
+  font-weight: normal;
+  color: gray;
+}
+.calendarpicker-matrix-day .calendarpicker-holiday {  /* custom selector for holidays if defined via holidayDtArr[] */
+  background-color: #FFDD7B;        
+}
+.calendarpicker-matrix-day .calendarpicker-selected {  /* custom selector for selected days as selected by user and defined in selDtArr[] */
+    /* used for quick select only */
+    background-color: #1985d0;       
+    color: white;
+    font-weight: bolder; 
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+}
+
+.calendarpicker-matrix-day .calendarpicker-disabled {  /* custom selector for current day */
+  
+}
+
+.calendarpicker-matrix-day .calendarpicker-today { /* custom selector for current day */
+    background: none;
+    background-color: #d06318;       
+    color: #e5e5e5;
+    font-weight: bolder;      
+}
+
+.calendarpicker-matrix-day .calendarpicker-header {
+ 
+}
+
+.calendarpicker-matrix-day .calendarpicker-header-rowtype{
+  max-height: 16px !important;
+  min-height: 16px !important;
+  height: 16px !important;
+  line-height: 16px;
+  font-size: .6em;
+  font-weight: bold;
+  padding-top: 0em !important;
+  color: black;
+}
+.calendarpicker-matrix-day .x-scroll-container { /* background Scroll container same color as category rows */
+    background-color: white;
+}
+
+/*********************  BEGIN CUSTOM CSS FOR YearMonth Selector **************************/
+
+/* 2.1 selectors to eliminate lines  ... 2nd set is for Touch 2.2 */
+.x-touchtreegrid-list-yearMoCont .x-list-normal .x-list-item .x-dock-horizontal,
+.x-touchtreegrid-list-yearMoCont .x-list-normal .x-list-item.x-list-item-tpl{
+   border: none; 
+}
+
+.x-touchtreegrid-list-yearMoCont .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    background-color: white;   
+    font-weight: bold;
+    font-size: 15px !important;
+    padding:.4em 0 0 0;    
+}
+
+.x-touchtreegrid-list-yearMoCont .x-touchtreegrid-item { 
+    background-color: white;
+}
+
+.x-touchtreegrid-list-yearMoCont .touchtreegrid-list-categ { 
+   font-weight: bolder;
+   font-size: 15px !important;
+   min-height:2.0em !important; 
+   padding:0.4em 0 0 0 !important;    
+   font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;    
+} 
+
+.x-touchtreegrid-list-yearMoCont .yearMoSel-months {
+    color: black;
+    text-align: center;
+}
+
+.x-touchtreegrid-list-yearMoCont .yearMoSel-months-curr {
+    background: none;
+    background-color: #d06318;       
+    color: #e5e5e5;
+    font-weight: bolder;     
+}
+
+.x-touchtreegrid-list-yearMoCont .yearMoSel-years {
+    text-align: center;
+    color: #1985d0;
+    font-weight: bolder;
+}
+.x-touchtreegrid-list-yearMoCont .yearMoSel-selected {
+    /* used for quick select only */
+    background-color: #1985d0;       
+    color: white;
+    font-weight: bolder; 
+    border: 1px solid #0f4f7c;
+    border-radius: 0;  
+    -webkit-box-shadow: none;  
+}

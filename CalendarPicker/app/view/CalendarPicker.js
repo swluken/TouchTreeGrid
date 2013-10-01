@@ -53,6 +53,14 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
         monthsToInsertRefreshText: 'Release to Insert Months...',
         expandCurrentMonth: true,
         monthNodeHeightInPixels: 32,
+        matrixView: false,
+        matrixRows: 99,
+        matrixCols: 3,
+        disableListScroll: false,
+        matrixItemHeight: '13.5em',
+        customDatesLegendScrollDock: 'fixed',
+        allowMatrixMonthAdditions: false,
+        matrixItem6WeekHeight: '15em',
         cls: 'x-touchtreegrid-list-calendar',
         itemId: 'calendarpicker',
         hideOnMaskTap: false,
@@ -233,22 +241,10 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
                 cls: 'customDates-default'
             }
         ],
+        matrixContainer: {
+            
+        },
         items: [
-            {
-                xtype: 'toolbar',
-                cls: 'calendarpicker-toolbar',
-                docked: 'top',
-                itemId: 'calendarpicker-toolbar',
-                ui: 'plain',
-                title: ''
-            },
-            {
-                xtype: 'container',
-                cls: 'calendarpicker-legend',
-                docked: 'top',
-                html: '',
-                itemId: 'calendarpicker-legend'
-            },
             {
                 xtype: 'touchtreegrid',
                 store: '',
@@ -353,11 +349,7 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
         this.callParent();
 
 
-        var me
-        = this, i, newCls, newCls2;
-
-        var titleBar = me.down('#calendarpicker-toolbar');
-        if (me.getHideTitleBar()) {titleBar.hide();}
+        var me = this, i, newCls, newCls2;
 
         var gridcont = this.down('#calendar');
         var gridlist = this.down('#calendarlist');
@@ -368,11 +360,88 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
         me.gridlist = gridlist;
         me.scroller = scroller;
 
+        var tempstore = gridlist.getStore(); // Created when TouchTreeGrid is instantiated without a store reference
+        if (!Ext.isEmpty(tempstore)) {
+            Ext.data.StoreManager.unregister(tempstore); // remove from store manager
+        }
+
+        if (me.getMatrixView()) {
+            me.matrixPrep(me.config);
+            return;
+        }
+
+        var matrixItem = me.config.matrixItem;  // would be undefined for non-Matrix implementations
+
+        var titleBar, legend;  // Only add if needed
+        if (!me.getHideTitleBar()) {
+            titleBar = {
+                xtype: 'toolbar',
+                cls: 'calendarpicker-toolbar',
+                docked: 'top',
+                itemId: 'calendarpicker-toolbar',
+                ui: 'plain',
+                title: me.getTitle()
+            };
+            me.add(titleBar);
+        }    
+
+        var customDatesLegendScrollDock = me.getCustomDatesLegendScrollDock();
+        if (me.getIncludeCustomDatesLegend()) {
+
+            legend =   {
+                xtype: 'component',
+                cls: 'calendarpicker-legend',
+                html: '',
+                itemId: 'calendarpicker-legend'
+            };
+
+
+            // If Matrix View only want to add for first month in sequence
+            if (!Ext.isEmpty(matrixItem)) {
+                if (me.config.seq === 0 )  {   
+                    var matrixContainer = matrixItem.getMatrixContainer();
+                    if (!Ext.isEmpty(matrixContainer))  {
+                        var customMatrixCls = matrixItem.getCustomCls().join(' ');  
+                        legend.cls = customMatrixCls + ' ' + legend.cls;      // Prefix with CLS for initializing Matrix container for constistent styling application                            
+                        legend.docked = 'top';                
+                        matrixContainer.add(legend);
+                        me.legend = matrixContainer.down('#calendarpicker-legend');  // save for createStore()
+                    }
+                }
+            } else {
+                if (customDatesLegendScrollDock === 'top') {
+                    legend.scrollDock = 'top';      // dock to scrolling list at top
+                    gridlist.add(legend);
+                }
+                else if (customDatesLegendScrollDock === 'bottom') {
+                    legend.scrollDock = 'bottom';  // dock to scrolling list at bottom
+                    gridlist.add(legend);
+                }
+                else if (customDatesLegendScrollDock === 'both') {
+                    legend.scrollDock = 'top';      // dock to scrolling list at top
+                    gridlist.add(legend);
+
+                    legend.scrollDock = 'bottom';  // also dock to scrolling list at bottom
+                    legend.itemId = 'calendarpicker-legend2';
+                    gridlist.add(legend);
+                    me.legend2 = me.down('#calendarpicker-legend2');  // save for createStore()            
+                }        
+                else {
+                    legend.docked = 'top';
+                    me.add(legend);  // add to container and dock to top
+                }
+
+                me.legend = me.down('#calendarpicker-legend');  // save for createStore()
+            }
+        }
+
+
+
         // Pass common configs from CalendarPicker component to underlying TouchTreeGrid component
         gridcont.setCategColumns(me.getCategColumns());
         gridcont.setColumns(me.getColumns());
         gridcont.setRenderers(me.getRenderers());
-        me.down('#calendarpicker-toolbar').setTitle(me.getTitle());
+
         gridcont.setIncludeFooter(me.getIncludeFooter());
         gridcont.setSingleExpand(me.getSingleExpand());
         gridcont.setDisableExpandCollapse(me.getDisableExpandCollapse());
@@ -397,7 +466,6 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
         gridcont.setCustomFooterItems(me.getCustomFooterItems());
         gridcont.setIncludeCustomFooterItems(me.getIncludeCustomFooterItems());
 
-
         var customCls=me.getCustomCls();
         if (!Ext.isEmpty(customCls)) {
             newCls = gridcont.getCls().slice(0);  // need to clone and setCls() below to work correctly
@@ -418,17 +486,16 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
 
         // Deal with race-condition where footer is applied even though calling routine requests not to
         var myFooter = this.down('#touchtreegridbuttons');
-        if (!Ext.isEmpty(myFooter) && !this.getIncludeFooter()) {
-            myFooter.hide();
-        }
         var myFooterExpCollHide = this.down('#touchtreegridsegmentedbuttons');
         if (!Ext.isEmpty(myFooterExpCollHide) && this.getHideExpandCollapseBtns()) {
-            myFooterExpCollHide.hide();
+            myFooterExpCollHide.destroy();
         }
         if (myFooter.getDocked() !== this.getFooterDock()) {
             myFooter.setDocked(this.getFooterDock());
         }
-
+        if (!Ext.isEmpty(myFooter) && !this.getIncludeFooter()) {
+            myFooter.destroy();
+        }
 
         if (this.getIncludeFooter() && this.getUseIconsForExpCollapse()) {
             /* shrink exp/collapse button widths by using arrow icons */
@@ -481,23 +548,251 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
 
         me.createStore(me, gridcont, gridlist);
 
+
         // Handle leafItemTap event from TouchTreeGrid for day selection processing
         gridcont.on('leafItemTap', me.onLeafItemTap, me);
 
-        // Handle monthExpCollapse event from TouchTreeGrid for rapid expand/collapse
-        gridcont.on('monthExpCollapse', me.onExpCollapse, me);
 
         // Add listener when this component is destroyed to also destroy associated Store
         me.on('destroy', me.onDestroy, me);
 
-        // Add listener for Pull to Add Months event
-        me.on('insertMonths', me.onInsertMonths, me);
-
-        // Add listener for when list is shown to then scroll to designated node
-        scroller.on('refresh',  me.onScrollerRefresh, me);
 
 
+        if (!me.getMatrixView()) {
+            // Add listener for Pull to Add Months event
+            if (me.getAllowMonthAdditions()) {
+                me.on('insertMonths', me.onInsertMonths, me);
+            }    
 
+            // Handle monthExpCollapse event from TouchTreeGrid for rapid expand/collapse
+            gridcont.on('monthExpCollapse', me.onExpCollapse, me);
+
+            // Add listener for when list is shown to then scroll to designated node    
+            scroller.on('refresh',  me.onScrollerRefresh, me);
+        }
+
+
+
+
+    },
+
+    matrixPrep: function(parentConfig, addMode) {
+        var me = this, i, j;
+
+        //Copy parentConfig to keys and values arrays
+        var keys = Ext.Object.getKeys(parentConfig); 
+        var values = Ext.Object.getValues(parentConfig);
+
+        var matrixCols = me.getMatrixCols();
+        var matrixRows = me.getMatrixRows();
+        var monthsToAppend = me.getMonthsToAppend();
+        var matrixContainer = me.getMatrixContainer(); 
+        var parItemId = me.getItemId();
+        var matrixItemHeight = me.getMatrixItemHeight();
+        var matrixItem6WeekHeight = me.getMatrixItem6WeekHeight();
+        matrixItem6WeekHeight = (Ext.isEmpty(matrixItem6WeekHeight) ? matrixItemHeight : matrixItem6WeekHeight);
+
+
+
+        var skipKeys = ['control', 'layout', 'comments', 'filter', 'items', 'itemId',
+            'columns', 'categColumns',
+            'matrixView', 'matrixCols', 'matrixRows', 'matrixContainer',
+            'returnItem', 'backMonths', 'forwardMonths','disableExpandCollapse',
+            'selectMode', 'defaultCollapseLevel', 'hideTitleBar', 'includeFooter'];
+
+        var calendarKeys = {  
+            //  xtype: 'calendarpicker',
+            flex: 1,
+            //  layout: {type: 'fit'},  
+            selectMode: 'NONE',
+            defaultCollapseLevel: 99,
+            disableExpandCollapse: true,
+            hideTitleBar: true,
+            includeFooter: false,
+            disableListScroll: true
+        };
+
+        // Build Calendar instance object
+        for (i=0; i<keys.length; i++) {
+            if (skipKeys.indexOf(keys[i]) === -1) {  // ignore if in skipKeys[]
+                calendarKeys[keys[i]] = values[i];
+            }
+        }
+
+        if (matrixContainer.getLayout().config.type !== 'fit') {
+            console.log(matrixContainer);
+            console.log('Container must be of type fit');
+            Ext.Msg.alert('Matrix Container must be of type fit');
+            return;
+        }
+
+        var thisRow, rowArr=[], items, customCls, thisCls, matrixItems=[], thisFirstDt, thisYearMonth, numRows,
+            numRowsPrior=0, numItemsPrior=0;
+
+        var backMoInp = me.getBackMonths(), fwdMoInp = me.getForwardMonths();
+        var backMo=Ext.isEmpty(backMoInp) ? 0 : backMoInp;  // allow negatives to support future start months
+        var fwdMo=Ext.isEmpty(fwdMoInp) ? 0 : fwdMoInp;
+
+
+        var totMonths = fwdMo + backMo;
+
+        if (addMode) { // Increment new ForwardMonths value and range
+            backMo = (-1*fwdMo);  
+            fwdMo = fwdMo + monthsToAppend;
+            me.setForwardMonths(fwdMo);  // Save new value to component 
+
+            totMonths = monthsToAppend; // override for addMode
+
+            matrixItems = me.matrixItems;
+            numItemsPrior = me.currentNumItems;
+            numRowsPrior = me.currentMatrixRows;    
+        } 
+
+        var today= Ext.Date.clearTime(new Date(Date(Ext.Date.now())), true);
+        var firstdt = Ext.Date.clearTime(Ext.Date.getFirstDateOfMonth(today), true);
+
+        // Loop for each month and render independently in Matrix View
+        thisRow = 0;
+        i=0;  // initialize
+        do {
+            // Insert row of containers 
+            items=[];
+            for (j=0; j<matrixCols; j++) {
+                thisMo = backMo - i;   //  3 to 6: backMo iterates as  3, 2, 1, 0, -1, -2, -3, -4, -5, -6
+                // -3 to 6: backMo iterates as -3, -4, -5, -6
+                thisFirstDt = Ext.Date.clearTime(Ext.Date.add(firstdt, Ext.Date.MONTH, -1*thisMo), true);
+                thisYearMonth = Ext.Date.format(thisFirstDt, 'Y')+Ext.Date.format(thisFirstDt, 'm');
+
+                if (i>=totMonths) {
+                    matrixItems.push({
+                        xtype: 'container',
+                        itemId: parItemId+'_'+(numItemsPrior + i).toString(),
+                        layout: {type: 'fit'},
+                        flex: 1,
+                        row:  numRowsPrior + thisRow,
+                        col: j,
+                        seq: numItemsPrior + i,
+                        cls: 'calendarpicker-matrix-item ' + (j===matrixCols-1 ? 'matrix-column-last' : 'matrix-column') +' matrix-column-empty',
+                        yearMonth: thisYearMonth
+                    });
+
+                } else {
+                    customCls = me.getCustomCls().join(' ');  
+                    thisCls = customCls + ' calendarpicker-matrix-item ' + (j===matrixCols-1 ? 'matrix-column-last' : 'matrix-column');
+
+                    matrixItems.push({
+                        xtype: 'calendarpicker',
+                        itemId: parItemId+'_'+(numItemsPrior + i).toString(),
+                        // each calendar will have unique ID beginning with parent itemId suffixed with calendar sequence            
+                        row:  numRowsPrior + thisRow,
+                        col: j,
+                        seq: numItemsPrior + i,
+                        cls: thisCls,
+                        backMonths: thisMo,
+                        forwardMonths: -1*thisMo,
+                        yearMonth: thisYearMonth
+                    });
+                }
+                i++;
+            }
+            rowArr.push({
+                xtype: 'container',
+                cls: (i>=totMonths ? 'matrix-row-last' : 'matrix-row'),
+                minHeight: matrixItemHeight,
+                maxHeight: matrixItemHeight,
+                height: matrixItemHeight,
+                width: '100%',
+
+                layout: {type: 'hbox'},
+                row:  numRowsPrior + thisRow,
+                itemId: 'matrixRow_'+(numRowsPrior + thisRow).toString()
+            });
+
+            thisRow++;
+            if (thisRow >= matrixRows) {break;} // don't insert more rows than requested
+
+        } while (i<totMonths);
+        numRows = thisRow--;
+
+        // Store matrixItems[] with parent component for other uses
+        me.matrixItems = matrixItems; 
+        me.currentMatrixRows = numRowsPrior + numRows;
+        me.currentNumItems = numItemsPrior + totMonths;
+
+
+        if (me.getAllowMatrixMonthAdditions() && addMode) {  // Remove and add back to simplify addition of matrix items
+            matrixContainer.down('#calendarpicker-matrix-add').destroy();
+        }
+
+        if (addMode) {
+            // Insert rows after prior set 
+            matrixContainer.down('#'+parItemId+'_matrix').add(rowArr);
+        } else {    
+
+            matrixContainer.add({
+                xtype: 'container',
+                itemId: parItemId+'_matrix',
+                scrollable: 'vertical',
+                cls: 'calendarpicker-matrix',
+                layout: 'default',
+                items: rowArr
+            });
+        }    
+
+        // Need to add grid items after parent containers have been instantiated to work correctly
+        var thisRowItem, thisItem, getDts;
+        k=0+numItemsPrior;
+        for (i=0; i<numRows; i++) {
+
+            thisRowItem=matrixContainer.down('#'+rowArr[i].itemId);
+            for (j=0; j<matrixCols; j++) {
+
+                if (matrixItems[k].xtype === 'container') {
+                    thisRowItem.add(matrixItems[k]);
+                }
+                else if (matrixItems[k].xtype === 'calendarpicker') {
+                    calendarKeys['cls']           = matrixItems[k].cls;
+                    calendarKeys['backMonths']    = matrixItems[k].backMonths;
+                    calendarKeys['forwardMonths'] = matrixItems[k].forwardMonths;
+                    calendarKeys['itemId']        = matrixItems[k].itemId; 
+                    calendarKeys['matrixItem']    = me;  
+                    calendarKeys['yearMonth']     = matrixItems[k].yearMonth;  
+                    calendarKeys['row']           = matrixItems[k].row;             
+                    calendarKeys['col']           = matrixItems[k].col;             
+                    calendarKeys['seq']           = matrixItems[k].seq;    
+
+                    getDts = Ext.create('widget.calendarpicker', calendarKeys);
+                    if (getDts.numWeeks === 6) {
+                        thisRowItem.setMaxHeight(matrixItem6WeekHeight);
+                        thisRowItem.setMinHeight(matrixItem6WeekHeight);
+                        thisRowItem.setHeight(matrixItem6WeekHeight);
+                    }
+                    thisRowItem.add(getDts);
+                }
+                k++;
+            }
+        }
+
+
+
+        // Add listener to Add Months event
+        if (me.getAllowMatrixMonthAdditions()) {
+            matrixContainer.down('#'+parItemId+'_matrix').add({
+                xtype: 'titlebar',
+                cls: 'calendarpicker-matrix-add',
+                itemId: 'calendarpicker-matrix-add',
+                ui: 'plain',
+                title: me.getMonthsToAppendText(),
+                listeners: {
+                    tap: {
+                        fn: me.onAppendMatrixMonths,
+                        scope: me,
+                        element: 'element'
+                    }        
+                }       
+            });  
+
+        }   
 
     },
 
@@ -506,7 +801,7 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
 
 
         var backMo=Ext.isEmpty(backMoInp) ? 0 : backMoInp;  // allow negatives to support future start months
-        var fwdMo=Ext.isEmpty(fwdMoInp) ? 0 : Math.abs(fwdMoInp);
+        var fwdMo=Ext.isEmpty(fwdMoInp) ? 0 : fwdMoInp;
 
         var selDtArr = me.getSelDtArr();
         var holidayDtArr = me.getHolidayDtArr();
@@ -539,40 +834,67 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
         var customDtArr = me.getCustomDtArr();
         var customDtArrMod = [], storeId, store;
         var includeCustomDatesLegend = me.getIncludeCustomDatesLegend();
-        var legend = me.down('#calendarpicker-legend');
+        var legend = me.legend;  // updated in initialize() for matrix for standard calendars
         var legendHtml='';
 
-        for (i=0; i<customDateTypes.length; i++) {
-            if (customDateTypes[0].customType==='default' && customDateTypes[0].useCustomDtArr && customDtArr.length>0) {
-                // Use customDtArr as provided if default entry found in 1st index position and dates have been supplied in customDtArr[]
-                for (j=0; j<customDtArr.length; j++) {
-                    customDtArrMod.push({customType: 'default', dateStr: customDtArr[j], descr: ''});
-                }
-                break;
-            }
+        var matrixItem = me.config.matrixItem;  // would be undefined for non-Matrix implementations
 
-            // Else process one or more customDateTypes as defined in customDateTypes[] by building customDtArrMod[] for each customType 
-            // Custom Dates must be provided from store 
-            storeId = customDateTypes[i].storeId;
-            store = Ext.data.StoreManager.getByKey(storeId);
-            if (!Ext.isEmpty(store)){
-                // Loop through store and update customDtArrMod[] for matching rows for current customType
-                store.each(function (item, index, length) {
-                    var htmlDescr = (Ext.isEmpty(item.get('descr')) ? '' : item.get('descr'));
-                    if (item.get('customType')===customDateTypes[i].customType) {
-                        customDtArrMod.push({customType: customDateTypes[i].customType, dateStr: item.get('dateStr'), descr: htmlDescr});
-                        if (customDateTypes[i].disabled) {
-                            disableDtArr.push(item.get('dateStr'));
-                        }
-                    }
-                });           
-            }
 
-            // Update HTML for Custom Dates Legend if applicable  (order of customType definition)
-            legendHtml = legendHtml + (Ext.isEmpty(legendHtml) ? '' : '<br>') + 
-            '<span class="'+customDateTypes[i].cls+' calendarpicker-legend-cls-override">&nbsp;</span>'+customDateTypes[i].customDescr;
+        // Only process custom dates from store for 1st calendar in Matrix if applicable
+        if (!Ext.isEmpty(matrixItem) && me.config.seq > 0 )  {   
+            customDtArrMod = matrixItem.customDtArrMod;
+            disableDtArr   = matrixItem.disableDtArr;
         }
-        if (includeCustomDatesLegend && customDtArrMod.length>0) {legend.setHtml(legendHtml);}
+        else {  
+            for (i=0; i<customDateTypes.length; i++) {
+
+                if (customDateTypes[0].customType==='default' && customDateTypes[0].useCustomDtArr && customDtArr.length>0) {
+                    // Use customDtArr[] as provided if default entry found in 1st index position and dates have been supplied in customDtArr[]
+                    for (j=0; j<customDtArr.length; j++) {
+                        customDtArrMod.push({customType: 'default', dateStr: customDtArr[j], descr: ''});
+                        if (customDateTypes[0].disabled) {
+                            disableDtArr.push(customDtArr[j]);
+                        }                  
+                    }
+                    break;
+                }
+
+                // Else process one or more customDateTypes as defined in customDateTypes[] by building customDtArrMod[] for each customType 
+                // Custom Dates must be provided from store 
+                storeId = customDateTypes[i].storeId;
+                store = Ext.data.StoreManager.getByKey(storeId);
+                if (!Ext.isEmpty(store)){
+                    // Loop through store and update customDtArrMod[] for matching rows for current customType
+                    store.each(function (item, index, length) {
+                        var htmlDescr = (Ext.isEmpty(item.get('descr')) ? '' : item.get('descr'));
+                        if (item.get('customType')===customDateTypes[i].customType) {
+                            customDtArrMod.push({customType: customDateTypes[i].customType, dateStr: item.get('dateStr'), descr: htmlDescr});
+                            if (customDateTypes[i].disabled) {
+                                disableDtArr.push(item.get('dateStr'));
+                            }
+                        }
+                    });           
+                }
+
+                // Update HTML for Custom Dates Legend if applicable  (order of customType definition)
+                legendHtml = legendHtml + (Ext.isEmpty(legendHtml) ? '' : '<br>') + 
+                '<span class="'+customDateTypes[i].cls+' calendarpicker-legend-cls-override">&nbsp;</span><span class=" calendarpicker-legend-cls-html">'+customDateTypes[i].customDescr+'</span>';
+            }
+
+            if (!Ext.isEmpty(matrixItem))  {
+                // Store arrays created for initial calendar for subseqent calendar processing
+                matrixItem.customDtArrMod = customDtArrMod;
+                matrixItem.disableDtArr = disableDtArr;
+            }    
+        }
+
+        if (includeCustomDatesLegend && customDtArrMod.length>0 && !Ext.isEmpty(legend)) {
+            // legend container only added once for first calendar in matrix ... see initialize() method
+            legend.setHtml(legendHtml);
+            if (!Ext.isEmpty(me.legend2)) {
+                me.legend2.setHtml(legendHtml);  // optional bottom legend set in initialize()
+            }
+        }
 
 
         // Sort customDateTypes by descending priority when applying CLS
@@ -716,6 +1038,7 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
 
 
         } while (dt < endLastDt);
+        me.numWeeks = (weekNum-1);  // Used to adjust matrix heights in matrixPrep() for 6-week months
 
         // Now define and load store from array  (denormalize in store for better rendering performance)
         var fields = [{name: 'month',type: 'string'},{name: 'mo',type: 'string'}, {name: 'year',type: 'string'},{name: 'numDays',type: 'int'},
@@ -737,7 +1060,7 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
             {name: 'isDisabled_dow1', type: 'boolean'},
             {name: 'isHoliday_dow1', type: 'boolean'},
             {name: 'customCls_dow1', type: 'string'},
-            {name: 'customHtml_dow01', type: 'string'},
+            {name: 'customHtml_dow1', type: 'string'},
             {name: 'holidayHtml_dow1', type: 'string'},
 
             {name: 'isDisabled_dow2', type: 'boolean'},
@@ -900,6 +1223,9 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
         }
 
         var refreshed = gridcont.doRefreshList(true);  
+
+        if (me.getDisableListScroll()) {gridlist.getScrollable().getScroller().setDisabled(true);}
+
 
 
 
@@ -1170,6 +1496,10 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
         this.scroller.scrollToEnd();
 
 
+    },
+
+    onAppendMatrixMonths: function() {
+        this.matrixPrep(this.config, true);
     },
 
     getTree: function(list, rootId, expLevel, fldListArr, hasTopRoot, filterOpts) {

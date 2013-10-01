@@ -1,0 +1,318 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "cls": [
+            "matrix-view"
+        ],
+        "itemId": "matrixView",
+        "style": "background-color: white;",
+        "ui": "light",
+        "designer|userClassName": "matrixView",
+        "designer|userAlias": "matrixView",
+        "layout": "card"
+    },
+    "designerId": "fc4e1f42-7ae2-48c5-9985-07f40723fd6a",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "ui": "light"
+            },
+            "designerId": "0f5a6a16-15ab-4c18-9ffc-a695055b209f",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "matrixViewBackBtn",
+                        "ui": "back",
+                        "text": "Back"
+                    },
+                    "designerId": "e5fc03f4-1899-4366-8ccf-f7a1835e157e"
+                },
+                {
+                    "type": "Ext.SegmentedButton",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "matrixViewSegBtn"
+                    },
+                    "designerId": "e8fc2f08-81c2-466a-a374-6450a7d6b764",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "pressed": true,
+                                "itemId": "matrixViewYearBtn",
+                                "text": "Year"
+                            },
+                            "designerId": "0d439fcb-8511-4278-9347-2c28fa3344af"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "matrixViewMonthBtn",
+                                "text": "Month"
+                            },
+                            "designerId": "5d696e59-6f38-48b8-b01a-7e40a4247ee3"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "matrixViewListBtn",
+                                "text": "List"
+                            },
+                            "designerId": "38fb29ac-56c2-4e33-a014-a36aa0e49305"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "matrixViewDayBtn",
+                                "text": "Day"
+                            },
+                            "designerId": "978ac658-9dab-4950-bb05-5ffb8b5f9dc6"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "",
+                        "itemId": "matrixViewLabel",
+                        "style": "margin-left: 1em;"
+                    },
+                    "designerId": "16bd14ad-94fb-4965-aa51-3f58dfe585d4"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "yearView",
+                "margin": "1em",
+                "style": "border: 1px solid blue;",
+                "layout": "fit"
+            },
+            "designerId": "9c0a43b7-5b66-4643-aabc-5ec62874d702"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "monthView",
+                "margin": "1em",
+                "padding": null,
+                "style": "border: 1px solid blue;",
+                "layout": "fit"
+            },
+            "designerId": "e60d3c48-25bb-4246-8a7a-3ddcbad30d95"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": "More Later...",
+                "itemId": "listView",
+                "style": "border: 1px solid blue; background-color: white;",
+                "layout": "fit"
+            },
+            "designerId": "a416e307-6ce3-47d7-b331-10143da2a48b"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "dayView",
+                "maxWidth": "40em",
+                "style": "background-color: white; border: 1px solid gray; margin: 1em;",
+                "layout": "vbox"
+            },
+            "designerId": "d3d0327b-eb0b-41f4-b0b0-b76d800fd601",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": "10em",
+                        "html": null,
+                        "style": "border-bottom: 1px solid gray; margin: 0 1em 0 1em;",
+                        "layout": "hbox"
+                    },
+                    "designerId": "5258a12f-d4fe-4d1f-8353-6e3e50fe5dec",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "html": null,
+                                "style": "  font-weight: normal;   color: gray;",
+                                "layout": "vbox"
+                            },
+                            "designerId": "9e51133c-8f56-4aad-8f30-176a343d34f4",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": 1,
+                                        "html": "21",
+                                        "itemId": "dayViewBigDay",
+                                        "style": "font-size: 5em;",
+                                        "layout": "fit"
+                                    },
+                                    "designerId": "cb25a48a-c748-4feb-a1f2-1659d22f27c2"
+                                },
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": 1,
+                                        "html": "Saturday, September 21<br>2013",
+                                        "itemId": "dayViewDayName",
+                                        "style": "font-size: 1.5em; margin-top: 1em;",
+                                        "layout": "fit"
+                                    },
+                                    "designerId": "1d94dcd5-ae72-4d65-8db6-9a4e8b8e3089"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "html": null,
+                                "itemId": "dayViewMoCal",
+                                "margin": null,
+                                "style": null,
+                                "width": "17em",
+                                "layout": "fit"
+                            },
+                            "designerId": "31a2c00f-a130-4a10-848e-e512ba3e0b45"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "listeners": [
+                            "{\r",
+                            "  swipe: {\r",
+                            "      fn: function(e) {\r",
+                            "          this.up('#dayView').fireEvent('dayViewSwipe', this.up('#dayView'), e);\r",
+                            "      },\r",
+                            "      element: 'element'\r",
+                            "  }\r",
+                            "}"
+                        ],
+                        "layout|flex": 1,
+                        "html": "List detail for selected day...",
+                        "itemId": "dayViewListDetail",
+                        "style": "border: solid 1px gray; margin: 1em .5em 1em .5em; ",
+                        "styleHtmlCls": "dayViewListDetail-html",
+                        "styleHtmlContent": true
+                    },
+                    "configAlternates": {
+                        "listeners": "object"
+                    },
+                    "designerId": "b7593867-0cbb-4cb0-bbf4-f8f01f27993b",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "listeners",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -163,7 +163,7 @@
         "dockFooterAboveHeader": "boolean",
         "hideExpandCollapseBtns": "boolean"
     },
-    "designerId": "84bbedcc-c5f1-43e4-a467-ca06fc95df99",
+    "designerId": "4a8cdce9-a270-4211-bff6-b4ce112cc15c",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
@@ -525,7 +525,7 @@
                     ""
                 ]
             },
-            "designerId": "db9f5d5a-02f0-4db8-8778-52f9e1a3cc3a"
+            "designerId": "a51c8949-c07e-405d-8916-d1969f6326a2"
         },
         {
             "type": "basicfunction",
@@ -571,18 +571,24 @@
                     "}\r",
                     "\r",
                     "var shellArr=[], i, k, categArr=[],\r",
-                    "    prefixArr = \r",
-                    "    [\r",
-                    "    '<div' + categStyle + categCss + '>',\r",
-                    "    '<p align=\"left\" style=\"width:{[(values.depth-1)*'+indent+']}%;\"</p>',    // 3% per depth starting at 0% \r",
-                    "    '<p align=\"left\" style=\"width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+'%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;\">', \r",
+                    "    prefixArr = ['<div' + categStyle + categCss + '>'];\r",
+                    "\r",
+                    "if (parseInt(indent) > 0) {\r",
+                    "    prefixArr.push('<div align=\"left\" style=\"width:{[(values.depth-1)*'+indent+']}%;\"></div>');  // 3% per depth starting at 0% \r",
+                    "}\r",
+                    "if (parseInt(arrowWid) > 0) {\r",
+                    "    prefixArr = prefixArr.concat([    \r",
+                    "    '<div align=\"left\" style=\"width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+'%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;\">', \r",
                     "    '<span class=\"touchtreegrid-details-img ',\r",
                     "    '<tpl if=\"this.isExpanded(values)\">',   \r",
-                    "    'touchtreegrid-details-img-open\" </span></p>',\r",
+                    "    'touchtreegrid-details-img-open' ,\r",
                     "    '<tpl else>',  \r",
-                    "    'touchtreegrid-details-img-close\" </span></p>',\r",
-                    "    '</tpl>'\r",
-                    "    ];\r",
+                    "    'touchtreegrid-details-img-close' ,\r",
+                    "    '</tpl>',\r",
+                    "    '\"</span>',\r",
+                    "    '</div>'\r",
+                    "    ]);\r",
+                    "}    \r",
                     "\r",
                     "if (categ==='' && !simpleList && Ext.isEmpty(categData)) {   \r",
                     "    // Process category row TPL (same TPL for all category rows defined via Columns array)\r",
@@ -608,17 +614,17 @@
                     "\r",
                     "        if (i===indentCol) {    \r",
                     "            // Subtract percentage width based on level          \r",
-                    "            shellArr.push('<p class=\"touchtreegrid-list-categ-cell ' + cssStr + '\" style=\"' +\r",
+                    "            shellArr.push('<div class=\"touchtreegrid-list-categ-cell ' + cssStr + '\" style=\"' +\r",
                     "            'min-width:{[' + data[i].width.replace(\"%\", \"\") + '-((values.depth-1)*'+indent+')]}% !important;' + \r",
                     "            'max-width:{[' + data[i].width.replace(\"%\", \"\") + '-((values.depth-1)*'+indent+')]}% !important;' + \r",
                     "            'width:{[' + data[i].width.replace(\"%\", \"\") + '-((values.depth-1)*'+indent+')]}% !important;' + \r",
-                    "            styleStr + '\"' + idxStr + ' >{' + rendStr + '}</p>');                       \r",
+                    "            styleStr + '\"' + idxStr + ' >{' + rendStr + '}</div>');                       \r",
                     "        } else {           \r",
-                    "            shellArr.push('<p class=\"touchtreegrid-list-categ-cell \" style=\"' +\r",
+                    "            shellArr.push('<div class=\"touchtreegrid-list-categ-cell \" style=\"' +\r",
                     "            'min-width:' + data[i].width + ' !important;' + \r",
                     "            'max-width:' + data[i].width + ' !important;' + \r",
                     "            'width:' + data[i].width + ' !important;' + \r",
-                    "            styleStr + '\"' + idxStr + ' >{' + rendStr + '}</p>');\r",
+                    "            styleStr + '\"' + idxStr + ' >{' + rendStr + '}</div>');\r",
                     "        }  \r",
                     "    }\r",
                     "\r",
@@ -653,17 +659,17 @@
                     "\r",
                     "        if (i===indentCol) {     \r",
                     "            // Subtract percentage width based on level             \r",
-                    "            shellArr.push('<p class=\"touchtreegrid-list-categ-cell ' + cssStr + '\" style=\"' +\r",
+                    "            shellArr.push('<div class=\"touchtreegrid-list-categ-cell ' + cssStr + '\" style=\"' +\r",
                     "            'min-width:{[' + categData[i].width.replace(\"%\", \"\") + '-((values.depth-1)*'+indent+')]}% !important;' + \r",
                     "            'max-width:{[' + categData[i].width.replace(\"%\", \"\") + '-((values.depth-1)*'+indent+')]}% !important;' + \r",
                     "            'width:{[' + categData[i].width.replace(\"%\", \"\") + '-((values.depth-1)*'+indent+')]}% !important;' + \r",
-                    "            styleStr + '\"' + idxStr + ' >{' + rendStr + '}</p>');                       \r",
+                    "            styleStr + '\"' + idxStr + ' >{' + rendStr + '}</div>');                       \r",
                     "        } else {           \r",
-                    "            shellArr.push('<p class=\"touchtreegrid-list-categ-cell ' + cssStr + '\" style=\"' +\r",
-                    "            'min-width:' + data[i].width + ' !important;' + \r",
-                    "            'max-width:' + data[i].width + ' !important;' + \r",
-                    "            'width:' + data[i].width + ' !important;' + \r",
-                    "            styleStr + '\"' + idxStr + ' >{' + rendStr + '}</p>');\r",
+                    "            shellArr.push('<div class=\"touchtreegrid-list-categ-cell ' + cssStr + '\" style=\"' +\r",
+                    "            'min-width:' + categData[i].width + ' !important;' + \r",
+                    "            'max-width:' + categData[i].width + ' !important;' + \r",
+                    "            'width:' + categData[i].width + ' !important;' + \r",
+                    "            styleStr + '\"' + idxStr + ' >{' + rendStr + '}</div>');\r",
                     "        }  \r",
                     "    }\r",
                     "\r",
@@ -675,16 +681,16 @@
                     "}\r",
                     "else {me.setCategItemTpl(categ);}  // simply update with TPL provided in CategItemTplOverride config (ignored for simpleList=true)\r",
                     "\r",
-                    "\r",
-                    "\r",
                     "var detail = me.getContentItemTplOverride();\r",
                     "var detailArr, j;\r",
                     "if (detail==='' && !simpleList) {\r",
-                    "    detailArr = [\r",
-                    "    '<div' + contentStyle + contentCss + '>',\r",
-                    "    '<p align=\"left\" style=\"width:{[(values.depth-1)*'+indent+']}%;\"</p>',    // 3% per depth starting at 0%         \r",
-                    "    '<p align=\"left\" style=\"width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+'%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;\">&nbsp;</p>'\r",
-                    "    ];\r",
+                    "    detailArr = ['<div' + contentStyle + contentCss + '>'];  \r",
+                    "    if (parseInt(indent) > 0) {\r",
+                    "        detailArr.push('<div align=\"left\" style=\"width:{[(values.depth-1)*'+indent+']}%;\"></div>');    // 3% per depth starting at 0%         \r",
+                    "    }\r",
+                    "    if (parseInt(arrowWid) > 0) {\r",
+                    "        detailArr.push('<div align=\"left\" style=\"width:'+arrowWid+'%;min-width:'+arrowWid+'%;max-width:'+arrowWid+'%;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;\">&nbsp;</div>');\r",
+                    "    }\r",
                     "\r",
                     "    for (j=0; j<data.length; j++) {\r",
                     "\r",
@@ -698,19 +704,19 @@
                     "\r",
                     "        if (j===indentCol) {     \r",
                     "            // Subtract percentage width based on level\r",
-                    "            detailArr.push('<p class=\"touchtreegrid-list-content-cell ' + cssStr + '\" style=\"' +\r",
+                    "            detailArr.push('<div class=\"touchtreegrid-list-content-cell ' + cssStr + '\" style=\"' +\r",
                     "            'min-width:{[' + data[j].width.replace(\"%\", \"\") + '-((values.depth-1)*'+indent+')]}% !important;' + \r",
                     "            'max-width:{[' + data[j].width.replace(\"%\", \"\") + '-((values.depth-1)*'+indent+')]}% !important;' + \r",
                     "            'width:{[' + data[j].width.replace(\"%\", \"\") + '-((values.depth-1)*'+indent+')]}% !important;' + \r",
                     "            (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '\" ' + idxStr +\r",
-                    "            '>{' + rendStr + '}</p>');                  \r",
+                    "            '>{' + rendStr + '}</div>');                  \r",
                     "        } else {           \r",
-                    "            detailArr.push('<p class=\"touchtreegrid-list-content-cell ' + cssStr + '\" style=\"' +\r",
+                    "            detailArr.push('<div class=\"touchtreegrid-list-content-cell ' + cssStr + '\" style=\"' +\r",
                     "            'min-width:' + data[j].width + ' !important;' + \r",
                     "            'max-width:' + data[j].width + ' !important;' + \r",
                     "            'width:' + data[j].width + ' !important;' + \r",
                     "            (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '\" ' + idxStr + \r",
-                    "            '>{' + rendStr + '}</p>');\r",
+                    "            '>{' + rendStr + '}</div>');\r",
                     "        }          \r",
                     "\r",
                     "    }\r",
@@ -734,12 +740,12 @@
                     "\r",
                     "        cssStr = (Ext.isEmpty(data[j].css)) ? '' : data[j].css;        \r",
                     "\r",
-                    "        detailArr.push('<p class=\"touchtreegrid-simplelist-cell ' + cssStr + '\" style=\"' +\r",
+                    "        detailArr.push('<div class=\"touchtreegrid-simplelist-cell ' + cssStr + '\" style=\"' +\r",
                     "        'min-width:' + data[j].width + ' !important;' + \r",
                     "        'max-width:' + data[j].width + ' !important;' + \r",
                     "        'width:' + data[j].width + ' !important;' + \r",
                     "        (Ext.isEmpty(data[j].style) ? '' : data[j].style) + '\" ' + idxStr +\r",
-                    "        '>{' + rendStr + '}</p>');\r",
+                    "        '>{' + rendStr + '}</div>');\r",
                     "    }\r",
                     "\r",
                     "    //   detailArr.push('</div>');  \r",
@@ -749,7 +755,7 @@
                     ""
                 ]
             },
-            "designerId": "9cdd22e4-b8be-4042-8288-4202cb14fb84"
+            "designerId": "2be32a01-e728-4336-b43a-9840cca70d43"
         },
         {
             "type": "basicfunction",
@@ -785,7 +791,7 @@
                     "    newStore = Ext.create('Ext.data.Store', {fields: {\"name\" : \"dynamic\"}});\r",
                     "}\r",
                     "\r",
-                    "if (this.isObjectEmpty(list)) {\r",
+                    "if (this.isObjectEmpty(list)) {   \r",
                     "\r",
                     "    list = Ext.create('Ext.dataview.List', {   \r",
                     "        disableSelection: disableSel,\r",
@@ -833,7 +839,7 @@
                     "    var listItemId = me.getListItemId();\r",
                     "    if (listItemId !== '') {\r",
                     "        list.setItemId(listItemId);\r",
-                    "    }\r",
+                    "    } \r",
                     "\r",
                     "    // Update list with any additional configs defined in user-defined additionalListConfigs object\r",
                     "    // (this allows all configs supported by Ext.dataview.List component to be applied to TouchTreeGrid list\r",
@@ -847,7 +853,7 @@
                     "        }\r",
                     "    }\r",
                     "\r",
-                    "    me.add(list);\r",
+                    "    me.add(list);    \r",
                     "}\r",
                     "else {\r",
                     "    list.setStore(newStore);\r",
@@ -857,10 +863,11 @@
                     "\r",
                     "\r",
                     "\r",
+                    "\r",
                     ""
                 ]
             },
-            "designerId": "b2128e48-d3dd-49cd-a708-e3f466636916"
+            "designerId": "ffa5a732-6887-4392-bdf7-537749652095"
         },
         {
             "type": "basicfunction",
@@ -934,7 +941,7 @@
                     "}"
                 ]
             },
-            "designerId": "9a3d79e8-9540-4624-b1cc-a9362a3e1bb3"
+            "designerId": "6752fe6f-4ad3-4506-97f2-70f08d1a2e80"
         },
         {
             "type": "basicfunction",
@@ -957,10 +964,10 @@
                     "    });\r",
                     "\r",
                     "    return Ext.factory(config, Ext.Toolbar);\r",
-                    "}    "
+                    "}   "
                 ]
             },
-            "designerId": "81efdd90-bde0-4ecb-9bec-974fe644c908"
+            "designerId": "cf00b138-5a9a-4cc5-b7c1-6b05df59575d"
         },
         {
             "type": "basicfunction",
@@ -985,7 +992,7 @@
                     "}    "
                 ]
             },
-            "designerId": "e469fa21-e0a4-4a00-9a35-bf58aebfcdf5"
+            "designerId": "8b0fd997-c77a-4aa0-a395-f5190699d820"
         },
         {
             "type": "basicfunction",
@@ -1000,6 +1007,7 @@
                     "config"
                 ],
                 "implHandler": [
+                    "\r",
                     "var me = this;\r",
                     "var footerDock = me.getFooterDock();\r",
                     "var hideExpandCollapseBtns = me.getHideExpandCollapseBtns();\r",
@@ -1059,14 +1067,12 @@
                     "        }]\r",
                     "    });\r",
                     "\r",
-                    "\r",
-                    "\r",
-                    "\r",
                     "    return Ext.factory(config, Ext.Toolbar);\r",
-                    "}"
+                    "}\r",
+                    ""
                 ]
             },
-            "designerId": "0b5295dd-41ab-44dd-ae53-2096f4e0db57"
+            "designerId": "85acad91-74a9-4e9f-aec4-f79a19a6f29e"
         },
         {
             "type": "basicfunction",
@@ -1116,7 +1122,7 @@
                     ""
                 ]
             },
-            "designerId": "5318a154-4472-4f84-8da9-1641c6aa038a"
+            "designerId": "88035129-1f19-485a-a7f6-bc995cc864b0"
         },
         {
             "type": "basicfunction",
@@ -1226,11 +1232,11 @@
                     "        else if (!Ext.isEmpty(data[j].css)) {cssStr = data[j].css;}\r",
                     "        else {cssStr = '';}        \r",
                     "\r",
-                    "        headerTplArr.push('<p class=\"touchtreegrid-header-cell ' + cssStr + \r",
+                    "        headerTplArr.push('<div class=\"touchtreegrid-header-cell ' + cssStr + \r",
                     "        (!Ext.isEmpty(data[j].initSortCls) ? ' '+data[j].initSortCls : '') + // see comments in handleColumnSort()\r",
                     "        '\" style=\"min-width:' + data[j].width +' !important;' +\r",
                     "        'max-width:'+data[j].width + ' !important; width:' + data[j].width + ' !important;' +\r",
-                    "        styleStr + '\" dataIndex=\"'+data[j].dataIndex+'\">' + data[j].header + '</p>');               \r",
+                    "        styleStr + '\" dataIndex=\"'+data[j].dataIndex+'\">' + data[j].header + '</div>');               \r",
                     "    }\r",
                     "    headerTplArr.push('</div>');  \r",
                     "\r",
@@ -1323,7 +1329,7 @@
                     ""
                 ]
             },
-            "designerId": "6dda0cd5-e1fe-4074-bb86-053fc4486c3c"
+            "designerId": "d21d3f08-b9ac-4bbf-9577-2195a3a07af0"
         },
         {
             "type": "basicfunction",
@@ -1358,7 +1364,7 @@
                     "(decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : \"\") + suffix;"
                 ]
             },
-            "designerId": "7b64ae02-ec25-4210-b181-2081ae73577a"
+            "designerId": "16d7ec6d-0daa-46d1-96fb-67b539ce2ad0"
         },
         {
             "type": "basicfunction",
@@ -1381,7 +1387,7 @@
                     "return true;"
                 ]
             },
-            "designerId": "f731f9fe-2c96-4e23-8ca9-da14570e7d6c"
+            "designerId": "1c2d0a80-fb4d-446c-8833-ce4893590f6d"
         },
         {
             "type": "basicfunction",
@@ -1593,7 +1599,7 @@
                     ""
                 ]
             },
-            "designerId": "dd4c7668-220d-409a-bbe9-e6c9e4e81534"
+            "designerId": "9eb7b229-dc6a-4fad-bc5a-a01229cbd919"
         },
         {
             "type": "basicfunction",
@@ -1610,10 +1616,11 @@
                 "implHandler": [
                     "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
                     "    this.insert(0, footer);\r",
-                    "}"
+                    "}\r",
+                    ""
                 ]
             },
-            "designerId": "a1e6884f-ac45-457c-876c-b7bf81db7be4"
+            "designerId": "31f139e9-f35c-433a-b6a5-dc40929ba807"
         }
     ]
 }

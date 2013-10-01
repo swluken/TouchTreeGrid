@@ -57,7 +57,7 @@ PLANNED ENHANCEMENTS TO TouchTreeGrid:
 PLANNED ENHANCEMENTS TO CalendarPicker:      
 
    - Auto-generation of re-occuring custom dates with descriptions (i.e. anniverseries, birthdates, meetings, etc)
-   - Day Planner support
+   - Continued Day Planner support
    - Feature to expand/collapse months using user-defined Function 
    - Horizontal scrolling calendars
    - Optional categorize by Year feature.

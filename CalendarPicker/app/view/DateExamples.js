@@ -162,6 +162,7 @@ Ext.define('CalendarPicker.view.DateExamples', {
                                 height: '',
                                 html: 'Kayak Droid/IOS-style selection (collapsible)',
                                 maxHeight: '3em',
+                                maxWidth: '75%',
                                 minHeight: '1.5em',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
@@ -292,6 +293,7 @@ Ext.define('CalendarPicker.view.DateExamples', {
                                 height: '',
                                 html: 'Range selection in same calendar popup',
                                 maxHeight: '3em',
+                                maxWidth: '75%',
                                 minHeight: '1.5em',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
@@ -300,7 +302,6 @@ Ext.define('CalendarPicker.view.DateExamples', {
                     },
                     {
                         xtype: 'container',
-                        height: '7em',
                         itemId: 'example2B',
                         style: 'border: 1px solid gray;',
                         layout: {
@@ -423,8 +424,7 @@ Ext.define('CalendarPicker.view.DateExamples', {
                                 docked: 'bottom',
                                 height: '',
                                 html: 'Range selection - IOS Style Calendar.  Demonstrates option at end of list to append more months.',
-                                maxHeight: '3em',
-                                minHeight: '1.5em',
+                                maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
                             }
@@ -478,9 +478,8 @@ Ext.define('CalendarPicker.view.DateExamples', {
                                 xtype: 'container',
                                 docked: 'bottom',
                                 height: '',
-                                html: 'Single Date Selection (Form Field example), Future Dates Disabled. IOS Style Calendar.  Demonstrates pull-refresh style option to insert more months at beginning.',
-                                maxHeight: '5em',
-                                minHeight: '2em',
+                                html: 'Single Date Selection (Form Field example), Future Dates Disabled. IOS Style Calendar.  Demonstrates pull-refresh style option to insert more months at beginning and single-expand accordion option.',
+                                maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
                             }
@@ -552,6 +551,7 @@ Ext.define('CalendarPicker.view.DateExamples', {
                                 height: '',
                                 html: 'Multi-selection (Weekends+Holidays disabled)',
                                 maxHeight: '5em',
+                                maxWidth: '75%',
                                 minHeight: '1.5em',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
@@ -561,7 +561,6 @@ Ext.define('CalendarPicker.view.DateExamples', {
                     {
                         xtype: 'container',
                         itemId: 'example4',
-                        minHeight: '5em',
                         style: 'border: 1px solid gray;',
                         layout: {
                             type: 'hbox'
@@ -618,8 +617,8 @@ Ext.define('CalendarPicker.view.DateExamples', {
                                 xtype: 'container',
                                 docked: 'bottom',
                                 height: '',
-                                html: 'Day Planner (under construction).  Select any date for Day Planner.  Buttons docked top. ',
-                                maxHeight: '2em',
+                                html: 'Day Planner (under construction).  Tap between Year, List and Day views. Select day in year view.  Swipe left+right to quickly change day or month in Day view.  New "yearMonthSelect" component utilizes TouchTreeGrid to prompt for specific month+year.  Different functionality for Phone vs. Tablet.',
+                                maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
                             }
@@ -683,6 +682,7 @@ Ext.define('CalendarPicker.view.DateExamples', {
                                 docked: 'bottom',
                                 html: 'Custom Filter example (Christmas calendar for next 12 years).  Filters can be used to only include months with Selected or Custom dates.',
                                 maxHeight: '4.5em',
+                                maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
                             }
@@ -745,7 +745,7 @@ Ext.define('CalendarPicker.view.DateExamples', {
                                 docked: 'bottom',
                                 height: '',
                                 html: 'Financial Calendar example (Day Counts from Today).',
-                                minHeight: '2.5em',
+                                maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
                             }
@@ -798,101 +798,47 @@ Ext.define('CalendarPicker.view.DateExamples', {
                             },
                             {
                                 xtype: 'container',
-                                flex: 1,
-                                maxWidth: '10em',
+                                height: '4em',
+                                width: '10em',
                                 layout: {
                                     type: 'fit'
-                                }
+                                },
+                                items: [
+                                    {
+                                        xtype: 'container',
+                                        listeners: {
+                                            tap: {
+                                                fn: function() {
+                                                      this.fireEvent('optionDatesMatrix_btn', this.up('container'));
+                                                  },
+                                                element: 'element'
+                                            }
+                                        },
+                                        cls: 'financial-btn',
+                                        height: '2.5em',
+                                        html: 'Matrix (Tablets)',
+                                        itemId: 'optionDates_btn',
+                                        style: 'text-align: center',
+                                        layout: {
+                                            type: 'fit'
+                                        }
+                                    }
+                                ]
                             },
                             {
                                 xtype: 'container',
                                 docked: 'bottom',
                                 height: '',
-                                html: 'MarketWatch-style Financial Calendar example (Options Expiration).',
-                                minHeight: '2.5em',
+                                html: 'MarketWatch-style Options Expiratioon Financial Calendar example.  Demonstrates auto-generated legend  with different docking options.  Phones docked top+bottom with scrolling list.',
+                                maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
                                 styleHtmlContent: true
                             }
                         ]
                     }
                 ]
-            },
-            {
-                xtype: 'container',
-                itemId: 'datePlanner',
-                layout: {
-                    type: 'hbox'
-                },
-                items: [
-                    {
-                        xtype: 'container',
-                        itemId: 'planner_cal',
-                        maxWidth: '17em',
-                        width: '17em',
-                        layout: {
-                            type: 'card'
-                        }
-                    },
-                    {
-                        xtype: 'container',
-                        itemId: 'planner_detail',
-                        maxWidth: '20em',
-                        style: 'background-color: white;',
-                        width: '20em',
-                        layout: {
-                            type: 'vbox'
-                        },
-                        items: [
-                            {
-                                xtype: 'toolbar',
-                                docked: 'top',
-                                style: 'background: #5e6266; color: white;',
-                                styleHtmlContent: true,
-                                ui: 'plain',
-                                title: 'Under Construction'
-                            },
-                            {
-                                xtype: 'container',
-                                height: '5em',
-                                html: 'Plan is to support Day Planner.  Click on any date to see update below.  "dateSelected" event is fired for each selected date.',
-                                style: 'border: 1px solid gray;'
-                            },
-                            {
-                                xtype: 'container',
-                                flex: 1,
-                                itemId: 'plannerDetailText',
-                                style: 'border: 1px solid gray;',
-                                styleHtmlCls: 'planner-detail-text',
-                                styleHtmlContent: true
-                            }
-                        ]
-                    },
-                    {
-                        xtype: 'container',
-                        flex: 1,
-                        itemId: 'planner_extra',
-                        layout: {
-                            type: 'fit'
-                        }
-                    }
-                ]
             }
         ]
-    },
-
-    initialize: function() {
-        this.callParent();
-
-        var datePlanner = this.down('#datePlanner');
-        var planner = this.down('#planner_cal');
-        if (Ext.os.is.Phone) {
-            datePlanner.remove(datePlanner.down('#planner_detail'), true);
-            datePlanner.remove(datePlanner.down('#planner_extra'), true);
-            planner.setMaxWidth('100%');
-            planner.setWidth('100%'); 
-        }    
-
-
     }
 
 });

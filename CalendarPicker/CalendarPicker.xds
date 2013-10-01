@@ -21,14 +21,6 @@
             ],
             "className": "Library"
         },
-        "c0a58990-813a-418c-af34-58d0627d64fe": {
-            "paths": [
-                "metadata/view/CalendarPicker",
-                "app/view/override/CalendarPicker.js",
-                "app/view/CalendarPicker.js"
-            ],
-            "className": "CalendarPicker"
-        },
         "ad0c15c8-8959-4b0c-bb67-bc424990b129": {
             "paths": [
                 "metadata/resource/css"
@@ -71,14 +63,6 @@
             ],
             "className": "overlayPanel"
         },
-        "84bbedcc-c5f1-43e4-a467-ca06fc95df99": {
-            "paths": [
-                "metadata/view/TouchTreeGrid",
-                "app/view/override/TouchTreeGrid.js",
-                "app/view/TouchTreeGrid.js"
-            ],
-            "className": "TouchTreeGrid"
-        },
         "b9d584e1-0cd1-4929-a1ee-e97945888dc4": {
             "paths": [
                 "metadata/store/optionDates",
@@ -86,26 +70,85 @@
                 "app/store/optionDates.js"
             ],
             "className": "optionDates"
+        },
+        "a02ad749-e6e2-4e16-9df1-f87c60b6249b": {
+            "paths": [
+                "metadata/view/CalendarPicker",
+                "app/view/override/CalendarPicker.js",
+                "app/view/CalendarPicker.js"
+            ],
+            "className": "CalendarPicker"
+        },
+        "fc4e1f42-7ae2-48c5-9985-07f40723fd6a": {
+            "paths": [
+                "metadata/view/matrixView",
+                "app/view/override/matrixView.js",
+                "app/view/matrixView.js"
+            ],
+            "className": "matrixView"
+        },
+        "69e22d97-06f2-4bf7-95d3-1549c048f1b3": {
+            "paths": [
+                "metadata/view/matrixViewPhone",
+                "app/view/override/matrixViewPhone.js",
+                "app/view/matrixViewPhone.js"
+            ],
+            "className": "matrixViewPhone"
+        },
+        "52d9bcbd-9a34-49ad-b2bf-baeb11a9221d": {
+            "paths": [
+                "metadata/controller/calendarDetailController",
+                "app/controller/override/calendarDetailController.js",
+                "app/controller/calendarDetailController.js"
+            ],
+            "className": "calendarDetailController"
+        },
+        "8175fe68-a3e1-402d-9ab7-2ff889daa196": {
+            "paths": [
+                "metadata/resource/css3"
+            ],
+            "className": "css3"
+        },
+        "020eb8a7-73f6-4669-b3f3-b5762162a051": {
+            "paths": [
+                "metadata/view/yearMonthSelect",
+                "app/view/override/yearMonthSelect.js",
+                "app/view/yearMonthSelect.js"
+            ],
+            "className": "yearMonthSelect"
+        },
+        "4a8cdce9-a270-4211-bff6-b4ce112cc15c": {
+            "paths": [
+                "metadata/view/TouchTreeGrid",
+                "app/view/override/TouchTreeGrid.js",
+                "app/view/TouchTreeGrid.js"
+            ],
+            "className": "TouchTreeGrid"
         }
     },
     "viewOrderMap": {
         "view": [
             "889cc880-c791-4408-9eef-32aa9889cd48",
             "95ebf663-f827-4965-8fdc-f620ceb4bbd3",
-            "c0a58990-813a-418c-af34-58d0627d64fe",
-            "84bbedcc-c5f1-43e4-a467-ca06fc95df99"
+            "fc4e1f42-7ae2-48c5-9985-07f40723fd6a",
+            "69e22d97-06f2-4bf7-95d3-1549c048f1b3",
+            "020eb8a7-73f6-4669-b3f3-b5762162a051",
+            "a02ad749-e6e2-4e16-9df1-f87c60b6249b",
+            "4a8cdce9-a270-4211-bff6-b4ce112cc15c"
         ],
         "store": [
             "b9d584e1-0cd1-4929-a1ee-e97945888dc4"
         ],
         "controller": [
-            "86531a3e-f268-40f4-b550-e18c5ff85973"
+            "86531a3e-f268-40f4-b550-e18c5ff85973",
+            "52d9bcbd-9a34-49ad-b2bf-baeb11a9221d"
         ],
         "model": [],
         "resource": [
             "b8f6c608-d1da-4b6b-8c96-84a26008b3bd",
             "ad0c15c8-8959-4b0c-bb67-bc424990b129",
             "1430967e-4eed-433b-9b66-5c118908c913",
+            "8175fe68-a3e1-402d-9ab7-2ff889daa196",
             "6e9277b6-3037-4ac9-9858-a716021ab583"
         ],
         "app": [

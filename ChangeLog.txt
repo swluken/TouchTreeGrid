@@ -1,4 +1,116 @@
 **************************************************************************************************
+9/30/2013 COMMIT CHANGE LOG: 
+
+*** New CalendarPicker Features and Examples ***
+- Support auto-generation of Calendar Matrix view (intended for Tablets only).
+- Refined Day Planner examples for Year/Month/List/Day views implemented unique for Tablets vs. Phones.
+    - Automatically apply custom date descriptions to Month and Day calendars.
+    - Support month and day taps to quickly navigate bewtween each of the views.
+    - Support swipe to navigate to next/previous calendar months.  
+    - Also created new "yearMonthSelect" component utilizing TouchTreeGrid
+      to support rapid navigation between calendar months.
+- Added more configurations and CSS selectors to further customize calendar implementations.
+
+*** MODIFICATIONS THAT REQUIRE UPDATES TO PRIOR IMPLEMENTATIONS *** 
+    None.  
+    Refer below to "categorypicker.css" additions and updates.
+    
+*** TouchTreeGrid Modifications ***
+- Updated updateColumns() and doRefreshList() methods as follows:
+   - Replace all <p> tags with <div> tags in updateColumns() and doRefreshList() methods
+     when generating category, content and header row TPL.  This allows for more flexibility
+     when generating HTML within calendar cells (Matrix Month view discussed below)
+   - Corrected bug with unmatched tag in updateColumns()
+   - Remove unnecessary DIVs in updateColumns() when arrowPctWidth, CategIndentPct are 0.
+   - Corrected bug in updateColumns() method when applying categColumns[] widths
+
+
+*** CalendarPicker Modifications ***
+- Added matrixView config (default = false) to display each calendar in grid matrix (intended for Tablets only)
+    - added matrixPrep() method to generate matrixView within matrixContainer.      
+    - support auto-generated legends for Matrix View using existing includeCustomDatesLegend config.
+    - added matrixCols  config (default = 3 matrix columns)
+    - added matrixRows config (default=99 ... as many rows as needed)
+    - added matrixContainer{} config which defines the container object for which the calendar matrix will be fit into.  Layout must be
+      'fit'.  Flex 1 will be applied to each column.  User can specify specific height for each matrix panel
+      via matrixItemHeight config (or matrixItem6WeekHeight for months with 6 week rows).
+    - Added allowMatrixMonthAdditions config (default = false).  Uses existing monthsToAppend to automatically insert button at 
+      bottom of calendar matrix to allow user to add more months to Year view.
+    - Added disableListScroll config (used by Matrix view) to disable scrolling of individual calendars in Matrix View.
+      Updated loadStore() method.        
+  
+- Replaced Day Planner Example 4 for Tablets display Matrix view with styled Year, Month, List and Day
+  views and support following navigations:
+  - Tap on any day within Year view to navigate to Day view
+  - Tap on month header within Year view to navigate to Month view
+  - Tap on any day within Month view to navigate to Day view
+  - Swipe left or right in Month view to change months
+  - Tap <> icon within Month or Day view to select any year+month using new "yearMonthSelect" component which implements TouchTreeGrid
+  - Tap <Today> in Month or Day view to navigate to current Month/Day
+  - Tap any day within Day view to select new day and update list details (if defined)
+  - Swipe within month calendar of Day view to change months
+  - Swipe within list detail of Day view to change days
+  
+- Replaced Day Planner Example 4 for Phones to display linear calendar view of years and also
+  implemented List and Day views with same navigations as for Tablet discussed above.
+  
+- Added Tablet Matrix view to Example 7 (Option Expirations).  
+  
+- Added calendarDetailController.js, matrixView.js, matrixViewPhone.js to support Example 4 and 7.
+
+- Created new yearMonthSelect.xdc component that uses TouchTreeGrid to prompt user for Year+Month selection
+  within Day Planner examples.
+
+- Updated initialize() method to destroy "hidden" components and to only add titlebar/legend containers if requested
+  (also removed them CalendarPicker config)
+
+- Support negative forwardMonths config to display individual months in past.
+
+- Added customDatesLegendScrollDock config  (does not currently apply to matrixViews which always dock to top of container)
+   - 'fixed' (default) - legend is fixed at top of container
+   - 'top' - legend docked to top of list and scrolls with list.
+   - 'bottom' - legend docked to bottom of list and scrolls with list
+   - 'both' - legend docked to top and bottom of scrolling list
+   
+- Updated font-size and padding for default category (month) styling in categorypicker.css:
+     font-size: 1em !important;
+     
+- Added more selectors to calendarpicker.css:
+   .calendarpicker-matrix-item {margin: .5em}
+   .calendarpicker-matrix .matrix-row {}
+   .calendarpicker-matrix .matrix-row-last {}
+   .calendarpicker-matrix .matrix-column {border: 1px solid gray;}
+   .calendarpicker-matrix .matrix-column-last {border: 1px solid gray;}
+   .calendarpicker-matrix .x-scroll-container {background-color: white;}
+   .calendarpicker-matrix .matrix-column-empty {border: none;}  
+   .calendarpicker-legend-cls-html { padding-left: .5em;}   /* style html in legend */
+   .calendarpicker-matrix-add .x-title {...}
+   .calendarpicker-matrix-add {...}
+   
+- Created new CalendarMatrix.css (must be added after calendarpicker.css) to support
+  Year/Month/List/Day calendar views for Example 4 and 7.   
+   
+- Updated .calendarpicker-legend {
+    font-size: .7em;   
+    background-color: white;
+    border-bottom: 1px solid gray;}
+    
+- Added tag.png to ./resources/css/ directory for <> icon used in "yearMonthSelect" component    
+     
+- Added .x-touchtreegrid-list-calendar .x-scroll-container { 
+    /* background Scroll container same color as category rows */
+        background-color: white;}
+        
+- Styling updates to provided examples.
+
+- Updated CategoryPicker.xdc in ./CalendarPicker/ and ./CalendarPicker_Basic/ directories
+
+- Update ./CalendarPicker_Basic/ example with updated component and calendarpicker.css
+
+- Updated TouchTreeGrid.xdc in Touch 2.2, TTG_Slider, CalendarPicker, and CalendarPicker_Basic directories.
+
+
+**************************************************************************************************
 9/9/2013 COMMIT CHANGE LOG:  
 
 *** MODIFICATIONS TO CALENDARPICKER COMPONENT *** 
