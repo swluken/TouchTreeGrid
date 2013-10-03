@@ -1,4 +1,8 @@
 **************************************************************************************************
+10/2/2013 COMMIT CHANGE LOG: 
+- Corrected bug with handleColumnSort() method of TouchTreeGrid.js introduced with last commit.
+
+**************************************************************************************************
 9/30/2013 COMMIT CHANGE LOG: 
 
 *** New CalendarPicker Features and Examples ***

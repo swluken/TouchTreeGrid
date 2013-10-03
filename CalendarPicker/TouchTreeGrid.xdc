@@ -1458,7 +1458,7 @@
                         "\r",
                         "// Remove any prior sort indicators \r",
                         "for (c=0; c < cNum; c++) {\r",
-                        "    colEl = Ext.get(headerEl.down('p.touchtreegrid-header-cell[dataIndex=' + columns[c].dataIndex + ']'));\r",
+                        "    colEl = Ext.get(headerEl.down('div.touchtreegrid-header-cell[dataIndex=' + columns[c].dataIndex + ']'));\r",
                         "    if (!me.isObjectEmpty(colEl)) {\r",
                         "        colEl.removeCls(asc);\r",
                         "        colEl.removeCls(desc);\r",

@@ -1,7 +1,7 @@
 {
     "name": "TouchTreeGrid_Basic_22",
     "settings": {
-        "urlPrefix": "http://localhost/TouchTreeGrid/TouchTreeGrid_Basic_22/",
+        "urlPrefix": "http://localhost/TouchTreeGrid-master/TouchTreeGrid_Basic_22/",
         "spacesToIndent": 4,
         "exportPath": "",
         "sdkPath": "",

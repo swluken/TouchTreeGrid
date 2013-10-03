@@ -5,7 +5,7 @@
         "lineEnding": "CRLF",
         "genTimestamps": false,
         "cacheBust": false,
-        "urlPrefix": "http://localhost/TouchTreeGrid/CalendarPicker_Basic/",
+        "urlPrefix": "http://localhost/TouchTreeGrid-master/CalendarPicker_Basic/",
         "exportPath": "",
         "buildShouldOverwriteIndex": true
     },

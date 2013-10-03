@@ -903,7 +903,7 @@ Ext.define('CalendarPicker.view.TouchTreeGrid', {
 
         // Remove any prior sort indicators 
         for (c=0; c < cNum; c++) {
-            colEl = Ext.get(headerEl.down('p.touchtreegrid-header-cell[dataIndex=' + columns[c].dataIndex + ']'));
+            colEl = Ext.get(headerEl.down('div.touchtreegrid-header-cell[dataIndex=' + columns[c].dataIndex + ']'));
             if (!me.isObjectEmpty(colEl)) {
                 colEl.removeCls(asc);
                 colEl.removeCls(desc);
