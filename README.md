@@ -1,5 +1,5 @@
-TouchTreeGrid and CalendarPicker
-================================
+TouchTreeGrid and CalendarPicker  (Touch 2.1, 2.2, 2.3)
+=======================================================
 
 TouchTreeGrid is an extremely versatile and easy to implement Sencha Touch custom 
 component that supports Tree Grids, Standard Grids and traditional Accordion view layouts
@@ -18,24 +18,36 @@ disabled from selection.  Customizable styling exists for holidays, weekends, se
 days, disabled days and custom days.  Custom filters can be
 easily applied to only display specific months highlighting important upcoming dates.  
 Day planner support is partially implemented and will be forthcoming.  
-Provided examples work for Touch 2.2, 2.3-beta and for IE10/Windows phones.
 
 TouchTreeGrid and CalendarPicker were developed entirely within Sencha Architect designer product and
 can also be used without Architect.  Architect components are provided for import into
-your toolbox (TouchTreeGrid.xdc, CalendarPicker.xdc - Sencha Architect Version: 2.2.2 Build: 991).
-Basic 2.2, Advanced TabPanel 2.2 and Advanced Slide Navigation 2.2 examples are included in the download.
+your toolbox (TouchTreeGrid.xdc, CalendarPicker.xdc).
 
 This software can be downloaded at <a href="https://github.com/swluken/TouchTreeGrid">https://github.com/swluken/TouchTreeGrid</a>
-  
-See working Touch 2.2 Calendar Picker Demo at:
+
+Refer to "TouchTreeGrid - Documentation.pdf" (page 1) for version details associated with each of the project directories included in the download:
+ - TTG_Slider (Facebook-style slide navigation example that includes most updated versions of the examples)
+ - TouchTreeGrid_FreezeColumn(Freeze Column with horizontal scrolling columns example simulates EXTJS 4.2 Kitchen Sink Big Data grid example...refer to TouchTreeGrid_FreezeColumn.pdf for additional documentation)
+ - CalendarPicker (Full set of Calendar Picker examples)
+ - CalendarPicer_Basic (Basic example of Calendar Pickers used for date selection)
+ - TouchTreeGrid_Advanced_22 (Original Tab Panel version of Examples implemented for Touch 2.2)
+ - TouchTreeGrid_Advanced_21 (Original Tab Panel version of Examples implemented for Touch 2.1)
+ - TouchTreeGrid_Basic_22 (Basic TreeGrid example for Touch 2.2)
+ - TouchTreeGrid_Basic_21 (Basic TreeGrid example for Touch 2.1)
+
+See working Touch Calendar Picker Demo at:
 http://www.lincolnwaterfrontrentals.com/Sencha/CalendarPicker/app.html
 
 <div>&nbsp;</div>
-See working Touch 2.2 Slide Navigation Demo at:
+See working Touch 2.3 Slide Navigation examples at:
 http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app.html
 
 <div>&nbsp;</div>
-See working Touch 2.2 TouchTreeGrid Demo at:
+See working Touch 2.3 Freeze and Horizontal Scrolling Column examples at:
+http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Freeze/app.html
+
+<div>&nbsp;</div>
+See working Touch 2.2 Tab Panel examples at:
 http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html
 <div>&nbsp;</div>
 

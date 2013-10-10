@@ -151,6 +151,17 @@
                     "        censusController.loadCensusFilterStore(result.gridcont, result.grid);\r",
                     "    }  \r",
                     "}\r",
+                    "else if (text === 'Freeze Column') {\r",
+                    "    result = this.swapCont(censusController.getCensusFreezeCont(), newSelection);   \r",
+                    "    this.onMenuButtonRelease();    \r",
+                    "    this.showHelp(result.gridcont, (isPhone ? '0px' : '200px'), true);\r",
+                    "    numRecords = result.grid.getStore().getData().length;\r",
+                    "    if (numRecords === 0) {\r",
+                    "        censusController.loadCensusFreezeStore();\r",
+                    "    }  \r",
+                    "}\r",
+                    "\r",
+                    "\r",
                     "else if (text === 'Basic List #1') {\r",
                     "    result = this.swapCont(listsController.getDow2012Cont(), newSelection);   \r",
                     "    this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);\r",
@@ -974,7 +985,7 @@
                     "griddata"
                 ],
                 "implHandler": [
-                    "var refreshed, fldListArr = [], collapseLvl, gridlist, scroller, myFilt = {};\r",
+                    "var refreshed, fldListArr = [], collapseLvl, gridlist, scroller, myFilt = {}, gridcontX;\r",
                     "var isPhone = !Ext.isEmpty(Ext.os.is.Phone);  // needed since this function returns either undefined or true\r",
                     "\r",
                     "\r",
@@ -986,8 +997,19 @@
                     "    // Collapse nodes to defined level\r",
                     "    var depth = gridcont.getDefaultCollapseLevel();\r",
                     "    if (depth !== 99) {gridcont.doExpandDepth(depth);}\r",
-                    "\r",
                     "    censusController.loadColumnsCensusMaine(gridcont, false); // also refreshes list\r",
+                    "}\r",
+                    "\r",
+                    "else if (gridListItemId === 'censusfreezelist') {\r",
+                    "    // Collapse nodes to defined level\r",
+                    "    var depth = gridcont.getDefaultCollapseLevel();\r",
+                    "    if (depth !== 99) {gridcont.doExpandDepth(depth);}\r",
+                    "\r",
+                    "    censusController.loadColumnsCensusFreeze(gridcont, false); // also refreshes list\r",
+                    "\r",
+                    "    gridcontX = this.getCensusFreezeCont().down('#censusfreezeX');\r",
+                    "    gridcontX.doRefreshList(true);\r",
+                    "\r",
                     "}\r",
                     "\r",
                     "else if (gridListItemId === 'censusfilterlist') {\r",
@@ -1233,6 +1255,20 @@
                 "designer|controlQuery": "button#closehelp"
             },
             "designerId": "3d450637-022d-4bef-b90c-b3a391abbf69"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "censusFreezeCont",
+                "selector": "censusFreezeCont",
+                "xtype": "censusFreezeCont"
+            },
+            "designerId": "a2a3c7f4-a00a-4adf-8b91-17ff9074b4fc"
         }
     ]
 }

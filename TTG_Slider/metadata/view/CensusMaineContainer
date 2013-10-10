@@ -52,7 +52,12 @@
                 "colNumberToTruncateForIndents": null,
                 "includeFooterLevels": null,
                 "categDepthColors": true,
-                "categDepthColorsArr": null,
+                "categDepthColorsArr": [
+                    "['#904848',\r",
+                    "'#dddddd',\r",
+                    "'white'\r",
+                    "]"
+                ],
                 "customExpCollapseEvent": null,
                 "renderers": [
                     "{ renderer_displayIn1000s: function(value)\r",
@@ -85,6 +90,13 @@
                 "customColumnSortEvent": null,
                 "disableExpandCollapse": null,
                 "categColumns": null,
+                "categCssArr": [
+                    "[\r",
+                    "                                    'touchtreegrid-list-categ0',\r",
+                    "                                    'touchtreegrid-list-categ1',\r",
+                    "                                    'touchtreegrid-list-categ'\r",
+                    "                                ]"
+                ],
                 "cls": [
                     "x-touchtreegrid-list",
                     "x-touchtreegrid-list-censusmaine"
@@ -134,7 +146,10 @@
                 "infinite": "boolean",
                 "scrollable": "object",
                 "disableExpandCollapse": "boolean",
-                "categColumns": "array"
+                "categColumns": "array",
+                "linkedGridsArr": "array",
+                "hideExpandCollapseBtns": "boolean",
+                "categCssArr": "array"
             },
             "designerId": "d328c7d9-c645-41e1-98ad-113a3dc26ba7",
             "customConfigs": [
@@ -432,6 +447,11 @@
                     "group": "(Custom Properties)",
                     "name": "categColumns",
                     "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "categCssArr",
+                    "type": "string"
                 }
             ]
         },
@@ -447,7 +467,7 @@
                 "implHandler": [
                     "this.callParent();\r",
                     "if (!Ext.os.is.Phone) {  // 2% arrow width for tablets, 4% (default) for phones\r",
-                    "   this.down('#censusmaine').setArrowPctWidth('2');\r",
+                    "    this.down('#censusmaine').setArrowPctWidth('2');\r",
                     "}"
                 ]
             },

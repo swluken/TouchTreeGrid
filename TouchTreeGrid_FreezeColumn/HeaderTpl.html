@@ -1,0 +1,30 @@
+/* Freeze Columns (itemId = 'bigDataX') */
+<div class="css-header-row ">
+<div class="touchtreegrid-header-cell " style="width:70px !important;text-align: center;" dataindex="employeeNo">Id</div>
+<div class="touchtreegrid-header-cell " style="width:150px !important;text-align: left; padding-left: .5em;" dataindex="surname">Name</div>
+</div>
+
+/* Horiz Scrolling Columns (itemId = 'bigData'):
+   - Column header grouping implemented using HTML table
+   - Included dataindex attribute for column sorting (also requires columnSorting=true config in linked instance of TouchTreeGrid.
+     (column sorting not currently supported for sub-grouped headers so dataindex attribute not included)
+*/
+<div class="css-header-row ">
+<div class="touchtreegrid-header-cell " style="width:120px !important;text-align: left;" dataindex="dob">Date of Birth</div>
+<div class="touchtreegrid-header-cell " style="width:120px !important;text-align: left;" dataindex="joinDate">Join Date</div>
+<div class="touchtreegrid-header-cell " style="width:120px !important;text-align: left;" dataindex="noticePeriod">Notice Period</div>
+<div class="touchtreegrid-header-cell " style="width:200px !important;text-align: left;" dataindex="email">Email address</div>
+
+<table cellpadding="0" cellspacing="0">
+<tr class="touchtreegrid-header-cell " style="line-height: 29px; border-bottom: 1px solid #c0c0c0; 
+	border-right: 1px solid #c0c0c0; width:350px !important;text-align: center;"><td colspan="3">Absences</td></tr>
+<tr>
+<td class="touchtreegrid-header-cell " style="line-height: 30px; width:100px !important;text-align: left;">Illness</td>
+<td class="touchtreegrid-header-cell " style="line-height: 30px; width:100px !important;text-align: left;">Holidays</td>
+<td class="touchtreegrid-header-cell " style="line-height: 30px; width:150px !important;text-align: left;">Holiday Allowance</td>
+</tr>
+</table>
+
+<div class="touchtreegrid-header-cell " style="width:70px !important;text-align: left;" dataindex="rating">Rating</div>
+<div class="touchtreegrid-header-cell " style="width:110px !important;text-align: right;padding-right: 8px;" dataindex="salary">Salary</div>
+</div>

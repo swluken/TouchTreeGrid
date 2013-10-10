@@ -1,0 +1,42 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MainTabPanel",
+        "designer|userAlias": "mainTabPanel",
+        "designer|initialView": true
+    },
+    "designerId": "1b2e3875-bab2-4ea5-924a-2e9e5f46a4e3",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "TreeGrid"
+            },
+            "designerId": "ad87aa6a-ebf0-447a-becd-b508f5cfdb70",
+            "masterInstanceId": "9204622d-8a02-4e48-bd65-5c32969c3f4b"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "EXTJS 4.2 Big Data Example"
+            },
+            "designerId": "d0754cc9-2edd-4155-99db-1f21c2233329",
+            "masterInstanceId": "f45ef5db-de2d-47b3-8b98-2d5fac5a250e"
+        }
+    ]
+}

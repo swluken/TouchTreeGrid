@@ -1,0 +1,136 @@
+{
+    "name": "TouchTreeGrid_FreezeColumn",
+    "settings": {
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "http://localhost/TouchTreeGrid/TouchTreeGrid_FreezeColumn/",
+        "exportPath": "",
+        "buildShouldOverwriteIndex": true
+    },
+    "xdsVersion": "2.2.3",
+    "xdsBuild": 1039,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "touch23",
+    "topInstanceFileMap": {
+        "94f678cb-fd5d-4c34-9629-893a412789c7": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "087f6104-eaf2-44c2-b243-8df338c6dd04": {
+            "paths": [
+                "metadata/resource/css"
+            ],
+            "className": "css"
+        },
+        "94125f8b-4dc7-4141-b123-cb62c633e6ad": {
+            "paths": [
+                "metadata/resource/css1"
+            ],
+            "className": "css1"
+        },
+        "97a4c3a2-9a08-4611-87a1-12b030c85f82": {
+            "paths": [
+                "metadata/controller/CommonController",
+                "app/controller/override/CommonController.js",
+                "app/controller/CommonController.js"
+            ],
+            "className": "CommonController"
+        },
+        "9238ee98-c9e5-4bfc-9528-611e0feb9756": {
+            "paths": [
+                "metadata/model/Census",
+                "app/model/override/Census.js",
+                "app/model/Census.js"
+            ],
+            "className": "Census"
+        },
+        "f1b9d396-4b33-4e41-a03c-7da4849f253d": {
+            "paths": [
+                "metadata/view/TouchTreeGrid",
+                "app/view/override/TouchTreeGrid.js",
+                "app/view/TouchTreeGrid.js"
+            ],
+            "className": "TouchTreeGrid"
+        },
+        "9204622d-8a02-4e48-bd65-5c32969c3f4b": {
+            "paths": [
+                "metadata/view/CensusFreezeCont",
+                "app/view/override/CensusFreezeCont.js",
+                "app/view/CensusFreezeCont.js"
+            ],
+            "className": "CensusFreezeCont"
+        },
+        "9ff9e47e-a02e-47b4-abf1-3bd8cfcd1f57": {
+            "paths": [
+                "metadata/store/CensusFreezeStore",
+                "app/store/override/CensusFreezeStore.js",
+                "app/store/CensusFreezeStore.js"
+            ],
+            "className": "CensusFreezeStore"
+        },
+        "1b2e3875-bab2-4ea5-924a-2e9e5f46a4e3": {
+            "paths": [
+                "metadata/view/MainTabPanel",
+                "app/view/override/MainTabPanel.js",
+                "app/view/MainTabPanel.js"
+            ],
+            "className": "MainTabPanel"
+        },
+        "f45ef5db-de2d-47b3-8b98-2d5fac5a250e": {
+            "paths": [
+                "metadata/view/bigDataList",
+                "app/view/override/bigDataList.js",
+                "app/view/bigDataList.js"
+            ],
+            "className": "bigDataList"
+        },
+        "f4b326e1-7d0b-4c35-8328-5202382e7e82": {
+            "paths": [
+                "metadata/store/BigDataStore",
+                "app/store/override/BigDataStore.js",
+                "app/store/BigDataStore.js"
+            ],
+            "className": "BigDataStore"
+        },
+        "5e0c8a0b-42a2-46a1-b1a6-4db3f7403f7c": {
+            "paths": [
+                "metadata/model/BigDataModel",
+                "app/model/override/BigDataModel.js",
+                "app/model/BigDataModel.js"
+            ],
+            "className": "BigDataModel"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "1b2e3875-bab2-4ea5-924a-2e9e5f46a4e3",
+            "9204622d-8a02-4e48-bd65-5c32969c3f4b",
+            "f45ef5db-de2d-47b3-8b98-2d5fac5a250e",
+            "f1b9d396-4b33-4e41-a03c-7da4849f253d"
+        ],
+        "store": [
+            "9ff9e47e-a02e-47b4-abf1-3bd8cfcd1f57",
+            "f4b326e1-7d0b-4c35-8328-5202382e7e82"
+        ],
+        "controller": [
+            "97a4c3a2-9a08-4611-87a1-12b030c85f82"
+        ],
+        "model": [
+            "9238ee98-c9e5-4bfc-9528-611e0feb9756",
+            "5e0c8a0b-42a2-46a1-b1a6-4db3f7403f7c"
+        ],
+        "resource": [
+            "94f678cb-fd5d-4c34-9629-893a412789c7",
+            "087f6104-eaf2-44c2-b243-8df338c6dd04",
+            "94125f8b-4dc7-4141-b123-cb62c633e6ad"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

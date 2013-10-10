@@ -5,15 +5,15 @@
         "lineEnding": "CRLF",
         "genTimestamps": false,
         "cacheBust": false,
-        "urlPrefix": "http://localhost/TouchTreeGrid-master/TTG_Slider/",
+        "urlPrefix": "http://localhost/TouchTreeGrid/TTG_Slider/",
         "exportPath": "",
         "buildShouldOverwriteIndex": true
     },
-    "xdsVersion": "2.2.2",
-    "xdsBuild": 991,
+    "xdsVersion": "2.2.3",
+    "xdsBuild": 1039,
     "schemaVersion": 1,
     "upgradeVersion": 210000000503,
-    "framework": "touch22",
+    "framework": "touch23",
     "topInstanceFileMap": {
         "94f678cb-fd5d-4c34-9629-893a412789c7": {
             "paths": [
@@ -360,6 +360,22 @@
                 "app/view/TouchTreeGrid.js"
             ],
             "className": "TouchTreeGrid"
+        },
+        "9204622d-8a02-4e48-bd65-5c32969c3f4b": {
+            "paths": [
+                "metadata/view/CensusFreezeCont",
+                "app/view/override/CensusFreezeCont.js",
+                "app/view/CensusFreezeCont.js"
+            ],
+            "className": "CensusFreezeCont"
+        },
+        "9ff9e47e-a02e-47b4-abf1-3bd8cfcd1f57": {
+            "paths": [
+                "metadata/store/CensusFreezeStore",
+                "app/store/override/CensusFreezeStore.js",
+                "app/store/CensusFreezeStore.js"
+            ],
+            "className": "CensusFreezeStore"
         }
     },
     "viewOrderMap": {
@@ -372,6 +388,7 @@
             "99f971a7-0cf0-401f-b1d3-6982538a35aa",
             "86cffaea-96f1-4e26-86e1-f36acf445824",
             "2cead062-1b8a-4393-bacf-57fb83e44d62",
+            "9204622d-8a02-4e48-bd65-5c32969c3f4b",
             "16e06936-6704-4363-96d5-3caa1a0bada9",
             "e3f9b86c-65ad-4ff7-8b2d-a5d8a0bfc34d",
             "e5fe2086-b8dc-4276-9e3f-62a38fc47155",
@@ -392,6 +409,7 @@
             "cde502af-6627-414f-8b30-d50be496781a",
             "f09d0d06-5d3c-4d55-8ac3-04df9144d6ea",
             "2ebb5b96-a94d-49a1-9a34-17ad67b892c9",
+            "9ff9e47e-a02e-47b4-abf1-3bd8cfcd1f57",
             "61962219-2fdf-4f65-a121-c51fe33f80d9",
             "3307a78a-f902-4a81-aed1-8866d3fe8958",
             "ae80e82c-b678-421d-a92e-af61a89d84de",

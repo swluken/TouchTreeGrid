@@ -64,6 +64,7 @@ Ext.define('CalendarPicker.view.TouchTreeGrid', {
         includeCustomFooterItems: false,
         footerDock: 'bottom',
         hideExpandCollapseBtns: false,
+        linkedGridsParentItemId: '',
         cls: 'x-touchtreegrid-list',
         layout: {
             type: 'vbox'
@@ -109,7 +110,13 @@ Ext.define('CalendarPicker.view.TouchTreeGrid', {
         ],
         customFooterItems: {
             
-        }
+        },
+        onScrollOptions: {
+            
+        },
+        linkedGridsArr: [
+            
+        ]
     },
 
     initialize: function(config) {
@@ -119,6 +126,13 @@ Ext.define('CalendarPicker.view.TouchTreeGrid', {
 
         this.doRefreshList();
 
+        // Process linked grids for synchronized scrolling if applicables
+        if (me.getLinkedGridsArr().length>0) {
+            var listItemId = me.getListItemId();
+            var gridlist = me.down('#'+listItemId);
+            var scroller = gridlist.getScrollable().getScroller();
+            scroller.on('scroll',   me.onScroll, me, me.getOnScrollOptions());   
+        }
 
 
     },
@@ -855,7 +869,7 @@ Ext.define('CalendarPicker.view.TouchTreeGrid', {
             desc      = 'x-grid-sort-desc',
             myEvent   = me.getCustomColumnSortEvent(),
             columnsUpdated = false,
-            c, colIndex, column, columnsUpd=[], colEl, sorter, dir,
+            c, i, colIndex, column, columnsUpd=[], colEl, sorter, dir,
             grouper, grouperSortProperty, grouperDirection, grouperProperty, mySortIdx, newDirCls;
 
         if (!dataIndex) return;  //Included in event of tap on extra toolbar space at far right
@@ -1028,8 +1042,24 @@ Ext.define('CalendarPicker.view.TouchTreeGrid', {
         else {list.refresh();}
 
         // Apply sort indicator to tapped column  (need this after doRefreshList() called .. but also handled in doRefreshList do to race conditioons)
-        var newEl = el.addCls(newDirCls);    
+        var newEl = el.addCls(newDirCls);  
 
+        // Added 10/3/13
+        var linkedGridsArr = me.prepLinkedGridsArr();
+        if (linkedGridsArr.length > 0) {
+            // Remove any existing sort indicators and styling for linked grids
+            for (i=0; i<linkedGridsArr.length; i++) {
+                linkedGridsArr[i].item.suspendEvents();  // item updated in onScroll()
+            }    
+
+            for (i=0; i<linkedGridsArr.length; i++) {
+                linkedGridsArr[i].item.removeColumnSorts();
+            }   
+
+            for (i=0; i<linkedGridsArr.length; i++) {
+                linkedGridsArr[i].item.resumeEvents(true);
+            }   
+        }
 
 
 
@@ -1040,6 +1070,145 @@ Ext.define('CalendarPicker.view.TouchTreeGrid', {
             this.insert(0, footer);
         }
 
+    },
+
+    removeColumnSorts: function() {
+        // Added 10/3/13
+
+        // Called to clear all header and column sort-related CLS/Styles.  
+        // Introduced to support column sorting across freeze column panels.
+        var
+        me        = this, 
+        headerEl  = me.down('#touchtreegridheader').element,
+        columns   = me.getColumns(),
+        cNum      = columns.length,
+        list      = me.getList(),  
+        asc       = 'x-grid-sort-asc',
+        desc      = 'x-grid-sort-desc',    
+        c, colEl, columnsUpdated;
+
+        var columnsUpd = Ext.clone(columns); 
+
+
+        for (c=0; c < cNum; c++) {
+            colEl = Ext.get(headerEl.down('div.touchtreegrid-header-cell[dataIndex=' + columns[c].dataIndex + ']'));
+            if (!me.isObjectEmpty(colEl)) {
+                colEl.removeCls(asc);
+                colEl.removeCls(desc);
+            } 
+
+
+            // Restore Original styles for non-sorted columnsUpd
+            if (!Ext.isEmpty(columnsUpd[c].headerCssOrig) && !Ext.isEmpty(columnsUpd[c].headerCss)) {
+                if (columnsUpd[c].headerCss !== columnsUpd[c].headerCssOrig) {
+                    columnsUpd[c].headerCss = columnsUpd[c].headerCssOrig;
+                    columnsUpd[c].initSortCls = '';      // reset                       
+                    columnsUpdated = true;
+                }                
+            }        
+            if (!Ext.isEmpty(columnsUpd[c].headerStyleOrig) && !Ext.isEmpty(columnsUpd[c].headerStyle)) {
+                if (columnsUpd[c].headerStyle !== columnsUpd[c].headerStyleOrig) {
+                    columnsUpd[c].headerStyle = columnsUpd[c].headerStyleOrig;
+                    columnsUpd[c].initSortCls = '';      // reset                       
+                    columnsUpdated = true;
+                }                
+            }
+
+            if (!Ext.isEmpty(columnsUpd[c].categCssOrig) && !Ext.isEmpty(columnsUpd[c].categCss)) {
+                if (columnsUpd[c].categCss !== columnsUpd[c].categCssOrig) {
+                    columnsUpd[c].categCss = columnsUpd[c].categCssOrig;
+                    columnsUpdated = true;
+                }                
+            }   
+            if (!Ext.isEmpty(columnsUpd[c].categStyleOrig) && !Ext.isEmpty(columnsUpd[c].categStyle)) {
+                if (columnsUpd[c].categStyle !== columnsUpd[c].categStyleOrig) {
+                    columnsUpd[c].categStyle = columnsUpd[c].categStyleOrig;
+                    columnsUpdated = true;
+                }                
+            }   
+
+            if (!Ext.isEmpty(columnsUpd[c].cssOrig) && !Ext.isEmpty(columnsUpd[c].css)) {
+                if (columnsUpd[c].css !== columnsUpd[c].cssOrig) {
+                    columnsUpd[c].css = columnsUpd[c].cssOrig;
+                    columnsUpdated = true;
+                }                
+            }        
+            if (!Ext.isEmpty(columnsUpd[c].styleOrig) && !Ext.isEmpty(columnsUpd[c].style)) {
+                if (columnsUpd[c].style !== columnsUpd[c].styleOrig) {
+                    columnsUpd[c].style = columnsUpd[c].styleOrig;
+                    columnsUpdated = true;
+                }                
+            }        
+        }
+
+        if (columnsUpdated) {
+            me.setColumns(columnsUpd);  
+            me.doRefreshList();
+        }
+        else {list.refresh();}
+
+    },
+
+    onScroll: function(scroller, x, y) {
+        // Scroll all linked grids
+        var me = this, i, linkedGridsArr;
+
+        linkedGridsArr = me.prepLinkedGridsArr();
+        if (linkedGridsArr.length === 0) {return;}
+
+        scroller.suspendEvents();
+        for (i=0; i<linkedGridsArr.length; i++) {
+            linkedGridsArr[i].scroller.suspendEvents();
+        }    
+
+        for (i=0; i<linkedGridsArr.length; i++) {
+            otherX = linkedGridsArr[i].scroller.position.x;
+            linkedGridsArr[i].scroller.scrollTo(otherX,y);
+        }   
+
+        scroller.resumeEvents(true);
+        for (i=0; i<linkedGridsArr.length; i++) {
+            linkedGridsArr[i].scroller.resumeEvents(true);
+        }   
+
+    },
+
+    prepLinkedGridsArr: function(skipRecurse) {
+        // Adds object references to linkdedGridsArr from itemId's of linked grids for faster scrolling and sorting performance across the grids
+        var me = this, i, listItemId, otherList, otherScroller, parcont, linkedGridsArr, gridcont;
+
+        linkedGridsArr = me.getLinkedGridsArr();
+        if (linkedGridsArr.length === 0) {return [];}
+
+        parcont = me.up('#'+me.getLinkedGridsParentItemId());
+        if (Ext.isEmpty(parcont)) {
+            console.log(me.getLinkedGridsParentItemId() + ' not found !');
+            return [];
+        }
+
+        if (Ext.isEmpty(linkedGridsArr[0].scroller)) {
+            // One-time update of linked scroller and gridcont objects for current linked instance of TouchTreeGrid
+            for (i=0; i<linkedGridsArr.length; i++) {
+                gridcont = parcont.down('#'+linkedGridsArr[i].itemId);
+                if (Ext.isEmpty(gridcont)) {
+                    console.log('Unable to find ' + linkedGridsArr[i].itemId);
+                    return;
+                }
+                listItemId = gridcont.getListItemId();
+                otherList = gridcont.down('#'+listItemId);
+                otherScroller = otherList.getScrollable().getScroller();
+                linkedGridsArr[i].item = gridcont;
+                linkedGridsArr[i].scroller = otherScroller;
+
+                // Similarly update each linked grid
+                if (!skipRecurse) {
+                    gridcont.prepLinkedGridsArr(true);
+                }
+            }
+            me.setLinkedGridsArr(linkedGridsArr);    
+        }
+
+        return linkedGridsArr;
     }
 
 });

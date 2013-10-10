@@ -6,8 +6,12 @@
     },
     "codeClass": null,
     "userConfig": {
+        "stores": [
+            "CensusFreezeStore"
+        ],
         "views": [
-            "TouchTreeGrid"
+            "TouchTreeGrid",
+            "CensusFreezeCont"
         ],
         "controllers": [
             "CommonController",

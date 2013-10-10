@@ -1,0 +1,91 @@
+
+/******************** CENSUS EXAMPLE OVERRIDES *********************/
+
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-categ0 {  
+  background-color: #904848 !important;
+  background-image: none !important;
+  color: white;    /* default is black */
+  border-top: 1px solid #4D80BC;
+  border-bottom: 1px solid #2D4E76;
+  font-weight: bold;  /* default is normal */
+  min-height:2.6em !important; 
+  padding:0.7em 0 0 0 !important; 
+  font-size: 15px !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
+}
+
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-categ1 {  
+  background-color: #dddddd !important;
+  background-image: none !important;
+  color: blue;    /* default is black */
+  border-top: 1px solid #4D80BC;
+  border-bottom: 1px solid #2D4E76;
+  font-weight: bold;  /* default is normal */
+  min-height:2.6em !important; 
+  padding:0.7em 0 0 0 !important; 
+  font-size: 15px !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
+}
+
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    color: black;
+    font-weight: bold;  /* default is normal */  
+    background-color:white;
+   /* width:100%; */
+    padding:1em 0 0 0;
+    margin:0;
+    font-size: 15px !important;    
+}
+.x-touchtreegrid-list-censusmaine .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0.4em 0 0 0;
+    font-size: .8em !important;
+}
+
+/******************** BIG DATA EXAMPLE OVERRIDES *********************/
+.x-touchtreegrid-list-bigData .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0 0 0 0;
+    color: black;
+    font-weight: bold;
+    font-size: 13px !important;
+    background-color: #eef6fb;
+    background: none;
+}
+
+.x-touchtreegrid-list-bigData .touchtreegrid-header-cell {
+ line-height: 59px; 
+ border-right: 1px solid #c0c0c0;
+ padding-left: 8px !important;
+} 
+
+.x-touchtreegrid-list-bigData .touchtreegrid-simplelist-cell{ /* simple list cells  */
+    line-height: 24px; 
+    color: black;
+    padding: 0 0 0 8px;
+    border-right: 1px solid #dedede;
+    font-size: 13px !important;   
+    background-color: transparent;
+}
+.x-touchtreegrid-list-bigData .x-touchtreegrid-item {  
+    background-color: white;
+}
+.x-touchtreegrid-list-bigData .x-touchtreegrid-item:nth-child(even) {  /* for alternate shading */
+    background-color: #f4f9fc !important;
+}
+
+.x-touchtreegrid-list-bigData .x-grid-sort-desc {
+    background-position: right center;
+}
+
+.x-touchtreegrid-list-bigData .x-grid-sort-asc {
+    background-position: right center;
+} 
+
+.x-touchtreegrid-list-bigData .x-list-header {  /* Grouped header rows */
+    color: black;
+    font-weight: bold;
+    font-size: 13px !important;
+    background: none;
+    background-image: none;    
+    background-color: #eef6fb;   
+    border-color: #dedede;
+}

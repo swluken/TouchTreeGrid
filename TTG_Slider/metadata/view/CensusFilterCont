@@ -65,7 +65,12 @@
                         "colNumberToTruncateForIndents": null,
                         "includeFooterLevels": null,
                         "categDepthColors": true,
-                        "categDepthColorsArr": null,
+                        "categDepthColorsArr": [
+                            "['none',\r",
+                            "'none',\r",
+                            "'none'\r",
+                            "]"
+                        ],
                         "customExpCollapseEvent": null,
                         "renderers": [
                             "{ renderer_displayIn1000s: function(value)\r",
@@ -98,6 +103,13 @@
                         "customColumnSortEvent": null,
                         "disableExpandCollapse": null,
                         "categColumns": null,
+                        "categCssArr": [
+                            "[\r",
+                            "                                    'touchtreegrid-list-categ0',\r",
+                            "                                    'touchtreegrid-list-categ1',\r",
+                            "                                    'touchtreegrid-list-categ'\r",
+                            "                                ]"
+                        ],
                         "cls": [
                             "x-touchtreegrid-list",
                             "x-touchtreegrid-list-censusmaine",
@@ -145,7 +157,8 @@
                         "infinite": "boolean",
                         "scrollable": "object",
                         "disableExpandCollapse": "boolean",
-                        "categColumns": "array"
+                        "categColumns": "array",
+                        "categCssArr": "array"
                     },
                     "designerId": "bad0353c-ac7d-48a5-9f27-68a438413440",
                     "customConfigs": [
@@ -442,6 +455,11 @@
                         {
                             "group": "(Custom Properties)",
                             "name": "categColumns",
+                            "type": "string"
+                        },
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "categCssArr",
                             "type": "string"
                         }
                     ]

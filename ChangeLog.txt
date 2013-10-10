@@ -1,4 +1,60 @@
 **************************************************************************************************
+10/9/2013 COMMIT CHANGE LOG: 
+
+*** New TouchTreeGrid Features and Examples ***
+
+  Added configs and methods to support multiple linked grids for synchronized scrolling and sorting.
+  Unlimitted combinations of Freeze columns in conjunction with horizontal scrolling columns supported
+  for both Simple Lists and Tree Grids.
+  
+  Created simplified TouchTreeGrid_FreezeColumn project directory featuring the following:
+    1) Freeze column example for TreeGrids using US Census data.
+    2) Touch Freeze column example with data grouping simulating EXTJS 4.2 Kitchen Sink Big Data grid example
+       (utilizes Sencha provided BigData dummied json data)
+    3) Example of how to utilize headerTplOverride config to create grouped header columns
+       (Note:  column sorting within sub-grouped headers not yet supported)
+    4) Refer to TouchTreeGrid_FreezeColumn.pdf in same directory for specific documentation on these examples.
+  
+  Also added Tree Grid Census "Freeze Column" example to TTG_Slider project directory.
+
+
+*** MODIFICATIONS THAT REQUIRE UPDATES TO PRIOR IMPLEMENTATIONS *** 
+    None.  
+    
+*** TouchTreeGrid Modifications ***
+
+- Added configs:
+   - linkedGridsParentItemId - only applicable when linking grids for synchronized scrolling.  This is itemId of container
+     that is parent to all of the linked grids (used to do component searches up and back down to each linked container)
+   - onScrollOptions = optional options object passed when processing scroll event for linked grids to fine tune processing of 'scroll' event
+                       =>  scroller.on('scroll',   me.onScroll, me, onScrollOptions);
+   - linkedGridsArr - array of objects where each object references one of the other linked grids with following attributes:
+      {
+       itemId          = itemId of linked TouchTreeGrid instance (required)
+       item            = internally updated as actual object reference for itemId
+       scroller        = internally updated as actual scroller object reference for itemId
+       onScrollOptions = internally updated as onScrollOptions object for itemId (if defined)
+      }
+
+- Added onScroll(), prepLinkedGridsArr() and removeColumnSorts() methods to handle multiple linked grids.
+- Updated initialize() method to initialize event handlers for scrolling linked grids.
+- Updated handleColumnSort() method to call removeColumnSorts() for multiple linked grids. 
+ 
+- Updated "TouchTreeGrid - Documentation.pdf" for new configs.  Refer to "Census Freeze Column Example" section for detailed documentation
+  on implementing freeze columns for TreeGrids.
+  
+- IMPORTANT TIP:  When defining widths in Pixels/em's for horizontal scrolling TreeGrids you need to set following
+                  configs to avoid TPL compile error:
+                  => colNumberToTruncateForIndents = 0
+                  => categIndentPct='0'  
+
+-  Created new TouchTreeGrid_FreezeColumn project directory for simple list and TreeGrid freeze column examples.
+
+- Updated TouchTreeGrid.xdc and TouchTreeGrid.js in TouchTreeGrid_Advanced_22, TTG_Slider,
+  TouchTreeGrid_Basic_22, CalendarPicker, and CalendarPicker_Basic directories.
+
+
+**************************************************************************************************
 10/2/2013 COMMIT CHANGE LOG: 
 - Corrected bug with handleColumnSort() method of TouchTreeGrid.js introduced with last commit.
 

@@ -1,6 +1,6 @@
 {
-    "xdsVersion": "2.2.2",
-    "frameworkVersion": "touch22",
+    "xdsVersion": "2.2.3",
+    "frameworkVersion": "touch23",
     "internals": {
         "type": "Ext.Container",
         "reference": {
@@ -114,6 +114,13 @@
             "includeCustomFooterItems": false,
             "footerDock": "bottom",
             "hideExpandCollapseBtns": false,
+            "linkedGridsParentItemId": "",
+            "onScrollOptions": [
+                "{}"
+            ],
+            "linkedGridsArr": [
+                "[]"
+            ],
             "cls": [
                 "x-touchtreegrid-list"
             ],
@@ -163,7 +170,9 @@
             "categCssArr": "array",
             "customFooterItems": "object",
             "includeCustomFooterItems": "boolean",
-            "hideExpandCollapseBtns": "boolean"
+            "hideExpandCollapseBtns": "boolean",
+            "onScrollOptions": "object",
+            "linkedGridsArr": "array"
         },
         "customConfigs": [
             {
@@ -500,6 +509,21 @@
                 "group": "(Custom Properties)",
                 "name": "hideExpandCollapseBtns",
                 "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "linkedGridsParentItemId",
+                "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "onScrollOptions",
+                "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "linkedGridsArr",
+                "type": "string"
             }
         ],
         "cn": [
@@ -522,6 +546,13 @@
                         "\r",
                         "this.doRefreshList();\r",
                         "\r",
+                        "// Process linked grids for synchronized scrolling if applicables\r",
+                        "if (me.getLinkedGridsArr().length>0) {\r",
+                        "    var listItemId = me.getListItemId();\r",
+                        "    var gridlist = me.down('#'+listItemId);\r",
+                        "    var scroller = gridlist.getScrollable().getScroller();\r",
+                        "    scroller.on('scroll',   me.onScroll, me, me.getOnScrollOptions());   \r",
+                        "}\r",
                         "\r",
                         ""
                     ]
@@ -1075,6 +1106,25 @@
                 },
                 "codeClass": null,
                 "userConfig": {
+                    "fn": "updateFooter",
+                    "designer|params": [
+                        "footer"
+                    ],
+                    "implHandler": [
+                        "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
+                        "    this.insert(0, footer);\r",
+                        "}"
+                    ]
+                }
+            },
+            {
+                "type": "basicfunction",
+                "reference": {
+                    "name": "items",
+                    "type": "array"
+                },
+                "codeClass": null,
+                "userConfig": {
                     "fn": "doExpandDepth",
                     "designer|params": [
                         "depth",
@@ -1407,7 +1457,7 @@
                         "    desc      = 'x-grid-sort-desc',\r",
                         "    myEvent   = me.getCustomColumnSortEvent(),\r",
                         "    columnsUpdated = false,\r",
-                        "    c, colIndex, column, columnsUpd=[], colEl, sorter, dir,\r",
+                        "    c, i, colIndex, column, columnsUpd=[], colEl, sorter, dir,\r",
                         "    grouper, grouperSortProperty, grouperDirection, grouperProperty, mySortIdx, newDirCls;\r",
                         "\r",
                         "if (!dataIndex) return;  //Included in event of tap on extra toolbar space at far right\r",
@@ -1580,8 +1630,24 @@
                         "else {list.refresh();}\r",
                         "\r",
                         "// Apply sort indicator to tapped column  (need this after doRefreshList() called .. but also handled in doRefreshList do to race conditioons)\r",
-                        "var newEl = el.addCls(newDirCls);    \r",
+                        "var newEl = el.addCls(newDirCls);  \r",
                         "\r",
+                        "// Added 10/3/13\r",
+                        "var linkedGridsArr = me.prepLinkedGridsArr();\r",
+                        "if (linkedGridsArr.length > 0) {\r",
+                        "    // Remove any existing sort indicators and styling for linked grids\r",
+                        "    for (i=0; i<linkedGridsArr.length; i++) {\r",
+                        "        linkedGridsArr[i].item.suspendEvents();  // item updated in onScroll()\r",
+                        "    }    \r",
+                        "\r",
+                        "    for (i=0; i<linkedGridsArr.length; i++) {\r",
+                        "        linkedGridsArr[i].item.removeColumnSorts();\r",
+                        "    }   \r",
+                        "\r",
+                        "    for (i=0; i<linkedGridsArr.length; i++) {\r",
+                        "        linkedGridsArr[i].item.resumeEvents(true);\r",
+                        "    }   \r",
+                        "}\r",
                         "\r",
                         "\r",
                         ""
@@ -1596,14 +1662,172 @@
                 },
                 "codeClass": null,
                 "userConfig": {
-                    "fn": "updateFooter",
+                    "fn": "removeColumnSorts",
+                    "implHandler": [
+                        "// Added 10/3/13\r",
+                        "\r",
+                        "// Called to clear all header and column sort-related CLS/Styles.  \r",
+                        "// Introduced to support column sorting across freeze column panels.\r",
+                        "var\r",
+                        "me        = this, \r",
+                        "headerEl  = me.down('#touchtreegridheader').element,\r",
+                        "columns   = me.getColumns(),\r",
+                        "cNum      = columns.length,\r",
+                        "list      = me.getList(),  \r",
+                        "asc       = 'x-grid-sort-asc',\r",
+                        "desc      = 'x-grid-sort-desc',    \r",
+                        "c, colEl, columnsUpdated;\r",
+                        "\r",
+                        "var columnsUpd = Ext.clone(columns); \r",
+                        "\r",
+                        "\r",
+                        "for (c=0; c < cNum; c++) {\r",
+                        "    colEl = Ext.get(headerEl.down('div.touchtreegrid-header-cell[dataIndex=' + columns[c].dataIndex + ']'));\r",
+                        "    if (!me.isObjectEmpty(colEl)) {\r",
+                        "        colEl.removeCls(asc);\r",
+                        "        colEl.removeCls(desc);\r",
+                        "    } \r",
+                        "\r",
+                        "\r",
+                        "    // Restore Original styles for non-sorted columnsUpd\r",
+                        "    if (!Ext.isEmpty(columnsUpd[c].headerCssOrig) && !Ext.isEmpty(columnsUpd[c].headerCss)) {\r",
+                        "        if (columnsUpd[c].headerCss !== columnsUpd[c].headerCssOrig) {\r",
+                        "            columnsUpd[c].headerCss = columnsUpd[c].headerCssOrig;\r",
+                        "            columnsUpd[c].initSortCls = '';      // reset                       \r",
+                        "            columnsUpdated = true;\r",
+                        "        }                \r",
+                        "    }        \r",
+                        "    if (!Ext.isEmpty(columnsUpd[c].headerStyleOrig) && !Ext.isEmpty(columnsUpd[c].headerStyle)) {\r",
+                        "        if (columnsUpd[c].headerStyle !== columnsUpd[c].headerStyleOrig) {\r",
+                        "            columnsUpd[c].headerStyle = columnsUpd[c].headerStyleOrig;\r",
+                        "            columnsUpd[c].initSortCls = '';      // reset                       \r",
+                        "            columnsUpdated = true;\r",
+                        "        }                \r",
+                        "    }\r",
+                        "\r",
+                        "    if (!Ext.isEmpty(columnsUpd[c].categCssOrig) && !Ext.isEmpty(columnsUpd[c].categCss)) {\r",
+                        "        if (columnsUpd[c].categCss !== columnsUpd[c].categCssOrig) {\r",
+                        "            columnsUpd[c].categCss = columnsUpd[c].categCssOrig;\r",
+                        "            columnsUpdated = true;\r",
+                        "        }                \r",
+                        "    }   \r",
+                        "    if (!Ext.isEmpty(columnsUpd[c].categStyleOrig) && !Ext.isEmpty(columnsUpd[c].categStyle)) {\r",
+                        "        if (columnsUpd[c].categStyle !== columnsUpd[c].categStyleOrig) {\r",
+                        "            columnsUpd[c].categStyle = columnsUpd[c].categStyleOrig;\r",
+                        "            columnsUpdated = true;\r",
+                        "        }                \r",
+                        "    }   \r",
+                        "\r",
+                        "    if (!Ext.isEmpty(columnsUpd[c].cssOrig) && !Ext.isEmpty(columnsUpd[c].css)) {\r",
+                        "        if (columnsUpd[c].css !== columnsUpd[c].cssOrig) {\r",
+                        "            columnsUpd[c].css = columnsUpd[c].cssOrig;\r",
+                        "            columnsUpdated = true;\r",
+                        "        }                \r",
+                        "    }        \r",
+                        "    if (!Ext.isEmpty(columnsUpd[c].styleOrig) && !Ext.isEmpty(columnsUpd[c].style)) {\r",
+                        "        if (columnsUpd[c].style !== columnsUpd[c].styleOrig) {\r",
+                        "            columnsUpd[c].style = columnsUpd[c].styleOrig;\r",
+                        "            columnsUpdated = true;\r",
+                        "        }                \r",
+                        "    }        \r",
+                        "}\r",
+                        "\r",
+                        "if (columnsUpdated) {\r",
+                        "    me.setColumns(columnsUpd);  \r",
+                        "    me.doRefreshList();\r",
+                        "}\r",
+                        "else {list.refresh();}\r",
+                        ""
+                    ]
+                }
+            },
+            {
+                "type": "basicfunction",
+                "reference": {
+                    "name": "items",
+                    "type": "array"
+                },
+                "codeClass": null,
+                "userConfig": {
+                    "fn": "onScroll",
                     "designer|params": [
-                        "footer"
+                        "scroller",
+                        "x",
+                        "y"
                     ],
                     "implHandler": [
-                        "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
-                        "    this.insert(0, footer);\r",
-                        "}"
+                        "// Scroll all linked grids\r",
+                        "var me = this, i, linkedGridsArr;\r",
+                        "\r",
+                        "linkedGridsArr = me.prepLinkedGridsArr();\r",
+                        "if (linkedGridsArr.length === 0) {return;}\r",
+                        "\r",
+                        "scroller.suspendEvents();\r",
+                        "for (i=0; i<linkedGridsArr.length; i++) {\r",
+                        "    linkedGridsArr[i].scroller.suspendEvents();\r",
+                        "}    \r",
+                        "\r",
+                        "for (i=0; i<linkedGridsArr.length; i++) {\r",
+                        "    otherX = linkedGridsArr[i].scroller.position.x;\r",
+                        "    linkedGridsArr[i].scroller.scrollTo(otherX,y);\r",
+                        "}   \r",
+                        "\r",
+                        "scroller.resumeEvents(true);\r",
+                        "for (i=0; i<linkedGridsArr.length; i++) {\r",
+                        "    linkedGridsArr[i].scroller.resumeEvents(true);\r",
+                        "}   \r",
+                        ""
+                    ]
+                }
+            },
+            {
+                "type": "basicfunction",
+                "reference": {
+                    "name": "items",
+                    "type": "array"
+                },
+                "codeClass": null,
+                "userConfig": {
+                    "fn": "prepLinkedGridsArr",
+                    "designer|params": [
+                        "skipRecurse"
+                    ],
+                    "implHandler": [
+                        "// Adds object references to linkdedGridsArr from itemId's of linked grids for faster scrolling and sorting performance across the grids\r",
+                        "var me = this, i, listItemId, otherList, otherScroller, parcont, linkedGridsArr, gridcont;\r",
+                        "\r",
+                        "linkedGridsArr = me.getLinkedGridsArr();\r",
+                        "if (linkedGridsArr.length === 0) {return [];}\r",
+                        "\r",
+                        "parcont = me.up('#'+me.getLinkedGridsParentItemId());\r",
+                        "if (Ext.isEmpty(parcont)) {\r",
+                        "    console.log(me.getLinkedGridsParentItemId() + ' not found !');\r",
+                        "    return [];\r",
+                        "}\r",
+                        "\r",
+                        "if (Ext.isEmpty(linkedGridsArr[0].scroller)) {\r",
+                        "    // One-time update of linked scroller and gridcont objects for current linked instance of TouchTreeGrid\r",
+                        "    for (i=0; i<linkedGridsArr.length; i++) {\r",
+                        "        gridcont = parcont.down('#'+linkedGridsArr[i].itemId);\r",
+                        "        if (Ext.isEmpty(gridcont)) {\r",
+                        "            console.log('Unable to find ' + linkedGridsArr[i].itemId);\r",
+                        "            return;\r",
+                        "        }\r",
+                        "        listItemId = gridcont.getListItemId();\r",
+                        "        otherList = gridcont.down('#'+listItemId);\r",
+                        "        otherScroller = otherList.getScrollable().getScroller();\r",
+                        "        linkedGridsArr[i].item = gridcont;\r",
+                        "        linkedGridsArr[i].scroller = otherScroller;\r",
+                        "\r",
+                        "        // Similarly update each linked grid\r",
+                        "        if (!skipRecurse) {\r",
+                        "            gridcont.prepLinkedGridsArr(true);\r",
+                        "        }\r",
+                        "    }\r",
+                        "    me.setLinkedGridsArr(linkedGridsArr);    \r",
+                        "}\r",
+                        "\r",
+                        "return linkedGridsArr;"
                     ]
                 }
             }
