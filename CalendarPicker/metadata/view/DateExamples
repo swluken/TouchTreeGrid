@@ -6,12 +6,14 @@
     },
     "codeClass": null,
     "userConfig": {
+        "height": null,
         "itemId": "dateexamples",
+        "minHeight": null,
         "style": "background: white;",
         "designer|userClassName": "DateExamples",
         "designer|userAlias": "dateexamples",
         "designer|initialView": true,
-        "layout": "card"
+        "layout": "fit"
     },
     "designerId": "889cc880-c791-4408-9eef-32aa9889cd48",
     "cn": [
@@ -42,12 +44,75 @@
             },
             "codeClass": null,
             "userConfig": {
+                "height": null,
                 "itemId": "firstSet",
+                "minHeight": null,
                 "style": "background: white;",
                 "scrollable": "vertical"
             },
             "designerId": "70c94ca9-02b1-4c5d-93ea-93dd2acf94ce",
             "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": "4em",
+                        "itemId": "language",
+                        "maxWidth": "100%",
+                        "style": null,
+                        "width": "20em",
+                        "designer|displayName": null,
+                        "layout": "fit"
+                    },
+                    "designerId": "b8edc019-d649-45bd-b6b6-e95c5b8bb7e7",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "maxWidth": "90%",
+                                "width": null,
+                                "title": null
+                            },
+                            "designerId": "ff7375b1-a361-4c4b-b81f-f2d42fc6a1ec",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Select",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "languageSelect",
+                                        "maxWidth": null,
+                                        "label": "Language",
+                                        "labelWidth": "6em",
+                                        "value": [
+                                            "'en'"
+                                        ],
+                                        "displayField": "language",
+                                        "store": "languageStore",
+                                        "usePicker": [
+                                            "false\r",
+                                            ""
+                                        ],
+                                        "valueField": "code"
+                                    },
+                                    "designerId": "0f010ad3-dda8-4445-a2c6-6b6def628405"
+                                }
+                            ]
+                        }
+                    ]
+                },
                 {
                     "type": "Ext.Container",
                     "reference": {
@@ -1278,7 +1343,7 @@
                     "userConfig": {
                         "height": null,
                         "itemId": "example5",
-                        "minHeight": "6em",
+                        "minHeight": null,
                         "style": "border: 1px solid gray;",
                         "designer|displayName": null,
                         "layout": "hbox"
@@ -1387,7 +1452,7 @@
                                 "docked": "bottom",
                                 "height": null,
                                 "html": "Custom Filter example (Christmas calendar for next 12 years).  Filters can be used to only include months with Selected or Custom dates.",
-                                "maxHeight": "4.5em",
+                                "maxHeight": null,
                                 "maxWidth": "75%",
                                 "minHeight": null,
                                 "styleHtmlCls": "example-descr-html",
@@ -1409,7 +1474,7 @@
                     "userConfig": {
                         "height": null,
                         "itemId": "example6",
-                        "minHeight": "5em",
+                        "minHeight": null,
                         "style": "border: 1px solid gray;",
                         "designer|displayName": null,
                         "layout": "hbox"
@@ -1543,7 +1608,7 @@
                     "userConfig": {
                         "height": null,
                         "itemId": "example7",
-                        "minHeight": "5em",
+                        "minHeight": null,
                         "style": "border: 1px solid gray;",
                         "designer|displayName": null,
                         "layout": "hbox",

@@ -24,7 +24,9 @@
         ],
         "renderers": [
             "{renderer_month: function (values)\r",
-            "   {return values.month + ' ' + values.year;},\r",
+            " {var par = this.scope.parent, dt;\r",
+            "   dt = Ext.Date.parse(values.year + '-' + values.mo + '-01', 'Y-m-d');\r",
+            "   return Ext.Date.format(dt, par.getMonthYearFormat());},\r",
             " renderer_dates: function (fldName, values) {\r",
             "   var elem=values[fldName];\r",
             "   return elem;},\r",
@@ -39,8 +41,8 @@
             "     cls = cls + ' calendarpicker-header';}  \r",
             "  else if (Ext.isEmpty(dt)) {} // do nothing for empty dates\r",
             "  else {\r",
-            "     sel = (par.getSelDtArr().indexOf(Ext.Date.format(dt, 'Y-m-d'))>-1);\r",
-            "     if (Ext.Date.format(dt, 'w')==='0' || Ext.Date.format(dt, 'w')==='6') {\r",
+            "     sel = (par.getSelDtArr().indexOf(Ext.Date.format(dt, 'Y-m-d')) !== -1);\r",
+            "     if (par.getWeekendIndexArr().indexOf(parseInt(Ext.Date.format(dt, 'w'))) !== -1) {    \r",
             "       cls = cls+' calendarpicker-weekend';\r",
             "     }   \r",
             "     if (hol){cls = cls+' calendarpicker-holiday';}\r",
@@ -103,6 +105,7 @@
             "{\r",
             "xtype: 'button',\r",
             "text: 'DONE',\r",
+            "textType: 'DONE',    \r",
             "iconCls: '',\r",
             "cls: 'pickerfooterbtns',\r",
             "listeners : {\r",
@@ -114,6 +117,7 @@
             "{\r",
             "xtype: 'button',\r",
             "text: 'Clear',\r",
+            "textType: 'Clear',    \r",
             "cls: 'pickerfooterbtns',\r",
             "listeners : {\r",
             " tap: function (button, e, options) {\r",
@@ -124,6 +128,7 @@
             "{\r",
             "xtype: 'button',\r",
             "text: 'Cancel',\r",
+            "textType: 'Cancel',    \r",
             "iconCls: '',\r",
             "cls: 'pickerfooterbtns',\r",
             "listeners : {\r",
@@ -180,6 +185,19 @@
         "customDatesLegendScrollDock": "fixed",
         "allowMatrixMonthAdditions": false,
         "matrixItem6WeekHeight": "15em",
+        "weekendIndexArr": [
+            "[0,6]"
+        ],
+        "footerBtnTextOverrides": [
+            "{}"
+        ],
+        "monthYearFormat": "F Y",
+        "longDayFormat": "F d, Y",
+        "startDay": 0,
+        "monthsToInsertLastUpdatedText": "Last Updated:&nbsp;",
+        "monthsToInsertLoadedText": "Loaded.",
+        "monthsToInsertLastUpdatedDateFormat": "m/d/Y h:iA",
+        "monthsToInsertLoadingText": "Loading...",
         "cls": [
             "x-touchtreegrid-list-calendar"
         ],
@@ -246,9 +264,15 @@
         "matrixContainer": "object",
         "listScrollable": "boolean",
         "disableListScroll": "boolean",
-        "allowMatrixMonthAdditions": "boolean"
+        "allowMatrixMonthAdditions": "boolean",
+        "isWeekendIndexArr": "array",
+        "weekendIndexArr": "array",
+        "pickerfooterbtns": "object",
+        "footerBtnTextOverrides": "object",
+        "reverseMonthHeader": "boolean",
+        "startDay": "number"
     },
-    "designerId": "0174aaa1-7151-450b-8e9b-47a1ae3ab4ba",
+    "designerId": "f08d5b3f-75d3-4c82-9c85-c817d4062dd7",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
@@ -539,6 +563,51 @@
             "group": "(Custom Properties)",
             "name": "matrixItem6WeekHeight",
             "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "weekendIndexArr",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "footerBtnTextOverrides",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "monthYearFormat",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "longDayFormat",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "startDay",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "monthsToInsertLastUpdatedText",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "monthsToInsertLoadedText",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "monthsToInsertLastUpdatedDateFormat",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "monthsToInsertLoadingText",
+            "type": "string"
         }
     ],
     "cn": [
@@ -705,7 +774,7 @@
                 "dockFooterAboveHeader": "boolean",
                 "hideExpandCollapseBtns": "boolean"
             },
-            "designerId": "4ab7b806-9a7a-408c-bf86-1ffc4f3c9b53",
+            "designerId": "6dfe8a30-dd93-4985-a5bd-f5f8c402345b",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -1171,7 +1240,22 @@
                     "var selDtArr = me.getSelDtArr();\r",
                     "me.origSelDtArr = (Ext.isEmpty(selDtArr) ? [] : selDtArr);\r",
                     "\r",
-                    "gridcont.setCustomFooterItems(me.getCustomFooterItems());\r",
+                    "\r",
+                    "var customFooterItems = me.getCustomFooterItems();\r",
+                    "var footerBtnTextOverrides = me.getFooterBtnTextOverrides();\r",
+                    "// Update default button label text as specified in pickerfooterbtns{} ... added for international text \r",
+                    "if (!Ext.isEmpty(customFooterItems.items) && !this.isObjectEmpty(footerBtnTextOverrides)) {\r",
+                    "    for (i=0; i<customFooterItems.items.length; i++) {\r",
+                    "        if (customFooterItems.items[i].textType==='DONE' && !Ext.isEmpty(footerBtnTextOverrides.DONE)) {\r",
+                    "        customFooterItems.items[i].text = footerBtnTextOverrides.DONE;}\r",
+                    "        if (customFooterItems.items[i].textType==='Clear' && !Ext.isEmpty(footerBtnTextOverrides.Clear)) {\r",
+                    "        customFooterItems.items[i].text = footerBtnTextOverrides.Clear;}\r",
+                    "        if (customFooterItems.items[i].textType==='Cancel' && !Ext.isEmpty(footerBtnTextOverrides.Cancel)) {\r",
+                    "        customFooterItems.items[i].text = footerBtnTextOverrides.Cancel;}    \r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "gridcont.setCustomFooterItems(customFooterItems);\r",
                     "gridcont.setIncludeCustomFooterItems(me.getIncludeCustomFooterItems());\r",
                     "\r",
                     "var customCls=me.getCustomCls();\r",
@@ -1205,19 +1289,34 @@
                     "    myFooter.destroy();\r",
                     "}\r",
                     "\r",
+                    "var exp, col;\r",
                     "if (this.getIncludeFooter() && this.getUseIconsForExpCollapse()) {\r",
                     "    /* shrink exp/collapse button widths by using arrow icons */\r",
-                    "    var exp = gridcont.down('#touchtreegridexpand');\r",
+                    "    exp = gridcont.down('#touchtreegridexpand');\r",
                     "    if (!Ext.isEmpty(exp)) {\r",
                     "        exp.setText('');\r",
                     "        exp.setIconCls('arrow_down');\r",
                     "        exp.setPadding(0);\r",
                     "    }\r",
-                    "    var col = gridcont.down('#touchtreegridcollapse');\r",
+                    "    col = gridcont.down('#touchtreegridcollapse');\r",
                     "    if (!Ext.isEmpty(col)) {\r",
                     "        col.setText('');\r",
                     "        col.setIconCls('arrow_up');\r",
                     "        col.setPadding(0);\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "// Override Expand/Collapse button text if not using arrows and if defined in footerBtnTextOverrides config\r",
+                    "if (this.getIncludeFooter() && !this.getUseIconsForExpCollapse() && !Ext.isEmpty(footerBtnTextOverrides) && \r",
+                    "(!Ext.isEmpty(footerBtnTextOverrides.Expand) || !Ext.isEmpty(footerBtnTextOverrides.Collapse)) ) {\r",
+                    "\r",
+                    "    exp = gridcont.down('#touchtreegridexpand');\r",
+                    "    if (!Ext.isEmpty(exp) && !Ext.isEmpty(footerBtnTextOverrides.Expand)) {\r",
+                    "        exp.setText(footerBtnTextOverrides.Expand);\r",
+                    "    }\r",
+                    "    col = gridcont.down('#touchtreegridcollapse');\r",
+                    "    if (!Ext.isEmpty(col) && !Ext.isEmpty(footerBtnTextOverrides.Collapse)) {\r",
+                    "        col.setText(footerBtnTextOverrides.Collapse);\r",
                     "    }\r",
                     "}\r",
                     "\r",
@@ -1228,8 +1327,12 @@
                     "    // Update listPlugins such that PullRefresh auto-adds \r",
                     "    gridlist.setPlugins({\r",
                     "        xclass: 'Ext.plugin.PullRefresh',\r",
-                    "        pullRefreshText: me.getMonthsToInsertPullText(),\r",
-                    "        releaseRefreshText: me.getMonthsToInsertRefreshText(),\r",
+                    "        pullText:       me.getMonthsToInsertPullText(),\r",
+                    "        releaseText:    me.getMonthsToInsertRefreshText(),\r",
+                    "        lastUpdatedText:       me.getMonthsToInsertLastUpdatedText(),\r",
+                    "        lastUpdatedDateFormat: me.getMonthsToInsertLastUpdatedDateFormat(),\r",
+                    "        loadedText:            me.getMonthsToInsertLoadedText(),\r",
+                    "        loadingText:           me.getMonthsToInsertLoadingText(),\r",
                     "        listeners: {\r",
                     "            latestfetched: function() {this.up('calendarpicker').fireEvent('insertMonths', this.up('calendarpicker'));}\r",
                     "        }\r",
@@ -1284,7 +1387,7 @@
                     ""
                 ]
             },
-            "designerId": "7c55a845-e8cc-4f20-a5a4-ad9f4ec1f3a8"
+            "designerId": "306b0e82-5c0f-41ae-b4b4-5b8258723ba8"
         },
         {
             "type": "basicfunction",
@@ -1350,7 +1453,7 @@
                     "}\r",
                     "\r",
                     "var thisRow, rowArr=[], items, customCls, thisCls, matrixItems=[], thisFirstDt, thisYearMonth, numRows,\r",
-                    "     numRowsPrior=0, numItemsPrior=0;\r",
+                    "    numRowsPrior=0, numItemsPrior=0;\r",
                     "\r",
                     "var backMoInp = me.getBackMonths(), fwdMoInp = me.getForwardMonths();\r",
                     "var backMo=Ext.isEmpty(backMoInp) ? 0 : backMoInp;  // allow negatives to support future start months\r",
@@ -1363,9 +1466,9 @@
                     "    backMo = (-1*fwdMo);  \r",
                     "    fwdMo = fwdMo + monthsToAppend;\r",
                     "    me.setForwardMonths(fwdMo);  // Save new value to component \r",
-                    "    \r",
+                    "\r",
                     "    totMonths = monthsToAppend; // override for addMode\r",
-                    "    \r",
+                    "\r",
                     "    matrixItems = me.matrixItems;\r",
                     "    numItemsPrior = me.currentNumItems;\r",
                     "    numRowsPrior = me.currentMatrixRows;    \r",
@@ -1402,7 +1505,7 @@
                     "        } else {\r",
                     "            customCls = me.getCustomCls().join(' ');  \r",
                     "            thisCls = customCls + ' calendarpicker-matrix-item ' + (j===matrixCols-1 ? 'matrix-column-last' : 'matrix-column');\r",
-                    "            \r",
+                    "\r",
                     "            matrixItems.push({\r",
                     "                xtype: 'calendarpicker',\r",
                     "                itemId: parItemId+'_'+(numItemsPrior + i).toString(),\r",
@@ -1448,18 +1551,18 @@
                     "}\r",
                     "\r",
                     "if (addMode) {\r",
-                    "   // Insert rows after prior set \r",
-                    "   matrixContainer.down('#'+parItemId+'_matrix').add(rowArr);\r",
+                    "    // Insert rows after prior set \r",
+                    "    matrixContainer.down('#'+parItemId+'_matrix').add(rowArr);\r",
                     "} else {    \r",
                     "\r",
-                    "   matrixContainer.add({\r",
-                    "       xtype: 'container',\r",
-                    "       itemId: parItemId+'_matrix',\r",
-                    "       scrollable: 'vertical',\r",
-                    "       cls: 'calendarpicker-matrix',\r",
-                    "       layout: 'default',\r",
-                    "       items: rowArr\r",
-                    "   });\r",
+                    "    matrixContainer.add({\r",
+                    "        xtype: 'container',\r",
+                    "        itemId: parItemId+'_matrix',\r",
+                    "        scrollable: 'vertical',\r",
+                    "        cls: 'calendarpicker-matrix',\r",
+                    "        layout: 'default',\r",
+                    "        items: rowArr\r",
+                    "    });\r",
                     "}    \r",
                     "\r",
                     "// Need to add grid items after parent containers have been instantiated to work correctly\r",
@@ -1500,26 +1603,26 @@
                     "\r",
                     "// Add listener to Add Months event\r",
                     "if (me.getAllowMatrixMonthAdditions()) {\r",
-                    "   matrixContainer.down('#'+parItemId+'_matrix').add({\r",
-                    "    xtype: 'titlebar',\r",
-                    "    cls: 'calendarpicker-matrix-add',\r",
-                    "    itemId: 'calendarpicker-matrix-add',\r",
-                    "    ui: 'plain',\r",
-                    "    title: me.getMonthsToAppendText(),\r",
-                    "    listeners: {\r",
-                    "       tap: {\r",
+                    "    matrixContainer.down('#'+parItemId+'_matrix').add({\r",
+                    "        xtype: 'titlebar',\r",
+                    "        cls: 'calendarpicker-matrix-add',\r",
+                    "        itemId: 'calendarpicker-matrix-add',\r",
+                    "        ui: 'plain',\r",
+                    "        title: me.getMonthsToAppendText(),\r",
+                    "        listeners: {\r",
+                    "            tap: {\r",
                     "                fn: me.onAppendMatrixMonths,\r",
                     "                scope: me,\r",
                     "                element: 'element'\r",
                     "            }        \r",
-                    "    }       \r",
-                    "   });  \r",
-                    "    \r",
+                    "        }       \r",
+                    "    });  \r",
+                    "\r",
                     "}   \r",
                     ""
                 ]
             },
-            "designerId": "99ea3e4c-9f85-408d-960d-9a5d78aa2844"
+            "designerId": "db158e81-d291-4f54-bb4a-cc9a77c69553"
         },
         {
             "type": "basicfunction",
@@ -1549,8 +1652,9 @@
                     "var disableFutureDates = me.getDisableFutureDates();\r",
                     "var disableHolidays = me.getDisableHolidays();\r",
                     "var disableWeekends = me.getDisableWeekends();\r",
+                    "var weekendIndexArr = me.getWeekendIndexArr();\r",
                     "var disablePastDates = me.getDisablePastDates();\r",
-                    "\r",
+                    "var startDay = me.getStartDay();\r",
                     "\r",
                     "var today= Ext.Date.clearTime(new Date(Date(Ext.Date.now())), true);\r",
                     "var currMonth = Ext.Date.format(today, 'm');\r",
@@ -1658,8 +1762,8 @@
                     "    yrNm = Ext.Date.format(dt, 'Y');\r",
                     "\r",
                     "    numDays = Ext.Date.getDaysInMonth(dt);\r",
-                    "    firstDayIdx = Ext.Date.getFirstDayOfMonth(dt);\r",
-                    "    lastDayIdx = Ext.Date.getLastDayOfMonth(dt); \r",
+                    "    firstDayIdx = (Ext.Date.getFirstDayOfMonth(dt)+7-startDay)%7;  // Adjust for startDay <> 0\r",
+                    "    lastDayIdx = (Ext.Date.getLastDayOfMonth(dt)+7-startDay)%7;    // Adjust for startDay <> 0\r",
                     "    firstDtIdx = Ext.Date.clearTime(Ext.Date.getFirstDateOfMonth(dt), true);\r",
                     "    lastDtIdx = Ext.Date.clearTime(Ext.Date.getLastDateOfMonth(dt), true); \r",
                     "\r",
@@ -1680,7 +1784,7 @@
                     "\r",
                     "    // add empty row type for start of month \r",
                     "    dateArr.push(\r",
-                    "    {           \r",
+                    "    {   \r",
                     "        month: moFullNm,\r",
                     "        mo: mo,\r",
                     "        year: yrNm,\r",
@@ -1688,17 +1792,18 @@
                     "        rowType: 'H',   // header row type    \r",
                     "        ID: id,\r",
                     "        PARENT_ID: parId,\r",
-                    "        dow0: 'Sun',\r",
-                    "        dow1: 'Mon',\r",
-                    "        dow2: 'Tue',\r",
-                    "        dow3: 'Wed',\r",
-                    "        dow4: 'Thu',\r",
-                    "        dow5: 'Fri',\r",
-                    "        dow6: 'Sat'\r",
+                    "        dow0: Ext.Date.getShortDayName((0+startDay)%7), // 'Sun',\r",
+                    "        dow1: Ext.Date.getShortDayName((1+startDay)%7), // 'Mon',\r",
+                    "        dow2: Ext.Date.getShortDayName((2+startDay)%7), // 'Tue',\r",
+                    "        dow3: Ext.Date.getShortDayName((3+startDay)%7), // 'Wed',\r",
+                    "        dow4: Ext.Date.getShortDayName((4+startDay)%7), //'Thu',\r",
+                    "        dow5: Ext.Date.getShortDayName((5+startDay)%7), // 'Fri',\r",
+                    "        dow6: Ext.Date.getShortDayName((6+startDay)%7) // 'Sat'\r",
                     "    }); \r",
                     "    id++;  // increment next id \r",
                     "    weekNum = 1;\r",
                     "    i = 1;\r",
+                    "\r",
                     "    do {  // Loop for all days in current month\r",
                     "\r",
                     "        dtStr = Ext.Date.format(dt, 'Y-m-d');\r",
@@ -1717,9 +1822,10 @@
                     "            } else {\r",
                     "                wkArr[j] = i;\r",
                     "                wkDtArr[j] = dt;  \r",
+                    "\r",
                     "                wkIsDisArr[j] = ((disableDtArr.indexOf(dtStr) !== -1) ||\r",
                     "                (disableFutureDates && (dtStr > gridcont.todayDt) ) ||\r",
-                    "                (disableWeekends && (Ext.Date.format(dt, 'w')==='0' || Ext.Date.format(dt, 'w')==='6')) ||\r",
+                    "                (disableWeekends && (weekendIndexArr.indexOf(parseInt(Ext.Date.format(dt, 'w'))) !== -1)) ||\r",
                     "                (disableHolidays && (holidayDtArr.indexOf(dtStr)>-1) ) ||\r",
                     "                (disablePastDates && (dtStr < gridcont.todayDt)));\r",
                     "                wkIsHolArr[j] = (holidayDtArr.indexOf(dtStr) !== -1);\r",
@@ -1850,7 +1956,7 @@
                     "me.loadStore(me, gridcont, gridlist, expandCollapse);"
                 ]
             },
-            "designerId": "bb32c8f3-89b0-4de9-8e03-64b7d720fb05"
+            "designerId": "1eeba1d4-0a84-4ed9-8f00-d2a49df6a706"
         },
         {
             "type": "basicfunction",
@@ -1991,7 +2097,7 @@
                     ""
                 ]
             },
-            "designerId": "5b085356-8f86-4936-b9fb-43daacb7c092"
+            "designerId": "e97db0c5-f532-4416-913c-c1febf5dda53"
         },
         {
             "type": "basicfunction",
@@ -2021,6 +2127,7 @@
                     "var disableFutureDates = dtPkr.getDisableFutureDates();\r",
                     "var disableHolidays = dtPkr.getDisableHolidays();\r",
                     "var disableWeekends = dtPkr.getDisableWeekends();\r",
+                    "var weekendIndexArr = dtPkr.getWeekendIndexArr();\r",
                     "var disablePastDates = dtPkr.getDisablePastDates();\r",
                     "var enableQuickDaySelection = dtPkr.getEnableQuickDaySelection();\r",
                     "\r",
@@ -2038,7 +2145,7 @@
                     "    tgt=tgt.getParent();\r",
                     "} \r",
                     "\r",
-                    "if (tgt.hasCls('calendarpicker-disabled')) {return;}  // do nothing for disabled rows\r",
+                    "if (tgt.hasCls('calendarpicker-disabled')) {return;}  // do nothing for disabled days\r",
                     "\r",
                     "var myDate = record.get('dt_'+myField);\r",
                     "if (Ext.isEmpty(myDate)) {return;}\r",
@@ -2134,7 +2241,7 @@
                     "\r",
                     "                if ((disableDtArr.indexOf(d) === -1) &&\r",
                     "                (!disableFutureDates || (d <= gridcont.todayDt) ) &&\r",
-                    "                (!disableWeekends || (Ext.Date.format(dact, 'w')!=='0' && Ext.Date.format(dact, 'w')!=='6')) &&\r",
+                    "                (!disableWeekends || (weekendIndexArr.indexOf(parseInt(Ext.Date.format(dact, 'w'))) === -1)) &&                                  \r",
                     "                (!disableHolidays || (holidayDtArr.indexOf(d)===-1) ) &&\r",
                     "                (!disablePastDates || (d >= gridcont.todayDt))) {\r",
                     "                    newArr.push(d);\r",
@@ -2171,7 +2278,7 @@
                     ""
                 ]
             },
-            "designerId": "68a34bd1-51a6-4b87-bc2f-5c4a0aa0c217"
+            "designerId": "b5feb011-2b02-4839-8b3a-4a2c650653cf"
         },
         {
             "type": "basicfunction",
@@ -2213,7 +2320,7 @@
                     ""
                 ]
             },
-            "designerId": "3b895741-802d-4afe-b458-0ec9d0b1556b"
+            "designerId": "24526a1d-30c2-4aa2-8321-79febd6f86b6"
         },
         {
             "type": "basicfunction",
@@ -2239,7 +2346,7 @@
                     ""
                 ]
             },
-            "designerId": "68dc615f-965f-4d03-9c4a-36a8265adf25"
+            "designerId": "5d7230e6-3bca-4e9b-a99b-72c8075773ff"
         },
         {
             "type": "basicfunction",
@@ -2265,7 +2372,7 @@
                     ""
                 ]
             },
-            "designerId": "145f54ee-7456-486f-bd5e-ccdc1f91e8ea"
+            "designerId": "c6812c32-75e0-4f3e-a2c3-fc7de340735a"
         },
         {
             "type": "basicfunction",
@@ -2292,7 +2399,7 @@
                     ""
                 ]
             },
-            "designerId": "e5418130-7b13-48ca-a183-8b706d5eee14"
+            "designerId": "bcdbe189-e958-42e7-88db-a1f96f4e2d64"
         },
         {
             "type": "basicfunction",
@@ -2317,7 +2424,7 @@
                     ""
                 ]
             },
-            "designerId": "23a36f3b-18c7-4aeb-9571-3e78d20975f3"
+            "designerId": "d728473d-d80c-40ce-9985-246d7512b009"
         },
         {
             "type": "basicfunction",
@@ -2341,7 +2448,7 @@
                     ""
                 ]
             },
-            "designerId": "2a6f75f7-5ed3-45d8-9e76-6e3cd582dd6e"
+            "designerId": "f8156660-b496-4dd5-b932-26f348509199"
         },
         {
             "type": "basicfunction",
@@ -2356,7 +2463,7 @@
                     "this.matrixPrep(this.config, true);"
                 ]
             },
-            "designerId": "291a9971-004c-4497-b5de-a536f7dabf8f"
+            "designerId": "9c46095d-3f0d-4f30-aab1-7c963ea1d66c"
         },
         {
             "type": "basicfunction",
@@ -2427,7 +2534,7 @@
                     ""
                 ]
             },
-            "designerId": "e628a3b4-619f-4b7c-9ead-11de17c25137"
+            "designerId": "e1c7bd1c-bbf5-4974-87d3-7a2c98e9f328"
         },
         {
             "type": "basicfunction",
@@ -2519,7 +2626,7 @@
                     ""
                 ]
             },
-            "designerId": "74d26786-454e-403b-940a-354ce496c09f"
+            "designerId": "0f8ab4c3-cb1e-47fd-9a2e-2133687fbcb0"
         },
         {
             "type": "basicfunction",
@@ -2543,7 +2650,7 @@
                     "}"
                 ]
             },
-            "designerId": "0d30162c-1c49-4196-811b-5980f88fd7a1"
+            "designerId": "26d15cb0-a446-4cec-8858-2fa442dd6f03"
         },
         {
             "type": "basicfunction",
@@ -2572,7 +2679,30 @@
                     "return result;"
                 ]
             },
-            "designerId": "f331838b-8128-4983-a1c0-049ab9cb4615"
+            "designerId": "2b79a8c5-5318-49a4-b9d5-1fe550386b9e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "isObjectEmpty",
+                "designer|params": [
+                    "myObj"
+                ],
+                "implHandler": [
+                    "for(var key in myObj) {\r",
+                    "    if (myObj.hasOwnProperty(key)) {\r",
+                    "        return false;\r",
+                    "    }\r",
+                    "}\r",
+                    "return true;"
+                ]
+            },
+            "designerId": "4e52fb81-8d6b-4339-88c4-b0eda05b51d8"
         }
     ]
 }

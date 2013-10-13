@@ -9,11 +9,11 @@
         "exportPath": "",
         "buildShouldOverwriteIndex": true
     },
-    "xdsVersion": "2.2.2",
-    "xdsBuild": 991,
+    "xdsVersion": "2.2.3",
+    "xdsBuild": 1039,
     "schemaVersion": 1,
     "upgradeVersion": 210000000503,
-    "framework": "touch22",
+    "framework": "touch23",
     "topInstanceFileMap": {
         "b8f6c608-d1da-4b6b-8c96-84a26008b3bd": {
             "paths": [
@@ -63,14 +63,6 @@
             ],
             "className": "css3"
         },
-        "0174aaa1-7151-450b-8e9b-47a1ae3ab4ba": {
-            "paths": [
-                "metadata/view/CalendarPicker",
-                "app/view/override/CalendarPicker.js",
-                "app/view/CalendarPicker.js"
-            ],
-            "className": "CalendarPicker"
-        },
         "38927dbc-1774-4c74-8c01-4e54ba91918e": {
             "paths": [
                 "metadata/view/TouchTreeGrid",
@@ -78,14 +70,22 @@
                 "app/view/TouchTreeGrid.js"
             ],
             "className": "TouchTreeGrid"
+        },
+        "f08d5b3f-75d3-4c82-9c85-c817d4062dd7": {
+            "paths": [
+                "metadata/view/CalendarPicker",
+                "app/view/override/CalendarPicker.js",
+                "app/view/CalendarPicker.js"
+            ],
+            "className": "CalendarPicker"
         }
     },
     "viewOrderMap": {
         "view": [
             "889cc880-c791-4408-9eef-32aa9889cd48",
             "95ebf663-f827-4965-8fdc-f620ceb4bbd3",
-            "0174aaa1-7151-450b-8e9b-47a1ae3ab4ba",
-            "38927dbc-1774-4c74-8c01-4e54ba91918e"
+            "38927dbc-1774-4c74-8c01-4e54ba91918e",
+            "f08d5b3f-75d3-4c82-9c85-c817d4062dd7"
         ],
         "store": [],
         "controller": [

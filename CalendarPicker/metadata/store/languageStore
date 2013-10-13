@@ -1,0 +1,107 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[\r",
+            "\t['en', 'English', 'ascii'],\r",
+            "    ['af', 'Afrikaans'],\r",
+            "\t['bg', 'Bulgarian'],\r",
+            "\t['ca', 'Catalonian'],\r",
+            "\t['zh_CN', 'Chinese Simplified'],\r",
+            "\t['zh_TW', 'Chinese Traditional'],\r",
+            "\t['hr', 'Croatian'],\r",
+            "\t['cs', 'Czech'],\r",
+            "\t['da', 'Danish'],\r",
+            "\t['nl', 'Dutch'],\r",
+            "\t['en_AU', 'English (AU)'],   \r",
+            "\t['en_GB', 'English (UK)'],\r",
+            "\t['fa', 'Farsi (Persian)'],\r",
+            "\t['fi', 'Finnish'],\r",
+            "\t['fr_CA', 'France (Canadian)'],\r",
+            "\t['fr', 'France (France)'],\r",
+            "\t['de', 'German'],\r",
+            "\t['el_GR', 'Greek'],\r",
+            "\t['he', 'Hebrew'],\r",
+            "\t['hu', 'Hungarian'],\r",
+            "\t['id', 'Indonesian'],\r",
+            "\t['it', 'Italian'],\r",
+            "\t['ja', 'Japanese'],\r",
+            "\t['ko', 'Korean'],\r",
+            "\t['lv', 'Latvian'],\r",
+            "\t['lt', 'Lithuanian'],\r",
+            "\t['mk', 'Macedonia'],\r",
+            "\t['no_NB', 'Norwegian Bokmål'],\r",
+            "\t['no_NN', 'Norwegian Nynorsk'],\r",
+            "\t['pl', 'Polish'],\r",
+            "\t['pt_BR', 'Portuguese/Brazil'],\r",
+            "\t['pt_PT', 'Portuguese/Portugal'],\r",
+            "\t['ro', 'Romanian'],\r",
+            "\t['ru', 'Russian'],\r",
+            "\t['sr_RS', 'Serbian Cyrillic'],\r",
+            "\t['sr', 'Serbian Latin'],\r",
+            "\t['sk', 'Slovak'],\r",
+            "\t['sl', 'Slovenian'],\r",
+            "\t['es', 'Spanish/Latin American'],\r",
+            "\t['sv_SE', 'Swedish'],\r",
+            "\t['th', 'Thailand'],\r",
+            "\t['tr', 'Turkish'],\r",
+            "\t['ukr', 'Ukrainian'],\r",
+            "\t['vn', 'Vietnamese']\r",
+            "]"
+        ],
+        "storeId": "languageStore",
+        "designer|userClassName": "languageStore"
+    },
+    "designerId": "7d3cdcf5-4db9-48ac-9345-717fc6a22fd5",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "5e619aeb-1b86-4c95-a597-3819ab6fae87",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Array",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "e96d6722-1037-4daf-98b1-e8f7045f2f19"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "code"
+            },
+            "designerId": "a7fe0a7f-c74c-4dee-bbbd-fb34b99e91b6"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "language"
+            },
+            "designerId": "060665fa-b83b-42d0-b98c-e8dd5760a102"
+        }
+    ]
+}

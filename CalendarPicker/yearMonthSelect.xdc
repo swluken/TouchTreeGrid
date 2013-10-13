@@ -1,6 +1,6 @@
 {
-    "xdsVersion": "2.2.2",
-    "frameworkVersion": "touch22",
+    "xdsVersion": "2.2.3",
+    "frameworkVersion": "touch23",
     "internals": {
         "type": "Ext.Panel",
         "reference": {
@@ -747,7 +747,13 @@
                         "\r",
                         "var myYear = record.get('year');\r",
                         "\r",
-                        "var monArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\r",
+                        "var monthNames, monArr=[];\r",
+                        "monthNames = Ext.Date.monthNames;\r",
+                        "for (i=0; i< monthNames.length; i++) {\r",
+                        "   monArr.push(Ext.Date.getShortMonthName(i));\r",
+                        "}\r",
+                        "\r",
+                        "//var monArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\r",
                         "var myMonth = monArr.indexOf(myDate);\r",
                         "\r",
                         "function pad(n, width, z) {\r",

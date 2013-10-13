@@ -1,3 +1,77 @@
+TO DO:
+ - FIX OUTER SCROLLING CONFIG FOR FREEZE EXAMPLE + REMOVE HELP HTML REF
+
+**************************************************************************************************
+10/13/2013 COMMIT CHANGE LOG: 
+
+*** New CalendarPicker Features and Examples ***
+ Added support for international calendars including examples of 44 different languages.
+ Soliciting corrections, updates and additional language definitions.
+ 
+ Notes:  
+     - Date translations extracted from EXTJS 4.2 locale files and should be verified
+       (refer to ./app/controller/languageMixin.js and documentation at top of file in addition to 
+        Appendix D of CalendarPicker.pdf for language-specific configs)
+     - Holiday Dates are US and for illustration only and would need to be customized for each language.
+     - Some of the examples require additional localization logic including Legends, titles and button text.
+     - It is suggested that you leverage useIconsForExpCollapse=true config to display Expand/Collapse as arrows
+       for international usage
+
+*** Modifications that require updates to prior implementations *** 
+    None (all modifications are backward compatible)
+    
+    Exception:  Sencha updated following PullRefresh Plugin configs from 2.2.1 to 2.3:
+      - pullRefreshText is now pullText
+      - pullReleaseText is not releaseText
+      
+      CalendarPicker initialize() method updated accordingly for setListPlugins({...}) so you will need
+      to revert these differences if implementing this version of CalendarPicker in prior 2.3 implementations. 
+    
+*** CalendarPicker Modifications ***
+
+- Added configs:
+   - weekendIndexArr = [0,6] (default) to represent weekday index positions that would be disabled via disableWeekends configs
+   - footerBtnTextOverrides = {}  (allows override of footer button text.  
+        Example :{DONE: 'OK', Clear: 'Clr', Cancel: 'Cxl', Expand: 'Exp', Collapse: 'Col'}
+   - longDayFormat = 'F d, Y'  (not currently used in existing examples)
+   - monthYearFormat = 'F Y'  (used to display Month-Year header for each calendar
+   - startDay = 0  (set to 1 [Monday] for ISO-8601 countries per http://en.wikipedia.org/wiki/Names_of_the_days_of_the_week)
+   - monthsToInsertLastUpdatedText = 'Last Updated:&nbsp;'  (text for pull to insert months after updated)
+   - monthsToInsertLastUpdatedDateFormat = 'm/d/Y h:iA' (date format after pull to insert months)
+   - monthsToInsertLoadedText = 'Loaded.'  (display after pull to insert months)
+   - monthsToInsertLoadingText = 'Loading...'  (display while pull to insert months)
+   
+- Modificed configs:
+   - customFooterItems:  added textType config to each of the buttons to support switching between languages
+    
+- Modified createStore() method to call Ext.Date.getShortDayName(day) for international week day names and to process startDay config
+- Mofidified initialize() method to process new configs
+- Updated onLeafItemTap() method of yearMonthSelect.js  to handle international short month names correctly
+- Added isObjectEmpty() method to CalendarPicker (also exists in TouchTreeGrid.js)
+
+- Modified renderer function cls_renderer_dates as follows to support new weekendIndexArr[] config:
+   replaced :      if (Ext.Date.format(dt, 'w')==='0' || Ext.Date.format(dt, 'w')==='6') {
+       with :      if (par.getWeekendIndexArr().indexOf(parseInt(Ext.Date.format(dt, 'w'))) !== -1) {
+
+- Modified renderer function renderer_month to following to support new monthYearFormat config:
+   renderer_month: function (values)
+    {var par = this.scope.parent, dt;
+      dt = Ext.Date.parse(values.year + '-' + values.mo + '-01', 'Y-m-d');
+      return Ext.Date.format(dt, par.getMonthYearFormat());}
+   
+- Modified examples accordingly including following:
+  - Added languageStore.js allow for test selection of 44 different languages for evaluation purposes.
+  - Added language selector and controller action to process select field change event
+  - Added languageMixin.js referenced by DateExamplesController.js to allow for language-specific customization 
+    to CalendarPicker.  
+       => Soliciting additions/corrections for existing/new languages
+
+- Update "TouchTreeGrid - Documentation.pdf" (page 1 version summary) and "CalendarPicker.pdf"
+
+- Updated CalendarPicker, and CalendarPicker_Basic directory examples to Touch 2.3
+  and updated CalendarPicker.XDC to Architect Version: 2.2.3 Build: 1039 
+
+
 **************************************************************************************************
 10/9/2013 COMMIT CHANGE LOG: 
 

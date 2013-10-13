@@ -5,15 +5,15 @@
         "lineEnding": "CRLF",
         "genTimestamps": false,
         "cacheBust": false,
-        "urlPrefix": "http://localhost/TouchTreeGrid-master/CalendarPicker/",
+        "urlPrefix": "http://localhost/TouchTreeGrid/CalendarPicker/",
         "exportPath": "",
         "buildShouldOverwriteIndex": true
     },
-    "xdsVersion": "2.2.2",
-    "xdsBuild": 991,
+    "xdsVersion": "2.2.3",
+    "xdsBuild": 1039,
     "schemaVersion": 1,
     "upgradeVersion": 210000000503,
-    "framework": "touch22",
+    "framework": "touch23",
     "topInstanceFileMap": {
         "b8f6c608-d1da-4b6b-8c96-84a26008b3bd": {
             "paths": [
@@ -124,6 +124,14 @@
                 "app/view/TouchTreeGrid.js"
             ],
             "className": "TouchTreeGrid"
+        },
+        "7d3cdcf5-4db9-48ac-9345-717fc6a22fd5": {
+            "paths": [
+                "metadata/store/languageStore",
+                "app/store/override/languageStore.js",
+                "app/store/languageStore.js"
+            ],
+            "className": "languageStore"
         }
     },
     "viewOrderMap": {
@@ -137,7 +145,8 @@
             "4a8cdce9-a270-4211-bff6-b4ce112cc15c"
         ],
         "store": [
-            "b9d584e1-0cd1-4929-a1ee-e97945888dc4"
+            "b9d584e1-0cd1-4929-a1ee-e97945888dc4",
+            "7d3cdcf5-4db9-48ac-9345-717fc6a22fd5"
         ],
         "controller": [
             "86531a3e-f268-40f4-b550-e18c5ff85973",
