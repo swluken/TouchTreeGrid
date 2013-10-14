@@ -1,5 +1,7 @@
-TO DO:
- - FIX OUTER SCROLLING CONFIG FOR FREEZE EXAMPLE + REMOVE HELP HTML REF
+**************************************************************************************************
+10/14/2013 COMMIT CHANGE LOG: 
+
+- Added default getShortDayName() method if not defined for specific language.
 
 **************************************************************************************************
 10/13/2013 COMMIT CHANGE LOG: 
