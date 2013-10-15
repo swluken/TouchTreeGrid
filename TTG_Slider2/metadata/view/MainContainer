@@ -1,0 +1,409 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MainContainer",
+        "designer|userAlias": "mainContainer",
+        "requires": [
+            "Ext.Menu"
+        ],
+        "designer|initialView": true,
+        "layout": "hbox"
+    },
+    "configAlternates": {
+        "scrollable": "object"
+    },
+    "designerId": "eeeda3bf-155a-46cc-b5da-27e57a4e4a09",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "itemId": "menucontgridpanel",
+                "width": "100%",
+                "layout": "fit"
+            },
+            "designerId": "c7f8087f-4727-42d0-b4cd-782076e80b3d",
+            "cn": [
+                {
+                    "type": "Ext.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "menuconttoolbardark"
+                        ],
+                        "docked": "top",
+                        "itemId": "menuconttoolbar",
+                        "title": "Accordion"
+                    },
+                    "designerId": "5af021ab-604a-4d04-910c-5b4fd05ef07a",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "html": null,
+                                "itemId": "menubtn",
+                                "padding": "0 .2em .3em .2em",
+                                "style": "border: 1px solid grey; ",
+                                "ui": "plain",
+                                "labelCls": "x-button-label-menu",
+                                "text": "MENU"
+                            },
+                            "designerId": "58804dd9-189f-4b2d-b0ac-80357f5c3a38"
+                        },
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "right",
+                                "height": "1.5em",
+                                "hidden": false,
+                                "itemId": "gridhelp",
+                                "margin": ".5em 0 0 0",
+                                "width": "1.5em",
+                                "src": "./resources/images/question.png"
+                            },
+                            "designerId": "fa32c54d-b9e0-4f61-849b-55f7b706d876"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "menucontswap",
+                        "layout": "card"
+                    },
+                    "designerId": "c18c5d3d-6970-4138-ae05-fe8687c1577d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null,
+                "hidden": null,
+                "html": null,
+                "itemId": "menuconthelppanel",
+                "maxWidth": null,
+                "minWidth": 0,
+                "style": "border-left: 1px solid gray; background-color:#fffd8f;",
+                "width": null,
+                "zIndex": null,
+                "layout": "fit",
+                "scrollable": "vertical"
+            },
+            "designerId": "e3903bcc-3b41-4d45-bc56-3d51496552ec",
+            "cn": [
+                {
+                    "type": "Ext.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "menuconthelptoolbar"
+                        ],
+                        "docked": "top",
+                        "itemId": "menuconthelptoolbar",
+                        "style": null,
+                        "ui": "plain"
+                    },
+                    "designerId": "9235ff2c-e742-419f-9b27-ddd1d2462dad",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "iconMask": true,
+                                "docked": null,
+                                "itemId": "closehelp",
+                                "margin": "0 0 .2em 0",
+                                "padding": "0 0 .2em 0",
+                                "style": null,
+                                "iconCls": "delete",
+                                "text": null
+                            },
+                            "configAlternates": {
+                                "iconMask": "boolean"
+                            },
+                            "designerId": "5d03569e-6ee6-4c82-ab5d-e51b0ffc69c5",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "iconMask",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "if (!Ext.os.is.Phone) {\r",
+                    "   this.down('#menuconthelptoolbar').setHidden(true);  // Hide help menu toolbar for tablets\r",
+                    "}   \r",
+                    "//Ext.Viewport.toggleMenu('left');\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "a7269627-1a95-4e42-bcba-64b6a43139d5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "myMenu",
+                "implHandler": [
+                    "var scrnHt = (window.innerHeight > 0) ? window.innerHeight : screen.height; \r",
+                    "var gridHt = scrnHt  - 35;  // - 32;  // FOOTER HIDDEN BELOW\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "var items = [\r",
+                    "{\r",
+                    "    xtype: 'container',\r",
+                    "    itemId: 'menunav',\r",
+                    "    minWidth: '256px',\r",
+                    "    style: 'border-right: thin solid #999; background-color: #323232; font-size: 1em;',\r",
+                    "    layout: {\r",
+                    "        type: 'fit'\r",
+                    "    },\r",
+                    "    items: [\r",
+                    "    {\r",
+                    "        xtype: 'container',\r",
+                    "        cls: 'menuopt_header',\r",
+                    "        docked: 'top',\r",
+                    "        height: '35px',\r",
+                    "        html: 'TouchTreeGrid Demo',\r",
+                    "        itemId: 'menuopt_header',\r",
+                    "        maxHeight: '35px',\r",
+                    "        minHeight: '35px',\r",
+                    "        padding: '8px 0 0 0',\r",
+                    "        style: 'color: white; text-align: center; font-size: 1em;',\r",
+                    "        ui: 'plain'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        xtype: 'container',\r",
+                    "        minHeight: gridHt+'px',\r",
+                    "        maxHeight: gridHt+'px',\r",
+                    "        height: gridHt+'px',\r",
+                    "        itemId: 'menuoptitems',\r",
+                    "        style: 'background-color: #323232;',\r",
+                    "        scrollable: {\r",
+                    "            //http://www.sencha.com/forum/showthread.php?175065\r",
+                    "            direction: 'vertical',\r",
+                    "            directionLock: true,\r",
+                    "            momentumEasing: {\r",
+                    "                momentum: {\r",
+                    "                    acceleration: 30,\r",
+                    "                    friction: 0.5\r",
+                    "                },\r",
+                    "                bounce: {\r",
+                    "                    acceleration: 0.0001,\r",
+                    "                    springTension: 0.9999\r",
+                    "                },\r",
+                    "                minVelocity: 5\r",
+                    "            },\r",
+                    "            outOfBoundRestrictFactor: 0 \r",
+                    "        },\r",
+                    "        items: [\r",
+                    "        {\r",
+                    "            xtype: 'touchtreegrid',\r",
+                    "            store: 'menuOptsStore',\r",
+                    "            listScrollable: false,\r",
+                    "            disableSelection: false,\r",
+                    "            onItemDisclosure: true,\r",
+                    "            columns: [\r",
+                    "            {\r",
+                    "                dataIndex: 'Image',\r",
+                    "                width: '15%',\r",
+                    "                style: 'text-align: left;'\r",
+                    "            },\r",
+                    "            {\r",
+                    "                dataIndex: 'Text',\r",
+                    "                width: '85%',\r",
+                    "                style: 'text-align: left;'\r",
+                    "            }\r",
+                    "            ],\r",
+                    "            disclosureProperty: 'leaf',\r",
+                    "            listItemId: 'menuoptlist',\r",
+                    "            includeFooter: false,\r",
+                    "            categIndentPct: '0',\r",
+                    "            categDepthColors: true,\r",
+                    "            categDepthColorsArr: [\r",
+                    "            '#323232',\r",
+                    "            'white',\r",
+                    "            'white'\r",
+                    "            ],\r",
+                    "            includeHeader: false,\r",
+                    "            applyDefaultCollapseLevel: true,\r",
+                    "            disableExpandCollapse: true,\r",
+                    "            singleExpand: false,\r",
+                    "            mode: 'MULTI',\r",
+                    "            arrowPctWidth: '0',\r",
+                    "            cls: [\r",
+                    "            'x-touchtreegrid-list',\r",
+                    "            'x-touchtreegrid-list-menuopt'\r",
+                    "            ],\r",
+                    "            minHeight: '60em', \r",
+                    "            height: '60em', \r",
+                    "            maxHeight: '60em', \r",
+                    "            itemId: 'menuopt'\r",
+                    "        }\r",
+                    "        ]\r",
+                    "    },\r",
+                    "    {\r",
+                    "        xtype: 'toolbar',\r",
+                    "        docked: 'bottom',\r",
+                    "        itemId: 'menuopt_footer',\r",
+                    "        maxHeight: '32px',\r",
+                    "        minHeight: '32px',\r",
+                    "        hidden: true,     // **********************************  CUSTOM SETTING \r",
+                    "        style: ' background-color: #323232; ',\r",
+                    "        ui: 'plain',\r",
+                    "        items: [\r",
+                    "        {\r",
+                    "            xtype: 'image',\r",
+                    "            docked: 'left',\r",
+                    "            height: '32px',\r",
+                    "            itemId: 'menuoptexpand',\r",
+                    "            margin: '0 0 8px 0',\r",
+                    "            width: '32px',\r",
+                    "            src: './resources/images/bullet_arrow_bottom.png'\r",
+                    "        },\r",
+                    "        {\r",
+                    "            xtype: 'image',\r",
+                    "            docked: 'left',\r",
+                    "            height: '32px',\r",
+                    "            itemId: 'menuoptcollapse',\r",
+                    "            margin: '0 0 8px 0',\r",
+                    "            width: '32px',\r",
+                    "            src: './resources/images/bullet_arrow_top.png'\r",
+                    "        }\r",
+                    "        ]\r",
+                    "    }\r",
+                    "    ]\r",
+                    "}];\r",
+                    "return items;"
+                ]
+            },
+            "designerId": "7ca84814-a808-495a-b0b9-58c6f691a59d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "menuForSide",
+                "designer|params": [
+                    "side"
+                ],
+                "implHandler": [
+                    "var items = this.myMenu();\r",
+                    "\r",
+                    "var className = 'Ext.Menu';\r",
+                    "if (Ext.theme.name == \"Blackberry\") {\r",
+                    "    if (['top', 'bottom'].indexOf(side) != -1) {\r",
+                    "        className = 'Ext.ux.ApplicationMenu';\r",
+                    "    } else {\r",
+                    "        className = 'Ext.ux.ContextMenu';\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "return Ext.create(className, {\r",
+                    "    baseCls: 'x-menu-touchtreegrid',   // Override baseCls so that we can remove 0 padding, etc...\r",
+                    "    items: items\r",
+                    "});"
+                ]
+            },
+            "designerId": "c3149129-cb18-4405-9b4c-d6fa3a2de80f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSetHidden",
+                "designer|params": [
+                    "hidden"
+                ],
+                "implHandler": [
+                    "this.callParent(arguments);\r",
+                    "\r",
+                    "if (hidden) {\r",
+                    "    Ext.Viewport.removeMenu('left');\r",
+                    "} else {\r",
+                    "\r",
+                    "    Ext.Viewport.setMenu(this.menuForSide('left'), {  // slide\r",
+                    "        side: 'left',\r",
+                    "        cover: false\r",
+                    "    });\r",
+                    "\r",
+                    "}\r",
+                    ""
+                ]
+            },
+            "designerId": "2987f73a-51f6-4f4d-8e0b-1868b4b8fca7"
+        }
+    ]
+}

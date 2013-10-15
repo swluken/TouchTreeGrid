@@ -1,0 +1,22 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "TouchTreeGrid"
+        ],
+        "controllers": [
+            "CommonController",
+            "CensusController",
+            "ListsController",
+            "ProjectController",
+            "TasksController"
+        ],
+        "name": "TouchTreeGrid"
+    },
+    "designerId": "application"
+}

@@ -1,4 +1,28 @@
 **************************************************************************************************
+10/15/2013 COMMIT CHANGE LOG: 
+
+*** New TouchTreeGrid Examples ***
+Created new ./TTG_Slider2/ project directory that utilizes new slider menu in Touch 2.3 
+This version of Slide Navigation corrects the prior issues for Windows 8 phones.
+
+*** Modifications that require updates to prior implementations *** 
+    None. Only the examples were modified.
+    
+*** TouchTreeGrid Example Modifications ***
+ - Modified CSS in treegriddemo.css for Horiz Scrolling and Dynamic Grid examples to correct
+   item heights and increased font size.
+ - Modified MainContainer.js view to define Touch 2.3 slider menu in methods:
+   myMenu(), menuForSlide() and doSetHidden()
+ - Modified controller methods in numerous places based on new menu.
+
+
+- Update "TouchTreeGrid - Documentation.pdf".  
+  Refer to new section titled: "Touch 2.3 Menu Implementation using TouchTreeGrid"
+
+- Created new TTG_Slider2 directory with Touch 2.3 and Architect Version: 2.2.3 Build: 1039 
+
+
+**************************************************************************************************
 10/14/2013 COMMIT CHANGE LOG: 
 
 - Added default getShortDayName() method if not defined for specific language.

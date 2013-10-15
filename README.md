@@ -1,5 +1,6 @@
-TouchTreeGrid and CalendarPicker  (Touch 2.1, 2.2, 2.3)
-=======================================================
+TouchTreeGrid and CalendarPicker
+================================
+(Touch 2.1, 2.2, 2.3)
 
 TouchTreeGrid is an extremely versatile and easy to implement Sencha Touch custom 
 component that supports Tree Grids, Standard Grids and traditional Accordion view layouts
@@ -10,7 +11,8 @@ supported for leafs and optionally for category rows.
 
 CalendarPicker component utilizes TouchTreeGrid to provide incredible flexibility for date 
 selection and calendar display on Phones and Tablets.  Calendars can be implemented with
-just a few configurations in overlay panels or traditional containers.  Calendar is 
+just a few configurations in overlay panels or traditional containers.  International 
+Calendars are supported with 44 different languages included in the download.  Calendar is 
 constructed using #months backward to #months forward configurations.  Many features
 exist including:  collapsible months for rapid single select, range select in single
 calendar popup, or multi-select random dates in single popup.  Specific dates can be

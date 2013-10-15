@@ -1,0 +1,288 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Dow2012",
+            "Dow2012Tree"
+        ],
+        "stores": [
+            "Dow2012grouper",
+            "Dow2012",
+            "dow2012TreeStore",
+            "Dow2012Horiz"
+        ],
+        "views": [
+            "Dow2012Cont",
+            "Dow2012Basic2Cont",
+            "Dow2012grouperCont",
+            "Dow2012grouper2Cont",
+            "Dow2012DynamicCont",
+            "Dow2012HorizCont"
+        ],
+        "designer|userClassName": "ListsController"
+    },
+    "designerId": "9c622342-bd07-4a5e-8842-1c91c6fec0e4",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onHorizGridLeafItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "// Example of how we can code to only act if CloseDate or Close (Price) elements are tapped\r",
+                    "// (requires that columns[] array have \"addDataIndexToDiv: true\" attribute defined for each of these\r",
+                    "// columns)\r",
+                    "\r",
+                    "var myField = e.target.getAttribute('dataIndex');\r",
+                    "var tapped = true;\r",
+                    "\r",
+                    "if (myField === 'CloseDate') {\r",
+                    "    var myDate = Ext.Date.format(record.get('CloseDate'), \"n/j/Y\");\r",
+                    "    Ext.Msg.alert('Close Date: ' + myDate);\r",
+                    "}\r",
+                    "else if (myField === 'Close') {\r",
+                    "    Ext.Msg.alert('Close Price: ' + record.get('Close'));    \r",
+                    "}\r",
+                    "else {\r",
+                    "    // For this example no other fields were defined with dataIndex attribute within DIV\r",
+                    "    tapped = false;\r",
+                    "}\r",
+                    "\r",
+                    "if (tapped) {\r",
+                    "    console.log('onHorizGridLeafItemTap record tapped:');\r",
+                    "    console.log(record);\r",
+                    "}\r",
+                    ""
+                ],
+                "name": "leafItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#dow2012horiz"
+            },
+            "designerId": "4e4ecec4-1613-4587-871e-c1b58077b62a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDynamicGridLeafItemTap",
+                "designer|params": [
+                    "me, list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "// Example of how we can code to only act if CloseDate or Close (Price) elements are tapped\r",
+                    "// (requires that columns[] array have \"addDataIndexToDiv: true\" attribute defined for each of these columns)\r",
+                    "\r",
+                    "var myField = e.target.getAttribute('dataIndex');\r",
+                    "var tapped = true;\r",
+                    "\r",
+                    "if (myField === 'CloseDate') {\r",
+                    "    var myDate = Ext.Date.format(record.get('CloseDate'), \"n/j/Y\");\r",
+                    "    Ext.Msg.alert('Close Date: ' + myDate);\r",
+                    "}\r",
+                    "else if (myField === 'Close') {\r",
+                    "    Ext.Msg.alert('Close Price: ' + record.get('Close'));    \r",
+                    "}\r",
+                    "else {\r",
+                    "    // For this example no other fields were defined with dataIndex attribute within DIV\r",
+                    "    tapped = false;\r",
+                    "}\r",
+                    "\r",
+                    "if (tapped) {\r",
+                    "    console.log('onHorizGridLeafItemTap record tapped:');\r",
+                    "    console.log(record);\r",
+                    "}\r",
+                    "  "
+                ],
+                "name": "leafItemTap",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#dow2012Dynamic"
+            },
+            "designerId": "d34f7ce1-878d-424c-83c1-0ca6b2eb5981"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDow2012grouper2ExpCollapse",
+                "designer|params": [
+                    "params"
+                ],
+                "implHandler": [
+                    "// For really large data sets seems to expand/collapse faster by refreshing the treestore with appropriate collapse level\r",
+                    "var collapseLevel = params.collapseLevel;\r",
+                    "var list = params.list;\r",
+                    "var gridcont = params.gridcont;\r",
+                    "\r",
+                    "gridcont.collapseLevel = collapseLevel;\r",
+                    "\r",
+                    "this.loadDow2012Grouper2Store(gridcont, list);\r",
+                    "\r",
+                    "list.setMasked(false);\r",
+                    ""
+                ],
+                "name": "expCollapse",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "container#dow2012grouper2"
+            },
+            "designerId": "a7ed1737-9203-4d4e-b6e3-cb645b618008"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "dow2012Cont",
+                "selector": "dow2012Cont",
+                "xtype": "dow2012Cont"
+            },
+            "designerId": "cfb5e54b-0078-4f56-8417-9881db8fc01a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "dow2012Basic2Cont",
+                "selector": "dow2012Basic2Cont",
+                "xtype": "dow2012Basic2Cont"
+            },
+            "designerId": "16c84223-d7bd-41bb-8067-a5f5ab36e873"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "dow2012grouperCont",
+                "selector": "dow2012grouperCont",
+                "xtype": "dow2012grouperCont"
+            },
+            "designerId": "f8d971da-5dcf-4e31-8181-cd8be4a4a370"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "dow2012grouper2Cont",
+                "selector": "dow2012grouper2Cont",
+                "xtype": "dow2012grouper2Cont"
+            },
+            "designerId": "0e3ba97d-89b4-42e5-9721-3b85b782c893"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "dow2012HorizCont",
+                "selector": "dow2012HorizCont",
+                "xtype": "dow2012HorizCont"
+            },
+            "designerId": "7a911f54-9093-428c-ae46-d347c908d176"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "dow2012DynamicCont",
+                "selector": "dow2012DynamicCont",
+                "xtype": "dow2012DynamicCont"
+            },
+            "designerId": "504aa2ad-1c82-4a55-b572-5d8977b7c10f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadDow2012DynamicStore",
+                "designer|params": [
+                    "gridcont",
+                    "grid"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "var gridurl = 'data/dow2012dynamicCss.json';\r",
+                    "\r",
+                    "commonController.loadDynamicStore(me, gridcont, gridurl, 'Loading Dynamic...', false);\r",
+                    ""
+                ]
+            },
+            "designerId": "d939eb86-5b8c-4696-b1f0-3c5ff874ad6e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadDow2012Grouper2Store",
+                "designer|params": [
+                    "gridcont, grid"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "var gridurl = 'data/dow2012categ.json';\r",
+                    "\r",
+                    "// Passing loadStoreInPostProcess=true because for this example we will \r",
+                    "// be loading dow2012TreeStore (flatfile format) and then post-processing\r",
+                    "// into treestore format \r",
+                    "commonController.loadStore(me, gridcont, gridurl, 'Loading Grouper#2...', true);\r",
+                    ""
+                ]
+            },
+            "designerId": "36e89c75-1e1c-457f-8414-836f1fc42a5b"
+        }
+    ]
+}
