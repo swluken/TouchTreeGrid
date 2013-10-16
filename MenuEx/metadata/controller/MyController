@@ -1,0 +1,295 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyController",
+        "requires": [
+            "Ext.Menu"
+        ]
+    },
+    "designerId": "4a3a2dd2-4d0c-456e-b8fd-bf4cbee5b8e1",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLeftBtnTap",
+                "implHandler": [
+                    "Ext.Viewport.toggleMenu('left');"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button#leftBtn"
+            },
+            "designerId": "14eb2b64-ad77-474c-a7ce-a79830ec0705"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onRightBtnTap",
+                "implHandler": [
+                    "Ext.Viewport.toggleMenu('right');"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button#rightBtn"
+            },
+            "designerId": "d780abb9-6ffa-4d84-a523-c66b536a1859"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMenuOptListDisclose",
+                "implHandler": [
+                    "// Disclose handled same as item tap\r",
+                    "this.onMenuOptListSelect(null, record);"
+                ],
+                "name": "disclose",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list#menuoptlist"
+            },
+            "designerId": "663b6a6c-e571-4977-b9b8-3e07a1eebd4e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMenuOptListSelect",
+                "implHandler": [
+                    "if (!record.get('leaf')) {return;}\r",
+                    "\r",
+                    "console.log('You tapped menu option: ' + record.get('Text'));\r",
+                    "\r",
+                    "Ext.Viewport.hideAllMenus();"
+                ],
+                "name": "select",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list#menuoptlist"
+            },
+            "designerId": "d54c9ccd-96c7-4cc9-b2cb-be551c1851b1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTopBtnTap",
+                "implHandler": [
+                    "// Example of creating new top menu each time button pressed\r",
+                    "Ext.Viewport.removeMenu('bottom');\r",
+                    "\r",
+                    "var items = this.getTopBottomMenu();\r",
+                    "\r",
+                    "Ext.Viewport.setMenu(this.createMenu(items), {  // cover\r",
+                    "    side: 'top',\r",
+                    "    cover: true\r",
+                    "});\r",
+                    "\r",
+                    "Ext.Viewport.toggleMenu('top');"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button#topBtn"
+            },
+            "designerId": "15cc0fe7-66c6-4d91-ae31-4068e5db7ba0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onBottomBtnTap",
+                "implHandler": [
+                    "// Example of creating new bottom menu each time button pressed\r",
+                    "Ext.Viewport.removeMenu('bottom');\r",
+                    "\r",
+                    "var items = this.getTopBottomMenu();\r",
+                    "\r",
+                    "Ext.Viewport.setMenu(this.createMenu(items), {  // cover\r",
+                    "    side: 'bottom',\r",
+                    "    cover: true\r",
+                    "});\r",
+                    "\r",
+                    "Ext.Viewport.toggleMenu('bottom');"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button#bottomBtn"
+            },
+            "designerId": "ae972917-e281-4860-9bbc-fdbb8b5f5c5f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "topBottomMenu",
+                "selector": "topBottomMenu",
+                "xtype": "topBottomMenu"
+            },
+            "designerId": "1791e5da-2017-4c29-9ae8-2e61522e09f5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "changeBottomMenu",
+                "selector": "changeBottomMenu",
+                "xtype": "changeBottomMenu"
+            },
+            "designerId": "ce3d1ce8-072a-4f9a-a776-42a96561a8d2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onChangeBottomBtnTap",
+                "implHandler": [
+                    "// Example of creating different bottom menu \r",
+                    "Ext.Viewport.removeMenu('bottom');\r",
+                    "\r",
+                    "var items = this.getChangeBottomMenu();\r",
+                    "\r",
+                    "Ext.Viewport.setMenu(this.createMenu(items), {  // cover\r",
+                    "    side: 'bottom',\r",
+                    "    cover: true\r",
+                    "});\r",
+                    "\r",
+                    "Ext.Viewport.toggleMenu('bottom');"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button#changeBottomBtn"
+            },
+            "designerId": "0295b185-2928-4e9b-bb71-fad033fde92d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "menuItems",
+                "selector": "menuItems",
+                "xtype": "menuItems"
+            },
+            "designerId": "7ab9aaf0-9f4c-403a-ae9d-47e9a208eeb1"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "// Place fixed menu's in Launch() or similar method to only create once\r",
+                    "\r",
+                    "Ext.Viewport.removeMenu('left');\r",
+                    "Ext.Viewport.removeMenu('right');\r",
+                    "\r",
+                    "var itemsLeft =Ext.create('widget.menuItems', {});\r",
+                    "Ext.Viewport.setMenu(this.createMenu(itemsLeft), {  // slide\r",
+                    "    side: 'left',\r",
+                    "    cover: false\r",
+                    "});\r",
+                    "\r",
+                    "var itemsRight =Ext.create('widget.menuItems', {});\r",
+                    "Ext.Viewport.setMenu(this.createMenu(itemsRight), {  // reveal\r",
+                    "    side: 'right',\r",
+                    "    reveal: true\r",
+                    "});\r",
+                    ""
+                ]
+            },
+            "designerId": "f7fad95d-8160-4226-8413-9cacc4693949"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "createMenu",
+                "designer|params": [
+                    "items"
+                ],
+                "implHandler": [
+                    "var className = 'Ext.Menu';\r",
+                    "\r",
+                    "return Ext.create(className, {\r",
+                    "    baseCls: 'x-menu-touchtreegrid',   // Override baseCls so that we can remove 0 padding, etc...\r",
+                    "    items: items\r",
+                    "});"
+                ]
+            },
+            "designerId": "c0dfe824-74dc-466c-beaf-9f763f924ad2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMenuButtonTap",
+                "implHandler": [
+                    "Ext.Viewport.hideAllMenus();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button#menuBtn"
+            },
+            "designerId": "5a8347be-9b8e-45e9-a2bf-e6448e0c27f8"
+        }
+    ]
+}

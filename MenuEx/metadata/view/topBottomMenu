@@ -1,0 +1,159 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": "6em",
+        "designer|userClassName": "topBottomMenu",
+        "designer|userAlias": "topBottomMenu",
+        "layout": "vbox"
+    },
+    "designerId": "58a0c532-2b1f-4927-84f2-bce8bb280134",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "layout": "hbox"
+            },
+            "designerId": "772e21cd-41d3-4155-a617-347f088c649b",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "fit"
+                    },
+                    "designerId": "44927524-7d79-4eb1-901f-23de9881ce95",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "menuBtn",
+                                "text": "Button 1"
+                            },
+                            "designerId": "aed6d719-4c7e-4816-b0ba-202967c9f108"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "fit"
+                    },
+                    "designerId": "1677f88b-a086-43f3-8de4-f27ffa64106f",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "menuBtn",
+                                "text": "Button 2"
+                            },
+                            "designerId": "007ca69e-9fdd-4e53-baa7-c1cdacb70f0b"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "layout": "hbox"
+            },
+            "designerId": "55e5354c-3e12-4a82-834e-47c192051ce1",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "fit"
+                    },
+                    "designerId": "62cae67c-4e75-4cb0-8eb8-3de10dfef0ea",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "menuBtn",
+                                "text": "Button 3"
+                            },
+                            "designerId": "22b66892-6fb7-45e0-887a-436bcfc189ce"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "fit"
+                    },
+                    "designerId": "35d3ac16-b593-4084-9962-bced24f2b5cc",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "menuBtn",
+                                "text": "Button 4"
+                            },
+                            "designerId": "2bc66559-b66a-438e-b97d-fbf636d155c8"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

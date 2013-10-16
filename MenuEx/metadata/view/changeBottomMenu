@@ -1,0 +1,230 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": "9em",
+        "designer|userClassName": "changeBottomMenu",
+        "designer|userAlias": "changeBottomMenu",
+        "layout": "vbox"
+    },
+    "designerId": "ea7b7135-192f-41da-ac81-65ceec3984cf",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "layout": "hbox"
+            },
+            "designerId": "ef9c2d37-ecb5-408b-a6f4-39bdedf35a4f",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "fit"
+                    },
+                    "designerId": "f28d50eb-3660-4f7c-b731-21932b676042",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "menuBtn",
+                                "text": "New Btn 1"
+                            },
+                            "designerId": "a24d9795-6149-40fc-ab17-6fc960f936f9"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "fit"
+                    },
+                    "designerId": "0c485ab7-69f3-42e3-8ea6-2d44c4833ba7",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "menuBtn",
+                                "text": "New Btn 2"
+                            },
+                            "designerId": "a0211a65-1139-4593-aa06-f0d3d3ee4b06"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "layout": "hbox"
+            },
+            "designerId": "2a2757b5-aa85-4e53-bed4-1b2b452480c9",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "fit"
+                    },
+                    "designerId": "f8f414e8-74ee-4425-b999-c71e1288bbf0",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "menuBtn",
+                                "text": "New Btn 3"
+                            },
+                            "designerId": "9de1d232-4ab5-4cf2-bafa-3442a0a39625"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "fit"
+                    },
+                    "designerId": "3b8e22b4-7012-449f-ace8-be00d5afc74d",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "menuBtn",
+                                "text": "New Btn 4"
+                            },
+                            "designerId": "4c5b8367-b121-42fd-b16c-bd6a0ed75f50"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "layout": "hbox"
+            },
+            "designerId": "dfa85200-656d-4920-92a7-be479716c418",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "fit"
+                    },
+                    "designerId": "520f43c4-8fb8-4d15-9a5b-5beaa90a4cec",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "menuBtn",
+                                "text": "New Btn 5"
+                            },
+                            "designerId": "3bf50c1e-c6e5-41bd-825b-1e149857379a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "fit"
+                    },
+                    "designerId": "ed3c5296-c6ac-4f75-b000-bf8bb0fcd662",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "menuBtn",
+                                "text": "New Btn 6"
+                            },
+                            "designerId": "8581bfdc-9602-468e-bb1a-156536927a24"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

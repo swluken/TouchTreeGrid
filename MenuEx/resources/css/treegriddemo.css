@@ -1,0 +1,120 @@
+/*********************************** MENU OPTIONS ************************************/
+.menuopt_header {  /* TouchTreeGrid Demo Blue colored header in navigation panel */
+    background-color: none; 
+    color: white;
+    font-weight: bold;  
+background: rgb(76,76,76); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRjNGM0YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE1JSIgc3RvcC1jb2xvcj0iIzAwYWVkYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg1JSIgc3RvcC1jb2xvcj0iIzAwYWVkYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0YzRjNGMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(left,  rgba(76,76,76,1) 0%, rgba(0,174,219,1) 15%, rgba(0,174,219,1) 85%, rgba(76,76,76,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(76,76,76,1)), color-stop(15%,rgba(0,174,219,1)), color-stop(85%,rgba(0,174,219,1)), color-stop(100%,rgba(76,76,76,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(76,76,76,1) 0%,rgba(0,174,219,1) 15%,rgba(0,174,219,1) 85%,rgba(76,76,76,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(76,76,76,1) 0%,rgba(0,174,219,1) 15%,rgba(0,174,219,1) 85%,rgba(76,76,76,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(76,76,76,1) 0%,rgba(0,174,219,1) 15%,rgba(0,174,219,1) 85%,rgba(76,76,76,1) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(76,76,76,1) 0%,rgba(0,174,219,1) 15%,rgba(0,174,219,1) 85%,rgba(76,76,76,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#4c4c4c',GradientType=1 ); /* IE6-8 */
+  
+}
+
+.x-touchtreegrid-list-menuopt .x-touchtreegrid-item {  /* default color all expanded grid rows including background color for shaded category rows */
+    background-color: white;
+}
+
+.x-touchtreegrid-list-menuopt .x-scroll-container { /* background Scroll container same color as category rows */
+        background-color: #323232;
+}
+
+.x-touchtreegrid-list-menuopt .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+  background-color: transparent;  /* defined in categDepthColorsArr[] in view config */
+  background-image: none;    
+  border-top: 1px solid #a6a6a6;
+  border-bottom: none;
+  padding:.7em 0 0 0 !important; 
+  -webkit-box-shadow: none;
+  max-height: 47px;
+  min-height: 47px;
+  height: 47px;
+  font-weight: normal;
+  color: white;
+  font-size: 1em !important;        
+}
+
+.x-touchtreegrid-list-menuopt .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    color: #155bb0;
+    font-weight: bold;
+    background-color: white;
+    padding:.7em 0 0 0 !important;
+    margin:0;
+    max-height: 47px;
+    min-height: 47px;
+    height: 47px;    
+    font-size: 1em !important;   
+    background-color: transparent;  /* Needed for row selection */    
+}
+
+.x-touchtreegrid-list-menuopt .x-list-disclosure{  
+        width: 12px;
+        height: 1.5em;
+        margin: .4em .4em 0 .5em;   
+        -webkit-mask: none;  
+        -webkit-mask-box-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjbQg61aAAAAc0lEQVQ4T2NgGGagtLS0DoSJ8hZIYVlZ2X8QJkoTUFELTAOILikpqSZoE7ma2tFsqiDGJtI0FRYWSgOd9xYpEJ4AxYSw2gRVfBtNsQqdFdvb27MA3XyEKGfA3AZ0uwpQ0xMQBrEJBiVIAUgh0YqJMpEuigDEnX39an6ddgAAAABJRU5ErkJggg==');
+}
+.x-touchtreegrid-list-menuopt .x-list-disclosure:before{  
+/* Disable Touch 2.2 arrow picto for disclosure icon */
+        content: '';
+        font-family: '';
+}   
+
+/** Begin menuopt CSS required to support row selection for content rows **/
+
+.x-touchtreegrid-list-menuopt .touchtreegrid-list-categ { 
+    min-height: 47px !important;  /* Selected row is still painted, but underneath webkit box which is sized to hide selection */
+}
+
+.x-touchtreegrid-list-menuopt .x-touchtreegrid-item .touchtreegrid-item-selected,
+.x-touchtreegrid-list-menuopt .touchtreegrid-item-selected,
+.x-touchtreegrid-list-menuopt .touchtreegrid-item-selected .touchtreegrid-list-content-cell { 
+ /* effectively disable row selection by matching non-selected color, but support pressed color */    
+    background-color: white !important;  
+    color: #155bb0; 
+
+}    
+
+.x-touchtreegrid-list-menuopt .touchtreegrid-item-selected .x-list-disclosure{ 
+    background-color: #155bb0 !important;  /* maintain icon color for selected row */
+}    
+
+.x-touchtreegrid-list-menuopt .x-touchtreegrid-item .touchtreegrid-item-pressed,
+.x-touchtreegrid-list-menuopt .touchtreegrid-item-pressed,
+.x-touchtreegrid-list-menuopt .touchtreegrid-item-pressed .touchtreegrid-list-content-cell { 
+/* colors for selected row while pressing */
+    color: white;
+    background-color: #FF6F00 !important; 
+}    
+   
+                    
+.menuconttoolbardark {
+background: rgb(25,25,25); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(25,25,25,1) 0%, rgba(50,50,50,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(25,25,25,1)), color-stop(100%,rgba(50,50,50,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(25,25,25,1) 0%,rgba(50,50,50,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(25,25,25,1) 0%,rgba(50,50,50,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(25,25,25,1) 0%,rgba(50,50,50,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(25,25,25,1) 0%,rgba(50,50,50,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#191919', endColorstr='#323232',GradientType=0 ); /* IE6-9 */
+border-bottom: .1em solid;    
+}
+
+.x-button-label-menu { 
+    font-size: .5em;
+    font-weight: bold;
+}
+
+.menuconthelptoolbar {
+    background-color:#fffd8f !important;
+}
+     
+/**** Overridden baseCls for menu ****/
+.x-menu-touchtreegrid {
+    padding: 0;
+    }

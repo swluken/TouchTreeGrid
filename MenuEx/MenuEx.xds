@@ -1,0 +1,117 @@
+{
+    "name": "MenuEx",
+    "settings": {
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "http://localhost/TouchTreeGrid/menuEx/",
+        "exportPath": "",
+        "buildShouldOverwriteIndex": true
+    },
+    "xdsVersion": "2.2.3",
+    "xdsBuild": 1044,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "touch23",
+    "topInstanceFileMap": {
+        "0aea1586-019c-466a-b344-b45fd7d33b54": {
+            "paths": [
+                "metadata/view/MyContainer",
+                "app/view/override/MyContainer.js",
+                "app/view/MyContainer.js"
+            ],
+            "className": "MyContainer"
+        },
+        "4a3a2dd2-4d0c-456e-b8fd-bf4cbee5b8e1": {
+            "paths": [
+                "metadata/controller/MyController",
+                "app/controller/override/MyController.js",
+                "app/controller/MyController.js"
+            ],
+            "className": "MyController"
+        },
+        "c17b257a-ca96-4a9d-a258-39ca2b201297": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "919d6f79-68b7-4543-8135-cf39005effc0": {
+            "paths": [
+                "metadata/store/MenuOptsStore",
+                "app/store/override/MenuOptsStore.js",
+                "app/store/MenuOptsStore.js"
+            ],
+            "className": "MenuOptsStore"
+        },
+        "837148ee-5aa1-450c-9e34-d2656cc8a635": {
+            "paths": [
+                "metadata/view/TouchTreeGrid",
+                "app/view/override/TouchTreeGrid.js",
+                "app/view/TouchTreeGrid.js"
+            ],
+            "className": "TouchTreeGrid"
+        },
+        "8e654a8f-385e-4582-add3-fcbf29a95274": {
+            "paths": [
+                "metadata/resource/css"
+            ],
+            "className": "css"
+        },
+        "416b4be6-b783-448e-947e-15fc4fa12439": {
+            "paths": [
+                "metadata/resource/css1"
+            ],
+            "className": "css1"
+        },
+        "58a0c532-2b1f-4927-84f2-bce8bb280134": {
+            "paths": [
+                "metadata/view/topBottomMenu",
+                "app/view/override/topBottomMenu.js",
+                "app/view/topBottomMenu.js"
+            ],
+            "className": "topBottomMenu"
+        },
+        "ea7b7135-192f-41da-ac81-65ceec3984cf": {
+            "paths": [
+                "metadata/view/changeBottomMenu",
+                "app/view/override/changeBottomMenu.js",
+                "app/view/changeBottomMenu.js"
+            ],
+            "className": "changeBottomMenu"
+        },
+        "a6bcdb0b-734b-4791-89da-094f959d1074": {
+            "paths": [
+                "metadata/view/menuItems",
+                "app/view/override/menuItems.js",
+                "app/view/menuItems.js"
+            ],
+            "className": "menuItems"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "0aea1586-019c-466a-b344-b45fd7d33b54",
+            "837148ee-5aa1-450c-9e34-d2656cc8a635",
+            "58a0c532-2b1f-4927-84f2-bce8bb280134",
+            "ea7b7135-192f-41da-ac81-65ceec3984cf",
+            "a6bcdb0b-734b-4791-89da-094f959d1074"
+        ],
+        "store": [
+            "919d6f79-68b7-4543-8135-cf39005effc0"
+        ],
+        "controller": [
+            "4a3a2dd2-4d0c-456e-b8fd-bf4cbee5b8e1"
+        ],
+        "model": [],
+        "resource": [
+            "c17b257a-ca96-4a9d-a258-39ca2b201297",
+            "8e654a8f-385e-4582-add3-fcbf29a95274",
+            "416b4be6-b783-448e-947e-15fc4fa12439"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

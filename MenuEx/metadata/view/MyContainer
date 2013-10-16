@@ -1,0 +1,96 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "center",
+        "html": null,
+        "maxWidth": null,
+        "designer|userClassName": "MyContainer",
+        "designer|initialView": true,
+        "layout": "vbox"
+    },
+    "designerId": "0aea1586-019c-466a-b344-b45fd7d33b54",
+    "cn": [
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "leftBtn",
+                "margin": ".5em .5em 0 .5em",
+                "maxWidth": null,
+                "padding": null,
+                "width": "17em",
+                "text": "Toggle left menu (slide)"
+            },
+            "designerId": "655d6f5e-2856-49da-b09a-721fd8bfab3c"
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "rightBtn",
+                "margin": ".5em .5em 0 .5em",
+                "width": "17em",
+                "text": "Toggle right menu (reveal)"
+            },
+            "designerId": "ff4439b8-8452-4c49-9f77-6a0cd5f407dd"
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "topBtn",
+                "margin": ".5em .5em 0 .5em",
+                "width": "17em",
+                "text": "Toggle top menu (cover)"
+            },
+            "designerId": "def5afbb-a120-4ccd-b9ef-9960deebe0e2"
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "bottomBtn",
+                "margin": ".5em .5em 0 .5em",
+                "width": "17em",
+                "text": "Toggle bottom menu (cover)"
+            },
+            "designerId": "a46840bc-4433-4527-84de-adc65342aa5d"
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "changeBottomBtn",
+                "margin": ".5em .5em 0 .5em",
+                "width": "17em",
+                "text": "Change bottom menu (cover)"
+            },
+            "designerId": "30d5accc-1744-4f2b-8e86-99d5ab793918"
+        }
+    ]
+}

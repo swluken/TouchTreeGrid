@@ -1,0 +1,25 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "stores": [
+            "MenuOptsStore"
+        ],
+        "views": [
+            "MyContainer",
+            "TouchTreeGrid",
+            "topBottomMenu",
+            "changeBottomMenu",
+            "menuItems"
+        ],
+        "controllers": [
+            "MyController"
+        ],
+        "name": "MyApp"
+    },
+    "designerId": "application"
+}
