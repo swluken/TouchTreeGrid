@@ -1,4 +1,15 @@
 **************************************************************************************************
+10/15/2013(2) COMMIT CHANGE LOG: 
+
+*** New TouchTreeGrid with Menu Example ***
+Created new ./MenuEx/ project directory that simplifies how to utilizes new slider menu in Touch 2.3 
+with TouchTreeGrid menu items.  Also demonstrates other styles of Menus implemented withing Controller code.
+
+Software can be downloaded at https://github.com/swluken/TouchTreeGrid
+
+See demo at:  http://www.lincolnwaterfrontrentals.com/Sencha/MenuEx/app.html
+
+**************************************************************************************************
 10/15/2013 COMMIT CHANGE LOG: 
 
 *** New TouchTreeGrid Examples ***

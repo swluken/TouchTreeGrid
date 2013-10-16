@@ -170,6 +170,7 @@
             "categCssArr": "array",
             "customFooterItems": "object",
             "includeCustomFooterItems": "boolean",
+            "dockFooterAboveHeader": "boolean",
             "hideExpandCollapseBtns": "boolean",
             "onScrollOptions": "object",
             "linkedGridsArr": "array"
@@ -821,7 +822,7 @@
                         "    newStore = Ext.create('Ext.data.Store', {fields: {\"name\" : \"dynamic\"}});\r",
                         "}\r",
                         "\r",
-                        "if (this.isObjectEmpty(list)) {\r",
+                        "if (this.isObjectEmpty(list)) {   \r",
                         "\r",
                         "    list = Ext.create('Ext.dataview.List', {   \r",
                         "        disableSelection: disableSel,\r",
@@ -869,7 +870,7 @@
                         "    var listItemId = me.getListItemId();\r",
                         "    if (listItemId !== '') {\r",
                         "        list.setItemId(listItemId);\r",
-                        "    }\r",
+                        "    } \r",
                         "\r",
                         "    // Update list with any additional configs defined in user-defined additionalListConfigs object\r",
                         "    // (this allows all configs supported by Ext.dataview.List component to be applied to TouchTreeGrid list\r",
@@ -883,11 +884,13 @@
                         "        }\r",
                         "    }\r",
                         "\r",
-                        "    me.add(list);\r",
+                        "    me.add(list);    \r",
                         "}\r",
                         "else {\r",
                         "    list.setStore(newStore);\r",
                         "}    \r",
+                        "\r",
+                        "\r",
                         "\r",
                         "\r",
                         "\r",
@@ -990,7 +993,7 @@
                         "    });\r",
                         "\r",
                         "    return Ext.factory(config, Ext.Toolbar);\r",
-                        "}    "
+                        "}   "
                     ]
                 }
             },
@@ -1031,6 +1034,7 @@
                         "config"
                     ],
                     "implHandler": [
+                        "\r",
                         "var me = this;\r",
                         "var footerDock = me.getFooterDock();\r",
                         "var hideExpandCollapseBtns = me.getHideExpandCollapseBtns();\r",
@@ -1090,30 +1094,9 @@
                         "        }]\r",
                         "    });\r",
                         "\r",
-                        "\r",
-                        "\r",
-                        "\r",
                         "    return Ext.factory(config, Ext.Toolbar);\r",
-                        "}"
-                    ]
-                }
-            },
-            {
-                "type": "basicfunction",
-                "reference": {
-                    "name": "items",
-                    "type": "array"
-                },
-                "codeClass": null,
-                "userConfig": {
-                    "fn": "updateFooter",
-                    "designer|params": [
-                        "footer"
-                    ],
-                    "implHandler": [
-                        "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
-                        "    this.insert(0, footer);\r",
-                        "}"
+                        "}\r",
+                        ""
                     ]
                 }
             },
@@ -1161,6 +1144,7 @@
                         "// Added 8/19/2013\r",
                         "var scroller = list.getScrollable().getScroller();\r",
                         "scroller.scrollTo(0,1);  \r",
+                        "\r",
                         ""
                     ]
                 }
@@ -1650,6 +1634,26 @@
                         "}\r",
                         "\r",
                         "\r",
+                        ""
+                    ]
+                }
+            },
+            {
+                "type": "basicfunction",
+                "reference": {
+                    "name": "items",
+                    "type": "array"
+                },
+                "codeClass": null,
+                "userConfig": {
+                    "fn": "updateFooter",
+                    "designer|params": [
+                        "footer"
+                    ],
+                    "implHandler": [
+                        "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
+                        "    this.insert(0, footer);\r",
+                        "}\r",
                         ""
                     ]
                 }

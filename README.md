@@ -40,19 +40,17 @@ Refer to "TouchTreeGrid - Documentation.pdf" (page 1) for version details associ
 See working Touch Calendar Picker Demo at:
 http://www.lincolnwaterfrontrentals.com/Sencha/CalendarPicker/app.html
 
-<div>&nbsp;</div>
-See working Touch 2.3 Slide Navigation examples at:
+See latest Touch 2.3 examples with new Touch 2.3 Menu at:
 http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Slider/app.html
 
-<div>&nbsp;</div>
+See simplified example of how to utilize TouchTreeGrid for menu options with Touch 2.3 Menu component at:
+http://www.lincolnwaterfrontrentals.com/Sencha/MenuEx/app.html
+
 See working Touch 2.3 Freeze and Horizontal Scrolling Column examples at:
 http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Freeze/app.html
 
-<div>&nbsp;</div>
 See working Touch 2.2 Tab Panel examples at:
 http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html
-<div>&nbsp;</div>
-
 
 PLANNED ENHANCEMENTS TO TouchTreeGrid:      
     

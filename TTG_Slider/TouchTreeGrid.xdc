@@ -1,6 +1,6 @@
 {
-    "xdsVersion": "2.2.2",
-    "frameworkVersion": "touch22",
+    "xdsVersion": "2.2.3",
+    "frameworkVersion": "touch23",
     "internals": {
         "type": "Ext.Container",
         "reference": {
@@ -115,11 +115,11 @@
             "footerDock": "bottom",
             "hideExpandCollapseBtns": false,
             "linkedGridsParentItemId": "",
-            "linkedGridsArr": [
-                "[]"
-            ],
             "onScrollOptions": [
                 "{}"
+            ],
+            "linkedGridsArr": [
+                "[]"
             ],
             "cls": [
                 "x-touchtreegrid-list"
@@ -172,8 +172,8 @@
             "includeCustomFooterItems": "boolean",
             "dockFooterAboveHeader": "boolean",
             "hideExpandCollapseBtns": "boolean",
-            "linkedGridsArr": "array",
-            "onScrollOptions": "object"
+            "onScrollOptions": "object",
+            "linkedGridsArr": "array"
         },
         "customConfigs": [
             {
@@ -518,12 +518,12 @@
             },
             {
                 "group": "(Custom Properties)",
-                "name": "linkedGridsArr",
+                "name": "onScrollOptions",
                 "type": "string"
             },
             {
                 "group": "(Custom Properties)",
-                "name": "onScrollOptions",
+                "name": "linkedGridsArr",
                 "type": "string"
             }
         ],
@@ -545,16 +545,15 @@
                         "\r",
                         "me.callParent(arguments);\r",
                         "\r",
-                        "me.doRefreshList();\r",
+                        "this.doRefreshList();\r",
                         "\r",
                         "// Process linked grids for synchronized scrolling if applicables\r",
                         "if (me.getLinkedGridsArr().length>0) {\r",
-                        "   var listItemId = me.getListItemId();\r",
-                        "   var gridlist = me.down('#'+listItemId);\r",
-                        "   var scroller = gridlist.getScrollable().getScroller();\r",
-                        "   scroller.on('scroll',   me.onScroll, me, me.getOnScrollOptions());   \r",
+                        "    var listItemId = me.getListItemId();\r",
+                        "    var gridlist = me.down('#'+listItemId);\r",
+                        "    var scroller = gridlist.getScrollable().getScroller();\r",
+                        "    scroller.on('scroll',   me.onScroll, me, me.getOnScrollOptions());   \r",
                         "}\r",
-                        "\r",
                         "\r",
                         ""
                     ]
@@ -1109,26 +1108,6 @@
                 },
                 "codeClass": null,
                 "userConfig": {
-                    "fn": "updateFooter",
-                    "designer|params": [
-                        "footer"
-                    ],
-                    "implHandler": [
-                        "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
-                        "    this.insert(0, footer);\r",
-                        "}\r",
-                        ""
-                    ]
-                }
-            },
-            {
-                "type": "basicfunction",
-                "reference": {
-                    "name": "items",
-                    "type": "array"
-                },
-                "codeClass": null,
-                "userConfig": {
                     "fn": "doExpandDepth",
                     "designer|params": [
                         "depth",
@@ -1640,22 +1619,41 @@
                         "// Added 10/3/13\r",
                         "var linkedGridsArr = me.prepLinkedGridsArr();\r",
                         "if (linkedGridsArr.length > 0) {\r",
-                        "   // Remove any existing sort indicators and styling for linked grids\r",
-                        "   for (i=0; i<linkedGridsArr.length; i++) {\r",
-                        "      linkedGridsArr[i].item.suspendEvents();  // item updated in onScroll()\r",
-                        "   }    \r",
+                        "    // Remove any existing sort indicators and styling for linked grids\r",
+                        "    for (i=0; i<linkedGridsArr.length; i++) {\r",
+                        "        linkedGridsArr[i].item.suspendEvents();  // item updated in onScroll()\r",
+                        "    }    \r",
                         "\r",
-                        "   for (i=0; i<linkedGridsArr.length; i++) {\r",
-                        "      linkedGridsArr[i].item.removeColumnSorts();\r",
-                        "   }   \r",
+                        "    for (i=0; i<linkedGridsArr.length; i++) {\r",
+                        "        linkedGridsArr[i].item.removeColumnSorts();\r",
+                        "    }   \r",
                         "\r",
-                        "   for (i=0; i<linkedGridsArr.length; i++) {\r",
-                        "      linkedGridsArr[i].item.resumeEvents(true);\r",
-                        "   }   \r",
+                        "    for (i=0; i<linkedGridsArr.length; i++) {\r",
+                        "        linkedGridsArr[i].item.resumeEvents(true);\r",
+                        "    }   \r",
                         "}\r",
                         "\r",
                         "\r",
-                        "\r",
+                        ""
+                    ]
+                }
+            },
+            {
+                "type": "basicfunction",
+                "reference": {
+                    "name": "items",
+                    "type": "array"
+                },
+                "codeClass": null,
+                "userConfig": {
+                    "fn": "updateFooter",
+                    "designer|params": [
+                        "footer"
+                    ],
+                    "implHandler": [
+                        "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
+                        "    this.insert(0, footer);\r",
+                        "}\r",
                         ""
                     ]
                 }
@@ -1814,20 +1812,20 @@
                         "if (Ext.isEmpty(linkedGridsArr[0].scroller)) {\r",
                         "    // One-time update of linked scroller and gridcont objects for current linked instance of TouchTreeGrid\r",
                         "    for (i=0; i<linkedGridsArr.length; i++) {\r",
-                        "       gridcont = parcont.down('#'+linkedGridsArr[i].itemId);\r",
-                        "       if (Ext.isEmpty(gridcont)) {\r",
-                        "           console.log('Unable to find ' + linkedGridsArr[i].itemId);\r",
-                        "           return;\r",
-                        "       }\r",
-                        "       listItemId = gridcont.getListItemId();\r",
-                        "       otherList = gridcont.down('#'+listItemId);\r",
-                        "       otherScroller = otherList.getScrollable().getScroller();\r",
-                        "       linkedGridsArr[i].item = gridcont;\r",
-                        "       linkedGridsArr[i].scroller = otherScroller;\r",
-                        "       \r",
-                        "       // Similarly update each linked grid\r",
+                        "        gridcont = parcont.down('#'+linkedGridsArr[i].itemId);\r",
+                        "        if (Ext.isEmpty(gridcont)) {\r",
+                        "            console.log('Unable to find ' + linkedGridsArr[i].itemId);\r",
+                        "            return;\r",
+                        "        }\r",
+                        "        listItemId = gridcont.getListItemId();\r",
+                        "        otherList = gridcont.down('#'+listItemId);\r",
+                        "        otherScroller = otherList.getScrollable().getScroller();\r",
+                        "        linkedGridsArr[i].item = gridcont;\r",
+                        "        linkedGridsArr[i].scroller = otherScroller;\r",
+                        "\r",
+                        "        // Similarly update each linked grid\r",
                         "        if (!skipRecurse) {\r",
-                        "          gridcont.prepLinkedGridsArr(true);\r",
+                        "            gridcont.prepLinkedGridsArr(true);\r",
                         "        }\r",
                         "    }\r",
                         "    me.setLinkedGridsArr(linkedGridsArr);    \r",
