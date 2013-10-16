@@ -29,6 +29,7 @@ This software can be downloaded at <a href="https://github.com/swluken/TouchTree
 
 Refer to "TouchTreeGrid - Documentation.pdf" (page 1) for version details associated with each of the project directories included in the download:
  - TTG_Slider (Facebook-style slide navigation example that includes most updated versions of the examples)
+ - MenuEx (Simplified example of how to utilize new Menu component included in Touch 2.3 for various implementations and using TouchTreeGrid for left/right menu items)
  - TouchTreeGrid_FreezeColumn(Freeze Column with horizontal scrolling columns example simulates EXTJS 4.2 Kitchen Sink Big Data grid example...refer to TouchTreeGrid_FreezeColumn.pdf for additional documentation)
  - CalendarPicker (Full set of Calendar Picker examples)
  - CalendarPicer_Basic (Basic example of Calendar Pickers used for date selection)

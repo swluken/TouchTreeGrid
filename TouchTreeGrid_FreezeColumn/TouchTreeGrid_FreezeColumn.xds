@@ -5,7 +5,7 @@
         "lineEnding": "CRLF",
         "genTimestamps": false,
         "cacheBust": false,
-        "urlPrefix": "http://localhost/TouchTreeGrid/TouchTreeGrid_FreezeColumn/",
+        "urlPrefix": "http://localhost/TouchTreeGrid-master/TouchTreeGrid_FreezeColumn/",
         "exportPath": "",
         "buildShouldOverwriteIndex": true
     },

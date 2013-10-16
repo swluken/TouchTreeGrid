@@ -5,7 +5,7 @@
         "lineEnding": "CRLF",
         "genTimestamps": false,
         "cacheBust": false,
-        "urlPrefix": "http://localhost/TouchTreeGrid/TTG_Slider2/",
+        "urlPrefix": "http://localhost/TouchTreeGrid-master/TTG_Slider2/",
         "exportPath": "",
         "buildShouldOverwriteIndex": true
     },
