@@ -588,6 +588,7 @@ Ext.define('CalendarPicker.controller.DateExamplesController', {
             height: '100%',
             width: '100%',
             allowMonthAdditions: true,
+            alwaysScrollToTop: true,  // override default behaviour where picker will scroll to pre-selected month
 
             // Language overridable configs
             monthsToInsertPullText: (Ext.isEmpty(languageSelect.monthsToInsertPullText) ? 'Pull to Insert Months...' : languageSelect.monthsToInsertPullText),

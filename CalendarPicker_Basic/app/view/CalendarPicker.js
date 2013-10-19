@@ -68,6 +68,7 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
         monthsToInsertLoadedText: 'Loaded.',
         monthsToInsertLastUpdatedDateFormat: 'm/d/Y h:iA',
         monthsToInsertLoadingText: 'Loading...',
+        alwaysScrollToTop: false,
         cls: 'x-touchtreegrid-list-calendar',
         itemId: 'calendarpicker',
         hideOnMaskTap: false,
@@ -1487,7 +1488,10 @@ Ext.define('CalendarPicker.view.CalendarPicker', {
 
     onScrollerRefresh: function() {
         // Workaround to get list to scroll to first month with seleted dates (or current month) after scroller has been refreshed
-        if (this.needToScroll && this.gridcont.firstMoCnt>0) {   
+        if (this.getAlwaysScrollToTop()) {
+            this.scroller.scrollTo(0,0, false); 
+        }
+        else if (this.needToScroll && this.gridcont.firstMoCnt>0) {   
             var list = this.gridlist;
             var idx  = this.gridcont.firstMoCnt;
             var monthNodeHeightInPixels = this.getMonthNodeHeightInPixels();    

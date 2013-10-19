@@ -201,6 +201,7 @@
             "monthsToInsertLoadedText": "Loaded.",
             "monthsToInsertLastUpdatedDateFormat": "m/d/Y h:iA",
             "monthsToInsertLoadingText": "Loading...",
+            "alwaysScrollToTop": false,
             "cls": [
                 "x-touchtreegrid-list-calendar"
             ],
@@ -273,7 +274,8 @@
             "pickerfooterbtns": "object",
             "footerBtnTextOverrides": "object",
             "reverseMonthHeader": "boolean",
-            "startDay": "number"
+            "startDay": "number",
+            "alwaysScrollToTop": "boolean"
         },
         "customConfigs": [
             {
@@ -609,6 +611,11 @@
             {
                 "group": "(Custom Properties)",
                 "name": "monthsToInsertLoadingText",
+                "type": "string"
+            },
+            {
+                "group": "(Custom Properties)",
+                "name": "alwaysScrollToTop",
                 "type": "string"
             }
         ],
@@ -2328,7 +2335,10 @@
                     "fn": "onScrollerRefresh",
                     "implHandler": [
                         "// Workaround to get list to scroll to first month with seleted dates (or current month) after scroller has been refreshed\r",
-                        "if (this.needToScroll && this.gridcont.firstMoCnt>0) {   \r",
+                        "if (this.getAlwaysScrollToTop()) {\r",
+                        "      this.scroller.scrollTo(0,0, false); \r",
+                        "}\r",
+                        "else if (this.needToScroll && this.gridcont.firstMoCnt>0) {   \r",
                         "    var list = this.gridlist;\r",
                         "    var idx  = this.gridcont.firstMoCnt;\r",
                         "    var monthNodeHeightInPixels = this.getMonthNodeHeightInPixels();    \r",

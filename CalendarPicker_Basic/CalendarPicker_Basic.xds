@@ -10,7 +10,7 @@
         "buildShouldOverwriteIndex": true
     },
     "xdsVersion": "2.2.3",
-    "xdsBuild": 1039,
+    "xdsBuild": 1044,
     "schemaVersion": 1,
     "upgradeVersion": 210000000503,
     "framework": "touch23",
@@ -71,7 +71,7 @@
             ],
             "className": "TouchTreeGrid"
         },
-        "f08d5b3f-75d3-4c82-9c85-c817d4062dd7": {
+        "c056707d-3551-4f9d-9f06-d5535aca2658": {
             "paths": [
                 "metadata/view/CalendarPicker",
                 "app/view/override/CalendarPicker.js",
@@ -85,7 +85,7 @@
             "889cc880-c791-4408-9eef-32aa9889cd48",
             "95ebf663-f827-4965-8fdc-f620ceb4bbd3",
             "38927dbc-1774-4c74-8c01-4e54ba91918e",
-            "f08d5b3f-75d3-4c82-9c85-c817d4062dd7"
+            "c056707d-3551-4f9d-9f06-d5535aca2658"
         ],
         "store": [],
         "controller": [

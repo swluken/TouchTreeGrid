@@ -198,6 +198,7 @@
         "monthsToInsertLoadedText": "Loaded.",
         "monthsToInsertLastUpdatedDateFormat": "m/d/Y h:iA",
         "monthsToInsertLoadingText": "Loading...",
+        "alwaysScrollToTop": false,
         "cls": [
             "x-touchtreegrid-list-calendar"
         ],
@@ -270,9 +271,10 @@
         "pickerfooterbtns": "object",
         "footerBtnTextOverrides": "object",
         "reverseMonthHeader": "boolean",
-        "startDay": "number"
+        "startDay": "number",
+        "alwaysScrollToTop": "boolean"
     },
-    "designerId": "f08d5b3f-75d3-4c82-9c85-c817d4062dd7",
+    "designerId": "c056707d-3551-4f9d-9f06-d5535aca2658",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
@@ -608,6 +610,11 @@
             "group": "(Custom Properties)",
             "name": "monthsToInsertLoadingText",
             "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "alwaysScrollToTop",
+            "type": "string"
         }
     ],
     "cn": [
@@ -774,7 +781,7 @@
                 "dockFooterAboveHeader": "boolean",
                 "hideExpandCollapseBtns": "boolean"
             },
-            "designerId": "6dfe8a30-dd93-4985-a5bd-f5f8c402345b",
+            "designerId": "c1b8cbd2-933b-4cf3-986a-29962b11a736",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -1387,7 +1394,7 @@
                     ""
                 ]
             },
-            "designerId": "306b0e82-5c0f-41ae-b4b4-5b8258723ba8"
+            "designerId": "784104d5-9320-4467-af27-479ff0cca2d4"
         },
         {
             "type": "basicfunction",
@@ -1622,7 +1629,7 @@
                     ""
                 ]
             },
-            "designerId": "db158e81-d291-4f54-bb4a-cc9a77c69553"
+            "designerId": "a6af7092-8622-4ca4-b59e-86cc04ba8733"
         },
         {
             "type": "basicfunction",
@@ -1956,7 +1963,7 @@
                     "me.loadStore(me, gridcont, gridlist, expandCollapse);"
                 ]
             },
-            "designerId": "1eeba1d4-0a84-4ed9-8f00-d2a49df6a706"
+            "designerId": "ada3cd1a-3931-4a61-b1ca-179fdc394d4b"
         },
         {
             "type": "basicfunction",
@@ -2097,7 +2104,7 @@
                     ""
                 ]
             },
-            "designerId": "e97db0c5-f532-4416-913c-c1febf5dda53"
+            "designerId": "d0416a8f-4b3a-4aac-853d-d1367faf88f1"
         },
         {
             "type": "basicfunction",
@@ -2278,7 +2285,7 @@
                     ""
                 ]
             },
-            "designerId": "b5feb011-2b02-4839-8b3a-4a2c650653cf"
+            "designerId": "def6961a-4482-4ea6-9d21-55b356947622"
         },
         {
             "type": "basicfunction",
@@ -2320,7 +2327,7 @@
                     ""
                 ]
             },
-            "designerId": "24526a1d-30c2-4aa2-8321-79febd6f86b6"
+            "designerId": "d4986f94-295e-43c5-8bf3-02f6a98fbe97"
         },
         {
             "type": "basicfunction",
@@ -2333,7 +2340,10 @@
                 "fn": "onScrollerRefresh",
                 "implHandler": [
                     "// Workaround to get list to scroll to first month with seleted dates (or current month) after scroller has been refreshed\r",
-                    "if (this.needToScroll && this.gridcont.firstMoCnt>0) {   \r",
+                    "if (this.getAlwaysScrollToTop()) {\r",
+                    "      this.scroller.scrollTo(0,0, false); \r",
+                    "}\r",
+                    "else if (this.needToScroll && this.gridcont.firstMoCnt>0) {   \r",
                     "    var list = this.gridlist;\r",
                     "    var idx  = this.gridcont.firstMoCnt;\r",
                     "    var monthNodeHeightInPixels = this.getMonthNodeHeightInPixels();    \r",
@@ -2346,7 +2356,7 @@
                     ""
                 ]
             },
-            "designerId": "5d7230e6-3bca-4e9b-a99b-72c8075773ff"
+            "designerId": "f9048087-fec0-4270-a481-6a34231b8234"
         },
         {
             "type": "basicfunction",
@@ -2372,7 +2382,7 @@
                     ""
                 ]
             },
-            "designerId": "c6812c32-75e0-4f3e-a2c3-fc7de340735a"
+            "designerId": "363ee597-8bda-43d6-9591-07b7382ff1ee"
         },
         {
             "type": "basicfunction",
@@ -2399,7 +2409,7 @@
                     ""
                 ]
             },
-            "designerId": "bcdbe189-e958-42e7-88db-a1f96f4e2d64"
+            "designerId": "e0e4a62f-d218-47f9-b6f1-f427dc35c0e4"
         },
         {
             "type": "basicfunction",
@@ -2424,7 +2434,7 @@
                     ""
                 ]
             },
-            "designerId": "d728473d-d80c-40ce-9985-246d7512b009"
+            "designerId": "32317295-c418-4e7f-aad3-183caaa8a5e2"
         },
         {
             "type": "basicfunction",
@@ -2448,7 +2458,7 @@
                     ""
                 ]
             },
-            "designerId": "f8156660-b496-4dd5-b932-26f348509199"
+            "designerId": "ce615b92-8fd1-4fa8-adac-93bf9b635754"
         },
         {
             "type": "basicfunction",
@@ -2463,7 +2473,7 @@
                     "this.matrixPrep(this.config, true);"
                 ]
             },
-            "designerId": "9c46095d-3f0d-4f30-aab1-7c963ea1d66c"
+            "designerId": "ad13ec56-0bc9-4c0c-af07-90a8bab84d66"
         },
         {
             "type": "basicfunction",
@@ -2534,7 +2544,7 @@
                     ""
                 ]
             },
-            "designerId": "e1c7bd1c-bbf5-4974-87d3-7a2c98e9f328"
+            "designerId": "e7d75b35-eb19-4bb1-8b56-0f60365ce685"
         },
         {
             "type": "basicfunction",
@@ -2626,7 +2636,7 @@
                     ""
                 ]
             },
-            "designerId": "0f8ab4c3-cb1e-47fd-9a2e-2133687fbcb0"
+            "designerId": "22041493-7fbf-4894-9c1b-1d48030dcdf7"
         },
         {
             "type": "basicfunction",
@@ -2650,7 +2660,7 @@
                     "}"
                 ]
             },
-            "designerId": "26d15cb0-a446-4cec-8858-2fa442dd6f03"
+            "designerId": "2418afb9-68c6-41a9-bf74-8d3d143f37b2"
         },
         {
             "type": "basicfunction",
@@ -2679,7 +2689,7 @@
                     "return result;"
                 ]
             },
-            "designerId": "2b79a8c5-5318-49a4-b9d5-1fe550386b9e"
+            "designerId": "fe5c8c7b-6ab9-4d57-b653-cb2887070380"
         },
         {
             "type": "basicfunction",
@@ -2702,7 +2712,7 @@
                     "return true;"
                 ]
             },
-            "designerId": "4e52fb81-8d6b-4339-88c4-b0eda05b51d8"
+            "designerId": "51f2510d-fa68-470e-b5cc-4852974710cd"
         }
     ]
 }

@@ -1,4 +1,23 @@
 **************************************************************************************************
+10/19/2013 COMMIT CHANGE LOG: 
+    
+*** CalendarPicker Modifications ***
+
+- Added config:
+   - alwaysScrollToTop = false (default) to scroll to first month with pre-selection.
+   
+- Modified onScrollerRefresh() method to apply alwaysScrollToTop config
+   
+- Modified Example 2c to always scroll to top
+
+- Update "CalendarPicker.pdf"
+
+- Updated CalendarPicker, and CalendarPicker_Basic directory examples (Touch 2.3)
+  and updated CalendarPicker.XDC  
+
+
+
+**************************************************************************************************
 10/15/2013(2) COMMIT CHANGE LOG: 
 
 *** New TouchTreeGrid with Menu Example ***
