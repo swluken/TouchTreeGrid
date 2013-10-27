@@ -1,5 +1,9 @@
 **************************************************************************************************
 10/27/2013 COMMIT CHANGE LOG: 
+
+Added logic to controller launch() method for ./MenuEx/ project as workaround for menu left/right edge swipe
+as Sencha 2.3 codebase appears to have a bug.  This logic should be removed once fixed. 
+
 Removed minHeight and maxHeight from "header" config for TouchTreegrid.js and updated TouchTreeGrid.css with height attribute.
 This allows Grid Headers to be totally configured via CSS instead of having to update "header" config of linked TouchTreeGrid instance
 everytime header height needs to be adjusted from default.

@@ -133,6 +133,8 @@ Ext.define('MyApp.controller.MyController', {
     },
 
     launch: function() {
+        var me = this;
+
         // Place fixed menu's in Launch() or similar method to only create once
 
         Ext.Viewport.removeMenu('left');
@@ -150,6 +152,13 @@ Ext.define('MyApp.controller.MyController', {
             reveal: true
         });
 
+        // Appears to be bug with Touch 2.3 codebase for edgeswipe.  
+        // Be sure to remove this workaround once fixed !
+        var viewport = Ext.Viewport;
+        viewport.element.on({
+            edgeswipe: me.onMyEdgeSwipe,
+            scope: me
+        });
     },
 
     createMenu: function(items) {
@@ -159,6 +168,23 @@ Ext.define('MyApp.controller.MyController', {
             baseCls: 'x-menu-touchtreegrid',   // Override baseCls so that we can remove 0 padding, etc...
             items: items
         });
+    },
+
+    onMyEdgeSwipe: function(e, el) {
+        // Appears to be bug with Touch 2.3 codebase for edgeswipe.  
+        // Be sure to remove this workaround once fixed !
+
+        var dir = e.direction;
+        if (dir === 'left') {
+            // swiping from right edge
+            Ext.Viewport.toggleMenu('right');    
+        }
+        if (dir === 'right') {
+            // swiping from left edge
+            Ext.Viewport.toggleMenu('left');    
+
+        }
+
     }
 
 });

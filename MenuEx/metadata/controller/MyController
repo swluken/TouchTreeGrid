@@ -229,6 +229,8 @@
             "userConfig": {
                 "fn": "launch",
                 "implHandler": [
+                    "var me = this;\r",
+                    "\r",
                     "// Place fixed menu's in Launch() or similar method to only create once\r",
                     "\r",
                     "Ext.Viewport.removeMenu('left');\r",
@@ -245,7 +247,14 @@
                     "    side: 'right',\r",
                     "    reveal: true\r",
                     "});\r",
-                    ""
+                    "\r",
+                    "// Appears to be bug with Touch 2.3 codebase for edgeswipe.  \r",
+                    "// Be sure to remove this workaround once fixed !\r",
+                    "var viewport = Ext.Viewport;\r",
+                    "  viewport.element.on({\r",
+                    "  edgeswipe: me.onMyEdgeSwipe,\r",
+                    "  scope: me\r",
+                    "});"
                 ]
             },
             "designerId": "f7fad95d-8160-4226-8413-9cacc4693949"
@@ -290,6 +299,38 @@
                 "designer|controlQuery": "button#menuBtn"
             },
             "designerId": "5a8347be-9b8e-45e9-a2bf-e6448e0c27f8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMyEdgeSwipe",
+                "designer|params": [
+                    "e",
+                    "el"
+                ],
+                "implHandler": [
+                    "// Appears to be bug with Touch 2.3 codebase for edgeswipe.  \r",
+                    "// Be sure to remove this workaround once fixed !\r",
+                    "\r",
+                    "var dir = e.direction;\r",
+                    "if (dir === 'left') {\r",
+                    "    // swiping from right edge\r",
+                    "   Ext.Viewport.toggleMenu('right');    \r",
+                    "}\r",
+                    "if (dir === 'right') {\r",
+                    "    // swiping from left edge\r",
+                    "   Ext.Viewport.toggleMenu('left');    \r",
+                    "    \r",
+                    "}\r",
+                    ""
+                ]
+            },
+            "designerId": "9525eff0-9949-49b8-ae0a-0c93147a4b15"
         }
     ]
 }

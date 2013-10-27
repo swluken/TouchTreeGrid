@@ -5,7 +5,7 @@
         "lineEnding": "CRLF",
         "genTimestamps": false,
         "cacheBust": false,
-        "urlPrefix": "http://localhost/TouchTreeGrid/menuEx/",
+        "urlPrefix": "http://localhost/TouchTreeGrid-master/menuEx/",
         "exportPath": "",
         "buildShouldOverwriteIndex": true
     },
