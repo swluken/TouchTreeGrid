@@ -29,9 +29,7 @@
             "{\r",
             "            xtype: 'toolbar',\r",
             "            docked: 'top',\r",
-            "            cls: 'touchtreegrid-header',\r",
-            "            maxHeight: '1.8em',\r",
-            "            minHeight: '1.8em'\r",
+            "            cls: 'touchtreegrid-header'\r",
             "        }"
         ],
         "headerTpl": "",
@@ -1780,7 +1778,7 @@
                     "\r",
                     "scroller.suspendEvents();\r",
                     "for (i=0; i<linkedGridsArr.length; i++) {\r",
-                    "    linkedGridsArr[i].scroller.suspendEvents();\r",
+                    "//    linkedGridsArr[i].scroller.suspendEvents();\r",
                     "}    \r",
                     "\r",
                     "for (i=0; i<linkedGridsArr.length; i++) {\r",
@@ -1790,7 +1788,7 @@
                     "\r",
                     "scroller.resumeEvents(true);\r",
                     "for (i=0; i<linkedGridsArr.length; i++) {\r",
-                    "    linkedGridsArr[i].scroller.resumeEvents(true);\r",
+                    "//    linkedGridsArr[i].scroller.resumeEvents(true);\r",
                     "}   \r",
                     ""
                 ]

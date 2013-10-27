@@ -220,7 +220,7 @@
     font-size: .7em !important;    
 }
 .x-touchtreegrid-list-censusmaine .touchtreegrid-header {  /* Titlebar with column headers  */
-    padding:0.4em 0 0 0;
+    padding:0.6em 0 0 0;
     font-size: .8em !important;
 }
 
@@ -366,7 +366,13 @@
 
 /******************** DOW2012 HORIZ SCROLLING GRID OVERRIDES ************************/
 .x-touchtreegrid-list-dow2012Horiz .touchtreegrid-simplelist-cell{ /* simple list cells  */
-   height: 47px !important;
+    height: 47px !important;
+    min-height: 47px !important;
+    max-height: 47px !important;
+    
+    padding:0 0 0 0;
+    line-height: 47px !important;
+    font-size: 15px !important;      
 }
 
 .x-touchtreegrid-list-dow2012Horiz .x-grid-sort-desc,
@@ -383,6 +389,11 @@
     background-color: #e5e5e5;
     background: none;
     font-weight: bold;
+}
+.x-touchtreegrid-list-dow2012Horiz .x-touchtreegrid-item {  /* default color all expanded grid rows including background color for shaded category rows */
+    min-height: 47px !important;
+    max-height: 47px !important;
+    height: 47px !important;
 }
 
 /******************** DOW2012 DYNAMIC SCROLLING GRID OVERRIDES ************************/

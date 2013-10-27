@@ -63,7 +63,6 @@ PLANNED ENHANCEMENTS TO TouchTreeGrid:
    - More renderer function examples
    - Animated expand/collapse
    - Possible support for editable cells  
-   - Possible support for locked columns   
    - Possible support for drag/drop
    - Seeking interest on supporting config option to use Ext.dataview.DataView vs. Ext.dataview.List
    

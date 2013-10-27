@@ -1155,7 +1155,7 @@ Ext.define('MyApp.view.TouchTreeGrid', {
 
         scroller.suspendEvents();
         for (i=0; i<linkedGridsArr.length; i++) {
-            linkedGridsArr[i].scroller.suspendEvents();
+            //    linkedGridsArr[i].scroller.suspendEvents();
         }    
 
         for (i=0; i<linkedGridsArr.length; i++) {
@@ -1165,7 +1165,7 @@ Ext.define('MyApp.view.TouchTreeGrid', {
 
         scroller.resumeEvents(true);
         for (i=0; i<linkedGridsArr.length; i++) {
-            linkedGridsArr[i].scroller.resumeEvents(true);
+            //    linkedGridsArr[i].scroller.resumeEvents(true);
         }   
 
     },

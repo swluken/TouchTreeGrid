@@ -1,6 +1,6 @@
 {
     "xdsVersion": "2.2.3",
-    "frameworkVersion": "touch23",
+    "frameworkVersion": "touch22",
     "internals": {
         "type": "Ext.Container",
         "reference": {
@@ -32,9 +32,7 @@
                 "{\r",
                 "            xtype: 'toolbar',\r",
                 "            docked: 'top',\r",
-                "            cls: 'touchtreegrid-header',\r",
-                "            maxHeight: '1.8em',\r",
-                "            minHeight: '1.8em'\r",
+                "            cls: 'touchtreegrid-header'\r",
                 "        }"
             ],
             "headerTpl": "",
@@ -548,10 +546,10 @@
                         "\r",
                         "// Process linked grids for synchronized scrolling if applicables\r",
                         "if (me.getLinkedGridsArr().length>0) {\r",
-                        "    var listItemId = me.getListItemId();\r",
-                        "    var gridlist = me.down('#'+listItemId);\r",
-                        "    var scroller = gridlist.getScrollable().getScroller();\r",
-                        "    scroller.on('scroll',   me.onScroll, me, me.getOnScrollOptions());   \r",
+                        "   var listItemId = me.getListItemId();\r",
+                        "   var gridlist = me.down('#'+listItemId);\r",
+                        "   var scroller = gridlist.getScrollable().getScroller();\r",
+                        "   scroller.on('scroll',   me.onScroll, me, me.getOnScrollOptions());   \r",
                         "}\r",
                         "\r",
                         ""
@@ -1106,25 +1104,6 @@
                 },
                 "codeClass": null,
                 "userConfig": {
-                    "fn": "updateFooter",
-                    "designer|params": [
-                        "footer"
-                    ],
-                    "implHandler": [
-                        "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
-                        "    this.insert(0, footer);\r",
-                        "}"
-                    ]
-                }
-            },
-            {
-                "type": "basicfunction",
-                "reference": {
-                    "name": "items",
-                    "type": "array"
-                },
-                "codeClass": null,
-                "userConfig": {
                     "fn": "doExpandDepth",
                     "designer|params": [
                         "depth",
@@ -1662,6 +1641,25 @@
                 },
                 "codeClass": null,
                 "userConfig": {
+                    "fn": "updateFooter",
+                    "designer|params": [
+                        "footer"
+                    ],
+                    "implHandler": [
+                        "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
+                        "    this.insert(0, footer);\r",
+                        "}"
+                    ]
+                }
+            },
+            {
+                "type": "basicfunction",
+                "reference": {
+                    "name": "items",
+                    "type": "array"
+                },
+                "codeClass": null,
+                "userConfig": {
                     "fn": "removeColumnSorts",
                     "implHandler": [
                         "// Added 10/3/13\r",
@@ -1764,7 +1762,7 @@
                         "\r",
                         "scroller.suspendEvents();\r",
                         "for (i=0; i<linkedGridsArr.length; i++) {\r",
-                        "    linkedGridsArr[i].scroller.suspendEvents();\r",
+                        "    //    linkedGridsArr[i].scroller.suspendEvents();\r",
                         "}    \r",
                         "\r",
                         "for (i=0; i<linkedGridsArr.length; i++) {\r",
@@ -1774,7 +1772,7 @@
                         "\r",
                         "scroller.resumeEvents(true);\r",
                         "for (i=0; i<linkedGridsArr.length; i++) {\r",
-                        "    linkedGridsArr[i].scroller.resumeEvents(true);\r",
+                        "    //    linkedGridsArr[i].scroller.resumeEvents(true);\r",
                         "}   \r",
                         ""
                     ]

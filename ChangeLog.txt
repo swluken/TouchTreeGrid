@@ -1,4 +1,40 @@
 **************************************************************************************************
+10/27/2013 COMMIT CHANGE LOG: 
+Removed minHeight and maxHeight from "header" config for TouchTreegrid.js and updated TouchTreeGrid.css with height attribute.
+This allows Grid Headers to be totally configured via CSS instead of having to update "header" config of linked TouchTreeGrid instance
+everytime header height needs to be adjusted from default.
+
+New relavant CSS code should look like this as default (refer to TouchTreeGrid.css in download):
+
+.x-touchtreegrid-list .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding: 10px 0 0 0;    /* UPDATED 10/26/13 */
+    margin:0;
+    color: #fff;
+    font-size: 13px !important;   /* UPDATED 10/26/13 */
+    height: 32px;  /* ADDED 10/26/13 ... also removed heights from header config */
+    
+    background:  etc...
+} 
+
+Note:  Heights specified in pixels to line up grid rows for synchronized scrolling for different font size scenarios.
+
+Modified onScroll() method of TouchTreeGrid.js to fix issue with synchronized scroller indicator.
+
+Updated "TouchTreeGrid - Documenation.pdf" and all provided examples accordingly.
+
+Software download plus demo links (see README.md) found at https://github.com/swluken/TouchTreeGrid
+
+Regards,
+Steve Luken
+
+*** TouchTreeGrid Modifications ***
+- Cleaned up Height settings in examples.
+    
+*** CalendarPicker Modifications ***
+- Cleaned up Height settings in examples.
+-
+
+**************************************************************************************************
 10/19/2013 COMMIT CHANGE LOG: 
     
 *** CalendarPicker Modifications ***

@@ -78,9 +78,7 @@ Ext.define('CalendarPicker.view.TouchTreeGrid', {
         header: {
             xtype: 'toolbar',
             docked: 'top',
-            cls: 'touchtreegrid-header',
-            maxHeight: '1.8em',
-            minHeight: '1.8em'
+            cls: 'touchtreegrid-header'
         },
         footer: {
             xtype: 'toolbar',
@@ -1158,7 +1156,7 @@ Ext.define('CalendarPicker.view.TouchTreeGrid', {
 
         scroller.suspendEvents();
         for (i=0; i<linkedGridsArr.length; i++) {
-            linkedGridsArr[i].scroller.suspendEvents();
+            //    linkedGridsArr[i].scroller.suspendEvents();
         }    
 
         for (i=0; i<linkedGridsArr.length; i++) {
@@ -1168,7 +1166,7 @@ Ext.define('CalendarPicker.view.TouchTreeGrid', {
 
         scroller.resumeEvents(true);
         for (i=0; i<linkedGridsArr.length; i++) {
-            linkedGridsArr[i].scroller.resumeEvents(true);
+            //    linkedGridsArr[i].scroller.resumeEvents(true);
         }   
 
     },

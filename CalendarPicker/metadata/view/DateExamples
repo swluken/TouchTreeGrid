@@ -655,7 +655,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "docked": "bottom",
-                                "height": "",
+                                "height": null,
                                 "html": "Range selection in same calendar popup",
                                 "maxHeight": "3em",
                                 "maxWidth": "75%",
@@ -937,7 +937,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "docked": "bottom",
-                                "height": "",
+                                "height": null,
                                 "html": "Range selection - IOS Style Calendar.  Demonstrates option at end of list to append more months.",
                                 "maxHeight": null,
                                 "maxWidth": "75%",
@@ -1052,7 +1052,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "docked": "bottom",
-                                "height": "",
+                                "height": null,
                                 "html": "Single Date Selection (Form Field example), Future Dates Disabled. IOS Style Calendar.  Demonstrates pull-refresh style option to insert more months at beginning and single-expand accordion option.",
                                 "maxHeight": null,
                                 "maxWidth": "75%",
@@ -1184,7 +1184,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "docked": "bottom",
-                                "height": "",
+                                "height": null,
                                 "html": "Multi-selection (Weekends+Holidays disabled)",
                                 "maxHeight": "5em",
                                 "maxWidth": "75%",
@@ -1319,7 +1319,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "docked": "bottom",
-                                "height": "",
+                                "height": null,
                                 "html": "Day Planner (under construction).  Tap between Year, List and Day views. Select day in year view.  Swipe left+right to quickly change day or month in Day view.  New \"yearMonthSelect\" component utilizes TouchTreeGrid to prompt for specific month+year.  Different functionality for Phone vs. Tablet.",
                                 "maxHeight": null,
                                 "maxWidth": "75%",
@@ -1584,7 +1584,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "docked": "bottom",
-                                "height": "",
+                                "height": null,
                                 "html": "Financial Calendar example (Day Counts from Today).",
                                 "maxHeight": null,
                                 "maxWidth": "75%",
@@ -1762,7 +1762,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "docked": "bottom",
-                                "height": "",
+                                "height": null,
                                 "html": "MarketWatch-style Options Expiratioon Financial Calendar example.  Demonstrates auto-generated legend  with different docking options.  Phones docked top+bottom with scrolling list.",
                                 "maxHeight": null,
                                 "maxWidth": "75%",

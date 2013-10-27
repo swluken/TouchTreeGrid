@@ -91,11 +91,11 @@
 
 
 .x-touchtreegrid-list .touchtreegrid-header {  /* Titlebar with column headers  */
-  /*  width:100%;  */
-    padding:0.4em 0 0 0;
+    padding: 10px 0 0 0;    /* UPDATED 10/26/13 */
     margin:0;
     color: #fff;
-    font-size: .8em !important;
+    font-size: 13px !important;   /* UPDATED 10/26/13 */
+    height: 32px;  /* ADDED 10/26/13 ... also removed heights from header config */
     
     background: rgb(94,98,102); /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */

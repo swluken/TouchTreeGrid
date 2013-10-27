@@ -1776,7 +1776,7 @@
                     "\r",
                     "scroller.suspendEvents();\r",
                     "for (i=0; i<linkedGridsArr.length; i++) {\r",
-                    "    linkedGridsArr[i].scroller.suspendEvents();\r",
+                    "//    linkedGridsArr[i].scroller.suspendEvents();\r",
                     "}    \r",
                     "\r",
                     "for (i=0; i<linkedGridsArr.length; i++) {\r",
@@ -1786,7 +1786,7 @@
                     "\r",
                     "scroller.resumeEvents(true);\r",
                     "for (i=0; i<linkedGridsArr.length; i++) {\r",
-                    "    linkedGridsArr[i].scroller.resumeEvents(true);\r",
+                    "//    linkedGridsArr[i].scroller.resumeEvents(true);\r",
                     "}   \r",
                     ""
                 ]

@@ -614,6 +614,7 @@
                                     " \"minHeight\":\"3.2em\"\r",
                                     "}"
                                 ],
+                                "variableHeights": false,
                                 "itemHeight": null,
                                 "listItemId": "dow2012horizlist",
                                 "listPlugins": null,

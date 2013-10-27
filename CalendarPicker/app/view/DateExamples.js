@@ -319,7 +319,6 @@ Ext.define('CalendarPicker.view.DateExamples', {
                             {
                                 xtype: 'container',
                                 docked: 'bottom',
-                                height: '',
                                 html: 'Range selection in same calendar popup',
                                 maxHeight: '3em',
                                 maxWidth: '75%',
@@ -451,7 +450,6 @@ Ext.define('CalendarPicker.view.DateExamples', {
                             {
                                 xtype: 'container',
                                 docked: 'bottom',
-                                height: '',
                                 html: 'Range selection - IOS Style Calendar.  Demonstrates option at end of list to append more months.',
                                 maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
@@ -506,7 +504,6 @@ Ext.define('CalendarPicker.view.DateExamples', {
                             {
                                 xtype: 'container',
                                 docked: 'bottom',
-                                height: '',
                                 html: 'Single Date Selection (Form Field example), Future Dates Disabled. IOS Style Calendar.  Demonstrates pull-refresh style option to insert more months at beginning and single-expand accordion option.',
                                 maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
@@ -577,7 +574,6 @@ Ext.define('CalendarPicker.view.DateExamples', {
                             {
                                 xtype: 'container',
                                 docked: 'bottom',
-                                height: '',
                                 html: 'Multi-selection (Weekends+Holidays disabled)',
                                 maxHeight: '5em',
                                 maxWidth: '75%',
@@ -645,7 +641,6 @@ Ext.define('CalendarPicker.view.DateExamples', {
                             {
                                 xtype: 'container',
                                 docked: 'bottom',
-                                height: '',
                                 html: 'Day Planner (under construction).  Tap between Year, List and Day views. Select day in year view.  Swipe left+right to quickly change day or month in Day view.  New "yearMonthSelect" component utilizes TouchTreeGrid to prompt for specific month+year.  Different functionality for Phone vs. Tablet.',
                                 maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
@@ -769,7 +764,6 @@ Ext.define('CalendarPicker.view.DateExamples', {
                             {
                                 xtype: 'container',
                                 docked: 'bottom',
-                                height: '',
                                 html: 'Financial Calendar example (Day Counts from Today).',
                                 maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
@@ -853,7 +847,6 @@ Ext.define('CalendarPicker.view.DateExamples', {
                             {
                                 xtype: 'container',
                                 docked: 'bottom',
-                                height: '',
                                 html: 'MarketWatch-style Options Expiratioon Financial Calendar example.  Demonstrates auto-generated legend  with different docking options.  Phones docked top+bottom with scrolling list.',
                                 maxWidth: '75%',
                                 styleHtmlCls: 'example-descr-html',
