@@ -1,0 +1,366 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tasksContainer",
+        "designer|userClassName": "TasksContainer",
+        "layout": "fit"
+    },
+    "designerId": "2c9a64bf-c048-4811-b743-90c70542d8f6",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "tasksTabPanel"
+            },
+            "designerId": "88f70a57-57a9-4e83-93b4-f359ca7f766e",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "accordioncont",
+                        "layout": "fit",
+                        "title": "Accordion"
+                    },
+                    "designerId": "4c853532-423f-4856-97d0-adb339f1f2e4",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": [
+                                    "x-touchtreegrid-list",
+                                    "x-touchtreegrid-list-accordion"
+                                ],
+                                "columns": [
+                                    "[\r",
+                                    " {\r",
+                                    "       dataIndex: 'text',\r",
+                                    "       width: '95%',\r",
+                                    "       style: ' text-align: left; font-size: 1.5em;',\r",
+                                    "       categStyle: 'font-weight: bold; font-size: 2em; padding-top: .2em; text-align: left; color: blue;',\r",
+                                    " }\r",
+                                    "]"
+                                ],
+                                "defaultCollapseLevel": 1,
+                                "designer|createAlias": null,
+                                "disclosureProperty": null,
+                                "headerItemData": null,
+                                "helpHtml": "./resources/html/TaskExample.html",
+                                "includeFooterLevels": false,
+                                "includeHeader": false,
+                                "itemHeight": null,
+                                "itemId": "firstexample",
+                                "listItemId": "firstexamplelist",
+                                "singleExpand": true,
+                                "store": "TaskAccordionStore",
+                                "styleCategRow": null,
+                                "useAnimation": null
+                            },
+                            "configAlternates": {
+                                "onItemDisclosure": "boolean",
+                                "headerItemData": "object",
+                                "columns": "array",
+                                "includeFooter": "boolean",
+                                "includeFooterLevels": "boolean",
+                                "categItemTplOverride": "object",
+                                "contentItemTplOverride": "object",
+                                "includeHeader": "boolean",
+                                "applyDefaultCollapseLevel": "boolean",
+                                "defaultCollapseLevel": "number"
+                            },
+                            "designerId": "2adbc59c-c0b4-4d65-8096-ef226121a582",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "onItemDisclosure",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "columns",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "disclosureProperty",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "listItemId",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "includeFooter",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "includeFooterLevels",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "helpHtml",
+                                    "type": "string"
+                                }
+                            ],
+                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "task2cont",
+                        "layout": "fit",
+                        "title": "Tasks#2"
+                    },
+                    "designerId": "5912480a-6036-4496-af23-1302f7c88e99",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "arrowPctWidth": "0",
+                                "cls": [
+                                    "x-touchtreegrid-list",
+                                    "x-touchtreegrid-list-task2"
+                                ],
+                                "columns": [
+                                    "[\r",
+                                    " {\r",
+                                    "       dataIndex: 'text',\r",
+                                    "       width: '95%',\r",
+                                    "       style: ' text-align: left; font-size: 1.5em; padding-top: .2em;',\r",
+                                    "       categStyle: 'font-weight: bold; font-size: 2em; padding: .2em 0 0 .5em; text-align: left; color: blue;',\r",
+                                    " }\r",
+                                    "]"
+                                ],
+                                "designer|createAlias": null,
+                                "disableExpandCollapse": true,
+                                "disableSelection": false,
+                                "disclosureProperty": null,
+                                "headerItemData": null,
+                                "helpHtml": "./resources/html/Tasks2Example.html",
+                                "includeFooter": false,
+                                "includeFooterLevels": false,
+                                "includeHeader": false,
+                                "itemHeight": null,
+                                "itemId": "task2",
+                                "listItemId": "task2grid",
+                                "store": "task2Store",
+                                "styleCategRow": null,
+                                "useAnimation": null
+                            },
+                            "configAlternates": {
+                                "onItemDisclosure": "boolean",
+                                "headerItemData": "object",
+                                "columns": "array",
+                                "includeFooter": "boolean",
+                                "includeFooterLevels": "boolean",
+                                "categItemTplOverride": "object",
+                                "contentItemTplOverride": "object",
+                                "includeHeader": "boolean",
+                                "applyDefaultCollapseLevel": "boolean",
+                                "defaultCollapseLevel": "number"
+                            },
+                            "designerId": "e0949065-ee34-44cf-864b-f31f58c390cc",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "onItemDisclosure",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "columns",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "disclosureProperty",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "listItemId",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "includeFooter",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "includeFooterLevels",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "helpHtml",
+                                    "type": "string"
+                                }
+                            ],
+                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "task3cont",
+                        "layout": "fit",
+                        "title": "Tasks#3"
+                    },
+                    "designerId": "f361f17e-999d-4263-9de9-e89a5e699945",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "arrowPctWidth": "0",
+                                "cls": [
+                                    "x-touchtreegrid-list",
+                                    "x-touchtreegrid-list-task3"
+                                ],
+                                "columns": [
+                                    "[\r",
+                                    " {\r",
+                                    "       dataIndex: 'text',\r",
+                                    "       width: '95%',\r",
+                                    "       style: ' text-align: left; font-size: 1.5em; padding-top: .2em;',\r",
+                                    "       categStyle: 'font-weight: bold; font-size: 2em; padding: .2em 0 0 .5em; text-align: left; color: blue;',\r",
+                                    " }\r",
+                                    "]"
+                                ],
+                                "designer|createAlias": null,
+                                "disableExpandCollapse": true,
+                                "disableSelection": false,
+                                "disclosureProperty": null,
+                                "headerItemData": null,
+                                "helpHtml": "./resources/html/Tasks3Example.html",
+                                "includeFooter": false,
+                                "includeFooterLevels": false,
+                                "includeHeader": false,
+                                "itemHeight": null,
+                                "itemId": "task3",
+                                "listItemId": "task3grid",
+                                "store": "task3Store",
+                                "styleCategRow": null,
+                                "useAnimation": null
+                            },
+                            "configAlternates": {
+                                "onItemDisclosure": "boolean",
+                                "headerItemData": "object",
+                                "columns": "array",
+                                "includeFooter": "boolean",
+                                "includeFooterLevels": "boolean",
+                                "categItemTplOverride": "object",
+                                "contentItemTplOverride": "object",
+                                "includeHeader": "boolean",
+                                "applyDefaultCollapseLevel": "boolean",
+                                "defaultCollapseLevel": "number"
+                            },
+                            "designerId": "62b565a0-c1db-4495-ae2c-2ec989657362",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "onItemDisclosure",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "columns",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "disclosureProperty",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "listItemId",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "includeFooter",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "includeFooterLevels",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "helpHtml",
+                                    "type": "string"
+                                }
+                            ],
+                            "masterInstanceId": "dcf34621-667d-4a8e-bc95-e3fc814895a0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.tab.Bar",
+                    "reference": {
+                        "name": "tabBar",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "projectTabBar"
+                        ],
+                        "docked": "top",
+                        "style": "background-image: -webkit-linear-gradient(top, rgb(86, 167, 223), rgb(43, 145, 215) 3%, rgb(33, 117, 175));",
+                        "ui": "light"
+                    },
+                    "designerId": "e6a903ed-98a3-471a-9bb9-f3884fc4ae79"
+                }
+            ]
+        }
+    ]
+}

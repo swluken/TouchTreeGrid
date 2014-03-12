@@ -9,12 +9,12 @@
         "cls": [
             "matrix-view"
         ],
-        "itemId": "matrixViewPhone",
-        "style": "background-color: white;",
-        "ui": "light",
-        "designer|userClassName": "matrixViewPhone",
         "designer|userAlias": "matrixViewPhone",
-        "layout": "card"
+        "designer|userClassName": "matrixViewPhone",
+        "itemId": "matrixViewPhone",
+        "layout": "card",
+        "style": "background-color: white;",
+        "ui": "light"
     },
     "designerId": "69e22d97-06f2-4bf7-95d3-1549c048f1b3",
     "cn": [
@@ -40,8 +40,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "matrixViewBackBtn",
-                        "ui": "back",
-                        "text": "Back"
+                        "text": "Back",
+                        "ui": "back"
                     },
                     "designerId": "cd7a6b32-eace-47fa-b25b-bfc88cb99a43"
                 },
@@ -65,8 +65,8 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "pressed": true,
                                 "itemId": "matrixViewYearBtn",
+                                "pressed": true,
                                 "text": "Year"
                             },
                             "designerId": "361579b0-5d90-43ec-b598-236af1953edb"
@@ -124,9 +124,9 @@
             "codeClass": null,
             "userConfig": {
                 "itemId": "yearView",
+                "layout": "fit",
                 "margin": ".5em",
-                "style": "border: 1px solid blue;background-color: white;",
-                "layout": "fit"
+                "style": "border: 1px solid blue;background-color: white;"
             },
             "designerId": "ed506131-83b5-454e-a6bb-27d87c6836f9"
         },
@@ -140,8 +140,8 @@
             "userConfig": {
                 "html": "More Later...",
                 "itemId": "listView",
-                "style": "border: 1px solid blue; background-color: white;",
-                "layout": "fit"
+                "layout": "fit",
+                "style": "border: 1px solid blue; background-color: white;"
             },
             "designerId": "d380a11c-8c82-4988-8225-c55f78edab7d"
         },
@@ -155,9 +155,9 @@
             "userConfig": {
                 "html": null,
                 "itemId": "dayView",
+                "layout": "vbox",
                 "maxWidth": "40em",
-                "style": "background-color: white; border: 1px solid gray; margin: .5em;",
-                "layout": "vbox"
+                "style": "background-color: white; border: 1px solid gray; margin: .5em;"
             },
             "designerId": "8823f843-4dc4-4d9c-995c-feeba005fd05",
             "cn": [
@@ -171,8 +171,8 @@
                     "userConfig": {
                         "height": "10em",
                         "html": null,
-                        "style": "border-bottom: 1px solid gray; margin: 0 1em 0 1em;",
-                        "layout": "hbox"
+                        "layout": "hbox",
+                        "style": "border-bottom: 1px solid gray; margin: 0 1em 0 1em;"
                     },
                     "designerId": "ddaa3413-9f93-4eee-9aa8-374ba6b708f1",
                     "cn": [
@@ -184,13 +184,13 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": 1,
                                 "html": null,
                                 "itemId": "dayViewMoCal",
+                                "layout": "fit",
+                                "layout|flex": 1,
                                 "margin": null,
                                 "style": null,
-                                "width": "17em",
-                                "layout": "fit"
+                                "width": "17em"
                             },
                             "designerId": "86d32afd-f885-499f-9cee-25a9c12d348c"
                         }
@@ -204,6 +204,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "html": "List detail for selected day...",
+                        "itemId": "dayViewListDetail",
+                        "layout|flex": 1,
                         "listeners": [
                             "{\r",
                             "  swipe: {\r",
@@ -214,9 +217,6 @@
                             "  }\r",
                             "}"
                         ],
-                        "layout|flex": 1,
-                        "html": "List detail for selected day...",
-                        "itemId": "dayViewListDetail",
                         "style": "border: solid 1px gray; margin: 1em .5em 1em .5em; ",
                         "styleHtmlCls": "dayViewListDetail-html",
                         "styleHtmlContent": true

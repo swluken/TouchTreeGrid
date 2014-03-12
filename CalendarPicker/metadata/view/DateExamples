@@ -6,14 +6,14 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "dateexamples",
+        "designer|userClassName": "DateExamples",
         "height": null,
         "itemId": "dateexamples",
+        "layout": "fit",
         "minHeight": null,
-        "style": "background: white;",
-        "designer|userClassName": "DateExamples",
-        "designer|userAlias": "dateexamples",
-        "designer|initialView": true,
-        "layout": "fit"
+        "style": "background: white;"
     },
     "designerId": "889cc880-c791-4408-9eef-32aa9889cd48",
     "cn": [
@@ -31,8 +31,8 @@
                 "docked": "top",
                 "itemId": "appTitle",
                 "style": null,
-                "ui": "plain",
-                "title": "Calendar Picker Examples"
+                "title": "Calendar Picker Examples",
+                "ui": "plain"
             },
             "designerId": "3b31107b-8d2b-4611-859e-f4cb8d8042f1"
         },
@@ -47,8 +47,8 @@
                 "height": null,
                 "itemId": "firstSet",
                 "minHeight": null,
-                "style": "background: white;",
-                "scrollable": "vertical"
+                "scrollable": "vertical",
+                "style": "background: white;"
             },
             "designerId": "70c94ca9-02b1-4c5d-93ea-93dd2acf94ce",
             "cn": [
@@ -60,13 +60,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": null,
                         "height": "4em",
                         "itemId": "language",
+                        "layout": "fit",
                         "maxWidth": "100%",
                         "style": null,
-                        "width": "20em",
-                        "designer|displayName": null,
-                        "layout": "fit"
+                        "width": "20em"
                     },
                     "designerId": "b8edc019-d649-45bd-b6b6-e95c5b8bb7e7",
                     "cn": [
@@ -79,8 +79,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "maxWidth": "90%",
-                                "width": null,
-                                "title": null
+                                "title": null,
+                                "width": null
                             },
                             "designerId": "ff7375b1-a361-4c4b-b81f-f2d42fc6a1ec",
                             "cn": [
@@ -92,18 +92,18 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "displayField": "language",
                                         "itemId": "languageSelect",
-                                        "maxWidth": null,
                                         "label": "Language",
                                         "labelWidth": "6em",
-                                        "value": [
-                                            "'en'"
-                                        ],
-                                        "displayField": "language",
+                                        "maxWidth": null,
                                         "store": "languageStore",
                                         "usePicker": [
                                             "false\r",
                                             ""
+                                        ],
+                                        "value": [
+                                            "'en'"
                                         ],
                                         "valueField": "code"
                                     },
@@ -121,11 +121,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": null,
                         "height": "6em",
                         "itemId": "example1",
-                        "style": "border: 1px solid gray;",
-                        "designer|displayName": null,
-                        "layout": "hbox"
+                        "layout": "hbox",
+                        "style": "border: 1px solid gray;"
                     },
                     "designerId": "33bcec3d-5f04-484b-8c45-a6bd2df6fdf1",
                     "cn": [
@@ -139,8 +139,8 @@
                             "userConfig": {
                                 "height": "2em",
                                 "margin": "1em .5em 0 .5em",
-                                "width": "2em",
-                                "src": "./resources/images/calendar.png"
+                                "src": "./resources/images/calendar.png",
+                                "width": "2em"
                             },
                             "designerId": "1225e28a-f5df-49ac-8922-5b04c418a501"
                         },
@@ -152,9 +152,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout": "vbox",
                                 "layout|flex": 1,
-                                "maxWidth": "10em",
-                                "layout": "vbox"
+                                "maxWidth": "10em"
                             },
                             "designerId": "8133fd72-d9d5-4b4c-a5af-ee9efbd04316",
                             "cn": [
@@ -166,9 +166,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "layout|flex": null,
                                         "height": "1.5em",
                                         "html": "CHECK IN",
+                                        "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
                                     "designerId": "3735128d-ac0d-4816-abc4-cbea03648473"
@@ -181,6 +181,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "kayak-button"
+                                        ],
+                                        "height": "2.5em",
+                                        "itemId": "checkin_btn",
+                                        "layout": "hbox",
+                                        "layout|flex": 1,
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -191,18 +198,11 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "layout|flex": 1,
-                                        "cls": [
-                                            "kayak-button"
-                                        ],
-                                        "height": "2.5em",
-                                        "itemId": "checkin_btn",
                                         "margin": null,
                                         "maxHeight": "2.5em",
                                         "maxWidth": "8em",
                                         "minHeight": "2.5em",
-                                        "style": null,
-                                        "layout": "hbox"
+                                        "style": null
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -242,12 +242,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "layout|flex": 1,
                                                 "cls": [
                                                     "kayak-button-select"
                                                 ],
                                                 "html": "Select",
                                                 "itemId": "checkin_day",
+                                                "layout|flex": 1,
                                                 "style": null
                                             },
                                             "designerId": "7687ea82-a2f3-485e-896f-1a11fd8ac6a5"
@@ -264,9 +264,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout": "vbox",
                                 "layout|flex": 1,
-                                "maxWidth": "10em",
-                                "layout": "vbox"
+                                "maxWidth": "10em"
                             },
                             "designerId": "ce7adb49-12d6-4d9c-9d32-8fc81abadb19",
                             "cn": [
@@ -278,9 +278,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "layout|flex": null,
                                         "height": "1.5em",
                                         "html": "CHECK OUT",
+                                        "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
                                     "designerId": "1499cc1f-d83a-4fce-a0a4-f68e370dff24"
@@ -293,6 +293,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "kayak-button"
+                                        ],
+                                        "height": "2.5em",
+                                        "itemId": "checkout_btn",
+                                        "layout": "hbox",
+                                        "layout|flex": 1,
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -303,18 +310,11 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "layout|flex": 1,
-                                        "cls": [
-                                            "kayak-button"
-                                        ],
-                                        "height": "2.5em",
-                                        "itemId": "checkout_btn",
                                         "margin": null,
                                         "maxHeight": "2.5em",
                                         "maxWidth": "8em",
                                         "minHeight": "2.5em",
-                                        "style": null,
-                                        "layout": "hbox"
+                                        "style": null
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -354,12 +354,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "layout|flex": 1,
                                                 "cls": [
                                                     "kayak-button-select"
                                                 ],
                                                 "html": "Select",
                                                 "itemId": "checkout_day",
+                                                "layout|flex": 1,
                                                 "style": null
                                             },
                                             "designerId": "5de168c0-bc6c-4277-86b7-c8a15bfa4ec8"
@@ -376,16 +376,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "example_descr",
                                 "docked": "bottom",
                                 "height": "",
                                 "html": "Kayak Droid/IOS-style selection (collapsible)",
                                 "maxHeight": "3em",
                                 "maxWidth": "75%",
                                 "minHeight": "1.5em",
+                                "scrollable": null,
                                 "styleHtmlCls": "example-descr-html",
-                                "styleHtmlContent": true,
-                                "designer|displayName": "example_descr",
-                                "scrollable": null
+                                "styleHtmlContent": true
                             },
                             "designerId": "33c88fbc-888a-44a4-92eb-cc0763b4e77b"
                         }
@@ -399,11 +399,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": null,
                         "height": "6em",
                         "itemId": "example2",
-                        "style": "border: 1px solid gray;",
-                        "designer|displayName": null,
-                        "layout": "hbox"
+                        "layout": "hbox",
+                        "style": "border: 1px solid gray;"
                     },
                     "designerId": "16424b8b-c530-44d2-939b-bd785f3a3462",
                     "cn": [
@@ -417,8 +417,8 @@
                             "userConfig": {
                                 "height": "2em",
                                 "margin": "1em .5em 0 .5em",
-                                "width": "2em",
-                                "src": "./resources/images/calendar.png"
+                                "src": "./resources/images/calendar.png",
+                                "width": "2em"
                             },
                             "designerId": "9c1684d0-00f4-4a08-a8b1-aa0c08b055a7"
                         },
@@ -430,9 +430,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout": "vbox",
                                 "layout|flex": 1,
-                                "maxWidth": "10em",
-                                "layout": "vbox"
+                                "maxWidth": "10em"
                             },
                             "designerId": "d011fa06-d92a-492d-9786-b5a1dcc3a1d2",
                             "cn": [
@@ -444,9 +444,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "layout|flex": null,
                                         "height": "1.5em",
                                         "html": "CHECK IN",
+                                        "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
                                     "designerId": "236cd12e-d546-4d29-8943-a7dc1337b658"
@@ -459,6 +459,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "kayak-button"
+                                        ],
+                                        "height": "2.5em",
+                                        "itemId": "checkin_btn2",
+                                        "layout": "hbox",
+                                        "layout|flex": 1,
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -469,18 +476,11 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "layout|flex": 1,
-                                        "cls": [
-                                            "kayak-button"
-                                        ],
-                                        "height": "2.5em",
-                                        "itemId": "checkin_btn2",
                                         "margin": null,
                                         "maxHeight": "2.5em",
                                         "maxWidth": "8em",
                                         "minHeight": "2.5em",
-                                        "style": null,
-                                        "layout": "hbox"
+                                        "style": null
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -520,12 +520,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "layout|flex": 1,
                                                 "cls": [
                                                     "kayak-button-select"
                                                 ],
                                                 "html": "Select",
                                                 "itemId": "checkin_day2",
+                                                "layout|flex": 1,
                                                 "style": null
                                             },
                                             "designerId": "9dbfb7a3-ddd5-4096-b05f-ec3410287943"
@@ -542,9 +542,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout": "vbox",
                                 "layout|flex": 1,
-                                "maxWidth": "10em",
-                                "layout": "vbox"
+                                "maxWidth": "10em"
                             },
                             "designerId": "305f1b88-e00c-40a2-9a48-c251a7caf8d8",
                             "cn": [
@@ -556,9 +556,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "layout|flex": null,
                                         "height": "1.5em",
                                         "html": "CHECK OUT",
+                                        "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
                                     "designerId": "b5a6b04f-0c6b-4f0e-a62d-35223810dcda"
@@ -571,6 +571,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "kayak-button"
+                                        ],
+                                        "height": "2.5em",
+                                        "itemId": "checkout_btn2",
+                                        "layout": "hbox",
+                                        "layout|flex": 1,
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -581,18 +588,11 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "layout|flex": 1,
-                                        "cls": [
-                                            "kayak-button"
-                                        ],
-                                        "height": "2.5em",
-                                        "itemId": "checkout_btn2",
                                         "margin": null,
                                         "maxHeight": "2.5em",
                                         "maxWidth": "8em",
                                         "minHeight": "2.5em",
-                                        "style": null,
-                                        "layout": "hbox"
+                                        "style": null
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -632,12 +632,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "layout|flex": 1,
                                                 "cls": [
                                                     "kayak-button-select"
                                                 ],
                                                 "html": "Select",
                                                 "itemId": "checkout_day2",
+                                                "layout|flex": 1,
                                                 "style": null
                                             },
                                             "designerId": "b97e19ff-08c3-4f31-a855-395972daab50"
@@ -654,16 +654,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "example_descr",
                                 "docked": "bottom",
                                 "height": null,
                                 "html": "Range selection in same calendar popup",
                                 "maxHeight": "3em",
                                 "maxWidth": "75%",
                                 "minHeight": "1.5em",
+                                "scrollable": null,
                                 "styleHtmlCls": "example-descr-html",
-                                "styleHtmlContent": true,
-                                "designer|displayName": "example_descr",
-                                "scrollable": null
+                                "styleHtmlContent": true
                             },
                             "designerId": "ca23c887-fbe5-48df-a9f0-6c0f1fe605a0"
                         }
@@ -677,13 +677,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": null,
                         "height": null,
                         "itemId": "example2B",
+                        "layout": "hbox",
                         "maxHeight": null,
                         "maxWidth": null,
-                        "style": "border: 1px solid gray;",
-                        "designer|displayName": null,
-                        "layout": "hbox"
+                        "style": "border: 1px solid gray;"
                     },
                     "designerId": "65cba723-5528-4add-bf10-bdbbcc2719d5",
                     "cn": [
@@ -697,8 +697,8 @@
                             "userConfig": {
                                 "height": "2em",
                                 "margin": "1em .5em 0 .5em",
-                                "width": "2em",
-                                "src": "./resources/images/calendar.png"
+                                "src": "./resources/images/calendar.png",
+                                "width": "2em"
                             },
                             "designerId": "35dd0f56-ce3b-4f21-9d3a-4a4c36e32a70"
                         },
@@ -710,10 +710,10 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout": "vbox",
                                 "layout|flex": 1,
                                 "maxWidth": "10em",
-                                "minHeight": "4.5em",
-                                "layout": "vbox"
+                                "minHeight": "4.5em"
                             },
                             "designerId": "f2619071-71b3-4749-a08c-1b092325cb8e",
                             "cn": [
@@ -725,9 +725,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "layout|flex": null,
                                         "height": "1.5em",
                                         "html": "CHECK IN",
+                                        "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
                                     "designerId": "43074e55-93c3-4a52-ab9a-2850e8db1c81"
@@ -740,6 +740,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "kayak-button"
+                                        ],
+                                        "height": "2.5em",
+                                        "itemId": "checkin_btn2B",
+                                        "layout": "hbox",
+                                        "layout|flex": 1,
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -750,18 +757,11 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "layout|flex": 1,
-                                        "cls": [
-                                            "kayak-button"
-                                        ],
-                                        "height": "2.5em",
-                                        "itemId": "checkin_btn2B",
                                         "margin": null,
                                         "maxHeight": "2.5em",
                                         "maxWidth": "8em",
                                         "minHeight": "2.5em",
-                                        "style": null,
-                                        "layout": "hbox"
+                                        "style": null
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -801,12 +801,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "layout|flex": 1,
                                                 "cls": [
                                                     "kayak-button-select"
                                                 ],
                                                 "html": "Select",
                                                 "itemId": "checkin_day2B",
+                                                "layout|flex": 1,
                                                 "style": null
                                             },
                                             "designerId": "9ec78a01-2259-4337-ba53-a2a1f3a6d70f"
@@ -823,10 +823,10 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout": "vbox",
                                 "layout|flex": 1,
                                 "maxWidth": "10em",
-                                "minHeight": "4.5em",
-                                "layout": "vbox"
+                                "minHeight": "4.5em"
                             },
                             "designerId": "d44ea0cd-0c27-45e7-a580-8c74e3f0d085",
                             "cn": [
@@ -838,9 +838,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "layout|flex": null,
                                         "height": "1.5em",
                                         "html": "CHECK OUT",
+                                        "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
                                     "designerId": "6bf0d4a0-c016-4fcb-a95f-7788847e7ac1"
@@ -853,6 +853,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "kayak-button"
+                                        ],
+                                        "height": "2.5em",
+                                        "itemId": "checkout_btn2B",
+                                        "layout": "hbox",
+                                        "layout|flex": 1,
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -863,18 +870,11 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "layout|flex": 1,
-                                        "cls": [
-                                            "kayak-button"
-                                        ],
-                                        "height": "2.5em",
-                                        "itemId": "checkout_btn2B",
                                         "margin": null,
                                         "maxHeight": "2.5em",
                                         "maxWidth": "8em",
                                         "minHeight": "2.5em",
-                                        "style": null,
-                                        "layout": "hbox"
+                                        "style": null
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -914,12 +914,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "layout|flex": 1,
                                                 "cls": [
                                                     "kayak-button-select"
                                                 ],
                                                 "html": "Select",
                                                 "itemId": "checkout_day2B",
+                                                "layout|flex": 1,
                                                 "style": null
                                             },
                                             "designerId": "990927bd-cdfe-4fd8-b43e-4bb770542c4a"
@@ -936,16 +936,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "example_descr",
                                 "docked": "bottom",
                                 "height": null,
                                 "html": "Range selection - IOS Style Calendar.  Demonstrates option at end of list to append more months.",
                                 "maxHeight": null,
                                 "maxWidth": "75%",
                                 "minHeight": null,
+                                "scrollable": null,
                                 "styleHtmlCls": "example-descr-html",
-                                "styleHtmlContent": true,
-                                "designer|displayName": "example_descr",
-                                "scrollable": null
+                                "styleHtmlContent": true
                             },
                             "designerId": "1ff55b72-70e5-4656-b9fc-e64958da26e4"
                         }
@@ -959,12 +959,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": null,
                         "height": null,
                         "itemId": "example2C",
+                        "layout": "hbox",
                         "maxWidth": null,
-                        "style": "border: 1px solid gray;",
-                        "designer|displayName": null,
-                        "layout": "hbox"
+                        "style": "border: 1px solid gray;"
                     },
                     "designerId": "edafc616-b959-4844-8eb8-6c4d5278156d",
                     "cn": [
@@ -978,8 +978,8 @@
                             "userConfig": {
                                 "height": "2em",
                                 "margin": "1em .5em 0 .5em",
-                                "width": "2em",
-                                "src": "./resources/images/calendar.png"
+                                "src": "./resources/images/calendar.png",
+                                "width": "2em"
                             },
                             "designerId": "2073d1fb-724e-4e82-9980-1f18be722946"
                         },
@@ -991,8 +991,8 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": 1,
                                 "height": "2.6em",
+                                "layout|flex": 1,
                                 "maxWidth": "15em"
                             },
                             "designerId": "ca99017d-2223-49f8-9082-690b9d443ca1",
@@ -1005,6 +1005,15 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "clearIcon": false,
+                                        "cls": [
+                                            "sel-date"
+                                        ],
+                                        "html": null,
+                                        "inputCls": "sel-date-label",
+                                        "itemId": "sel_date",
+                                        "label": "Date:",
+                                        "labelWidth": "35%",
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -1015,19 +1024,10 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "cls": [
-                                            "sel-date"
-                                        ],
-                                        "html": null,
-                                        "itemId": "sel_date",
-                                        "styleHtmlCls": "sel-date-html",
-                                        "styleHtmlContent": true,
-                                        "clearIcon": false,
-                                        "inputCls": "sel-date-label",
-                                        "label": "Date:",
-                                        "labelWidth": "35%",
                                         "placeHolder": "Select",
-                                        "readOnly": true
+                                        "readOnly": true,
+                                        "styleHtmlCls": "sel-date-html",
+                                        "styleHtmlContent": true
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -1051,16 +1051,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "example_descr",
                                 "docked": "bottom",
                                 "height": null,
                                 "html": "Single Date Selection (Form Field example), Future Dates Disabled. IOS Style Calendar.  Demonstrates pull-refresh style option to insert more months at beginning and single-expand accordion option.",
                                 "maxHeight": null,
                                 "maxWidth": "75%",
                                 "minHeight": null,
+                                "scrollable": null,
                                 "styleHtmlCls": "example-descr-html",
-                                "styleHtmlContent": true,
-                                "designer|displayName": "example_descr",
-                                "scrollable": null
+                                "styleHtmlContent": true
                             },
                             "designerId": "e236346c-bdcf-40f6-9cd0-0331b97074fd"
                         }
@@ -1074,11 +1074,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": null,
                         "height": "6em",
                         "itemId": "example3",
-                        "style": "border: 1px solid gray;",
-                        "designer|displayName": null,
-                        "layout": "hbox"
+                        "layout": "hbox",
+                        "style": "border: 1px solid gray;"
                     },
                     "designerId": "1da67a09-fdf0-464b-bf6a-fec98613437f",
                     "cn": [
@@ -1092,8 +1092,8 @@
                             "userConfig": {
                                 "height": "2em",
                                 "margin": "1em .5em 0 .5em",
-                                "width": "2em",
-                                "src": "./resources/images/calendar.png"
+                                "src": "./resources/images/calendar.png",
+                                "width": "2em"
                             },
                             "designerId": "5a9657e4-8228-4883-9daa-819a0ac11172"
                         },
@@ -1105,9 +1105,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout": "fit",
                                 "layout|flex": 1,
-                                "maxWidth": "5em",
-                                "layout": "fit"
+                                "maxWidth": "5em"
                             },
                             "designerId": "649a5af5-63b9-472f-9ccc-a38007080817",
                             "cn": [
@@ -1119,6 +1119,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "multisel-button"
+                                        ],
+                                        "height": "2.5em",
+                                        "html": "Select",
+                                        "itemId": "multisel_btn",
+                                        "layout": "fit",
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -1129,18 +1136,11 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "cls": [
-                                            "multisel-button"
-                                        ],
-                                        "height": "2.5em",
-                                        "html": "Select",
-                                        "itemId": "multisel_btn",
                                         "margin": null,
                                         "maxHeight": "2.5em",
                                         "maxWidth": "8em",
                                         "minHeight": "2.5em",
-                                        "style": null,
-                                        "layout": "fit"
+                                        "style": null
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -1164,14 +1164,14 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": 1,
                                 "html": "2013-09-11, 2013-09-17, 2013-11-06",
                                 "itemId": "multisel_dates_html",
-                                "maxWidth": "10em",
-                                "styleHtmlCls": "multisel-dates-html",
-                                "styleHtmlContent": true,
                                 "layout": "fit",
-                                "scrollable": false
+                                "layout|flex": 1,
+                                "maxWidth": "10em",
+                                "scrollable": false,
+                                "styleHtmlCls": "multisel-dates-html",
+                                "styleHtmlContent": true
                             },
                             "designerId": "bc8bcfb2-0697-4a89-a9fe-dbc485532033"
                         },
@@ -1183,16 +1183,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "example_descr",
                                 "docked": "bottom",
                                 "height": null,
                                 "html": "Multi-selection (Weekends+Holidays disabled)",
                                 "maxHeight": "5em",
                                 "maxWidth": "75%",
                                 "minHeight": "1.5em",
+                                "scrollable": null,
                                 "styleHtmlCls": "example-descr-html",
-                                "styleHtmlContent": true,
-                                "designer|displayName": "example_descr",
-                                "scrollable": null
+                                "styleHtmlContent": true
                             },
                             "designerId": "08a56f19-c35c-4add-8acc-949800eba437"
                         }
@@ -1206,13 +1206,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": null,
                         "height": null,
                         "itemId": "example4",
+                        "layout": "hbox",
                         "maxHeight": null,
                         "minHeight": null,
-                        "style": "border: 1px solid gray;",
-                        "designer|displayName": null,
-                        "layout": "hbox"
+                        "style": "border: 1px solid gray;"
                     },
                     "designerId": "7aca58d2-1a45-4633-b998-1bca92befac6",
                     "cn": [
@@ -1226,8 +1226,8 @@
                             "userConfig": {
                                 "height": "2.5em",
                                 "margin": ".5em .5em 0 .5em",
-                                "width": "2em",
-                                "src": "./resources/images/calendar_view_day.png"
+                                "src": "./resources/images/calendar_view_day.png",
+                                "width": "2em"
                             },
                             "designerId": "83598251-4538-477b-a639-f6c7ee863bde"
                         },
@@ -1239,9 +1239,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout": "fit",
                                 "layout|flex": 1,
-                                "maxWidth": "7em",
-                                "layout": "fit"
+                                "maxWidth": "7em"
                             },
                             "designerId": "5a74ee64-4519-4984-a204-6d87734b57a4",
                             "cn": [
@@ -1253,6 +1253,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "financial-btn"
+                                        ],
+                                        "height": "2.5em",
+                                        "html": "Calendar",
+                                        "itemId": "lookup_btn",
+                                        "layout": "fit",
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -1263,19 +1270,12 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "cls": [
-                                            "financial-btn"
-                                        ],
-                                        "height": "2.5em",
-                                        "html": "Calendar",
-                                        "itemId": "lookup_btn",
                                         "margin": null,
                                         "maxHeight": "2.5em",
                                         "maxWidth": "7em",
                                         "minHeight": "2.5em",
                                         "padding": "0 0 0 .8em",
-                                        "style": null,
-                                        "layout": "fit"
+                                        "style": null
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -1299,14 +1299,14 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": 1,
                                 "html": null,
                                 "itemId": null,
-                                "maxWidth": "10em",
-                                "styleHtmlCls": null,
-                                "styleHtmlContent": null,
                                 "layout": "fit",
-                                "scrollable": null
+                                "layout|flex": 1,
+                                "maxWidth": "10em",
+                                "scrollable": null,
+                                "styleHtmlCls": null,
+                                "styleHtmlContent": null
                             },
                             "designerId": "db8ed901-99a8-422e-a01f-c1e1d25616fe"
                         },
@@ -1318,16 +1318,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "example_descr",
                                 "docked": "bottom",
                                 "height": null,
                                 "html": "Day Planner (under construction).  Tap between Year, List and Day views. Select day in year view.  Swipe left+right to quickly change day or month in Day view.  New \"yearMonthSelect\" component utilizes TouchTreeGrid to prompt for specific month+year.  Different functionality for Phone vs. Tablet.",
                                 "maxHeight": null,
                                 "maxWidth": "75%",
                                 "minHeight": null,
+                                "scrollable": null,
                                 "styleHtmlCls": "example-descr-html",
-                                "styleHtmlContent": true,
-                                "designer|displayName": "example_descr",
-                                "scrollable": null
+                                "styleHtmlContent": true
                             },
                             "designerId": "2369dbe3-fa14-437f-9979-805a0c7fb04f"
                         }
@@ -1341,12 +1341,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": null,
                         "height": null,
                         "itemId": "example5",
+                        "layout": "hbox",
                         "minHeight": null,
-                        "style": "border: 1px solid gray;",
-                        "designer|displayName": null,
-                        "layout": "hbox"
+                        "style": "border: 1px solid gray;"
                     },
                     "designerId": "184943f5-4b2c-479b-a12d-d4a0693771b0",
                     "cn": [
@@ -1360,8 +1360,8 @@
                             "userConfig": {
                                 "height": "2.5em",
                                 "margin": ".5em .5em 0 .5em",
-                                "width": "2em",
-                                "src": "./resources/images/santa.png"
+                                "src": "./resources/images/santa.png",
+                                "width": "2em"
                             },
                             "designerId": "d6a4f473-a2f8-443e-8e5d-b2dc07b58dc3"
                         },
@@ -1373,9 +1373,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout": "fit",
                                 "layout|flex": 1,
-                                "maxWidth": "7em",
-                                "layout": "fit"
+                                "maxWidth": "7em"
                             },
                             "designerId": "e6c51033-670e-4c3f-9a86-b3308f241e5b",
                             "cn": [
@@ -1387,6 +1387,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "christmas-btn"
+                                        ],
+                                        "height": "2.5em",
+                                        "html": "Calendar",
+                                        "itemId": "filter_btn",
+                                        "layout": "fit",
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -1397,16 +1404,9 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "cls": [
-                                            "christmas-btn"
-                                        ],
-                                        "height": "2.5em",
-                                        "html": "Calendar",
-                                        "itemId": "filter_btn",
                                         "margin": null,
                                         "maxWidth": "7em",
-                                        "style": null,
-                                        "layout": "fit"
+                                        "style": null
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -1430,14 +1430,14 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": 1,
                                 "html": null,
                                 "itemId": null,
-                                "maxWidth": "10em",
-                                "styleHtmlCls": null,
-                                "styleHtmlContent": null,
                                 "layout": "fit",
-                                "scrollable": null
+                                "layout|flex": 1,
+                                "maxWidth": "10em",
+                                "scrollable": null,
+                                "styleHtmlCls": null,
+                                "styleHtmlContent": null
                             },
                             "designerId": "2cbd0f09-af05-458f-98bc-993cfc2f8670"
                         },
@@ -1449,16 +1449,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "example_descr",
                                 "docked": "bottom",
                                 "height": null,
                                 "html": "Custom Filter example (Christmas calendar for next 12 years).  Filters can be used to only include months with Selected or Custom dates.",
                                 "maxHeight": null,
                                 "maxWidth": "75%",
                                 "minHeight": null,
+                                "scrollable": null,
                                 "styleHtmlCls": "example-descr-html",
-                                "styleHtmlContent": true,
-                                "designer|displayName": "example_descr",
-                                "scrollable": null
+                                "styleHtmlContent": true
                             },
                             "designerId": "f6ac40f8-ba86-4a5a-abea-c6aa335e3565"
                         }
@@ -1472,12 +1472,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": null,
                         "height": null,
                         "itemId": "example6",
+                        "layout": "hbox",
                         "minHeight": null,
-                        "style": "border: 1px solid gray;",
-                        "designer|displayName": null,
-                        "layout": "hbox"
+                        "style": "border: 1px solid gray;"
                     },
                     "designerId": "3c349711-eef8-458a-854d-e424887dd9a5",
                     "cn": [
@@ -1491,8 +1491,8 @@
                             "userConfig": {
                                 "height": "2.5em",
                                 "margin": ".5em .5em 0 .5em",
-                                "width": "2em",
-                                "src": "./resources/images/calendar_view_month.png"
+                                "src": "./resources/images/calendar_view_month.png",
+                                "width": "2em"
                             },
                             "designerId": "267e0c3c-ffc6-42bc-ac98-99d529bc9f7d"
                         },
@@ -1504,11 +1504,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
                                 "height": "4em",
+                                "layout": "fit",
+                                "layout|flex": null,
                                 "maxWidth": null,
-                                "width": "10em",
-                                "layout": "fit"
+                                "width": "10em"
                             },
                             "designerId": "318406ee-ce75-4bf0-ab15-df830c68ab7a",
                             "cn": [
@@ -1520,6 +1520,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "financial-btn"
+                                        ],
+                                        "height": "2.5em",
+                                        "html": "Day Counts",
+                                        "itemId": "day_count_btn",
+                                        "layout": "fit",
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -1530,18 +1537,11 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "cls": [
-                                            "financial-btn"
-                                        ],
-                                        "height": "2.5em",
-                                        "html": "Day Counts",
-                                        "itemId": "day_count_btn",
                                         "margin": null,
                                         "maxHeight": null,
                                         "maxWidth": null,
                                         "minHeight": null,
-                                        "style": "text-align: center",
-                                        "layout": "fit"
+                                        "style": "text-align: center"
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -1565,13 +1565,13 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": 1,
                                 "html": null,
                                 "itemId": null,
-                                "maxWidth": null,
-                                "styleHtmlCls": null,
                                 "layout": "fit",
-                                "scrollable": null
+                                "layout|flex": 1,
+                                "maxWidth": null,
+                                "scrollable": null,
+                                "styleHtmlCls": null
                             },
                             "designerId": "a876df5a-2ccd-4c15-a368-a53f244b7237"
                         },
@@ -1583,16 +1583,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "example_descr",
                                 "docked": "bottom",
                                 "height": null,
                                 "html": "Financial Calendar example (Day Counts from Today).",
                                 "maxHeight": null,
                                 "maxWidth": "75%",
                                 "minHeight": null,
+                                "scrollable": null,
                                 "styleHtmlCls": "example-descr-html",
-                                "styleHtmlContent": true,
-                                "designer|displayName": "example_descr",
-                                "scrollable": null
+                                "styleHtmlContent": true
                             },
                             "designerId": "a2d089c8-e1f7-40e1-a7c1-a84b644b5070"
                         }
@@ -1606,13 +1606,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": null,
                         "height": null,
                         "itemId": "example7",
-                        "minHeight": null,
-                        "style": "border: 1px solid gray;",
-                        "designer|displayName": null,
                         "layout": "hbox",
-                        "scrollable": null
+                        "minHeight": null,
+                        "scrollable": null,
+                        "style": "border: 1px solid gray;"
                     },
                     "designerId": "4e03a23f-d27f-4017-9e5c-923bcb1e0229",
                     "cn": [
@@ -1626,8 +1626,8 @@
                             "userConfig": {
                                 "height": "2.5em",
                                 "margin": ".5em .5em 0 .5em",
-                                "width": "2em",
-                                "src": "./resources/images/calendar_view_month.png"
+                                "src": "./resources/images/calendar_view_month.png",
+                                "width": "2em"
                             },
                             "designerId": "446d0d72-9887-47a5-bd40-6f950f27788d"
                         },
@@ -1639,11 +1639,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
                                 "height": "4em",
+                                "layout": "fit",
+                                "layout|flex": null,
                                 "maxWidth": null,
-                                "width": "10em",
-                                "layout": "fit"
+                                "width": "10em"
                             },
                             "designerId": "f718a13f-f01d-4bd6-bbdd-b63d26977698",
                             "cn": [
@@ -1655,6 +1655,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "financial-btn"
+                                        ],
+                                        "height": "2.5em",
+                                        "html": "Option Dates",
+                                        "itemId": "optionDates_btn",
+                                        "layout": "fit",
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -1665,18 +1672,11 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "cls": [
-                                            "financial-btn"
-                                        ],
-                                        "height": "2.5em",
-                                        "html": "Option Dates",
-                                        "itemId": "optionDates_btn",
                                         "margin": null,
                                         "maxHeight": null,
                                         "maxWidth": null,
                                         "minHeight": null,
-                                        "style": "text-align: center",
-                                        "layout": "fit"
+                                        "style": "text-align: center"
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -1700,11 +1700,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
                                 "height": "4em",
+                                "layout": "fit",
+                                "layout|flex": null,
                                 "maxWidth": null,
-                                "width": "10em",
-                                "layout": "fit"
+                                "width": "10em"
                             },
                             "designerId": "b1f93507-925f-418e-a2bd-82e744581f01",
                             "cn": [
@@ -1716,6 +1716,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": [
+                                            "financial-btn"
+                                        ],
+                                        "height": "2.5em",
+                                        "html": "Matrix (Tablets)",
+                                        "itemId": "optionDates_btn",
+                                        "layout": "fit",
                                         "listeners": [
                                             "{\r",
                                             "  tap: {\r",
@@ -1726,18 +1733,11 @@
                                             "  }\r",
                                             "}"
                                         ],
-                                        "cls": [
-                                            "financial-btn"
-                                        ],
-                                        "height": "2.5em",
-                                        "html": "Matrix (Tablets)",
-                                        "itemId": "optionDates_btn",
                                         "margin": null,
                                         "maxHeight": null,
                                         "maxWidth": null,
                                         "minHeight": null,
-                                        "style": "text-align: center",
-                                        "layout": "fit"
+                                        "style": "text-align: center"
                                     },
                                     "configAlternates": {
                                         "listeners": "object"
@@ -1761,16 +1761,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "example_descr",
                                 "docked": "bottom",
                                 "height": null,
                                 "html": "MarketWatch-style Options Expiratioon Financial Calendar example.  Demonstrates auto-generated legend  with different docking options.  Phones docked top+bottom with scrolling list.",
                                 "maxHeight": null,
                                 "maxWidth": "75%",
                                 "minHeight": null,
+                                "scrollable": null,
                                 "styleHtmlCls": "example-descr-html",
-                                "styleHtmlContent": true,
-                                "designer|displayName": "example_descr",
-                                "scrollable": null
+                                "styleHtmlContent": true
                             },
                             "designerId": "6bb567be-6a47-45f3-a605-1b88c36a395d"
                         }

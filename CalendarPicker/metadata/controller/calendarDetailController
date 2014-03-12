@@ -18,10 +18,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample7_MatrixView",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "container"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample7_MatrixView",
                 "implHandler": [
                     "if(Ext.os.is.Phone) {\r",
                     "    Ext.Msg.alert('Tablet-only example...');\r",
@@ -128,9 +130,7 @@
                     "Ext.Viewport.setActiveItem(newcont);\r",
                     ""
                 ],
-                "name": "optionDatesMatrix_btn",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "optionDatesMatrix_btn"
             },
             "designerId": "74854e73-ce85-4f6b-89e4-58d1f211a3ea"
         },
@@ -142,16 +142,16 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample4_MatrixView",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "container"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample4_MatrixView",
                 "implHandler": [
                     "this.processDetailCalendar();"
                 ],
-                "name": "lookup_btn",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "lookup_btn"
             },
             "designerId": "1bfc8932-7d4b-4245-aa77-470fdb0a40e5"
         },
@@ -325,10 +325,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onMonthTap",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "me, list, index, target, record, e"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onMonthTap",
                 "implHandler": [
                     "// Used for multiple purposes:\r",
                     "//  1) Tap month header on year view to navigate to month view\r",
@@ -366,9 +368,7 @@
                     "\r",
                     ""
                 ],
-                "name": "nodeItemTap",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "nodeItemTap"
             },
             "designerId": "a1e9a65d-0537-4ba0-9354-696ab3946cef"
         },
@@ -380,6 +380,8 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|controlQuery": "list#calendarlist",
+                "designer|targetType": "Ext.dataview.List",
                 "fn": "onListItemSwipe",
                 "implHandler": [
                     "// Process item swipe in month or day view calendars to change to next month\r",
@@ -429,9 +431,7 @@
                     "\r",
                     ""
                 ],
-                "name": "itemswipe",
-                "designer|targetType": "Ext.dataview.List",
-                "designer|controlQuery": "list#calendarlist"
+                "name": "itemswipe"
             },
             "designerId": "1f2ca452-3109-48b6-8a22-53a55d9a4e42"
         },
@@ -443,10 +443,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onDayViewSwipe",
+                "designer|controlQuery": "container#dayView",
                 "designer|params": [
                     "container, e"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onDayViewSwipe",
                 "implHandler": [
                     "// Used to trap swipe in day view list container to change to next day\r",
                     "\r",
@@ -488,9 +490,7 @@
                     "\r",
                     ""
                 ],
-                "name": "dayViewSwipe",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#dayView"
+                "name": "dayViewSwipe"
             },
             "designerId": "a266e082-ee4c-4e03-9944-837306bccb60"
         },
@@ -502,12 +502,14 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onCalendarDayTap",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "calendarpicker",
                     "dateStr",
                     "date"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onCalendarDayTap",
                 "implHandler": [
                     "// Year, Month and Day calendars fire dateSelected event to navigate to appropriate day in Day View\r",
                     "\r",
@@ -576,9 +578,7 @@
                     "\r",
                     ""
                 ],
-                "name": "dateSelected",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "dateSelected"
             },
             "designerId": "0d7159ac-fd8a-4179-8040-3cc67d7079f5"
         },
@@ -590,6 +590,8 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|controlQuery": "button#matrixViewBackBtn",
+                "designer|targetType": "Ext.Button",
                 "fn": "onMatrixViewBackBtnTap",
                 "implHandler": [
                     "// Closes Matrix View and returns to calling panel\r",
@@ -604,9 +606,7 @@
                     "\r",
                     ""
                 ],
-                "name": "tap",
-                "designer|targetType": "Ext.Button",
-                "designer|controlQuery": "button#matrixViewBackBtn"
+                "name": "tap"
             },
             "designerId": "45d8919e-853b-4d36-aeb2-c2b7fcac260f"
         },
@@ -618,14 +618,14 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|controlQuery": "button#matrixViewYearBtn",
+                "designer|targetType": "Ext.Button",
                 "fn": "onYearViewTap",
                 "implHandler": [
                     "var matrixView = (Ext.os.is.Phone ? this.getMatrixViewPhone() : this.getMatrixView());\r",
                     "matrixView.setActiveItem(matrixView.down('#yearView'));"
                 ],
-                "name": "tap",
-                "designer|targetType": "Ext.Button",
-                "designer|controlQuery": "button#matrixViewYearBtn"
+                "name": "tap"
             },
             "designerId": "8dfd614b-93aa-4290-85e1-14aefe10e2b2"
         },
@@ -637,6 +637,8 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|controlQuery": "button#matrixViewMonthBtn",
+                "designer|targetType": "Ext.Button",
                 "fn": "onMonthViewTap",
                 "implHandler": [
                     "var matrixView = (Ext.os.is.Phone ? this.getMatrixViewPhone() : this.getMatrixView());\r",
@@ -656,9 +658,7 @@
                     "}    \r",
                     ""
                 ],
-                "name": "tap",
-                "designer|targetType": "Ext.Button",
-                "designer|controlQuery": "button#matrixViewMonthBtn"
+                "name": "tap"
             },
             "designerId": "5280f0e9-35d4-407d-8d13-2d1bfb1cdabc"
         },
@@ -670,15 +670,15 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|controlQuery": "button#matrixViewListBtn",
+                "designer|targetType": "Ext.Button",
                 "fn": "onListViewTap",
                 "implHandler": [
                     "// Add logic later to update List view based on context when pressing List tab\r",
                     "var matrixView = (Ext.os.is.Phone ? this.getMatrixViewPhone() : this.getMatrixView());\r",
                     "matrixView.setActiveItem(matrixView.down('#listView'));"
                 ],
-                "name": "tap",
-                "designer|targetType": "Ext.Button",
-                "designer|controlQuery": "button#matrixViewListBtn"
+                "name": "tap"
             },
             "designerId": "93445665-cd19-4620-8db3-cba2f872c4fa"
         },
@@ -690,6 +690,8 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|controlQuery": "button#matrixViewDayBtn",
+                "designer|targetType": "Ext.Button",
                 "fn": "onDayViewTap",
                 "implHandler": [
                     "var matrixView = (Ext.os.is.Phone ? this.getMatrixViewPhone() : this.getMatrixView());\r",
@@ -717,9 +719,7 @@
                     "}\r",
                     "matrixView.setActiveItem(matrixView.down('#dayView'));"
                 ],
-                "name": "tap",
-                "designer|targetType": "Ext.Button",
-                "designer|controlQuery": "button#matrixViewDayBtn"
+                "name": "tap"
             },
             "designerId": "762b3658-597d-4357-b0b0-d2d278cd3b8d"
         },
@@ -808,10 +808,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processMonthViewCategTap",
                 "designer|params": [
                     "me, list, index, target, record, e"
                 ],
+                "fn": "processMonthViewCategTap",
                 "implHandler": [
                     "// Process tap of MonthView header (aka category row) tap\r",
                     "var tgt = e.getTarget(null,null,true);\r",
@@ -854,11 +854,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onMonth_YearMoSel",
+                "designer|controlQuery": "container#matrix_month_yearMoSel",
                 "designer|params": [
                     "yearMoSelPicker",
                     "yearMoSel"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onMonth_YearMoSel",
                 "implHandler": [
                     "// Handle user selection of Year+Month for Month view\r",
                     "\r",
@@ -873,9 +875,7 @@
                     "\r",
                     ""
                 ],
-                "name": "yearMoSel",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#matrix_month_yearMoSel"
+                "name": "yearMoSel"
             },
             "designerId": "fe1a248c-f6ce-471d-855b-5d6eda4efee0"
         },
@@ -887,11 +887,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "updateMonthView",
                 "designer|params": [
                     "backMonths",
                     "forwardMonths"
                 ],
+                "fn": "updateMonthView",
                 "implHandler": [
                     "// Code for displaying calendar in Month view\r",
                     "\r",
@@ -1048,7 +1048,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "createDayCalendar",
                 "designer|params": [
                     "returnItem",
                     "dateStr",
@@ -1056,6 +1055,7 @@
                     "forwardMonths",
                     "dayView"
                 ],
+                "fn": "createDayCalendar",
                 "implHandler": [
                     "// Code for displaying day view calendar\r",
                     "\r",
@@ -1154,10 +1154,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processDayViewCategTap",
                 "designer|params": [
                     "me, list, index, target, record, e"
                 ],
+                "fn": "processDayViewCategTap",
                 "implHandler": [
                     "// Process tap of MonthView header (aka category row) tap\r",
                     "var tgt = e.getTarget(null,null,true);\r",
@@ -1198,11 +1198,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onDay_YearMoSel",
+                "designer|controlQuery": "container#matrix_day_yearMoSel",
                 "designer|params": [
                     "yearMoSelPicker",
                     "yearMoSel"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onDay_YearMoSel",
                 "implHandler": [
                     "// Handle user selection of Year+Month for Day view\r",
                     "\r",
@@ -1222,9 +1224,7 @@
                     "\r",
                     "calendarpicker.fireEvent('dateSelected', calendarpicker, dateStr, firstSelDt);"
                 ],
-                "name": "yearMoSel",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#matrix_day_yearMoSel"
+                "name": "yearMoSel"
             },
             "designerId": "a971ba0b-6879-4524-b702-b926aa9beb3b"
         },
@@ -1236,10 +1236,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "customDayList",
                 "designer|params": [
                     "dateStr"
                 ],
+                "fn": "customDayList",
                 "implHandler": [
                     "// Sample custom method to display detail for selected day\r",
                     "var matrixView, dayList, storeId, store, htmlArr=[], i, htmlStr='', date, dateDescr;\r",

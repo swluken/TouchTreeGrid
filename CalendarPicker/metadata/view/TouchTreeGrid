@@ -6,54 +6,18 @@
     },
     "codeClass": null,
     "userConfig": {
-        "store": "",
-        "displayField": null,
-        "listScrollable": [
-            "true"
-        ],
-        "headerItemTpl": null,
-        "contentItemTpl": "",
-        "useAnimation": null,
-        "list": [
+        "additionalListConfigs": [
             "{}"
         ],
-        "headerItemOuter": null,
-        "headerItemData": null,
-        "disableSelection": true,
-        "listStyle": null,
-        "onItemDisclosure": false,
-        "columns": [
+        "applyDefaultCollapseLevel": true,
+        "arrowPctWidth": "4",
+        "categColumns": [
             "[]"
         ],
-        "header": [
-            "{\r",
-            "            xtype: 'toolbar',\r",
-            "            docked: 'top',\r",
-            "            cls: 'touchtreegrid-header'\r",
-            "        }"
+        "categCssArr": [
+            "[]"
         ],
-        "headerTpl": "",
-        "variableHeights": true,
-        "itemHeight": 47,
-        "disclosureProperty": "disclose",
-        "listItemId": "touchtreegridlist",
-        "categItemTpl": "",
-        "footer": [
-            "{\r",
-            "            xtype: 'toolbar',\r",
-            "            docked: 'bottom',\r",
-            "            ui     : 'light',\r",
-            "            cls: 'touchtreegrid-footer'\r",
-            "        }"
-        ],
-        "includeFooter": true,
-        "plugins": null,
-        "listPlugins": [
-            "{}"
-        ],
-        "categIndentPct": "3",
-        "colNumberToTruncateForIndents": 1,
-        "includeFooterLevels": true,
+        "categDepthColorButtons": true,
         "categDepthColors": false,
         "categDepthColorsArr": [
             "[\r",
@@ -62,67 +26,103 @@
             "'white'\r",
             "]"
         ],
-        "customExpCollapseEvent": "",
-        "renderers": [
-            "{}"
-        ],
-        "categDepthColorButtons": true,
-        "pressedBtnCls": null,
-        "useCustomPressedBtnCls": null,
+        "categIndentPct": "3",
+        "categItemTpl": "",
         "categItemTplOverride": "",
-        "contentItemTplOverride": "",
-        "headerTplOverride": "",
-        "includeHeader": true,
-        "applyDefaultCollapseLevel": true,
-        "defaultCollapseLevel": 99,
-        "landscapeIcon": "",
-        "helpHtml": "",
-        "pressedCls": "touchtreegrid-item-pressed",
-        "simpleList": false,
-        "columnSorting": false,
-        "styleContentRow": "",
-        "styleCategRow": "",
-        "styleHeaderRow": "",
-        "singleExpand": false,
-        "additionalListConfigs": [
-            "{}"
-        ],
-        "selectedCls": "touchtreegrid-item-selected",
-        "mode": "SINGLE",
-        "useSimpleItems": true,
-        "infinite": true,
-        "arrowPctWidth": "4",
-        "customColumnSortEvent": "",
-        "disableExpandCollapse": false,
-        "categColumns": [
-            "[]"
-        ],
-        "categCssArr": [
-            "[]"
-        ],
-        "cssContentRow": "css-content-row ",
-        "cssCategRow": "css-categ-row ",
-        "cssHeaderRow": "css-header-row ",
-        "customFooterItems": [
-            "{}"
-        ],
-        "includeCustomFooterItems": false,
-        "footerDock": "bottom",
-        "hideExpandCollapseBtns": false,
-        "linkedGridsParentItemId": "",
-        "onScrollOptions": [
-            "{}"
-        ],
-        "linkedGridsArr": [
-            "[]"
-        ],
         "cls": [
             "x-touchtreegrid-list"
         ],
-        "designer|userClassName": "TouchTreeGrid",
+        "colNumberToTruncateForIndents": 1,
+        "columnSorting": false,
+        "columns": [
+            "[]"
+        ],
+        "contentItemTpl": "",
+        "contentItemTplOverride": "",
+        "cssCategRow": "css-categ-row ",
+        "cssContentRow": "css-content-row ",
+        "cssHeaderRow": "css-header-row ",
+        "customColumnSortEvent": "",
+        "customExpCollapseEvent": "",
+        "customFooterItems": [
+            "{}"
+        ],
+        "defaultCollapseLevel": 99,
         "designer|userAlias": "touchtreegrid",
+        "designer|userClassName": "TouchTreeGrid",
+        "disableExpandCollapse": false,
+        "disableSelection": true,
+        "disclosureProperty": "disclose",
+        "displayField": null,
+        "footer": [
+            "{\r",
+            "            xtype: 'toolbar',\r",
+            "            docked: 'bottom',\r",
+            "            ui     : 'light',\r",
+            "            cls: 'touchtreegrid-footer'\r",
+            "        }"
+        ],
+        "footerDock": "bottom",
+        "header": [
+            "{\r",
+            "            xtype: 'toolbar',\r",
+            "            docked: 'top',\r",
+            "            cls: 'touchtreegrid-header'\r",
+            "        }"
+        ],
+        "headerItemData": null,
+        "headerItemOuter": null,
+        "headerItemTpl": null,
+        "headerTpl": "",
+        "headerTplOverride": "",
+        "helpHtml": "",
+        "hideExpandCollapseBtns": false,
+        "includeCustomFooterItems": false,
+        "includeFooter": true,
+        "includeFooterLevels": true,
+        "includeHeader": true,
+        "infinite": true,
+        "itemHeight": 47,
+        "landscapeIcon": "",
         "layout": "vbox",
-        "scrollable": null
+        "linkedGridsArr": [
+            "[]"
+        ],
+        "linkedGridsParentItemId": "",
+        "list": [
+            "{}"
+        ],
+        "listItemId": "touchtreegridlist",
+        "listPlugins": [
+            "{}"
+        ],
+        "listScrollable": [
+            "true"
+        ],
+        "listStyle": null,
+        "mode": "SINGLE",
+        "onItemDisclosure": false,
+        "onScrollOptions": [
+            "{}"
+        ],
+        "plugins": null,
+        "pressedBtnCls": null,
+        "pressedCls": "touchtreegrid-item-pressed",
+        "renderers": [
+            "{}"
+        ],
+        "scrollable": null,
+        "selectedCls": "touchtreegrid-item-selected",
+        "simpleList": false,
+        "singleExpand": false,
+        "store": "",
+        "styleCategRow": "",
+        "styleContentRow": "",
+        "styleHeaderRow": "",
+        "useAnimation": null,
+        "useCustomPressedBtnCls": null,
+        "useSimpleItems": true,
+        "variableHeights": true
     },
     "configAlternates": {
         "listScrollable": "object",
@@ -532,10 +532,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "initialize",
                 "designer|params": [
                     "config"
                 ],
+                "fn": "initialize",
                 "implHandler": [
                     "var me = this;\r",
                     "\r",
@@ -794,11 +794,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "updateStore",
                 "designer|params": [
                     "newStore",
                     "oldStore"
                 ],
+                "fn": "updateStore",
                 "implHandler": [
                     "var me = this;\r",
                     "\r",
@@ -906,7 +906,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onItemTap",
                 "designer|params": [
                     "list",
                     "index",
@@ -914,6 +913,7 @@
                     "record",
                     "e"
                 ],
+                "fn": "onItemTap",
                 "implHandler": [
                     "/**\r",
                     "* Called when an list item has been tapped\r",
@@ -980,10 +980,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "applyHeader",
                 "designer|params": [
                     "config"
                 ],
+                "fn": "applyHeader",
                 "implHandler": [
                     "if (this.getIncludeHeader()) {\r",
                     "    Ext.apply(config, {\r",
@@ -1006,10 +1006,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "updateHeader",
                 "designer|params": [
                     "header"
                 ],
+                "fn": "updateHeader",
                 "implHandler": [
                     "var me = this;\r",
                     "if (me.getIncludeHeader()) {\r",
@@ -1031,10 +1031,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "applyFooter",
                 "designer|params": [
                     "config"
                 ],
+                "fn": "applyFooter",
                 "implHandler": [
                     "\r",
                     "var me = this;\r",
@@ -1111,11 +1111,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doExpandDepth",
                 "designer|params": [
                     "depth",
                     "btn"
                 ],
+                "fn": "doExpandDepth",
                 "implHandler": [
                     "var list = this.getList(),\r",
                     "    store = list.getStore();\r",
@@ -1161,10 +1161,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doRefreshList",
                 "designer|params": [
                     "skipApplyDefaultCollapseLevel"
                 ],
+                "fn": "doRefreshList",
                 "implHandler": [
                     "// Refreshes TPL in grid and in Header\r",
                     "\r",
@@ -1368,7 +1368,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "formatNumbers",
                 "designer|params": [
                     "n",
                     "decPlaces",
@@ -1377,6 +1376,7 @@
                     "thouSeparator",
                     "decSeparator"
                 ],
+                "fn": "formatNumbers",
                 "implHandler": [
                     "if (Ext.isEmpty(n)) {return n;};  // Don't format empty strings  ==\"\" || !n || isNaN(n)\r",
                     "decPlaces = (isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces);\r",
@@ -1403,10 +1403,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "isObjectEmpty",
                 "designer|params": [
                     "myObj"
                 ],
+                "fn": "isObjectEmpty",
                 "implHandler": [
                     "for(var key in myObj) {\r",
                     "    if (myObj.hasOwnProperty(key)) {\r",
@@ -1426,10 +1426,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "handleColumnSort",
                 "designer|params": [
                     "e,t"
                 ],
+                "fn": "handleColumnSort",
                 "implHandler": [
                     "// Refer to updateHeader() for code to add tap listener on header toolbar\r",
                     "//  header.element.on('tap', me[\"handleColumnSort\"], me, {});\r",
@@ -1654,10 +1654,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "updateFooter",
                 "designer|params": [
                     "footer"
                 ],
+                "fn": "updateFooter",
                 "implHandler": [
                     "if (this.getIncludeFooter() && !this.getSimpleList()) {\r",
                     "    this.insert(0, footer);\r",
@@ -1763,12 +1763,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onScroll",
                 "designer|params": [
                     "scroller",
                     "x",
                     "y"
                 ],
+                "fn": "onScroll",
                 "implHandler": [
                     "// Scroll all linked grids\r",
                     "var me = this, i, linkedGridsArr;\r",
@@ -1779,17 +1779,17 @@
                     "scroller.suspendEvents();\r",
                     "for (i=0; i<linkedGridsArr.length; i++) {\r",
                     "//    linkedGridsArr[i].scroller.suspendEvents();\r",
-                    "}    \r",
+                    "}\r",
                     "\r",
                     "for (i=0; i<linkedGridsArr.length; i++) {\r",
                     "    otherX = linkedGridsArr[i].scroller.position.x;\r",
                     "    linkedGridsArr[i].scroller.scrollTo(otherX,y);\r",
-                    "}   \r",
+                    "}\r",
                     "\r",
                     "scroller.resumeEvents(true);\r",
                     "for (i=0; i<linkedGridsArr.length; i++) {\r",
                     "//    linkedGridsArr[i].scroller.resumeEvents(true);\r",
-                    "}   \r",
+                    "}\r",
                     ""
                 ]
             },
@@ -1803,10 +1803,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "prepLinkedGridsArr",
                 "designer|params": [
                     "skipRecurse"
                 ],
+                "fn": "prepLinkedGridsArr",
                 "implHandler": [
                     "// Adds object references to linkdedGridsArr from itemId's of linked grids for faster scrolling and sorting performance across the grids\r",
                     "var me = this, i, listItemId, otherList, otherScroller, parcont, linkedGridsArr, gridcont;\r",

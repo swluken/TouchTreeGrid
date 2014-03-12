@@ -21,10 +21,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample1CheckIn",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "container"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample1CheckIn",
                 "implHandler": [
                     "var languageSelect = this.getLanguageSelect();\r",
                     "\r",
@@ -86,9 +88,7 @@
                     "\r",
                     ""
                 ],
-                "name": "checkin",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "checkin"
             },
             "designerId": "1be63029-1922-4e86-b322-fd055459eca7"
         },
@@ -100,10 +100,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample1CheckInClosed",
+                "designer|controlQuery": "container#calendar_checkin",
                 "designer|params": [
                     "calendarpicker"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample1CheckInClosed",
                 "implHandler": [
                     "var selDts = calendarpicker.getSelDtArr();\r",
                     "var lastSelDt = calendarpicker.getLastSelectedDate();\r",
@@ -148,9 +150,7 @@
                     "//console.log(Ext.data.StoreManager);\r",
                     ""
                 ],
-                "name": "calendarClosed",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#calendar_checkin"
+                "name": "calendarClosed"
             },
             "designerId": "cde8bb5e-db7a-4322-a0fb-63db896d4ad6"
         },
@@ -162,10 +162,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample1Checkout",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "container"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample1Checkout",
                 "implHandler": [
                     "var languageSelect = this.getLanguageSelect();\r",
                     "\r",
@@ -249,9 +251,7 @@
                     "\r",
                     ""
                 ],
-                "name": "checkout",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "checkout"
             },
             "designerId": "9008135b-30fb-470d-a282-f2364a613740"
         },
@@ -278,10 +278,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample1CheckOutClosed",
+                "designer|controlQuery": "container#calendar_checkout",
                 "designer|params": [
                     "calendarpicker"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample1CheckOutClosed",
                 "implHandler": [
                     "var selDts = calendarpicker.getSelDtArr();\r",
                     "var lastSelDt = calendarpicker.getLastSelectedDate();\r",
@@ -304,9 +306,7 @@
                     "overPnl.removeAll(true, true);  // remove all items from DOM \r",
                     "overPnl.hide();"
                 ],
-                "name": "calendarClosed",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#calendar_checkout"
+                "name": "calendarClosed"
             },
             "designerId": "bf832732-d38d-4d68-8cbe-c2fad202242f"
         },
@@ -318,10 +318,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample2Checkin",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "container"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample2Checkin",
                 "implHandler": [
                     "var languageSelect = this.getLanguageSelect();\r",
                     "\r",
@@ -379,9 +381,7 @@
                     "\r",
                     ""
                 ],
-                "name": "checkin2",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "checkin2"
             },
             "designerId": "c0dd0cb6-1546-4ce0-b8bf-a04fc87bf548"
         },
@@ -393,10 +393,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample2CheckinClosed",
+                "designer|controlQuery": "container#calendar_checkin2",
                 "designer|params": [
                     "calendarpicker"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample2CheckinClosed",
                 "implHandler": [
                     "var returnItem=calendarpicker.getReturnItem();\r",
                     "var day_html = returnItem.down('#checkin_day2');\r",
@@ -440,9 +442,7 @@
                     "overPnl.removeAll(true, true);  // remove all items from DOM \r",
                     "overPnl.hide();"
                 ],
-                "name": "calendarClosed",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#calendar_checkin2"
+                "name": "calendarClosed"
             },
             "designerId": "8f630be5-4829-4fb6-90b3-ac975e9509ba"
         },
@@ -481,10 +481,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample2BCheckin",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "container"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample2BCheckin",
                 "implHandler": [
                     "var languageSelect = this.getLanguageSelect();\r",
                     "\r",
@@ -554,9 +556,7 @@
                     "\r",
                     ""
                 ],
-                "name": "checkin2B",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "checkin2B"
             },
             "designerId": "b0c4272c-57e2-4ee4-b81d-3816c47a8f4c"
         },
@@ -568,10 +568,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample2BCheckinClosed",
+                "designer|controlQuery": "container#calendar_checkin2B",
                 "designer|params": [
                     "calendarpicker"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample2BCheckinClosed",
                 "implHandler": [
                     "var returnItem=calendarpicker.getReturnItem();\r",
                     "\r",
@@ -622,9 +624,7 @@
                     "overPnl.setMaxWidth((Ext.os.is.Phone) ? '' : '17em');  // reset since changed for this example\r",
                     "overPnl.hide();"
                 ],
-                "name": "calendarClosed",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#calendar_checkin2B"
+                "name": "calendarClosed"
             },
             "designerId": "bcddea2c-b887-4b2c-8c93-6d27f60c67ad"
         },
@@ -636,10 +636,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample2C_Textfield",
+                "designer|controlQuery": "textfield#sel_date",
                 "designer|params": [
                     "textfield"
                 ],
+                "designer|targetType": "Ext.field.Text",
+                "fn": "onExample2C_Textfield",
                 "implHandler": [
                     "var languageSelect = this.getLanguageSelect();\r",
                     "\r",
@@ -736,9 +738,7 @@
                     "overPnl.showBy(textfield);\r",
                     ""
                 ],
-                "name": "sel_date",
-                "designer|targetType": "Ext.field.Text",
-                "designer|controlQuery": "textfield#sel_date"
+                "name": "sel_date"
             },
             "designerId": "f79f9308-d22b-421d-9611-f42630d0b7b3"
         },
@@ -750,10 +750,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample2C_TextfieldClosed",
+                "designer|controlQuery": "container#calendar_sel_date",
                 "designer|params": [
                     "calendarpicker"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample2C_TextfieldClosed",
                 "implHandler": [
                     "var returnItem=calendarpicker.getReturnItem();\r",
                     "var selDts = calendarpicker.getSelDtArr();\r",
@@ -781,9 +783,7 @@
                     "overPnl.removeAll(true, true);  // remove all items from DOM \r",
                     "overPnl.hide();"
                 ],
-                "name": "calendarClosed",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#calendar_sel_date"
+                "name": "calendarClosed"
             },
             "designerId": "5884afa3-7b23-453b-8a08-e676e6a2364e"
         },
@@ -795,10 +795,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample3_Multisel",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "container"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample3_Multisel",
                 "implHandler": [
                     "var languageSelect = this.getLanguageSelect();\r",
                     "\r",
@@ -857,9 +859,7 @@
                     "overPnl.showBy(container);\r",
                     ""
                 ],
-                "name": "multisel_btn",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "multisel_btn"
             },
             "designerId": "0dda2bc8-b49c-4f20-9650-a262aab85a65"
         },
@@ -871,10 +871,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample3_MultiselClosed",
+                "designer|controlQuery": "container#calendar_multi",
                 "designer|params": [
                     "calendarpicker"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample3_MultiselClosed",
                 "implHandler": [
                     "var returnItem=calendarpicker.getReturnItem();\r",
                     "var multi_html = returnItem.down('#multisel_dates_html');\r",
@@ -890,9 +892,7 @@
                     "overPnl.removeAll(true, true);  // remove all items from DOM \r",
                     "overPnl.hide();"
                 ],
-                "name": "calendarClosed",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#calendar_multi"
+                "name": "calendarClosed"
             },
             "designerId": "873cee76-f88d-45db-95e6-4d7f04652663"
         },
@@ -904,10 +904,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample5_December",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "container"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample5_December",
                 "implHandler": [
                     "var languageSelect = this.getLanguageSelect();\r",
                     "\r",
@@ -1036,9 +1038,7 @@
                     "\r",
                     "    overPnl.showBy(container);"
                 ],
-                "name": "filter_btn",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "filter_btn"
             },
             "designerId": "46f04858-097a-41fc-88c1-933279f28e0e"
         },
@@ -1050,10 +1050,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample5_DecemberClosed",
+                "designer|controlQuery": "container#calendar_filter",
                 "designer|params": [
                     "calendarpicker"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample5_DecemberClosed",
                 "implHandler": [
                     "var returnItem=calendarpicker.getReturnItem();\r",
                     "\r",
@@ -1061,9 +1063,7 @@
                     "overPnl.removeAll(true, true);  // remove all items from DOM \r",
                     "overPnl.hide();"
                 ],
-                "name": "calendarClosed",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#calendar_filter"
+                "name": "calendarClosed"
             },
             "designerId": "5c4eb335-fb69-489f-a9bf-2dc62abf444f"
         },
@@ -1075,10 +1075,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample6_DayCount",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "container"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample6_DayCount",
                 "implHandler": [
                     "var languageSelect = this.getLanguageSelect();\r",
                     "\r",
@@ -1202,9 +1204,7 @@
                     "\r",
                     "    overPnl.showBy(container);"
                 ],
-                "name": "day_count_btn",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "day_count_btn"
             },
             "designerId": "662f7806-b958-47fb-a9c7-065b6b1a7db5"
         },
@@ -1216,10 +1216,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample6_DaycountClosed",
+                "designer|controlQuery": "container#calendar_daycount",
                 "designer|params": [
                     "calendarpicker"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample6_DaycountClosed",
                 "implHandler": [
                     "var returnItem=calendarpicker.getReturnItem();\r",
                     "\r",
@@ -1227,9 +1229,7 @@
                     "overPnl.removeAll(true, true);  // remove all items from DOM \r",
                     "overPnl.hide();"
                 ],
-                "name": "calendarClosed",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#calendar_daycount"
+                "name": "calendarClosed"
             },
             "designerId": "417d1791-5eb7-42e7-a277-25fe4a4e2449"
         },
@@ -1241,10 +1241,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample7_OptionDates",
+                "designer|controlQuery": "container",
                 "designer|params": [
                     "container"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample7_OptionDates",
                 "implHandler": [
                     "var languageSelect = this.getLanguageSelect();\r",
                     "\r",
@@ -1347,9 +1349,7 @@
                     "\r",
                     "overPnl.showBy(container);"
                 ],
-                "name": "optionDates_btn",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container"
+                "name": "optionDates_btn"
             },
             "designerId": "5957e461-573c-4e35-8181-c747057c9ffa"
         },
@@ -1361,10 +1361,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExample7_OptionDatesClosed",
+                "designer|controlQuery": "container#calendar_optionDates",
                 "designer|params": [
                     "calendarpicker"
                 ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample7_OptionDatesClosed",
                 "implHandler": [
                     "var returnItem=calendarpicker.getReturnItem();\r",
                     "\r",
@@ -1372,9 +1374,7 @@
                     "overPnl.removeAll(true, true);  // remove all items from DOM \r",
                     "overPnl.hide();"
                 ],
-                "name": "calendarClosed",
-                "designer|targetType": "Ext.Container",
-                "designer|controlQuery": "container#calendar_optionDates"
+                "name": "calendarClosed"
             },
             "designerId": "1c9505a5-85bc-4a31-96b9-4b1cf3459088"
         },
@@ -1386,13 +1386,13 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|controlQuery": "selectfield#languageSelect",
+                "designer|targetType": "Ext.field.Select",
                 "fn": "onLanguageSelectfieldChange",
                 "implHandler": [
                     "this.languageCalendarOverrides(this, newValue, selectfield.getRecord().get('language'));"
                 ],
-                "name": "change",
-                "designer|targetType": "Ext.field.Select",
-                "designer|controlQuery": "selectfield#languageSelect"
+                "name": "change"
             },
             "designerId": "0b760867-bdc4-4e9a-9b03-b7e27794562d"
         }

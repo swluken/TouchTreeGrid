@@ -1,0 +1,66 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Projects"
+    },
+    "designerId": "33f28e9c-2e63-41cc-97a3-e1c59f43ba15",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "task",
+                "type": "string"
+            },
+            "designerId": "4817eae3-ed0e-4b03-be84-d72e1b1dc044"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "user",
+                "type": "string"
+            },
+            "designerId": "3932f6aa-c57d-4010-ba89-40684a429f3f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "duration",
+                "type": "float"
+            },
+            "designerId": "205fee88-72d7-48f4-b86c-8ad13577ff79"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "done",
+                "type": "boolean"
+            },
+            "designerId": "01777aa2-d259-4e1d-b1cc-85e688cac192"
+        }
+    ]
+}

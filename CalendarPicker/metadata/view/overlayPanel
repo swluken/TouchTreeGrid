@@ -6,16 +6,16 @@
     },
     "codeClass": null,
     "userConfig": {
-        "height": "95%",
-        "html": null,
-        "maxWidth": "17em",
-        "width": "100%",
-        "designer|userClassName": "overlayPanel",
         "designer|userAlias": "overlayPanel",
+        "designer|userClassName": "overlayPanel",
+        "height": "95%",
         "hideOnMaskTap": false,
+        "html": null,
         "layout": "fit",
+        "maxWidth": "17em",
         "modal": true,
-        "scrollable": null
+        "scrollable": null,
+        "width": "100%"
     },
     "designerId": "95ebf663-f827-4965-8fdc-f620ceb4bbd3",
     "cn": [

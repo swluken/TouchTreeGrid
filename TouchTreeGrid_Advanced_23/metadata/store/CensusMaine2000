@@ -1,0 +1,21 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": null,
+        "designer|userClassName": "CensusMaine2000",
+        "model": "Census",
+        "root": [
+            "{\r",
+            "  \"children\":[]\r",
+            "}\r",
+            ""
+        ],
+        "storeId": "censusmaine2000store"
+    },
+    "designerId": "78f87ea9-233f-440a-a9bb-c0416f6d09c0"
+}

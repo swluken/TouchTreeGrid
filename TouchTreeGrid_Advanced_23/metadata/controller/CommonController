@@ -1,0 +1,891 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CommonController"
+    },
+    "designerId": "6d3ffdfd-d975-4bf7-a5e3-14d24c1d8f72",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "tabpanel#maintabpanel",
+                "designer|targetType": "Ext.tab.Panel",
+                "fn": "onMainTabpanelActiveItemChange",
+                "implHandler": [
+                    "var newcont = value.getItemId();\r",
+                    "var grid, gridcont, numNodes, mydata, numRecords;\r",
+                    "\r",
+                    "gridcont = value.down('touchtreegrid');\r",
+                    "grid = gridcont.down('#'+gridcont.getListItemId());\r",
+                    "\r",
+                    "if (newcont === 'censustab') {\r",
+                    "\r",
+                    "    // Check store for data and load if empty (only)\r",
+                    "    numNodes = grid.getStore().getData().length;\r",
+                    "    if (numNodes === 0) {censusController.loadCensusMaine2000Store();}  \r",
+                    "}\r",
+                    "\r",
+                    "if (newcont === 'projecttab'){\r",
+                    "    // Check store for data and load if empty (only)\r",
+                    "    numNodes = grid.getStore().getData().length;\r",
+                    "    if (numNodes === 0) {projectController.loadExample2Store(gridcont);}  \r",
+                    "}\r",
+                    "\r",
+                    "if (newcont === 'listscontainer'){\r",
+                    "    numRecords = grid.getStore().getData().length;\r",
+                    "    if (numRecords === 0) {\r",
+                    "        Ext.Viewport.setMasked({\r",
+                    "            xtype: 'loadmask',\r",
+                    "            message: 'Loading Basic...'\r",
+                    "        });\r",
+                    "        grid.getStore().load();\r",
+                    "        gridcont.doRefreshList();\r",
+                    "        Ext.Viewport.setMasked(false);\r",
+                    "    }  \r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    ""
+                ],
+                "name": "activeitemchange"
+            },
+            "designerId": "afe7869d-4f1b-4d52-9d17-5915adbed3b6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "viewport",
+                "designer|params": [
+                    "viewport, orientation, width, height"
+                ],
+                "designer|targetType": null,
+                "fn": "onOrientationChange",
+                "implHandler": [
+                    "//Ext.Msg.alert('', 'Orientation change: ' + orientation, Ext.emptyFn); \r",
+                    "\r",
+                    "// Call funciton to hide/show titlebar and bottom tabbar when in landscape mode, but only if\r",
+                    "// active window contains TouchGridPanel with active expand/collapse toolbar\r",
+                    "var gridcont = this.hideShowPanels();\r",
+                    "var gridItemId = gridcont.getItemId();\r",
+                    "\r",
+                    "// Demo reconfiguring columns array for Census example based on device and orientation\r",
+                    "if (gridItemId === 'censusmaine' || gridItemId === 'censusfilter') {\r",
+                    "    censusController.loadColumnsCensusMaine(gridcont);\r",
+                    "}    "
+                ],
+                "name": "orientationchange"
+            },
+            "designerId": "86b43c61-dcaf-435d-9c8d-e0d835e182ba"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "titlebar",
+                "designer|params": [
+                    "main"
+                ],
+                "designer|targetType": "Ext.TitleBar",
+                "fn": "onTitlebarGridhelp",
+                "implHandler": [
+                    "// Trapping tap event on entire titlebar instead of just help icon\r",
+                    "var me=this;\r",
+                    "\r",
+                    "var image = main.down('#gridhelp');\r",
+                    "\r",
+                    "\r",
+                    "var currItem = Ext.Viewport.down('#maintabpanel').getActiveItem();\r",
+                    "\r",
+                    "var grid;\r",
+                    "if (currItem.getItemId() === 'projecttab') {\r",
+                    "    // Project example contained within sub tab panel so need to get active item of that \r",
+                    "    grid = currItem.down('#projecttabpanel').getActiveItem().down('touchtreegrid');\r",
+                    "} \r",
+                    "else if (currItem.getItemId() === 'censustab') {\r",
+                    "    // Census example contained within sub tab panel so need to get active item of that \r",
+                    "    grid = currItem.down('#censustabpanel').getActiveItem().down('touchtreegrid');\r",
+                    "} \r",
+                    "else if (currItem.getItemId() === 'listscontainer') {\r",
+                    "    // Lists example contained within sub tab panel so need to get active item of that \r",
+                    "    grid = currItem.down('#liststabpanel').getActiveItem().down('touchtreegrid');\r",
+                    "}\r",
+                    "else if (currItem.getItemId() === 'taskslisttab') {\r",
+                    "    // Lists example contained within sub tab panel so need to get active item of that \r",
+                    "    grid = currItem.down('#tasksTabPanel').getActiveItem().down('touchtreegrid');\r",
+                    "} else\r",
+                    "{    \r",
+                    "    grid = currItem.down('touchtreegrid');\r",
+                    "}   \r",
+                    "\r",
+                    "\r",
+                    "if (!grid) {return;}\r",
+                    "\r",
+                    "gridId = grid.getHelpHtml();\r",
+                    "\r",
+                    "Ext.Ajax.request({\r",
+                    "    url: gridId,\r",
+                    "    method: 'GET',\r",
+                    "    callback: function(options, success, response) {\r",
+                    "\r",
+                    "        var help = me.getGridHelpPanel();\r",
+                    "        help.setHtml( response.responseText );\r",
+                    "        help.showBy(image);\r",
+                    "    }\r",
+                    "});"
+                ],
+                "name": "gridhelp"
+            },
+            "designerId": "975ae569-2236-46ec-8b49-50b8495bb968"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#griddetailbackbtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onGridDetailBackButtonTap",
+                "implHandler": [
+                    "// Reusing the Back button for all Project Task examples by storing references when creating detail panel (list disclose)\r",
+                    "var swapcont = button.up('#griddetailpanel').swapcont;  \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    gridItemId = button.up('#griddetailpanel').gridItemId;\r",
+                    "    var newcont = swapcont.down('#'+gridItemId); \r",
+                    "\r",
+                    "    newcont.setShowAnimation({type :\"slide\", direction : \"right\"});\r",
+                    "    swapcont.setActiveItem(newcont);  \r",
+                    "}    "
+                ],
+                "name": "tap"
+            },
+            "designerId": "e43ba2dd-a49f-4e9e-82ca-1f25b1bc9f01"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "main",
+                "selector": "main",
+                "xtype": "main"
+            },
+            "designerId": "e14521a3-99d5-47d5-a5a4-9ee2fd72e5dc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "griddetailpanel",
+                "selector": "griddetailpanel",
+                "xtype": "griddetailpanel"
+            },
+            "designerId": "4e1033fa-1d03-4293-8878-1da54ce40178"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "gridHelpPanel",
+                "selector": "gridHelpPanel",
+                "xtype": "gridHelpPanel"
+            },
+            "designerId": "58b0189d-ee6d-417b-a9bc-95632abd9e78"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "collapseLevel",
+                    "ArrRef",
+                    "fldListArr",
+                    "gridcont",
+                    "rootVal",
+                    "hasTopRoot",
+                    "filterOpts",
+                    "skipApplyDefaultCollapseLevel"
+                ],
+                "fn": "loadTree",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "var gridlistname = gridcont.getListItemId();\r",
+                    "var gridlist = gridcont.down('#'+gridlistname);\r",
+                    "\r",
+                    "if (!Ext.isEmpty(ArrRef)) {gridlist.ArrRef = ArrRef;}  // Store ArrRef to Grid component for faster collapse/expand\r",
+                    "else {ArrRef = gridlist.ArrRef;} // Retrieved on subsequent calls\r",
+                    "\r",
+                    "var treejson = this.getTree(ArrRef, rootVal, collapseLevel, fldListArr, hasTopRoot, filterOpts);\r",
+                    "\r",
+                    "// Update current level for next time\r",
+                    "gridcont.collapseLevel = collapseLevel;\r",
+                    "\r",
+                    "var gridstore = gridlist.getStore();\r",
+                    "\r",
+                    "gridstore.suspendEvents();\r",
+                    "\r",
+                    "gridstore.removeAll();\r",
+                    "var gridloaded = gridstore.setData(treejson);  // setRoot() not working => http://www.sencha.com/forum/showthread.php?242257\r",
+                    "\r",
+                    "gridstore.resumeEvents(true); // \"discard queued events\" improves performance when filtering and/or expanding all\r",
+                    "\r",
+                    "var refreshed = gridcont.doRefreshList(skipApplyDefaultCollapseLevel);  \r",
+                    "\r",
+                    "\r",
+                    "// workaround to get Touch 2.2 pullrefresh plugin to auto-snapBack  ... or when collapsing rows after scrolling down     \r",
+                    "var scroller = gridlist.getScrollable().getScroller();\r",
+                    "scroller.minPosition.y = 1;\r",
+                    "scroller.scrollTo(0,1);\r",
+                    "\r",
+                    "gridlist.refresh();        \r",
+                    "\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "0960ef12-42f7-498e-9b1d-1bdd797200cd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "list",
+                    "rootId",
+                    "expLevel",
+                    "fldListArr",
+                    "hasTopRoot",
+                    "filterOpts"
+                ],
+                "fn": "getTree",
+                "implHandler": [
+                    "// Required Fields:  'ID', 'PARENT_ID'   \r",
+                    "// list       - data array to convert to treestore format\r",
+                    "// rootId     - value of ultimate PARENT_ID (can be null)\r",
+                    "// expLevel   - level to expand treestore to while generating\r",
+                    "// fldListArr - defines columns to include in treestore from ArrRef for specific levels (if empty array then all fields are included at all levels as provided in list[])\r",
+                    "//              2nd parameter defines levels including and higher where data element will be blanked out when generating the treestore\r",
+                    "//              (particularly used for totalled numerics that don't apply to root levels, but the generating SQL can't update as NULL due to SQL UNION constraints \r",
+                    "//              Note:  Exclude ID, PARENT_ID columns as these will be auto-added\r",
+                    "//              For each field define level \"up to which\" values will be included on category rows.\r",
+                    "//               '0' means highest root row will include non-nullable values (or as defined in flat file) for this field.\r",
+                    "//               '1' means level 1 categories will include data (if defined)\r",
+                    "//               '2' means data will only be included for up to level 2.  Level 1 and root will not show data for this column.\r",
+                    "//                etc...\r",
+                    "//              Example:   fldListArr = [['YearMonth', 0], ['grouper', 0], ['CloseDate', 1], ['Open', 1], ... ]\r",
+                    "// hasTopRoot - true if a single root row exists\r",
+                    "// filterOpts - Object defining filter options with members as follows:\r",
+                    "//               - enabled : true or false (default)\r",
+                    "//               - displayNodesWithAllMembersFilteredAsLeafs : true (default) or false \r",
+                    "//                   (if, as result of filter a node has no displayable children, then set to true so that it appears\r",
+                    "//                    as a leaf, or false to dispaly as expandable node ... regardless would not be expandable)\r",
+                    "//               - filterFn : function that returns true if row is to be included in results\r",
+                    "//\r",
+                    "//               Example:\r",
+                    "//               filterOpts = {\r",
+                    "//                  enabled: true,\r",
+                    "//                  displayNodesWithAllMembersFilteredAsLeafs: true,\r",
+                    "//                  filterFn: function (rowObj) {return (parseInt(rowObj.Female) < parseInt(rowObj.Male));}\r",
+                    "//               };\r",
+                    "//\r",
+                    "//               Notes about filtering:\r",
+                    "//               - Node is included if any of it's children are included (whether node passes filter test or not!)\r",
+                    "//               - \r",
+                    "//\r",
+                    "expLevel = (Ext.isEmpty(expLevel) ? 99 : expLevel);  // Level for initial expansion ...Defaults to fully expanded if not provided\r",
+                    "\r",
+                    "if (fldListArr.length===0) {\r",
+                    "    // Initialize fldListArr with default values from all data fields in first row of list[]\r",
+                    "    for (fld in list[0]) {\r",
+                    "        if (fld !== 'ID' && fld !== 'PARENT_ID') {  // These are auto-added in createTreeStructure()\r",
+                    "            fldListArr.push([fld, 0]);\r",
+                    "        }\r",
+                    "    }\r",
+                    "}\r",
+                    "var tree, root = {}, result = []; // fetch list from database\r",
+                    "root.ID = rootId;\r",
+                    "tree = {text : \".\"};\r",
+                    "result.push(this.createTreeStructure(tree, root, list, 1, expLevel, fldListArr, hasTopRoot, filterOpts).result);\r",
+                    "return result[0][0];"
+                ]
+            },
+            "designerId": "48886486-2f70-4269-b91b-8f5479b362ad"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "tree",
+                    "root",
+                    "list",
+                    "level",
+                    "expLevel",
+                    "fldListArr",
+                    "hasTopRoot",
+                    "filterOpts"
+                ],
+                "fn": "createTreeStructure",
+                "implHandler": [
+                    "var i=0, result = [], child, childList = [], children = [], temptree = {}, thisExp,\r",
+                    "    has_nonfiltered_child = false;\r",
+                    "\r",
+                    "// Initialize Filter option variables\r",
+                    "filterOpts = (Ext.isEmpty(filterOpts) ? {} : filterOpts);\r",
+                    "var filtEnabled = (Ext.isEmpty(filterOpts.enabled) ? false : filterOpts.enabled);\r",
+                    "var filtNodesAsLeafs = (Ext.isEmpty(filterOpts.displayNodesWithAllMembersFilteredAsLeafs) ? true : filterOpts.displayNodesWithAllMembersFilteredAsLeafs);\r",
+                    "var filtFn = (Ext.isEmpty(filterOpts.filterFn) ? undefined : filterOpts.filterFn);\r",
+                    "\r",
+                    "if (level === 1 && hasTopRoot) {children = [list[0]];}  // Initial root\r",
+                    "else {children = this.getChildren(root, list, false);} //Fetch children\r",
+                    "\r",
+                    "var ln = children.length;\r",
+                    "\r",
+                    "for(i=0; i<ln;i++)\r",
+                    "{\r",
+                    "    child = children[i];\r",
+                    "    // Blank out categorized data above specified level as pre-specified in fldListArr\r",
+                    "    // Example:  we may have 3 levels of cateogries.  Details sum to to the 3rd and perhaps 2nd level, \r",
+                    "    //           but the 1st level should leave this column empty as not desired or applicable.\r",
+                    "    for (var j=0; j< fldListArr.length; j++) {\r",
+                    "        if (fldListArr[j][1] > 0 && fldListArr[j][1]>=level) {child[fldListArr[j][0]] = '';}\r",
+                    "    }\r",
+                    "\r",
+                    "    if(this.getChildren(child, list, true).length===0) \r",
+                    "    {\r",
+                    "        temptree = {LEVEL : level, ID : child.ID, PARENT_ID : child.PARENT_ID, leaf : true};\r",
+                    "        this.assignMembers(fldListArr, temptree, child);\r",
+                    "\r",
+                    "        // Push child to tree if filter not enabled or if passes filter condition\r",
+                    "        if (!filtEnabled || filtFn(temptree)) { \r",
+                    "            childList.push(temptree);\r",
+                    "            tree[\"children\"] = childList; // Add leaf to child array of the passed parent (also links arrays)\r",
+                    "            has_nonfiltered_child = true;\r",
+                    "        }\r",
+                    "    }\r",
+                    "    else\r",
+                    "    {\r",
+                    "        thisExp = (level < expLevel ? true : false);\r",
+                    "        temptree = {LEVEL : level, ID : child.ID, PARENT_ID : child.PARENT_ID, expanded : thisExp, leaf : false}; \r",
+                    "        this.assignMembers(fldListArr, temptree, child);\r",
+                    "\r",
+                    "        // Push to children array now, but we will Pop it back later if this record and all children fail the filter condition\r",
+                    "        childList.push(temptree);\r",
+                    "        tree[\"children\"] = childList;  // Add node to child array of passed parent (also links arrays)\r",
+                    "\r",
+                    "        // Recursively create tree structure for the child since children exist.\r",
+                    "        if (!this.createTreeStructure(temptree, child, list, level+1, expLevel, fldListArr, hasTopRoot, filterOpts).has_nonfiltered_child) {\r",
+                    "            // If child items are all fitlered, but node passes filter test then  load this node as leaf instead of node (unless specified otherwise)\r",
+                    "            if (!filtEnabled || filtFn(temptree)) {\r",
+                    "                tree.children[tree.children.length-1].leaf = filtNodesAsLeafs;\r",
+                    "                tree.children[tree.children.length-1].expanded = false;\r",
+                    "                tree.children[tree.children.length-1].expandable = false;  // disallow expand all children are filtered \r",
+                    "                has_nonfiltered_child = true;\r",
+                    "\r",
+                    "            } else {\r",
+                    "                tree.children.pop();    // If HAS_NONFILTERED_CHILD = false, then pop() per above\r",
+                    "            }\r",
+                    "        } else {\r",
+                    "            has_nonfiltered_child = true;\r",
+                    "        }\r",
+                    "\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "result.push(tree);   // DON'T NEED TO DO THIS UNTIL DONE WITH FINAL ITERATION\r",
+                    "return {result: result, has_nonfiltered_child: has_nonfiltered_child};\r",
+                    ""
+                ]
+            },
+            "designerId": "71767039-9d48-47d8-b770-f2ef73a3a921"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "fldListArr",
+                    "treeObj",
+                    "child"
+                ],
+                "fn": "assignMembers",
+                "implHandler": [
+                    "for (var i=0; i< fldListArr.length; i++) {\r",
+                    "    treeObj[fldListArr[i][0]] = child[fldListArr[i][0]];\r",
+                    "}"
+                ]
+            },
+            "designerId": "95639be6-6f08-4e75-8488-41123d03f32e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "root",
+                    "list",
+                    "firstOnly"
+                ],
+                "fn": "getChildren",
+                "implHandler": [
+                    "var i=0, ln = list.length, result = [];\r",
+                    "for(i=0; i<ln;i++)\r",
+                    "{\r",
+                    "    if(root.ID===list[i].PARENT_ID)\r",
+                    "    {\r",
+                    "        result.push(list[i]);\r",
+                    "        if (firstOnly) {return result;} // Only checking if single child exists so abort upon first detection\r",
+                    "    }\r",
+                    "}\r",
+                    "return result;"
+                ]
+            },
+            "designerId": "307d29b1-b4c6-46f1-a811-35ec1352003b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hideShowPanels",
+                "implHandler": [
+                    "// Controls display of panels when phone is in landscape vs portrait orientation to\r",
+                    "//provide more realestate for scrolling the data\r",
+                    "\r",
+                    "var device = ((Ext.os.is.Phone) ? 'phone' : 'tablet');\r",
+                    "var orient = ((Ext.Viewport.getWindowWidth() > Ext.Viewport.getWindowHeight()) ? 'landscape' : 'portrait');\r",
+                    "\r",
+                    "\r",
+                    "// Call funciton to hide/show titlebar and bottom tabbar when in landscape mode, but only if\r",
+                    "// active window contains TouchGridPanel with active expand/collapse toolbar\r",
+                    "var currItem = Ext.Viewport.down('#maintabpanel').getActiveItem();\r",
+                    "\r",
+                    "var collapseBar, projex=false, gridcont;\r",
+                    "if (currItem.getItemId() === 'projecttab') {\r",
+                    "    // Project example contained within sub tab panel so need to get active item of that \r",
+                    "    projex=true;\r",
+                    "    collapseBar = currItem.down('#projecttabpanel').getActiveItem().down('#touchtreegridbuttons');\r",
+                    "    gridcont = currItem.down('#projecttabpanel').getActiveItem().down('touchtreegrid');\r",
+                    "} \r",
+                    "else if (currItem.getItemId() === 'censustab') {\r",
+                    "    collapseBar = currItem.down('#censustabpanel').getActiveItem().down('#touchtreegridbuttons');\r",
+                    "    gridcont = currItem.down('#censustabpanel').getActiveItem().down('touchtreegrid');    \r",
+                    "} \r",
+                    "else if (currItem.getItemId() === 'tasklisttab') {\r",
+                    "    collapseBar = currItem.down('#tasklisttab').getActiveItem().down('#touchtreegridbuttons');\r",
+                    "    gridcont = currItem.down('#tasklisttab').getActiveItem().down('touchtreegrid');    \r",
+                    "} \r",
+                    "else if (currItem.getItemId() === 'listscontainer') {\r",
+                    "    collapseBar = currItem.down('#liststabpanel').getActiveItem().down('#touchtreegridbuttons');\r",
+                    "    gridcont = currItem.down('#liststabpanel').getActiveItem().down('touchtreegrid');    \r",
+                    "} \r",
+                    "else{    \r",
+                    "    collapseBar = currItem.down('#touchtreegridbuttons');\r",
+                    "    gridcont = currItem.down('touchtreegrid');        \r",
+                    "}    \r",
+                    "\r",
+                    "var hide = (orient === 'landscape');\r",
+                    "\r",
+                    "// Hide bottom tabbar and titlebar for phones in landscape mode ... show in portrait mode\r",
+                    "\r",
+                    "if (device === 'phone') {\r",
+                    "   var main = this.getMain();\r",
+                    "\r",
+                    "   main.down('#maintitlebar').setHidden(hide);\r",
+                    "   main.down('#maintabbar').setHidden(hide);\r",
+                    "\r",
+                    "   // I could add logic for Project tab to add this for each tab in event user tabs to different example\r",
+                    "   // if (projex) {....} else {...}\r",
+                    "\r",
+                    "   if (!Ext.isEmpty(collapseBar)) {\r",
+                    "       collapseBar.down('#touchtreegridlabel').setHtml(hide ? 'Rotate for Menu' : '');\r",
+                    "       collapseBar.down('#touchtreegridicon').setHidden(!hide);\r",
+                    "   }  \r",
+                    "}\r",
+                    "return gridcont;\r",
+                    ""
+                ]
+            },
+            "designerId": "10a227af-ee1a-4b91-8cf4-fef61c817fd8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "me",
+                    "gridcont",
+                    "gridurl",
+                    "loadmask",
+                    "loadStoreInPostProcess"
+                ],
+                "fn": "loadStore",
+                "implHandler": [
+                    "// Load TreeStore data from JSON file within Controller since doesn't seem to work from within Store itself.\r",
+                    "// NOTE:  autoload=true -and- dummy root initialization required in Store to work=>\r",
+                    "//     root: {children: []}\r",
+                    "// Also:  Regular stores in JSON file format seem to load from within Store without issue.\r",
+                    "\r",
+                    "if (loadmask) {\r",
+                    "    Ext.Viewport.setMasked({\r",
+                    "        xtype: 'loadmask',\r",
+                    "        message: loadmask\r",
+                    "    });\r",
+                    "}\r",
+                    "\r",
+                    "var myRequest = Ext.Ajax.request({\r",
+                    "    url: gridurl,\r",
+                    "    method: 'GET',\r",
+                    "    timeout: 10000,\r",
+                    "    cache: false,\r",
+                    "    dataType: 'json',\r",
+                    "    reader:{\r",
+                    "        type: 'json'\r",
+                    "    },\r",
+                    "\r",
+                    "    success: function(response) {\r",
+                    "        var griddata = Ext.JSON.decode(response.responseText);\r",
+                    "\r",
+                    "        var gridListItemId = gridcont.getListItemId();\r",
+                    "        var gridlist = gridcont.down('#'+gridListItemId);\r",
+                    "        var gridstore = gridlist.getStore();\r",
+                    "\r",
+                    "        if (!loadStoreInPostProcess) {\r",
+                    "            gridstore.suspendEvents();      \r",
+                    "            gridstore.removeAll();\r",
+                    "            var gridloaded = gridstore.setData(griddata);  \r",
+                    "            // setRoot() not working for TreeStores => http://www.sencha.com/forum/showthread.php?242257\r",
+                    "            gridstore.resumeEvents();\r",
+                    "            if (loadmask) {Ext.Viewport.setMasked(false);}\r",
+                    "        }            \r",
+                    "\r",
+                    "        commonController.postLoadProcess(gridListItemId, gridcont, griddata); \r",
+                    "\r",
+                    "    },\r",
+                    "\r",
+                    "    failure: function(response, opts) {\r",
+                    "        if (loadmask) {Ext.Viewport.setMasked(false);}\r",
+                    "\r",
+                    "        Ext.Msg.alert('Data not loaded: '+gridurl);     \r",
+                    "    }\r",
+                    "});\r",
+                    ""
+                ]
+            },
+            "designerId": "fc0973aa-95c4-4cfd-9280-a67365ecc013"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "me",
+                    "gridcont",
+                    "gridurl",
+                    "loadmask",
+                    "loadStoreInPostProcess"
+                ],
+                "fn": "loadDynamicStore",
+                "implHandler": [
+                    "\r",
+                    "if (loadmask) {\r",
+                    "    Ext.Viewport.setMasked({\r",
+                    "        xtype: 'loadmask',\r",
+                    "        message: loadmask\r",
+                    "    });\r",
+                    "}\r",
+                    "\r",
+                    "var myRequest = Ext.Ajax.request({\r",
+                    "    url: gridurl,\r",
+                    "    method: 'GET',\r",
+                    "    timeout: 10000,\r",
+                    "    cache: false,\r",
+                    "    dataType: 'json',\r",
+                    "    reader:{\r",
+                    "        type: 'json'\r",
+                    "    },\r",
+                    "\r",
+                    "    success: function(response) {\r",
+                    "        var alldata = Ext.JSON.decode(response.responseText);\r",
+                    "        var griddata             = alldata.datalist;\r",
+                    "        var columnsPhonePortrait = alldata.columnsPhonePortrait;\r",
+                    "        var fields               = alldata.fields;\r",
+                    "\r",
+                    "        // NOTE:  Could load different device and orienation column configurations\r",
+                    "        //        and apply based on device/orientation here .. and update again\r",
+                    "        //        within onOrientationChange().  If you load multiple configurations\r",
+                    "        //        It is suggested that you store each of the column arrays to gridcont\r",
+                    "        //        component for easy retrieval when switching.  \r",
+                    "        //\r",
+                    "        //        Ex:  gridcont.columnsPhonePortrait = columnsPhonePortrait;\r",
+                    "        //             gridcont.columnsTabletLandscape = columnsTabletLandscape;\r",
+                    "        //             etc...\r",
+                    "        //\r",
+                    "        //        Simply by calling doRefreshList() method after updating columns your \r",
+                    "        //        grid will immediately reflect the new column configuration.\r",
+                    "        //\r",
+                    "        //        Could support customized user preferences in this same way.\r",
+                    "\r",
+                    "        var gridListItemId = gridcont.getListItemId();\r",
+                    "        var gridlist = gridcont.down('#'+gridListItemId);\r",
+                    "        gridcont.setColumns(columnsPhonePortrait);\r",
+                    "\r",
+                    "        // Note: we are defining fields directly within Store instead of creating Model\r",
+                    "        var gridstore = Ext.create('Ext.data.Store', {fields: fields});\r",
+                    "\r",
+                    "        gridlist.setStore(gridstore);\r",
+                    "\r",
+                    "        if (!loadStoreInPostProcess) {\r",
+                    "            gridstore.suspendEvents();      \r",
+                    "            var gridloaded = gridstore.add(griddata);  \r",
+                    "            gridstore.resumeEvents();\r",
+                    "            if (loadmask) {Ext.Viewport.setMasked(false);}\r",
+                    "        }            \r",
+                    "\r",
+                    "        commonController.postLoadProcess(gridListItemId, gridcont, griddata); \r",
+                    "\r",
+                    "    },\r",
+                    "\r",
+                    "    failure: function(response, opts) {\r",
+                    "        if (loadmask) {Ext.Viewport.setMasked(false);}\r",
+                    "\r",
+                    "        Ext.Msg.alert('Data not loaded: '+gridurl);     \r",
+                    "    }\r",
+                    "});\r",
+                    ""
+                ]
+            },
+            "designerId": "b7c334e4-8d56-42e3-98e8-e43c6ddaec89"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridListItemId",
+                    "gridcont",
+                    "griddata"
+                ],
+                "fn": "postLoadProcess",
+                "implHandler": [
+                    "var refreshed, fldListArr = [], collapseLvl, gridlist, scroller, myFilt = {};\r",
+                    "\r",
+                    "gridlist = gridcont.down('#'+gridListItemId);\r",
+                    "scroller = gridlist.getScrollable().getScroller();\r",
+                    "\r",
+                    "if (gridListItemId === 'censusmainelist') {\r",
+                    "    // Collapse nodes to defined level\r",
+                    "    var depth = gridcont.getDefaultCollapseLevel();\r",
+                    "    if (depth !== 99) {gridcont.doExpandDepth(depth);}\r",
+                    "\r",
+                    "    censusController.loadColumnsCensusMaine(gridcont, false); // also refreshes list\r",
+                    "}\r",
+                    "\r",
+                    "else if (gridListItemId === 'censusfilterlist') {\r",
+                    "\r",
+                    "    collapseLvl = (Ext.isEmpty(gridcont.collapseLevel) ? 1 : gridcont.collapseLevel);\r",
+                    "    // Refer to expCollapse() method where collapseLevel could be updated for manual expand processing\r",
+                    "\r",
+                    "    myFilt = {};\r",
+                    "\r",
+                    "    censusController.loadColumnsCensusMaine(gridcont, true); // also refreshes list\r",
+                    "\r",
+                    "    commonController.loadTree(collapseLvl, griddata.datalist, [], gridcont, null, true, myFilt); // collapse on initial load\r",
+                    "\r",
+                    "    Ext.Viewport.setMasked(false);\r",
+                    "\r",
+                    "}\r",
+                    "\r",
+                    "else if ((gridListItemId ==='example2list') ||\r",
+                    "(gridListItemId ==='example2Blist') ||\r",
+                    "(gridListItemId ==='example2Clist')) {\r",
+                    "\r",
+                    "    if (gridListItemId ==='example2list') {\r",
+                    "        Ext.Msg.alert('Custom Expand levels!'); \r",
+                    "    }\r",
+                    "\r",
+                    "    projectController.getProjectContainer().down('#example2list').up('touchtreegrid').doRefreshList();\r",
+                    "    projectController.getProjectContainer().down('#example2Blist').up('touchtreegrid').doRefreshList();\r",
+                    "    projectController.getProjectContainer().down('#example2Clist').up('touchtreegrid').doRefreshList();\r",
+                    "\r",
+                    "    // workaround to get Touch 2.2 pullrefresh plugin to auto-snapBack\r",
+                    "    scroller.scrollTo(0,1);\r",
+                    "}\r",
+                    "\r",
+                    "else if (gridListItemId === 'dow2012grouper2list') {\r",
+                    "\r",
+                    "    collapseLvl = (Ext.isEmpty(gridcont.collapseLevel) ? 1 : gridcont.collapseLevel);\r",
+                    "    // Refer to expCollapse() method where collapseLevel could be updated for manual expand processing\r",
+                    "\r",
+                    "    myFilt = {  // Test example: plug 'myFilt' parameter in loadTree() call below (6th parameter)\r",
+                    "        enabled: true,\r",
+                    "        displayNodesWithAllMembersFilteredAsLeafs: true,\r",
+                    "        filterFn: function (rowObj) {return (rowObj.Chg < 0 && rowObj.Close>13000);}  \r",
+                    "    };\r",
+                    "\r",
+                    "    commonController.loadTree(collapseLvl, griddata.datalist, [], gridcont, null, false, {}); // collapse on initial load\r",
+                    "\r",
+                    "    // Sort by YearMonth, then CloseDate\r",
+                    "    gridlist.getStore().sort([{property: 'YearMonth', direction: 'DESC'},\r",
+                    "    {property: 'CloseDate', direction: 'DESC'}]);\r",
+                    "\r",
+                    "    Ext.Viewport.setMasked(false);\r",
+                    "}\r",
+                    "\r",
+                    "else if (gridListItemId === 'dow2012Dynamiclist') {\r",
+                    "    refreshed = gridcont.doRefreshList(); \r",
+                    "\r",
+                    "    Ext.Msg.alert('Server defined Grid!');\r",
+                    "}\r",
+                    "\r",
+                    "else {\r",
+                    "    refreshed = gridcont.doRefreshList(); \r",
+                    "\r",
+                    "}"
+                ]
+            },
+            "designerId": "b1cd0c3f-e292-4bb0-8c20-013d9f8ec63d"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "/* Global object variables available throughout application */\r",
+                    "commonController = this.getApplication().getController('TouchTreeGrid.controller.CommonController');\r",
+                    "tasksController = this.getApplication().getController('TouchTreeGrid.controller.TasksController');\r",
+                    "projectController = this.getApplication().getController('TouchTreeGrid.controller.ProjectController');\r",
+                    "censusController = this.getApplication().getController('TouchTreeGrid.controller.CensusController');\r",
+                    "listsController = this.getApplication().getController('TouchTreeGrid.controller.ListsController');\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "2aeb735d-1f39-495e-9650-e408f48b2ec1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#helpPanelCloseBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onHelpPanelCloseButtonTap",
+                "implHandler": [
+                    "button.up('gridHelpPanel').hide();"
+                ],
+                "name": "tap"
+            },
+            "designerId": "14605e04-870f-467a-901b-6d7edefff558"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "/* Global variable to define current Touch version 2.1 vs. 2.2 */\r",
+                    "touchVersion = '2.2';\r",
+                    "\r",
+                    "/* Hack to look to see if setInfinite() function exists on one of the grids as means to determine framework version .. not sure if more direct method exists or not */\r",
+                    "var listcont = listsController.getListscontainer();\r",
+                    "var grp2cont = listcont.down('#dow2012grouper2Cont');\r",
+                    "var grp2grid = grp2cont.down('#dow2012grouper2list');\r",
+                    "\r",
+                    "\r",
+                    "if (typeof grp2grid.setInfinite != 'function') {  /* if not found then we are running 2.1 framework */\r",
+                    "    touchVersion = '2.1';\r",
+                    "}"
+                ]
+            },
+            "designerId": "ada9a9e3-f669-4d3b-97b6-e61741f83ff9"
+        }
+    ]
+}

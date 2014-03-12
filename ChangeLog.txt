@@ -1,4 +1,13 @@
 **************************************************************************************************
+03/11/2014 COMMIT CHANGE LOG: 
+
+- Corrected issue introduced with Touch 2.3 with CalendarPicker matrixPrep() method when referencing container layout type.
+- Created Architect 3.0.3 Build 1382 version of TouchTreeGrid and CalendarPicker in ArchitectComponents directory.
+- Created TouchTreeGrid_Advanced_23 directory under Touch 2.3 version.
+- CalendarPicker project updated to Touch 2.3 version.
+
+
+**************************************************************************************************
 10/27/2013 COMMIT CHANGE LOG: 
 
 Added logic to controller launch() method for ./MenuEx/ project as workaround for menu left/right edge swipe

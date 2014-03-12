@@ -6,6 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
+        "controllers": [
+            "DateExamplesController",
+            "calendarDetailController"
+        ],
+        "name": "CalendarPicker",
         "stores": [
             "optionDates",
             "languageStore"
@@ -18,12 +23,7 @@
             "matrixViewPhone",
             "yearMonthSelect",
             "TouchTreeGrid"
-        ],
-        "controllers": [
-            "DateExamplesController",
-            "calendarDetailController"
-        ],
-        "name": "CalendarPicker"
+        ]
     },
     "designerId": "application"
 }

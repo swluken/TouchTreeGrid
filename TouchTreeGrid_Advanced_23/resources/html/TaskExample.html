@@ -1,0 +1,46 @@
+<div>Task List - Accordion Example</div>
+<div>&nbsp;</div>
+<div style="font-size: .8em; max-width: 75% !important;">
+
+<p>>Touch category row to expand/collapse tasks.  Accordion SingleExpand mode supported. </p>	
+<p>&nbsp;</p>
+<p>>Expand/Collapse buttons (all rows)</p>
+<p>&nbsp;</p>
+<p>>Expand/Collapse Footer toolbar auto-added by TouchTreeGrid component</p>
+<p>&nbsp;</p>
+<p>>Every display aspect easily configured with CSS</p>
+<p>&nbsp;</p>
+<p>>See Census example for displays customized differently between Phones and Tablets</p>
+<p>&nbsp;</p>
+</div>
+<div style:"font-style: bold; font-size: 1em;"> CODE TO IMPLEMENT:</div>
+<div style="font-size: .8em; max-width: 75% !important;">
+<p>(simply define Tree Store, link to TouchTreeGrid component and set configs)</p>
+</div>
+
+
+<div style="font-style: italic; font-size: .8em; font: courier; color: blue; max-width: 75% !important;">
+<p>&nbsp;</p>	
+<p>  {</p>
+<p>      &nbsp;xtype: 'touchtreegrid', </p>
+<p>      &nbsp;store: 'TaskAccordionStore',</p>
+<p>      &nbsp;columns: [</p>
+<p>          {</p>
+<p>              &nbsp;&nbsp;&nbsp;dataIndex: 'text',</p>
+<p>              &nbsp;&nbsp;&nbsp;width: '35%',</p>
+<p>              &nbsp;&nbsp;&nbsp;style: ' text-align: left; font-size: 1.5em;',</p>
+<p>              &nbsp;&nbsp;&nbsp;categStyle: 'font-weight: bold; font-size: 2em; padding-top: .2em; text-align: left; color: blue;',</p>
+<p>          }</p>
+<p>      &nbsp;],</p>
+<p>      &nbsp;listItemId: 'firstexamplelist',</p>
+<p>      &nbsp;includeFooterLevels: false,</p>
+<p>      &nbsp;includeHeader: false,</p>
+<p>      &nbsp;singleExpand: true,</p>
+<p>      &nbsp;defaultCollapseLevel: 1,</p>
+<p>      &nbsp;cls: [</p>
+<p>      &nbsp;'x-touchtreegrid-list',</p>
+<p>      &nbsp;'x-touchtreegrid-list-accordion'</p>
+<p>      &nbsp;],</p>
+<p>      &nbsp;itemId: 'firstexample'</p>
+<p>  }	</p>
+</div>	

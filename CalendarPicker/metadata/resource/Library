@@ -6,9 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "Library",
-        "basePath": null,
-        "debug": true
+        "debug": true,
+        "designer|userClassName": "Library"
     },
     "designerId": "b8f6c608-d1da-4b6b-8c96-84a26008b3bd"
 }

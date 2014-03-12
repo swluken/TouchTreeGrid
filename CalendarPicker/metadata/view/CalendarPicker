@@ -6,8 +6,24 @@
     },
     "codeClass": null,
     "userConfig": {
+        "allowMatrixMonthAdditions": false,
+        "allowMonthAdditions": false,
+        "alwaysScrollToTop": false,
+        "autoCollapseMonthsPriorToMinSelDt": false,
+        "autoExpandMonthsWithSelDates": true,
         "backMonths": 3,
-        "forwardMonths": 3,
+        "categColumns": [
+            "[\r",
+            "    {dataIndex: \"month\", width: \"100%\", categCss: \"calendarpicker-month\", renderer: \"this.renderer_month(values)\"}\r",
+            "]"
+        ],
+        "categDepthColors": true,
+        "categDepthColorsArr": [
+            "[\"transparent\",\"transparent\",\"transparent\"]"
+        ],
+        "cls": [
+            "x-touchtreegrid-list-calendar"
+        ],
         "columns": [
             "[{dataIndex: \"dow0\", width: \"14.285%\", addDataIndexToDiv: true, css: \"{[this.cls_renderer_dates('dow0', values)]}\", renderer: \"this.renderer_dates('dow0', values)\"}, \r",
             "{dataIndex: \"dow1\", width: \"14.285%\", addDataIndexToDiv: true, css: \"{[this.cls_renderer_dates('dow1', values)]}\", renderer: \"this.renderer_dates('dow1', values)\"}, \r",
@@ -17,85 +33,28 @@
             "{dataIndex: \"dow5\", width: \"14.285%\", addDataIndexToDiv: true, css: \"{[this.cls_renderer_dates('dow5', values)]}\", renderer: \"this.renderer_dates('dow5', values)\"}, \r",
             "{dataIndex: \"dow6\", width: \"14.285%\", addDataIndexToDiv: true, css: \"{[this.cls_renderer_dates('dow6', values)]}\", renderer: \"this.renderer_dates('dow6', values)\"}]"
         ],
-        "categColumns": [
-            "[\r",
-            "    {dataIndex: \"month\", width: \"100%\", categCss: \"calendarpicker-month\", renderer: \"this.renderer_month(values)\"}\r",
-            "]"
-        ],
-        "renderers": [
-            "{renderer_month: function (values)\r",
-            " {var par = this.scope.parent, dt;\r",
-            "   dt = Ext.Date.parse(values.year + '-' + values.mo + '-01', 'Y-m-d');\r",
-            "   return Ext.Date.format(dt, par.getMonthYearFormat());},\r",
-            " renderer_dates: function (fldName, values) {\r",
-            "   var elem=values[fldName];\r",
-            "   return elem;},\r",
-            " cls_renderer_dates: function (fldName, values)\r",
-            " {var cls=\"\", dt, sel, hol, dis, par = this.scope.parent, cust;\r",
-            "  dt = values['dt_'+fldName];\r",
-            "  hol = values['isHoliday_'+fldName];\r",
-            "  dis = values['isDisabled_'+fldName];\r",
-            "  cust = values['customCls_'+fldName];\r",
-            "\r",
-            "  if (values.rowType === 'H') {\r",
-            "     cls = cls + ' calendarpicker-header';}  \r",
-            "  else if (Ext.isEmpty(dt)) {} // do nothing for empty dates\r",
-            "  else {\r",
-            "     sel = (par.getSelDtArr().indexOf(Ext.Date.format(dt, 'Y-m-d')) !== -1);\r",
-            "     if (par.getWeekendIndexArr().indexOf(parseInt(Ext.Date.format(dt, 'w'))) !== -1) {    \r",
-            "       cls = cls+' calendarpicker-weekend';\r",
-            "     }   \r",
-            "     if (hol){cls = cls+' calendarpicker-holiday';}\r",
-            "     if (!Ext.isEmpty(cust)) {cls = cls + ' ' + cust;}\r",
-            "     if (!Ext.isEmpty(this.scope.todayDt)){\r",
-            "       if (this.scope.todayDt === Ext.Date.format(dt, 'Y-m-d')) {\r",
-            "          cls = cls+' calendarpicker-today';\r",
-            "       }\r",
-            "     }     \r",
-            "     if (dis){cls = cls+' calendarpicker-disabled';}\r",
-            "     if (sel){cls = cls+' calendarpicker-selected';}\r",
-            "  }\r",
-            " \r",
-            " return (\"calendarpicker-days\" + cls);\r",
-            " }}"
-        ],
-        "title": "Select Date",
-        "selDtArr": [
-            "[]"
-        ],
-        "lastSelectedDate": "",
-        "holidayDtArr": [
-            "[]"
-        ],
-        "disableWeekends": false,
-        "disableHolidays": false,
-        "disableFutureDates": false,
-        "disablePastDates": false,
-        "disableDtArr": [
-            "[]"
-        ],
-        "customDtArr": [
-            "[]"
-        ],
-        "includeFooter": true,
-        "singleExpand": false,
-        "disableExpandCollapse": false,
-        "variableHeights": false,
-        "categDepthColors": true,
-        "customExpCollapseEvent": "monthExpCollapse",
-        "defaultCollapseLevel": 99,
-        "categDepthColorsArr": [
-            "[\"transparent\",\"transparent\",\"transparent\"]"
-        ],
-        "itemHeight": 32,
-        "selectMode": "SINGLE",
         "comments": [
             "[\"selectMode = MULTI, SINGLE, RANGE, NONE\"]"
         ],
-        "filter": [
-            "{}"
+        "customCls": [
+            "[]"
         ],
-        "reverseSort": false,
+        "customDateTypes": [
+            "[\r",
+            "{customType: 'default', \r",
+            " customDescr: 'Custom', \r",
+            " useCustomDtArr: true, \r",
+            " storeId: null, \r",
+            " priority: 1, \r",
+            " disabled: false, \r",
+            " cls: 'customDates-default'}\r",
+            "]"
+        ],
+        "customDatesLegendScrollDock": "fixed",
+        "customDtArr": [
+            "[]"
+        ],
+        "customExpCollapseEvent": "monthExpCollapse",
         "customFooterItems": [
             "{\r",
             "xtype: 'segmentedbutton',\r",
@@ -140,74 +99,115 @@
             "]\r",
             "}"
         ],
-        "includeCustomFooterItems": false,
-        "returnItem": [
-            "{}"
-        ],
-        "customCls": [
+        "defaultCollapseLevel": 99,
+        "designer|userAlias": "calendarpicker",
+        "designer|userClassName": "CalendarPicker",
+        "disableDtArr": [
             "[]"
         ],
-        "useIconsForExpCollapse": true,
-        "autoCollapseMonthsPriorToMinSelDt": false,
-        "hideTitleBar": false,
-        "autoExpandMonthsWithSelDates": true,
-        "footerDock": "bottom",
-        "hideExpandCollapseBtns": false,
-        "enableQuickDaySelection": false,
-        "customDateTypes": [
-            "[\r",
-            "{customType: 'default', \r",
-            " customDescr: 'Custom', \r",
-            " useCustomDtArr: true, \r",
-            " storeId: null, \r",
-            " priority: 1, \r",
-            " disabled: false, \r",
-            " cls: 'customDates-default'}\r",
-            "]"
-        ],
-        "includeCustomDatesLegend": false,
-        "allowMonthAdditions": false,
-        "monthsToInsert": 3,
-        "monthsToAppend": 3,
-        "monthsToAppendText": "Append more Months...",
-        "monthsToInsertPullText": "Pull to Insert Months...",
-        "monthsToInsertRefreshText": "Release to Insert Months...",
-        "expandCurrentMonth": true,
-        "monthNodeHeightInPixels": 32,
-        "matrixView": false,
-        "matrixRows": 99,
-        "matrixCols": 3,
-        "matrixContainer": [
-            "{}"
-        ],
+        "disableExpandCollapse": false,
+        "disableFutureDates": false,
+        "disableHolidays": false,
         "disableListScroll": false,
-        "matrixItemHeight": "13.5em",
-        "customDatesLegendScrollDock": "fixed",
-        "allowMatrixMonthAdditions": false,
-        "matrixItem6WeekHeight": "15em",
-        "weekendIndexArr": [
-            "[0,6]"
+        "disablePastDates": false,
+        "disableWeekends": false,
+        "enableQuickDaySelection": false,
+        "expandCurrentMonth": true,
+        "filter": [
+            "{}"
         ],
         "footerBtnTextOverrides": [
             "{}"
         ],
-        "monthYearFormat": "F Y",
+        "footerDock": "bottom",
+        "forwardMonths": 3,
+        "hideExpandCollapseBtns": false,
+        "hideOnMaskTap": false,
+        "hideTitleBar": false,
+        "holidayDtArr": [
+            "[]"
+        ],
+        "includeCustomDatesLegend": false,
+        "includeCustomFooterItems": false,
+        "includeFooter": true,
+        "itemHeight": 32,
+        "itemId": "calendarpicker",
+        "lastSelectedDate": "",
+        "layout": "fit",
         "longDayFormat": "F d, Y",
-        "startDay": 0,
+        "matrixCols": 3,
+        "matrixContainer": [
+            "{}"
+        ],
+        "matrixItem6WeekHeight": "15em",
+        "matrixItemHeight": "13.5em",
+        "matrixRows": 99,
+        "matrixView": false,
+        "modal": false,
+        "monthNodeHeightInPixels": 32,
+        "monthYearFormat": "F Y",
+        "monthsToAppend": 3,
+        "monthsToAppendText": "Append more Months...",
+        "monthsToInsert": 3,
+        "monthsToInsertLastUpdatedDateFormat": "m/d/Y h:iA",
         "monthsToInsertLastUpdatedText": "Last Updated:&nbsp;",
         "monthsToInsertLoadedText": "Loaded.",
-        "monthsToInsertLastUpdatedDateFormat": "m/d/Y h:iA",
         "monthsToInsertLoadingText": "Loading...",
-        "alwaysScrollToTop": false,
-        "cls": [
-            "x-touchtreegrid-list-calendar"
+        "monthsToInsertPullText": "Pull to Insert Months...",
+        "monthsToInsertRefreshText": "Release to Insert Months...",
+        "renderers": [
+            "{renderer_month: function (values)\r",
+            " {var par = this.scope.parent, dt;\r",
+            "   dt = Ext.Date.parse(values.year + '-' + values.mo + '-01', 'Y-m-d');\r",
+            "   return Ext.Date.format(dt, par.getMonthYearFormat());},\r",
+            " renderer_dates: function (fldName, values) {\r",
+            "   var elem=values[fldName];\r",
+            "   return elem;},\r",
+            " cls_renderer_dates: function (fldName, values)\r",
+            " {var cls=\"\", dt, sel, hol, dis, par = this.scope.parent, cust;\r",
+            "  dt = values['dt_'+fldName];\r",
+            "  hol = values['isHoliday_'+fldName];\r",
+            "  dis = values['isDisabled_'+fldName];\r",
+            "  cust = values['customCls_'+fldName];\r",
+            "\r",
+            "  if (values.rowType === 'H') {\r",
+            "     cls = cls + ' calendarpicker-header';}  \r",
+            "  else if (Ext.isEmpty(dt)) {} // do nothing for empty dates\r",
+            "  else {\r",
+            "     sel = (par.getSelDtArr().indexOf(Ext.Date.format(dt, 'Y-m-d')) !== -1);\r",
+            "     if (par.getWeekendIndexArr().indexOf(parseInt(Ext.Date.format(dt, 'w'))) !== -1) {    \r",
+            "       cls = cls+' calendarpicker-weekend';\r",
+            "     }   \r",
+            "     if (hol){cls = cls+' calendarpicker-holiday';}\r",
+            "     if (!Ext.isEmpty(cust)) {cls = cls + ' ' + cust;}\r",
+            "     if (!Ext.isEmpty(this.scope.todayDt)){\r",
+            "       if (this.scope.todayDt === Ext.Date.format(dt, 'Y-m-d')) {\r",
+            "          cls = cls+' calendarpicker-today';\r",
+            "       }\r",
+            "     }     \r",
+            "     if (dis){cls = cls+' calendarpicker-disabled';}\r",
+            "     if (sel){cls = cls+' calendarpicker-selected';}\r",
+            "  }\r",
+            " \r",
+            " return (\"calendarpicker-days\" + cls);\r",
+            " }}"
         ],
-        "itemId": "calendarpicker",
-        "designer|userClassName": "CalendarPicker",
-        "designer|userAlias": "calendarpicker",
-        "hideOnMaskTap": false,
-        "layout": "fit",
-        "modal": false
+        "returnItem": [
+            "{}"
+        ],
+        "reverseSort": false,
+        "selDtArr": [
+            "[]"
+        ],
+        "selectMode": "SINGLE",
+        "singleExpand": false,
+        "startDay": 0,
+        "title": "Select Date",
+        "useIconsForExpCollapse": true,
+        "variableHeights": false,
+        "weekendIndexArr": [
+            "[0,6]"
+        ]
     },
     "configAlternates": {
         "backMonths": "number",
@@ -626,40 +626,50 @@
             },
             "codeClass": null,
             "userConfig": {
-                "store": "",
-                "displayField": null,
-                "listScrollable": [
-                    "true"
-                ],
-                "headerItemTpl": null,
-                "contentItemTpl": "",
-                "useAnimation": null,
-                "list": [
+                "additionalListConfigs": [
                     "{}"
                 ],
-                "headerItemOuter": null,
-                "headerItemData": null,
-                "disableSelection": true,
-                "listStyle": null,
-                "onItemDisclosure": false,
+                "applyDefaultCollapseLevel": true,
+                "arrowPctWidth": "0",
+                "categColumns": [
+                    "[]"
+                ],
+                "categCssArr": [
+                    "[]"
+                ],
+                "categDepthColorButtons": true,
+                "categDepthColors": true,
+                "categDepthColorsArr": [
+                    "[\"transparent\",\"transparent\",\"transparent\"]"
+                ],
+                "categIndentPct": "0",
+                "categItemTpl": "",
+                "categItemTplOverride": "",
+                "cls": [
+                    "x-touchtreegrid-list",
+                    "x-touchtreegrid-list-calendar"
+                ],
+                "colNumberToTruncateForIndents": 1,
+                "columnSorting": false,
                 "columns": [
                     "[]"
                 ],
-                "header": [
-                    "{\r",
-                    "            xtype: 'toolbar',\r",
-                    "            docked: 'top',\r",
-                    "            cls: 'touchtreegrid-header',\r",
-                    "            maxHeight: '1.8em',\r",
-                    "            minHeight: '1.8em'\r",
-                    "        }"
+                "contentItemTpl": "",
+                "contentItemTplOverride": "",
+                "cssCategRow": "css-categ-row",
+                "cssContentRow": "css-content-row{[values.rowType === 'H' ? ' calendarpicker-header-rowtype' : '']}",
+                "cssHeaderRow": "css-header-row",
+                "customColumnSortEvent": null,
+                "customExpCollapseEvent": null,
+                "customFooterItems": [
+                    "{}"
                 ],
-                "headerTpl": "",
-                "variableHeights": false,
-                "itemHeight": 32,
+                "defaultCollapseLevel": 1,
+                "designer|createAlias": "touchtreegrid",
+                "disableExpandCollapse": false,
+                "disableSelection": true,
                 "disclosureProperty": "disclose",
-                "listItemId": "calendarlist",
-                "categItemTpl": "",
+                "displayField": null,
                 "footer": [
                     "{\r",
                     "            xtype: 'toolbar',\r",
@@ -669,73 +679,63 @@
                     "    itemId: 'calendarFooter'\r",
                     "        }"
                 ],
+                "footerDock": "bottom",
+                "header": [
+                    "{\r",
+                    "            xtype: 'toolbar',\r",
+                    "            docked: 'top',\r",
+                    "            cls: 'touchtreegrid-header',\r",
+                    "            maxHeight: '1.8em',\r",
+                    "            minHeight: '1.8em'\r",
+                    "        }"
+                ],
+                "headerItemData": null,
+                "headerItemOuter": null,
+                "headerItemTpl": null,
+                "headerTpl": "",
+                "headerTplOverride": "",
+                "helpHtml": "",
+                "hideExpandCollapseBtns": false,
+                "includeCustomFooterItems": false,
                 "includeFooter": true,
-                "plugins": null,
+                "includeFooterLevels": true,
+                "includeHeader": false,
+                "infinite": true,
+                "itemHeight": 32,
+                "itemId": "calendar",
+                "landscapeIcon": "",
+                "layout": "vbox",
+                "list": [
+                    "{}"
+                ],
+                "listItemId": "calendarlist",
                 "listPlugins": [
                     "{}"
                 ],
-                "categIndentPct": "0",
-                "colNumberToTruncateForIndents": 1,
-                "includeFooterLevels": true,
-                "categDepthColors": true,
-                "categDepthColorsArr": [
-                    "[\"transparent\",\"transparent\",\"transparent\"]"
+                "listScrollable": [
+                    "true"
                 ],
-                "customExpCollapseEvent": null,
+                "listStyle": null,
+                "mode": "SINGLE",
+                "onItemDisclosure": false,
+                "plugins": null,
+                "pressedBtnCls": null,
+                "pressedCls": "touchtreegrid-item-pressed",
                 "renderers": [
                     "{}"
                 ],
-                "categDepthColorButtons": true,
-                "pressedBtnCls": null,
-                "useCustomPressedBtnCls": null,
-                "categItemTplOverride": "",
-                "contentItemTplOverride": "",
-                "headerTplOverride": "",
-                "includeHeader": false,
-                "applyDefaultCollapseLevel": true,
-                "defaultCollapseLevel": 1,
-                "landscapeIcon": "",
-                "helpHtml": "",
-                "pressedCls": "touchtreegrid-item-pressed",
-                "simpleList": false,
-                "columnSorting": false,
-                "styleContentRow": null,
-                "styleCategRow": "",
-                "styleHeaderRow": "",
-                "singleExpand": false,
-                "additionalListConfigs": [
-                    "{}"
-                ],
+                "scrollable": null,
                 "selectedCls": "touchtreegrid-item-selected",
-                "mode": "SINGLE",
+                "simpleList": false,
+                "singleExpand": false,
+                "store": "",
+                "styleCategRow": "",
+                "styleContentRow": null,
+                "styleHeaderRow": "",
+                "useAnimation": null,
+                "useCustomPressedBtnCls": null,
                 "useSimpleItems": true,
-                "infinite": true,
-                "arrowPctWidth": "0",
-                "customColumnSortEvent": null,
-                "disableExpandCollapse": false,
-                "categColumns": [
-                    "[]"
-                ],
-                "categCssArr": [
-                    "[]"
-                ],
-                "cssContentRow": "css-content-row{[values.rowType === 'H' ? ' calendarpicker-header-rowtype' : '']}",
-                "cssCategRow": "css-categ-row",
-                "cssHeaderRow": "css-header-row",
-                "customFooterItems": [
-                    "{}"
-                ],
-                "includeCustomFooterItems": false,
-                "footerDock": "bottom",
-                "hideExpandCollapseBtns": false,
-                "cls": [
-                    "x-touchtreegrid-list",
-                    "x-touchtreegrid-list-calendar"
-                ],
-                "itemId": "calendar",
-                "designer|createAlias": "touchtreegrid",
-                "layout": "vbox",
-                "scrollable": null
+                "variableHeights": false
             },
             "configAlternates": {
                 "listScrollable": "object",
@@ -1404,22 +1404,22 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "matrixPrep",
                 "designer|params": [
                     "parentConfig",
                     "addMode"
                 ],
+                "fn": "matrixPrep",
                 "implHandler": [
                     "var me = this, i, j;\r",
                     "\r",
                     "//Copy parentConfig to keys and values arrays\r",
-                    "var keys = Ext.Object.getKeys(parentConfig); \r",
+                    "var keys = Ext.Object.getKeys(parentConfig);\r",
                     "var values = Ext.Object.getValues(parentConfig);\r",
                     "\r",
                     "var matrixCols = me.getMatrixCols();\r",
                     "var matrixRows = me.getMatrixRows();\r",
                     "var monthsToAppend = me.getMonthsToAppend();\r",
-                    "var matrixContainer = me.getMatrixContainer(); \r",
+                    "var matrixContainer = me.getMatrixContainer();\r",
                     "var parItemId = me.getItemId();\r",
                     "var matrixItemHeight = me.getMatrixItemHeight();\r",
                     "var matrixItem6WeekHeight = me.getMatrixItem6WeekHeight();\r",
@@ -1433,10 +1433,10 @@
                     "    'returnItem', 'backMonths', 'forwardMonths','disableExpandCollapse',\r",
                     "    'selectMode', 'defaultCollapseLevel', 'hideTitleBar', 'includeFooter'];\r",
                     "\r",
-                    "var calendarKeys = {  \r",
+                    "var calendarKeys = {\r",
                     "    //  xtype: 'calendarpicker',\r",
                     "    flex: 1,\r",
-                    "    //  layout: {type: 'fit'},  \r",
+                    "    //  layout: {type: 'fit'},\r",
                     "    selectMode: 'NONE',\r",
                     "    defaultCollapseLevel: 99,\r",
                     "    disableExpandCollapse: true,\r",
@@ -1452,7 +1452,7 @@
                     "    }\r",
                     "}\r",
                     "\r",
-                    "if (matrixContainer.getLayout().config.type !== 'fit') {\r",
+                    "if  (matrixContainer.config.layout !== 'fit') {\r",
                     "    console.log(matrixContainer);\r",
                     "    console.log('Container must be of type fit');\r",
                     "    Ext.Msg.alert('Matrix Container must be of type fit');\r",
@@ -1470,16 +1470,16 @@
                     "var totMonths = fwdMo + backMo;\r",
                     "\r",
                     "if (addMode) { // Increment new ForwardMonths value and range\r",
-                    "    backMo = (-1*fwdMo);  \r",
+                    "    backMo = (-1*fwdMo);\r",
                     "    fwdMo = fwdMo + monthsToAppend;\r",
-                    "    me.setForwardMonths(fwdMo);  // Save new value to component \r",
+                    "    me.setForwardMonths(fwdMo);  // Save new value to component\r",
                     "\r",
                     "    totMonths = monthsToAppend; // override for addMode\r",
                     "\r",
                     "    matrixItems = me.matrixItems;\r",
                     "    numItemsPrior = me.currentNumItems;\r",
-                    "    numRowsPrior = me.currentMatrixRows;    \r",
-                    "} \r",
+                    "    numRowsPrior = me.currentMatrixRows;\r",
+                    "}\r",
                     "\r",
                     "var today= Ext.Date.clearTime(new Date(Date(Ext.Date.now())), true);\r",
                     "var firstdt = Ext.Date.clearTime(Ext.Date.getFirstDateOfMonth(today), true);\r",
@@ -1488,7 +1488,7 @@
                     "thisRow = 0;\r",
                     "i=0;  // initialize\r",
                     "do {\r",
-                    "    // Insert row of containers \r",
+                    "    // Insert row of containers\r",
                     "    items=[];\r",
                     "    for (j=0; j<matrixCols; j++) {\r",
                     "        thisMo = backMo - i;   //  3 to 6: backMo iterates as  3, 2, 1, 0, -1, -2, -3, -4, -5, -6\r",
@@ -1510,13 +1510,13 @@
                     "            });\r",
                     "\r",
                     "        } else {\r",
-                    "            customCls = me.getCustomCls().join(' ');  \r",
+                    "            customCls = me.getCustomCls().join(' ');\r",
                     "            thisCls = customCls + ' calendarpicker-matrix-item ' + (j===matrixCols-1 ? 'matrix-column-last' : 'matrix-column');\r",
                     "\r",
                     "            matrixItems.push({\r",
                     "                xtype: 'calendarpicker',\r",
                     "                itemId: parItemId+'_'+(numItemsPrior + i).toString(),\r",
-                    "                // each calendar will have unique ID beginning with parent itemId suffixed with calendar sequence            \r",
+                    "                // each calendar will have unique ID beginning with parent itemId suffixed with calendar sequence\r",
                     "                row:  numRowsPrior + thisRow,\r",
                     "                col: j,\r",
                     "                seq: numItemsPrior + i,\r",
@@ -1548,7 +1548,7 @@
                     "numRows = thisRow--;\r",
                     "\r",
                     "// Store matrixItems[] with parent component for other uses\r",
-                    "me.matrixItems = matrixItems; \r",
+                    "me.matrixItems = matrixItems;\r",
                     "me.currentMatrixRows = numRowsPrior + numRows;\r",
                     "me.currentNumItems = numItemsPrior + totMonths;\r",
                     "\r",
@@ -1558,9 +1558,9 @@
                     "}\r",
                     "\r",
                     "if (addMode) {\r",
-                    "    // Insert rows after prior set \r",
+                    "    // Insert rows after prior set\r",
                     "    matrixContainer.down('#'+parItemId+'_matrix').add(rowArr);\r",
-                    "} else {    \r",
+                    "} else {\r",
                     "\r",
                     "    matrixContainer.add({\r",
                     "        xtype: 'container',\r",
@@ -1570,7 +1570,7 @@
                     "        layout: 'default',\r",
                     "        items: rowArr\r",
                     "    });\r",
-                    "}    \r",
+                    "}\r",
                     "\r",
                     "// Need to add grid items after parent containers have been instantiated to work correctly\r",
                     "var thisRowItem, thisItem, getDts;\r",
@@ -1587,12 +1587,12 @@
                     "            calendarKeys['cls']           = matrixItems[k].cls;\r",
                     "            calendarKeys['backMonths']    = matrixItems[k].backMonths;\r",
                     "            calendarKeys['forwardMonths'] = matrixItems[k].forwardMonths;\r",
-                    "            calendarKeys['itemId']        = matrixItems[k].itemId; \r",
-                    "            calendarKeys['matrixItem']    = me;  \r",
-                    "            calendarKeys['yearMonth']     = matrixItems[k].yearMonth;  \r",
-                    "            calendarKeys['row']           = matrixItems[k].row;             \r",
-                    "            calendarKeys['col']           = matrixItems[k].col;             \r",
-                    "            calendarKeys['seq']           = matrixItems[k].seq;    \r",
+                    "            calendarKeys['itemId']        = matrixItems[k].itemId;\r",
+                    "            calendarKeys['matrixItem']    = me;\r",
+                    "            calendarKeys['yearMonth']     = matrixItems[k].yearMonth;\r",
+                    "            calendarKeys['row']           = matrixItems[k].row;\r",
+                    "            calendarKeys['col']           = matrixItems[k].col;\r",
+                    "            calendarKeys['seq']           = matrixItems[k].seq;\r",
                     "\r",
                     "            getDts = Ext.create('widget.calendarpicker', calendarKeys);\r",
                     "            if (getDts.numWeeks === 6) {\r",
@@ -1621,11 +1621,11 @@
                     "                fn: me.onAppendMatrixMonths,\r",
                     "                scope: me,\r",
                     "                element: 'element'\r",
-                    "            }        \r",
-                    "        }       \r",
-                    "    });  \r",
+                    "            }\r",
+                    "        }\r",
+                    "    });\r",
                     "\r",
-                    "}   \r",
+                    "}\r",
                     ""
                 ]
             },
@@ -1639,13 +1639,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "createStore",
                 "designer|params": [
                     "me",
                     "gridcont",
                     "gridlist",
                     "expandCollapse"
                 ],
+                "fn": "createStore",
                 "implHandler": [
                     "var backMoInp = me.getBackMonths(), fwdMoInp = me.getForwardMonths();\r",
                     "\r",
@@ -1973,13 +1973,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "loadStore",
                 "designer|params": [
                     "me",
                     "gridcont",
                     "gridlist",
                     "expandCollapse"
                 ],
+                "fn": "loadStore",
                 "implHandler": [
                     "var i, j;\r",
                     "\r",
@@ -2114,10 +2114,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onLeafItemTap",
                 "designer|params": [
                     "me, list, index, target, record, e"
                 ],
+                "fn": "onLeafItemTap",
                 "implHandler": [
                     "\r",
                     "var i, innerText, tgt, dt, doRefresh=false;\r",
@@ -2295,10 +2295,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "customBtns",
                 "designer|params": [
                     "btnName"
                 ],
+                "fn": "customBtns",
                 "implHandler": [
                     "var dtPkr = this;\r",
                     "\r",
@@ -2366,10 +2366,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onExpCollapse",
                 "designer|params": [
                     "params"
                 ],
+                "fn": "onExpCollapse",
                 "implHandler": [
                     "// For larger data sets expand/collapse faster by refreshing the treestore with appropriate collapse level\r",
                     "this.gridcont.setDefaultCollapseLevel(params.collapseLevel);\r",
@@ -2483,7 +2483,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "getTree",
                 "designer|params": [
                     "list",
                     "rootId",
@@ -2492,6 +2491,7 @@
                     "hasTopRoot",
                     "filterOpts"
                 ],
+                "fn": "getTree",
                 "implHandler": [
                     "// Required Fields:  'ID', 'PARENT_ID'   \r",
                     "// list       - data array to convert to treestore format\r",
@@ -2554,7 +2554,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "createTreeStructure",
                 "designer|params": [
                     "tree",
                     "root",
@@ -2565,6 +2564,7 @@
                     "hasTopRoot",
                     "filterOpts"
                 ],
+                "fn": "createTreeStructure",
                 "implHandler": [
                     "var i=0, result = [], child, childList = [], children = [], temptree = {}, thisExp,\r",
                     "    has_nonfiltered_child = false;\r",
@@ -2646,12 +2646,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "assignMembers",
                 "designer|params": [
                     "fldListArr",
                     "treeObj",
                     "child"
                 ],
+                "fn": "assignMembers",
                 "implHandler": [
                     "for (var i=0; i< fldListArr.length; i++) {\r",
                     "    if (fldListArr[i][0]  !== 'ID' && fldListArr[i][0] !== 'PARENT_ID') {\r",
@@ -2670,12 +2670,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "getChildren",
                 "designer|params": [
                     "root",
                     "list",
                     "firstOnly"
                 ],
+                "fn": "getChildren",
                 "implHandler": [
                     "var i=0, ln = list.length, result = [];\r",
                     "for(i=0; i<ln;i++)\r",
@@ -2699,10 +2699,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "isObjectEmpty",
                 "designer|params": [
                     "myObj"
                 ],
+                "fn": "isObjectEmpty",
                 "implHandler": [
                     "for(var key in myObj) {\r",
                     "    if (myObj.hasOwnProperty(key)) {\r",

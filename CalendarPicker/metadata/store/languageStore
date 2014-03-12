@@ -54,8 +54,8 @@
             "\t['vn', 'Vietnamese']\r",
             "]"
         ],
-        "storeId": "languageStore",
-        "designer|userClassName": "languageStore"
+        "designer|userClassName": "languageStore",
+        "storeId": "languageStore"
     },
     "designerId": "7d3cdcf5-4db9-48ac-9345-717fc6a22fd5",
     "cn": [

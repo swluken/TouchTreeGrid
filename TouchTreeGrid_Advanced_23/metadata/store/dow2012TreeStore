@@ -1,0 +1,21 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dow2012treestore",
+        "designer|userClassName": "dow2012TreeStore",
+        "model": "Dow2012Tree",
+        "root": [
+            "{\r",
+            "  \"children\":[]\r",
+            "}\r",
+            ""
+        ],
+        "storeId": "dow2012treestore"
+    },
+    "designerId": "91245a8e-c281-47e5-b756-23d2ab3a94ce"
+}

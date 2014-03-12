@@ -7,8 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": true,
-        "storeId": "optionDates",
-        "designer|userClassName": "optionDates"
+        "designer|userClassName": "optionDates",
+        "storeId": "optionDates"
     },
     "designerId": "b9d584e1-0cd1-4929-a1ee-e97945888dc4",
     "cn": [
