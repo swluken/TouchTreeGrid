@@ -1,0 +1,60 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CommonController"
+    },
+    "designerId": "97a4c3a2-9a08-4611-87a1-12b030c85f82",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "container#categ",
+                "designer|params": [
+                    "container, list, index, target, record, e"
+                ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onContainerNodeItemTap",
+                "implHandler": [
+                    "var store = list.getStore(),\r",
+                    "    node = store.getAt(index),\r",
+                    "    i, newNode;\r",
+                    "\r",
+                    "\r",
+                    "if (node.isExpanded()) {return;}  // skip if collapsing node\r",
+                    "\r",
+                    "if (node.hasChildNodes()) {return;}  // child nodes already loaded so skip\r",
+                    "\r",
+                    "\r",
+                    "// CAN REPLACE THIS WITH AJAX REQUEST FOR CHILD NODES\r",
+                    "for (i=0; i<5; i++) {\r",
+                    "    newNode =\r",
+                    "        {\r",
+                    "        \"leaf\" : true,\r",
+                    "        \"CATEG\" : record.get('CATEG') + ' - ' + \"Dynamic Leaf \"+(i+1).toString()\r",
+                    "    };\r",
+                    "    \r",
+                    "    //    node.appendChild(newNode);   // APPEARS TO BE BUG WITH THIS METHOD\r",
+                    "    node.insertChild(i-1, newNode);\r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    "// NOTE:  to get child nodes to sort under expanded node correctly, you need to maintain\r",
+                    "//        a sort string on the store that would apply to all rows of the store\r",
+                    ""
+                ],
+                "name": "nodeItemTap"
+            },
+            "designerId": "5ed45213-a357-4959-8bd2-b5e1dadacbf9"
+        }
+    ]
+}

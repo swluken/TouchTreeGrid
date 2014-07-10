@@ -1,0 +1,58 @@
+{
+    "name": "DynamicLoadEx2",
+    "settings": {
+        "cmd": {
+            "license": "",
+            "cmdVersion": "",
+            "frameworkVersion": ""
+        },
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "http://localhost/Arch3Projects/DynamicLoadEx2/",
+        "exportPath": "",
+        "buildShouldOverwriteIndex": true,
+        "canvasControls": {
+            "viewportSize": {
+                "name": "iPhone",
+                "builtIn": true,
+                "height": 480,
+                "width": 320
+            },
+            "viewportOrientation": "portrait"
+        },
+        "sdkPath": "",
+        "generateArchitectVersion": true,
+        "displayfield-ExtBox1-1484-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1278-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1329-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1379-inputEl": "Not Installed"
+    },
+    "xdsVersion": "3.0.4",
+    "xdsBuild": 1386,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000004,
+    "framework": "touch23",
+    "viewOrderMap": {
+        "view": [
+            "725ae1b3-063a-49b0-8161-f4db0f5f4823",
+            "f1b9d396-4b33-4e41-a03c-7da4849f253d"
+        ],
+        "store": [
+            "9ff9e47e-a02e-47b4-abf1-3bd8cfcd1f57"
+        ],
+        "controller": [
+            "97a4c3a2-9a08-4611-87a1-12b030c85f82"
+        ],
+        "model": [],
+        "resource": [
+            "94f678cb-fd5d-4c34-9629-893a412789c7",
+            "087f6104-eaf2-44c2-b243-8df338c6dd04",
+            "94125f8b-4dc7-4141-b123-cb62c633e6ad"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

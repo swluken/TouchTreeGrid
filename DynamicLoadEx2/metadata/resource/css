@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css",
+        "url": "./resources/css/TouchTreeGrid.css"
+    },
+    "designerId": "087f6104-eaf2-44c2-b243-8df338c6dd04"
+}
