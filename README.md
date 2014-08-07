@@ -58,6 +58,7 @@ http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html
 
 See Example of how to Dynamically load Nodes when expanded for large TreeStores at:
 http://www.gomainerentals.com/Sencha/DynamicLoadEx2C/index.html
+(further discussion at:  http://www.sencha.com/forum/showthread.php?259616-TouchTreeGrid-component&p=1058383&viewfull=1#post1058383)
 
 PLANNED ENHANCEMENTS TO TouchTreeGrid:      
     
