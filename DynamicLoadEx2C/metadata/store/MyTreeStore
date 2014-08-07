@@ -1,0 +1,93 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "data": null,
+        "designer|userClassName": "MyTreeStore",
+        "model": null,
+        "root": [
+            "{\"children\": [\r",
+            "    {\"expanded\" : true,\r",
+            "     \"leaf\" : false,\r",
+            "     \"CATEG\" : \"Root\",\r",
+            "     \"sortFld\": \"depth: 1, index: 0\",\r",
+            "     \"children\" : [\r",
+            "         {\"expanded\" : true,\r",
+            "          \"leaf\" : false,\r",
+            "          \"CATEG\" : \"Node 1\",\r",
+            "          \"sortFld\": \"depth: 2, index: 0\"\r",
+            "         },\r",
+            "         {\"expanded\" : true,\r",
+            "          \"leaf\" : false,\r",
+            "          \"CATEG\" : \"Node 2\",\r",
+            "          \"sortFld\": \"depth: 2, index: 1\"\r",
+            "         },\r",
+            "         {\"expanded\" : true,\r",
+            "          \"leaf\" : false,\r",
+            "          \"CATEG\" : \"Node 3\",\r",
+            "          \"sortFld\": \"depth: 2, index: 2\"\r",
+            "         },\r",
+            "         {\"expanded\" : true,\r",
+            "          \"leaf\" : false,\r",
+            "          \"CATEG\" : \"Node 4\",\r",
+            "          \"sortFld\": \"depth: 2, index: 3\"\r",
+            "         }\r",
+            "     ]\r",
+            "    }\r",
+            "]}"
+        ],
+        "sortFldName": "sortFld",
+        "storeId": "myTreeStore"
+    },
+    "designerId": "9ff9e47e-a02e-47b4-abf1-3bd8cfcd1f57",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "sortFldName",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CATEG"
+            },
+            "designerId": "371e4cd4-39cc-4022-b8fe-36c7e9e0e2c7"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sortFld"
+            },
+            "designerId": "992bf7ae-ed5d-425e-9858-266d2ae8a00e"
+        },
+        {
+            "type": "Ext.util.Sorter",
+            "reference": {
+                "name": "sorters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "property": "sortFld"
+            },
+            "designerId": "2c06328a-ed25-4ad2-856e-4ff80edf8926"
+        }
+    ]
+}
