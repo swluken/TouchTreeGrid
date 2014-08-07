@@ -27,6 +27,9 @@ your toolbox (TouchTreeGrid.xdc, CalendarPicker.xdc).
 
 This software can be downloaded at <a href="https://github.com/swluken/TouchTreeGrid">https://github.com/swluken/TouchTreeGrid</a>
 
+Forum thread for TouchTreeGrid:  http://www.sencha.com/forum/showthread.php?259616-TouchTreeGrid-component
+Forum thread for CalendarPicker:  http://www.sencha.com/forum/showthread.php?270677-Touch-CalendarPicker-Component
+
 Refer to "TouchTreeGrid - Documentation.pdf" (page 1) for version details associated with each of the project directories included in the download:
  - TTG_Slider (Facebook-style slide navigation example that includes most updated versions of the examples)
  - MenuEx (Simplified example of how to utilize new Menu component included in Touch 2.3 for various implementations and using TouchTreeGrid for left/right menu items)
@@ -52,6 +55,9 @@ http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Freeze/app.html
 
 See working Touch 2.2 Tab Panel examples at:
 http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html
+
+See Example of how to Dynamically load Nodes when expanded for large TreeStores at:
+http://www.gomainerentals.com/Sencha/DynamicLoadEx2C/index.html
 
 PLANNED ENHANCEMENTS TO TouchTreeGrid:      
     
@@ -86,7 +92,7 @@ Detailed documention included in the download:  "TouchTreeGrid - Documentation.p
 License
 -------
 
-Copyright (c) 2013 Steve Luken. 
+Copyright (c) 2013-14 Steve Luken. 
 This software is free to use (refer to associated MIT.LISCENSE) .
 
 **Don't forget to STAR this repository in GITHUB to be notified for frequent changes !!
