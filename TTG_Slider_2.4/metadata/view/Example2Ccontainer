@@ -1,0 +1,489 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "example2Ccontainer",
+        "designer|userClassName": "Example2Ccontainer",
+        "itemId": "example2Ccontainer",
+        "layout": "card"
+    },
+    "designerId": "86cffaea-96f1-4e26-86e1-f36acf445824",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "additionalListConfigs": null,
+                "applyDefaultCollapseLevel": false,
+                "arrowPctWidth": null,
+                "categColumns": null,
+                "categDepthColorButtons": false,
+                "categDepthColors": true,
+                "categDepthColorsArr": [
+                    "['white', 'white', 'white']"
+                ],
+                "categIndentPct": null,
+                "categItemTpl": null,
+                "categItemTplOverride": null,
+                "cls": [
+                    "x-touchtreegrid-list",
+                    "x-touchtreegrid-list-example2",
+                    "x-touchtreegrid-list-example2C"
+                ],
+                "colNumberToTruncateForIndents": null,
+                "columnSorting": null,
+                "columns": [
+                    "[",
+                    "    {",
+                    "        header: 'Task',",
+                    "        dataIndex: 'task',",
+                    "        width: '35%',",
+                    "        style: 'text-align: left;',",
+                    "        categStyle: 'font-weight: bold; text-align: left; color: blue;',",
+                    "        headerStyle: 'text-align: left; color: #ccc;'",
+                    "    },",
+                    "    {",
+                    "        header: 'User',",
+                    "        dataIndex: 'user',",
+                    "        width: '25%',",
+                    "        style: 'text-align: left; padding-left: .5em;',",
+                    "        categStyle: 'text-align: left;padding-left: .5em;',",
+                    "        headerStyle: 'text-align: left; color: #ccc;padding-left: .5em;'",
+                    "    },",
+                    "    {",
+                    "        header: 'Dur',",
+                    "        dataIndex: 'duration',",
+                    "        width: '15%',",
+                    "        style: 'text-align: right;',",
+                    "        categStyle: 'text-align: right;',",
+                    "        headerStyle: 'text-align: right; color: #ccc;'",
+                    "    },",
+                    "    {",
+                    "        header: 'Done?',",
+                    "        dataIndex: 'done',",
+                    "        width: '25%',",
+                    "        style: 'padding-left: 10%; margin: 0px 0 0px 0;',",
+                    "        addDataIndexToDiv: true,   // required to listen to taps on this column",
+                    "        headerStyle: 'text-align: center; color: #ccc;',",
+                    "        renderer: 'this.renderer_checkMark(values)'",
+                    "    } ",
+                    "]"
+                ],
+                "contentItemTpl": null,
+                "contentItemTplOverride": null,
+                "customColumnSortEvent": null,
+                "customExpCollapseEvent": null,
+                "defaultCollapseLevel": null,
+                "designer|createAlias": "touchtreegrid",
+                "disableExpandCollapse": null,
+                "disableSelection": null,
+                "disclosureProperty": null,
+                "displayField": null,
+                "footer": null,
+                "header": null,
+                "headerItemData": null,
+                "headerItemOuter": null,
+                "headerItemTpl": null,
+                "headerTpl": null,
+                "headerTplOverride": null,
+                "helpHtml": "./resources/html/Project3Example.html",
+                "includeFooter": null,
+                "includeFooterLevels": null,
+                "includeHeader": null,
+                "infinite": null,
+                "itemHeight": 32,
+                "itemId": "example2C",
+                "landscapeIcon": null,
+                "layout": null,
+                "list": null,
+                "listItemId": "example2Clist",
+                "listPlugins": null,
+                "listScrollable": null,
+                "listStyle": null,
+                "mode": null,
+                "onItemDisclosure": false,
+                "plugins": null,
+                "pressedBtnCls": null,
+                "pressedCls": null,
+                "renderers": [
+                    "{renderer_checkMark: function (values) {",
+                    " //return  (values.done && values.leaf) ? \"<img src='./resources/images/check_box.png'>\" : '';",
+                    " ",
+                    " if (values.done && values.leaf) {",
+                    "return  ( \"<span class='flag-checked'> </span>\");",
+                    "}",
+                    "else if (!values.done && values.leaf) {",
+                    "return  ( \"<span class='flag-not-checked'> </span>\");",
+                    "}",
+                    "else if (values.done && !values.leaf) {",
+                    "return  ( \"<span class='node-flag-checked'> </span>\");",
+                    "}",
+                    "else if (!values.done && !values.leaf) {",
+                    "return  ( \"<span class='node-flag-not-checked'> </span>\");",
+                    "}",
+                    " }",
+                    "}"
+                ],
+                "scrollable": null,
+                "selectedCls": null,
+                "simpleList": null,
+                "singleExpand": null,
+                "store": "projectsStore",
+                "styleCategRow": null,
+                "styleContentRow": "background-color: {[(values.done && values.leaf ? \"#FFFFB2\" : \"none\")]};",
+                "styleHeaderRow": null,
+                "useAnimation": null,
+                "useCustomPressedBtnCls": null,
+                "useSimpleItems": null,
+                "variableHeights": false
+            },
+            "name": "MyContainer9",
+            "configAlternates": {
+                "listScrollable": "object",
+                "defaultExpanded": "boolean",
+                "useAnimation": "boolean",
+                "disableSelection": "boolean",
+                "listStyle": "object",
+                "onItemDisclosure": "boolean",
+                "headerItemData": "array",
+                "columns": "array",
+                "header": "object",
+                "variableHeights": "boolean",
+                "itemHeight": "number",
+                "footer": "object",
+                "includeFooter": "boolean",
+                "list": "object",
+                "plugins": "object",
+                "listPlugins": "object",
+                "colNumberToTruncateForIndents": "number",
+                "includeFooterLevels": "boolean",
+                "categDepthColors": "boolean",
+                "categDepthColorsArr": "array",
+                "renderers": "object",
+                "categDepthColorButtons": "boolean",
+                "useCustomPressedBtnCls": "boolean",
+                "includeHeader": "boolean",
+                "autoApplyCollapseConfig": "boolean",
+                "applyDefaultCollapseLevel": "boolean",
+                "defaultCollapseLevel": "number",
+                "simpleList": "boolean",
+                "headerSorting": "boolean",
+                "columnSorting": "boolean",
+                "singleExpand": "boolean",
+                "additionalListConfigs": "object",
+                "useSimpleItems": "boolean",
+                "infinite": "boolean",
+                "scrollable": "object",
+                "disableExpandCollapse": "boolean",
+                "categColumns": "array",
+                "styleCategRow": "object"
+            },
+            "designerId": "5ff739c2-f620-4634-839f-bc1d7b13793e",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "store",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "displayField",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "listScrollable",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "headerItemTpl",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "contentItemTpl",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "useAnimation",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "list",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "headerItemOuter",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "headerItemInner",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "headerItemData",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "disableSelection",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "listStyle",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "onItemDisclosure",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "columns",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "header",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "headerTpl",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "variableHeights",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "itemHeight",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "disclosureProperty",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "listItemId",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "categItemTpl",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "footer",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "includeFooter",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "plugins",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "listPlugins",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "categIndentPct",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "colNumberToTruncateForIndents",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "includeFooterLevels",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "categDepthColors",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "categDepthColorsArr",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "customExpCollapseEvent",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "renderers",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "categDepthColorButtons",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "pressedBtnCls",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "useCustomPressedBtnCls",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "categItemTplOverride",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "contentItemTplOverride",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "headerTplOverride",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "includeHeader",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "applyDefaultCollapseLevel",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "defaultCollapseLevel",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "landscapeIcon",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "helpHtml",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "pressedCls",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "simpleList",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "columnSorting",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "styleContentRow",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "styleCategRow",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "styleHeaderRow",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "singleExpand",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "additionalListConfigs",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "selectedCls",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "mode",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "useSimpleItems",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "infinite",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "arrowPctWidth",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "customColumnSortEvent",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "disableExpandCollapse",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "categColumns",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}

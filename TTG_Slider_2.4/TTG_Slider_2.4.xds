@@ -1,0 +1,93 @@
+{
+    "name": "TTG_Slider_2.4",
+    "settings": {
+        "cmd": {},
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "http://localhost/TouchTreeGrid-master/TTG_Slider_2.4/",
+        "exportPath": "",
+        "buildShouldOverwriteIndex": true,
+        "canvasControls": {
+            "viewportSize": {
+                "name": "iPhone",
+                "builtIn": true,
+                "height": 480,
+                "width": 320
+            },
+            "viewportOrientation": "portrait"
+        },
+        "generateArchitectVersion": true,
+        "displayfield-ExtBox1-1484-inputEl": "Not Installed",
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "installStatus": "Not Installed"
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1943,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "touch24",
+    "viewOrderMap": {
+        "view": [
+            "eeeda3bf-155a-46cc-b5da-27e57a4e4a09",
+            "f7022250-2524-4762-84a0-02bf4debf777",
+            "ec6fb05e-626a-4d25-a608-017bc2a7ad92",
+            "c06ce704-f9a9-4d59-a0c5-71241212d72e",
+            "d6a20fe9-1882-47dd-a16a-43554b0db9ae",
+            "99f971a7-0cf0-401f-b1d3-6982538a35aa",
+            "86cffaea-96f1-4e26-86e1-f36acf445824",
+            "2cead062-1b8a-4393-bacf-57fb83e44d62",
+            "9204622d-8a02-4e48-bd65-5c32969c3f4b",
+            "16e06936-6704-4363-96d5-3caa1a0bada9",
+            "e3f9b86c-65ad-4ff7-8b2d-a5d8a0bfc34d",
+            "e5fe2086-b8dc-4276-9e3f-62a38fc47155",
+            "4cc7d0f3-f093-484e-b7e8-4a3a806ef872",
+            "4b033546-6433-4372-bd62-13a81c2aa837",
+            "c215f7a1-ad64-48fe-a4fa-5d3fce53d7f5",
+            "6f08a9c0-cfe3-4594-8147-ce598967221f",
+            "0fb75db5-f14e-4371-9e62-b9d763943690",
+            "07440f51-d634-4731-b2e0-9640692e0137",
+            "2bd5c55f-97ab-4ecc-a7ef-655a1a37d856",
+            "f1b9d396-4b33-4e41-a03c-7da4849f253d"
+        ],
+        "store": [
+            "31f07016-1978-48ac-b3c9-0d682e8e398a",
+            "9858af50-f80d-43c9-b79c-e989afc71f15",
+            "9d1b3709-b233-4bc5-9421-bc8008521dd8",
+            "fee261bb-ec2f-4a0b-b2a5-73a780bcf168",
+            "cde502af-6627-414f-8b30-d50be496781a",
+            "f09d0d06-5d3c-4d55-8ac3-04df9144d6ea",
+            "2ebb5b96-a94d-49a1-9a34-17ad67b892c9",
+            "9ff9e47e-a02e-47b4-abf1-3bd8cfcd1f57",
+            "61962219-2fdf-4f65-a121-c51fe33f80d9",
+            "3307a78a-f902-4a81-aed1-8866d3fe8958",
+            "ae80e82c-b678-421d-a92e-af61a89d84de",
+            "b62265f3-705d-4cbf-88ae-9031bea8f98b",
+            "7c864c2f-402a-45da-8912-943e5b41bc84"
+        ],
+        "controller": [
+            "97a4c3a2-9a08-4611-87a1-12b030c85f82",
+            "905a52d6-de2c-41aa-90cb-6f86e22ac728",
+            "4d89cdb1-d0c3-4285-8fbe-4dc43bd0d652",
+            "e2658624-eb71-46f2-8a24-1af4059141e5",
+            "9c622342-bd07-4a5e-8842-1c91c6fec0e4"
+        ],
+        "model": [
+            "f031d1bc-7218-4537-9392-8cfbd525bced",
+            "bfa23346-2ef4-4909-b75a-0be3e2d0a37f",
+            "9238ee98-c9e5-4bfc-9528-611e0feb9756",
+            "24a60e9f-009e-4162-a538-ec28dfb4ba34",
+            "93013216-e1c8-4174-961f-1d71dbae2e23"
+        ],
+        "resource": [
+            "94f678cb-fd5d-4c34-9629-893a412789c7",
+            "087f6104-eaf2-44c2-b243-8df338c6dd04",
+            "94125f8b-4dc7-4141-b123-cb62c633e6ad"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

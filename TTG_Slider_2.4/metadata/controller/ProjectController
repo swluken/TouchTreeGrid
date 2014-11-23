@@ -1,0 +1,427 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ProjectController",
+        "models": [
+            "Projects"
+        ],
+        "stores": [
+            "ProjectsStore"
+        ],
+        "views": [
+            "Example2container",
+            "Example2Bcontainer",
+            "Example2Ccontainer"
+        ]
+    },
+    "designerId": "4d89cdb1-d0c3-4285-8fbe-4dc43bd0d652",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#example2list",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onExample2ListDisclose",
+                "implHandler": [
+                    "//Ext.Msg.alert('You disclosed record: ' + record.get('task'));\r",
+                    "\r",
+                    "\r",
+                    "var swapcont = this.getExample2container();   \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    var newcont = commonController.getGriddetailpanel(\r",
+                    "    {\r",
+                    "        title : 'Example 2 Detail',\r",
+                    "        id : 'example2detail',\r",
+                    "        layout: {type: 'fit'},\r",
+                    "        itemId: 'griddetailpanel'\r",
+                    "    }\r",
+                    "    );\r",
+                    "\r",
+                    "    var gridItemId = swapcont.down('touchtreegrid').getItemId();\r",
+                    "    newcont.swapcont = swapcont;\r",
+                    "    newcont.gridItemId = gridItemId;\r",
+                    "\r",
+                    "    if (newcont)\r",
+                    "    {\r",
+                    "        var newLabel = newcont.down('#griddetaillabel');    \r",
+                    "        newLabel.setHtml(record.get('task'));       \r",
+                    "\r",
+                    "        var fldSet = newcont.down('#griddetailfieldset');\r",
+                    "        var result = fldSet.setConfig({\r",
+                    "            items : [\r",
+                    "            {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, \r",
+                    "            {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, \r",
+                    "            {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, \r",
+                    "            {label: 'Done?', itemId: 'myCheckMark', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done, thisRec: record}\r",
+                    "        ]}); \r",
+                    "\r",
+                    "        swapcont.add(newcont);\r",
+                    "        swapcont.setActiveItem(newcont);     \r",
+                    "    }\r",
+                    "}"
+                ],
+                "name": "disclose"
+            },
+            "name": "onExample2ListDisclose",
+            "designerId": "d45f0e8f-46fd-45dc-b14c-f4dd19a9ec04"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#example2Blist",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onExample2BListDisclose",
+                "implHandler": [
+                    "//Ext.Msg.alert('You disclosed record: ' + record.get('task'));\r",
+                    "\r",
+                    "\r",
+                    "var swapcont = this.getExample2Bcontainer();   \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    var newcont = commonController.getGriddetailpanel(\r",
+                    "    {\r",
+                    "        title : 'Example 2B Detail',\r",
+                    "        id : 'example2Bdetail',\r",
+                    "        layout: {type: 'fit'},\r",
+                    "        itemId: 'griddetailpanel'\r",
+                    "    }\r",
+                    "    );\r",
+                    "\r",
+                    "    var gridItemId = swapcont.down('touchtreegrid').getItemId();\r",
+                    "    newcont.swapcont = swapcont;\r",
+                    "    newcont.gridItemId = gridItemId;\r",
+                    "\r",
+                    "    if (newcont)\r",
+                    "    {\r",
+                    "        var newLabel = newcont.down('#griddetaillabel');    \r",
+                    "        newLabel.setHtml(record.get('task'));       \r",
+                    "\r",
+                    "        var fldSet = newcont.down('#griddetailfieldset');\r",
+                    "        var result = fldSet.setConfig({\r",
+                    "            items : [\r",
+                    "            {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, \r",
+                    "            {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, \r",
+                    "            {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, \r",
+                    "            {label: 'Done?', itemId: 'myCheckMark', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done, thisRec: record}\r",
+                    "        ]}); \r",
+                    "\r",
+                    "        swapcont.add(newcont);\r",
+                    "        swapcont.setActiveItem(newcont);     \r",
+                    "    }\r",
+                    "}"
+                ],
+                "name": "disclose"
+            },
+            "name": "onExample2BListDisclose",
+            "designerId": "255c8a81-a188-4c45-b8be-66a6586bcac4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#example2list",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onExample2ListItemTaphold",
+                "implHandler": [
+                    "// Example where we can treat long presses same as disclose event to improve on \r",
+                    "// sensitivity issues with smaller icon.\r",
+                    "// Note:  long press (1 second) works on full item, but not actually on icon itself\r",
+                    "if (record.get('leaf')) {\r",
+                    "    this.onExample2ListDiscloseOrHold(record, target, index);\r",
+                    "}"
+                ],
+                "name": "itemtaphold"
+            },
+            "name": "onExample2ListItemTaphold",
+            "designerId": "46131885-2ddb-40e0-90ae-c558e7582303"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "container#example2",
+                "designer|params": [
+                    "container"
+                ],
+                "designer|targetType": "Ext.Container",
+                "fn": "onExample2ListPullrefresh",
+                "implHandler": [
+                    "this.loadExample2Store(container);\r",
+                    ""
+                ],
+                "name": "pullrefresh"
+            },
+            "name": "onExample2ListPullrefresh",
+            "designerId": "c2427167-e131-4ebc-ba6a-920fc48403c3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "example2container",
+                "selector": "example2container",
+                "xtype": "example2container"
+            },
+            "name": "example2container",
+            "designerId": "a4a05b4a-7bb0-492d-9284-5f2d4c9869c5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "example2Bcontainer",
+                "selector": "example2Bcontainer",
+                "xtype": "example2Bcontainer"
+            },
+            "name": "example2Bcontainer",
+            "designerId": "64cf01cf-e54c-4833-86bf-d8fb89d2faa7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "example2Ccontainer",
+                "selector": "example2Ccontainer",
+                "xtype": "example2Ccontainer"
+            },
+            "name": "example2Ccontainer",
+            "designerId": "f89f71ef-fe98-40e8-84e7-c59b2433b056"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record",
+                    "target",
+                    "index"
+                ],
+                "fn": "onExample2ListDiscloseOrHold",
+                "implHandler": [
+                    "//Ext.Msg.alert('You disclosed record: ' + record.get('task'));\r",
+                    "\r",
+                    "\r",
+                    "var swapcont = this.getExample2container();   \r",
+                    "if (swapcont)\r",
+                    "{\r",
+                    "    var newcont = commonController.getGriddetailpanel(\r",
+                    "    {\r",
+                    "        title : 'Example 2 Detail',\r",
+                    "        id : 'example2detail',\r",
+                    "        layout: {type: 'fit'},\r",
+                    "        itemId: 'griddetailpanel'\r",
+                    "    }\r",
+                    "    );\r",
+                    "\r",
+                    "    var gridItemId = swapcont.down('touchtreegrid').getItemId();\r",
+                    "    newcont.swapcont = swapcont;\r",
+                    "    newcont.gridItemId = gridItemId;\r",
+                    "\r",
+                    "    if (newcont)\r",
+                    "    {\r",
+                    "        var newLabel = newcont.down('#griddetaillabel');    \r",
+                    "        newLabel.setHtml(record.get('task'));       \r",
+                    "\r",
+                    "        var fldSet = newcont.down('#griddetailfieldset');\r",
+                    "        var result = fldSet.setConfig({\r",
+                    "            items : [\r",
+                    "            {label: 'Task', xtype: 'textfield', readOnly: true, value: record.data.task}, \r",
+                    "            {label: 'User', xtype: 'textfield', readOnly: true, value: record.data.user}, \r",
+                    "            {label: 'Duration', xtype: 'numberfield', readOnly: true, value: record.data.duration}, \r",
+                    "            {label: 'Done?', xtype: 'checkboxfield', disabledCls: null, checked: record.data.done}\r",
+                    "        ]}); \r",
+                    "\r",
+                    "        swapcont.add(newcont);\r",
+                    "        swapcont.setActiveItem(newcont);     \r",
+                    "    }\r",
+                    "}"
+                ]
+            },
+            "name": "onExample2ListDiscloseOrHold",
+            "designerId": "6b3994a1-cae0-41fd-9192-2fa6fc4bad4e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridcont"
+                ],
+                "fn": "loadExample2Store",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "var gridurl = 'data/treegrid.json';\r",
+                    "\r",
+                    "commonController.loadStore(me, gridcont, gridurl, 'Loading Project...');\r",
+                    ""
+                ]
+            },
+            "name": "loadExample2Store",
+            "designerId": "70ade1b9-1082-4929-a1d4-6e1ac37ef436"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "checkboxfield#myCheckMark",
+                "designer|targetType": "Ext.field.Checkbox",
+                "fn": "onCheckboxfieldCheck",
+                "implHandler": [
+                    "// Update store with checked status\r",
+                    "var myRec = checkboxfield.config.thisRec;\r",
+                    "myRec.set('done', checkboxfield._checked);"
+                ],
+                "name": "check"
+            },
+            "name": "onCheckboxfieldCheck",
+            "designerId": "19c3ea1b-2f04-4cae-bf1b-2c48e1372a78"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "checkboxfield",
+                "designer|targetType": "Ext.field.Checkbox",
+                "fn": "onCheckboxfieldUncheck",
+                "implHandler": [
+                    "this.onCheckboxfieldCheck(checkboxfield, e, eOpts);"
+                ],
+                "name": "uncheck"
+            },
+            "name": "onCheckboxfieldUncheck",
+            "designerId": "c78e14aa-884d-46f9-9943-c4c23499bb83"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "parentNode"
+                ],
+                "fn": "updateParents",
+                "implHandler": [
+                    "// Recursively updating parents if all children are done",
+                    "var me = this, i, children, allChecked = true;",
+                    "children = parentNode.childNodes;",
+                    "for (i=0; i<children.length; i++){",
+                    "    if (!children[i].get('done')){",
+                    "        allChecked = false;",
+                    "        break;",
+                    "    }",
+                    "}",
+                    "if (allChecked){",
+                    "    parentNode.set('done', true);",
+                    "    if (parentNode.parentNode){",
+                    "        me.updateParents(parentNode.parentNode);",
+                    "    }",
+                    "",
+                    "}",
+                    "else {",
+                    "      parentNode.set('done', false);",
+                    "    if (parentNode.parentNode){",
+                    "        me.updateParents(parentNode.parentNode);",
+                    "    }",
+                    "",
+                    "}"
+                ]
+            },
+            "name": "updateParents",
+            "designerId": "3f12adf9-b9e7-4d8d-9bfe-ebb0988bf9d5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#example2Clist",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onExample2ClistTap",
+                "implHandler": [
+                    "// Toggle done Checkbox",
+                    "var me = this;",
+                    "var myField = e.target.getAttribute('dataindex');",
+                    "if (Ext.isEmpty(myField)){",
+                    "    myField = e.target.parentElement.getAttribute('dataindex');  // For images, etc...",
+                    "}",
+                    "var innerText = e.target.innerText;",
+                    "",
+                    "var done = record.get('done');",
+                    "",
+                    "if (myField === 'done' && record.get('leaf')) {",
+                    "    record.set('done', !done);",
+                    "    // Update parent node checked if all it's children are checked",
+                    "    if (record.parentNode){",
+                    "        me.updateParents(record.parentNode);",
+                    "    }",
+                    "}"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onExample2ClistTap",
+            "designerId": "3ccda393-3563-49fb-bbec-4457cfb27e92"
+        }
+    ]
+}

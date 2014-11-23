@@ -1,0 +1,111 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "griddetailpanel",
+        "designer|userClassName": "GridDetailPanel",
+        "layout": "vbox"
+    },
+    "designerId": "2bd5c55f-97ab-4ecc-a7ef-655a1a37d856",
+    "cn": [
+        {
+            "type": "Ext.TitleBar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "center",
+                "docked": "top"
+            },
+            "name": "MyTitleBar",
+            "designerId": "e6239e5d-f2c2-40e2-b698-9d7a518491df",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "griddetailbackbtn",
+                        "layout|flex": null,
+                        "maxWidth": 80,
+                        "minWidth": 80,
+                        "text": "Back",
+                        "ui": "back"
+                    },
+                    "name": "MyButton5",
+                    "designerId": "99d7b361-6bf3-4ff5-b90e-a6dcbb7649e8"
+                },
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 10
+                    },
+                    "name": "MySpacer1",
+                    "designerId": "8e78fd85-5530-4ba2-9408-ef6d6e0f8244"
+                },
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "",
+                        "itemId": "griddetaillabel",
+                        "style": "color : white"
+                    },
+                    "name": "MyLabel3",
+                    "designerId": "43eefe9d-3fc4-47a9-a98c-2922fb4ff7a7"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "griddetailfieldset",
+                "layout|flex": 1,
+                "scrollable": "vertical",
+                "title": null
+            },
+            "name": "MyFieldSet2",
+            "designerId": "d5cbe1f8-fb8a-435d-9322-156ef70e2dc2",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 78,
+                        "label": "Field",
+                        "readOnly": true
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "91e28fa9-7795-435d-b3e8-bef1a86ba377"
+                }
+            ]
+        }
+    ]
+}

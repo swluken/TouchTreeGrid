@@ -1,0 +1,23 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": null,
+        "defaultRootProperty": null,
+        "designer|userAlias": "projectsStore",
+        "designer|userClassName": "ProjectsStore",
+        "model": "Projects",
+        "root": [
+            "{\r",
+            "  \"children\":[]\r",
+            "}\r",
+            ""
+        ],
+        "storeId": "projectsStore"
+    },
+    "designerId": "f09d0d06-5d3c-4d55-8ac3-04df9144d6ea"
+}

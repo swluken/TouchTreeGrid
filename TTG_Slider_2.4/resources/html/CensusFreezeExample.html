@@ -1,0 +1,27 @@
+<div>Freeze Column Example</div>
+<div>&nbsp;</div>
+<div style="font-size: .8em; max-width: 75% !important;">
+
+<p>>Horizontal scrolling with Freeze Column for large 600 data row with 28 data elements per row Tree Grid example.</p>
+<p>&nbsp;</p>
+<p>>Multiple freeze columns can be implemented simply by instantiating new instances of TouchTreeGrid for specific columns and referencing the same TreeStore</p>
+<p>&nbsp;</p>
+<p>>Recommended configs for all columns when specifying widths in pixels or em's: categIndentPct='0', colNumberToTruncateForIndents=0</p>	
+<p>&nbsp;</p>
+<p>>Recommended configs for 1st displayed fixed column container:  width/minWidth a little larger than the actual column width for right padding, arrowPctWidth='6' (or large enough for reduced display width)   </p>	
+<p>&nbsp;</p>
+<p>>Recommended configs for containers after the initial one:  arrowPctWidth='0', includeFooterLevels=false, hideExpandCollapseBtns=true, flex=1, width/minWidth a little large than total sum of column widths for right padding   </p>	
+<p>&nbsp;</p>
+<p>All freeze and horizontal scrolling column sets should have single ultimate parent container with layout='hbox' and itemId.  This itemId will be referenced in all displayed grids using linkedGridsParentItemId config.</p>
+<p>&nbsp;</p>
+<p>>Each individual Horizontal scrolling column set should have parent container with Layout='hbox' and scrollable = {direction: 'horizontal', directionLock: true}}</p>
+<p>&nbsp;</p>
+<p>Each fixed and scrolling sets of columns should have config linkedGridsArr[] defined which specifies the itemId's of all the OTHER participating grids</p>
+<p>&nbsp;</p>
+ </div>
+
+
+
+
+
+	

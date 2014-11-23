@@ -1,0 +1,21 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": null,
+        "designer|userClassName": "CensusFreezeStore",
+        "model": "Census",
+        "root": [
+            "{\r",
+            "  \"children\":[]\r",
+            "}\r",
+            ""
+        ],
+        "storeId": "censusFreezeStore"
+    },
+    "designerId": "9ff9e47e-a02e-47b4-abf1-3bd8cfcd1f57"
+}

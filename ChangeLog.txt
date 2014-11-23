@@ -1,8 +1,20 @@
 **************************************************************************************************
-07/09/2014 COMMIT CHANGE LOG: 
+11/23/2014 COMMIT CHANGE LOG: 
 
-- Added "DynamicLoadEx2" project directory which contains example of one way to dynamically load child nodes for large treestore
-- See demo at:   http://www.gomainerentals.com/Sencha/DynamicLoadEx2/index.html
+- Added configs to TouchTreeGrid:  cssSimpleRow and styleSimpleRow which add support for row styling for standard grids
+   > feature already supported for tree grids- Upgraded TTG_Slider_2.4 project to Touch 2.4
+   > Modified TouchTreeGrid updateColumns() method to process these configs 
+     (refer to 4 changes with comment "SWL added 11/22/14")
+     
+- Created Architect 3.1.0 Build 1943 version of TouchTreeGrid and CalendarPicker in ArchitectComponents directory.
+
+- Added example on how to implement checkcolumn for TreeGrid and standard grid.   
+   > See example at:  http://www.gomainerentals.com/Sencha/TTG_Slider_2.4/index.html
+   > Project #3 for TreeGrid
+   > List Basic #2 for standard grids (also demo cssSimpleRow for conditional row styling)
+   
+- All modifications to TouchTreeGrid for this release are backward compatible
+
 
 **************************************************************************************************
 03/11/2014 COMMIT CHANGE LOG: 
