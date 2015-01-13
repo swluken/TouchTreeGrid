@@ -40,7 +40,7 @@ Ext.define('TouchTreeGrid.view.AccordionCont', {
                 listItemId: 'firstexamplelist',
                 includeFooterLevels: false,
                 includeHeader: false,
-                defaultCollapseLevel: 1,
+                applyDefaultCollapseLevel: false,
                 helpHtml: './resources/html/TaskExample.html',
                 singleExpand: true,
                 cls: [

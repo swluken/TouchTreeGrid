@@ -68,6 +68,7 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         styleSimpleRow: '',
         cssSimpleRow: '',
         cls: 'x-touchtreegrid-list',
+        itemId: 'touchtreegrid',
         layout: 'vbox',
         list: {
             
@@ -107,9 +108,6 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
             
         ],
         customFooterItems: {
-            
-        },
-        onScrollOptions: {
             
         },
         linkedGridsArr: [
@@ -694,6 +692,9 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         renderers.depthCategCss = function(values) {return (!categCssArr[values.depth-1] ? ' touchtreegrid-list-categ' : ' '+categCssArr[values.depth-1]);};
         renderers.formatNumbers = function(n, decPlaces, prefix, thouSeparator, decSeparator) {return me.formatNumbers(n, decPlaces, prefix, thouSeparator, decSeparator);};
 
+        // SWL added JAN2015
+        renderers.renderer_myForm = function(myClass, myHeight, values) {return me.renderer_myForm(myClass, myHeight, values);};
+
         var customRenderers = me.getRenderers();
         for (var prop in customRenderers) {
             renderers[prop] = customRenderers[prop];
@@ -1212,6 +1213,250 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         }
 
         return linkedGridsArr;
+    },
+
+    renderer_myForm: function(myClass, myHeight, values, classConfigs) {
+        // SWL added JAN2015 to support forms in content (leaf) and category rows
+        var me = this;
+        var i, myForm, myStore, myRecId, myRec, items, flds, readOnly;
+
+        classConfigs = classConfigs || {};
+        var myConfigs = Ext.merge(classConfigs, {height: myHeight, values: values});
+
+        myForm = Ext.create(myClass, myConfigs);
+
+        myStore = me.down('#'+this.getListItemId()).getStore();
+
+        myRecId       = values.id;
+        myRec         = myStore.getById(myRecId);
+        myForm.record = myRec;  // Save record with this instance of form
+        myForm.touchtreegrid = me;  // Save touchtreegrid instance with form
+        flds          = myRec.getFields();
+
+        if (myRec.readOnly == undefined){
+            // Use MyForm readOnly config until records are initialzied
+            readOnly = (myForm.config.readOnly ? true : false);
+            myRec.readOnly = readOnly;
+        }
+        else {
+            readOnly = (myRec.readOnly ? true : false);
+        }
+
+        myForm.config.readOnly = readOnly; // update new instance of form for current record
+
+        myForm.setRecord(myRec);  // Load record values into form
+
+        function recurseItems(items) {
+            var i, j, thisItems, childItems, textField, opts, thisOpt, fldName, radioName, fldName2;
+            thisItems = items.items;
+            if (!thisItems){return;}
+
+            // Recursively step through all items
+            for (i=0; i<thisItems.length; i++){
+                // If Checkbox field, then add/remove "checkbox-checked" class based on mapped field name value
+                if (thisItems[i].xtype === 'checkboxfield' && myRec.get(thisItems[i].getName())) {
+                    thisItems[i].addCls('checkbox-checked');
+                    thisItems[i].on('change', me.handleFormCheckboxfieldChange, myForm);
+
+                }
+                else if (thisItems[i].xtype === 'checkboxfield' && !myRec.get(thisItems[i].getName())) {
+                    thisItems[i].removeCls('checkbox-checked');
+                    thisItems[i].on('change', me.handleFormCheckboxfieldChange, myForm);
+                }
+                // If Radio field, then add/remove "radiofield-checked" class based on mapped field name value
+                else if (thisItems[i].xtype === 'radiofield') {
+                    // Radio and Checkboxes readOnly handled in 'check' event controller methods
+                    fldName = thisItems[i].getName()+"_"+thisItems[i].getItemId();
+                    radioName = thisItems[i].getName();
+                    if (!myRec[radioName]){
+                        myRec[radioName] = [];
+                    }
+                    if (flds.keys.indexOf(fldName) !== -1) {  // Chech that field exists for radiofield  (TBD: AUTOCREATE LATER?)
+                        if (!myRec[fldName+'_init']){  // Initialize this record
+                            myRec[fldName+'_init']=true;  // Set record value from component first time only
+
+                            myStore.suspendEvents();
+                            myRec.set(fldName, thisItems[i].getChecked());
+                            myStore.resumeEvents(true);
+                            myRec[radioName].push(thisItems[i]);  // stack all grouped radio components for traversal when unchcking all other radiofields
+                        }
+                        if (myRec.get(fldName)){ // Manually process all radiofields from checked one (ignore unchecked ones)
+                            if (thisItems[i].getCls().indexOf('radiofield-checked') === -1){
+                                thisItems[i].suspendEvents(true);
+                                thisItems[i].addCls('radiofield-checked');
+
+
+                                thisItems[i]._checked = true;  // manual updates avoid event firing
+                                thisItems[i].getComponent().input.dom.checked = true;
+                                thisItems[i].resumeEvents(true);
+                            }
+
+                            if (!myRec[fldName+'_init']){
+                                for (j=0; j<myRec[radioName].length; j++){
+                                    if (myRec[radioName][j] !== thisItems[i] &&
+                                        myRec[radioName][j].getCls().indexOf('radiofield-checked') !== -1){
+
+                                        myRec[radioName][j].suspendEvents();
+                                        myRec[radioName][j].removeCls('radiofield-checked');
+                                        myRec[radioName][j]._checked = false; // manually uncheck all others
+                                        myRec[radioName][j].getComponent().input.dom.checked = false;
+                                        myRec[radioName][j].resumeEvents(true);
+
+                                        fldName2 = myRec[radioName][j].getName()+"_"+myRec[radioName][j].getItemId();
+                                        myRec.set(fldName2, false);
+                                    }
+                                }
+                            }
+                        }
+                        thisItems[i].on('check', me.handleFormRadiofieldCheck, myForm);
+
+                    }
+                    else {
+                        console.log(fldName + ' field not defined  for radiofield');
+                    }
+                }
+                else if (thisItems[i].xtype === 'selectfield' && (thisItems[i].getName())) {
+                    // FOR TEXT FIELDS:  add value attribute in dom element
+                    opts = thisItems[i].getOptions();
+                    thisOpt = "";
+                    for (j=0; j<opts.length; j++){
+                        if (opts[j].value === thisItems[i].getValue()){
+                            thisOpt = opts[j].text;
+                            break;
+                        }
+                    }
+                    thisItems[i].element.down('input').dom.setAttribute("value", thisOpt);
+                    if (!thisItems[i].getReadOnly()){ // Don't override component-level readOnly setting
+                        thisItems[i].setReadOnly(readOnly);
+                    }
+                    if (!readOnly && !thisItems[i].getReadOnly()){
+                        thisItems[i].on('change', me.handleFormSelectfieldChange, myForm);
+                    }
+                }
+                else if (thisItems[i].xtype === 'textfield' && (thisItems[i].getName())) {
+                    // FOR TEXT FIELDS:  add value attribute in dom element
+                    if (!thisItems[i].getReadOnly()){ // Don't override component-level readOnly setting
+                        thisItems[i].setReadOnly(readOnly);
+                    }
+                    thisItems[i].element.down('input').dom.setAttribute("value", thisItems[i].getValue());
+                    if (!readOnly && !thisItems[i].getReadOnly()){
+                        thisItems[i].on('blur', me.handleFormTextfieldBlur, myForm);
+                        thisItems[i].on('clearicontap', me.handleFormTextfieldClearicontap, myForm);
+                    }
+                }
+                else if (thisItems[i].xtype === 'textareafield' && (thisItems[i].getName())) {
+                    // For TextArea fields need to update textContent in DOM
+                    thisItems[i].element.down('textarea').dom.textContent = thisItems[i].getValue();
+                    if (!thisItems[i].getReadOnly()){ // Don't override component-level readOnly setting
+                        thisItems[i].setReadOnly(readOnly);
+                    }
+                    if (!readOnly && !thisItems[i].getReadOnly()){
+                        thisItems[i].on('blur', me.handleFormTextareaBlur, myForm);
+                        thisItems[i].on('clearicontap', me.handleFormTextfieldClearicontap, myForm);
+                    }
+                }
+
+
+
+                childItems = thisItems[i].items;
+                if (childItems){
+                    recurseItems(childItems);
+                }
+            }
+        }
+
+        //     Optional way to traverse components in form:
+        //     Ext.each(myForm.query('textfield'), function() {
+        //         this.setReadOnly(readOnly);
+        //     });
+
+
+        items = myForm.getItems();
+        if (items) {
+            recurseItems(items);
+        }
+
+        if (typeof myForm.postInit == 'function') {
+            myForm.postInit();
+        }
+
+        var formHtml = myForm.element.dom.outerHTML;
+        return formHtml;
+    },
+
+    handleFormTextfieldBlur: function(textfield, e, eOpts) {
+        // SWL added JAN2015 to support forms in content (leaf) and category rows
+        var myFormPanel = this;  // myForm scope defined in event listener definition
+        // Only way I've found to get NewValue (so far) as change event doesn't reflect it with this implementation
+        var newValue = e.target.getAttributeNode('value').ownerElement.value;
+        if (myFormPanel.record.get(textfield.getName()) !== newValue) {  // Could be triggered from renderer_myForm so ignore
+            myFormPanel.record.set(textfield.getName(), newValue);
+        }
+    },
+
+    handleFormTextareaBlur: function(textfield, e, eOpts) {
+        // SWL added JAN2015 to support forms in content (leaf) and category rows
+        var myFormPanel = this;  // myForm scope defined in event listener definition
+        var newValue = e.target.value;
+        if (myFormPanel.record.get(textfield.getName()) !== newValue) {  // Could be triggered from renderer_myForm so ignore
+            myFormPanel.record.set(textfield.getName(), newValue);
+        }
+    },
+
+    handleFormTextfieldClearicontap: function(textfield, e, eOpts) {
+        // SWL added JAN2015 to support forms in content (leaf) and category rows
+        var myFormPanel = this;  // myForm scope defined in event listener definition
+        myFormPanel.record.set(textfield.getName(), "");
+    },
+
+    handleFormSelectfieldChange: function(selectfield, newValue, oldValue, eOpts) {
+        // SWL added JAN2015 to support forms in content (leaf) and category rows
+        var myFormPanel = this;  // myForm scope defined in event listener definition
+        if (myFormPanel.record.get(selectfield.getName()) !== newValue) {  // Could be triggered from renderer_myForm so ignore
+            myFormPanel.record.set(selectfield.getName(), newValue);
+        }
+    },
+
+    handleFormCheckboxfieldChange: function(checkboxfield, newValue, oldValue, eOpts) {
+        // SWL added JAN2015 to support forms in content (leaf) and category rows
+        var myFormPanel = this;  // myForm scope defined in event listener definition
+        if (myFormPanel.config.readOnly || checkboxfield.config.readOnly){return;}
+        var record = myFormPanel.record;
+
+        var name = checkboxfield.getName();
+        if (record.get(name) !== newValue) {  // Could be triggered from renderer_myForm so ignore
+            record.set(name, newValue);
+        }
+    },
+
+    handleFormRadiofieldCheck: function(checkboxfield, e, eOpts) {
+        // SWL added JAN2015 to support forms in content (leaf) and category rows
+        var myFormPanel = this;  // myForm scope defined in event listener definition
+        if (myFormPanel.config.readOnly || checkboxfield.config.readOnly){return;}
+
+        var fldName, myRec, myStore, j, fldName2, radioName;
+
+        fldName   = checkboxfield.getName()+"_"+checkboxfield.getItemId();
+        radioName = checkboxfield.getName();
+        myRec     = myFormPanel.record;
+        myStore   = myRec.stores[0];
+
+        if (myRec){
+            if (myRec[radioName]){  // Defined within TouchTreeGrid renderer_myForm() method upon initialization
+                myStore.suspendEvents();
+                for (j=0; j<myRec[radioName].length; j++){
+                    if (myRec[radioName][j] !== checkboxfield){
+                        fldName2 = myRec[radioName][j].getName()+"_"+myRec[radioName][j].getItemId();
+                        if (myRec.get(fldName2)){
+                            myRec.set(fldName2, false);  // Update all other radio buttons for this group as unchecked
+                        }
+                    }
+                }
+                myStore.resumeEvents(true);
+            }
+            myRec.set(fldName, true);  // This will trigger grid update to reprocess via TouchTreeGrid renderer_MyForm() method
+        }
+
     }
 
 });

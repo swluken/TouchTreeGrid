@@ -1,0 +1,111 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "data": null,
+        "defaultRootProperty": "items",
+        "designer|userClassName": "FormsTaskMultiRec",
+        "model": "FormsTask",
+        "root": [
+            "{",
+            "                items: [{",
+            "                  text: 'Later this week',",
+            "                  expanded: true,",
+            "                  categType: 'Short Form',",
+            "                  items: [",
+            "                    { ",
+            "                      text: 'Call Mom',",
+            "                      comment: 'Sample comment',",
+            "                      check1: true,",
+            "                      option: 'second',                      ",
+            "                      leaf: true",
+            "                    }, {",
+            "                      text: 'Later this week - Subjects',",
+            "                      categType: 'Mini Forms',",
+            "                      items: [",
+            "                          {",
+            "                            text: 'Calculus',",
+            "                            leaf: true,",
+            "                            formType: 'mini'",
+            "                          }, {",
+            "                            text: 'Physics',",
+            "                            leaf: true,",
+            "                            formType: 'mini'",
+            "                          }]",
+            "                    }]",
+            "                }, {",
+            "                  text: 'Today',",
+            "                  categType: 'Mixed Forms',",
+            "                  items: [{",
+            "                    text: 'Mow Grass',",
+            "                    leaf: true,",
+            "                    formType: 'short'",
+            "                  }, {",
+            "                    text: 'Buy Groceries',",
+            "                    leaf: true,",
+            "                    formType: 'long'",
+            "                  }, {",
+            "                    text: 'Watch Game',",
+            "                    leaf: true,",
+            "                    formType: 'mini'",
+            "                  }",
+            "                         ]",
+            "                }, {",
+            "                  text: 'Tomorrow',",
+            "                  categType: 'Mixed Forms',",
+            "                  items: [{",
+            "                    text: 'Frisbee',",
+            "                    leaf: true,",
+            "                    formType: 'mini'",
+            "                  }, {",
+            "                    text: 'Cookout',",
+            "                    leaf: true,",
+            "                    formType: 'short'",
+            "                  }]",
+            "                }, {",
+            "                  text: 'On Hold',",
+            "                  categType: 'Long Form',",
+            "                    items: [",
+            "                   ",
+            "                  {",
+            "                    text: 'Buy Clothes',",
+            "                    leaf: true,",
+            "                    formType: 'long'",
+            "                  }]",
+            "                }]",
+            "              }"
+        ],
+        "storeId": "FormsTaskMultiRec"
+    },
+    "name": "Task1",
+    "designerId": "57b6ca34-d682-493a-8b7d-f854c09c4c90",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy1",
+            "designerId": "74cb96e6-6eae-400d-be01-41b2a924ddbd",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader1",
+                    "designerId": "12aef288-e975-4609-9b00-ea5ef574263f"
+                }
+            ]
+        }
+    ]
+}

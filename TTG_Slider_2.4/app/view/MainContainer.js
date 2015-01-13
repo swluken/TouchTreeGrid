@@ -201,9 +201,9 @@ Ext.define('TouchTreeGrid.view.MainContainer', {
                     'x-touchtreegrid-list',
                     'x-touchtreegrid-list-menuopt'
                     ],
-                    minHeight: '60em',
-                    height: '60em',
-                    maxHeight: '60em',
+                    minHeight: '68em',
+                    height: '68em',
+                    maxHeight: '68em',
                     itemId: 'menuopt'
                 }
                 ]

@@ -1,0 +1,159 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "TouchTreeGridController",
+        "mixins": null
+    },
+    "designerId": "ac3c8037-b03d-45af-ac33-d2b07600986d",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "ACTIO",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "ref",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#myForm2EditBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onMyForm2EditBtnTap",
+                "implHandler": [
+                    "// Also see TTG_Slider_2.4 project for alternative approach.",
+                    "// TouchTreeGrid.view.FormsEdit and TouchTreeGrid.view.MyFormPanel2 which createes listenerss",
+                    "// within MyFormPanel2 class to handle Edit, Back and Revert functionality",
+                    "",
+                    "var me=this;",
+                    "var myFormPanel = button.up(\"#myFormPanel2\");  // UPDATE FOR YOUR PANEL HERE",
+                    "var myRec, myFormPanel2Edit, formEdit, fldName;",
+                    "",
+                    "if (myFormPanel && button.getItemId() === 'myForm2EditBtn') {",
+                    "    myRec = myFormPanel.record;",
+                    "",
+                    "    if (myRec){",
+                    "        formEdit = me.getFormEdit();",
+                    "",
+                    "        myFormPanel2Edit = formEdit.down('#myFormPanel2Edit');",
+                    "        myFormPanel2Edit.setRecord(myRec);",
+                    "        myFormPanel2Edit.record = myRec;",
+                    "",
+                    "        if (myRec.get('myRadioBtn_opt1')){",
+                    "            formEdit.down('#opt1').setChecked(true);",
+                    "        }",
+                    "        else if (myRec.get('myRadioBtn_opt2')){",
+                    "            formEdit.down('#opt2').setChecked(true);",
+                    "        }",
+                    "        // Otherwise radio button defaulted based on component definition",
+                    "",
+                    "        myFormPanel2Edit.down('#myForm2EditBtn').setHidden(true);",
+                    "        myFormPanel2Edit.down('#myForm2Toolbar').setHidden(false);",
+                    "",
+                    "        formEdit.setActiveItem(myFormPanel2Edit);",
+                    "    }",
+                    "}",
+                    "",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onMyForm2EditBtnTap",
+            "designerId": "ddecf4c3-8454-43fc-833b-01de61634233"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#myForm2BackBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onMyForm2BackBtnTap",
+                "implHandler": [
+                    "var me=this;",
+                    "var formEdit = me.getFormEdit();",
+                    "var myFormPanel2Edit = button.up('#myFormPanel2Edit');",
+                    "var values = myFormPanel2Edit.getValues();",
+                    "",
+                    "myFormPanel2Edit.record.set(values);",
+                    "myFormPanel2Edit.record.set('myRadioBtn_opt1', myFormPanel2Edit.down('#opt1').getChecked());",
+                    "myFormPanel2Edit.record.set('myRadioBtn_opt2', myFormPanel2Edit.down('#opt2').getChecked());",
+                    "formEdit.setActiveItem(0);",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onMyForm2BackBtnTap",
+            "designerId": "8712fb2e-eabd-42c9-bbd6-5fc4c17739ec"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#myForm2RevertBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onMyForm2RevertBtnTap",
+                "implHandler": [
+                    "var me=this;",
+                    "var formEdit = me.getFormEdit();",
+                    "var myFormPanel2Edit = button.up('#myFormPanel2Edit');",
+                    "myFormPanel2Edit.reset();"
+                ],
+                "name": "tap"
+            },
+            "name": "onMyForm2RevertBtnTap",
+            "designerId": "681ed06e-da9d-45ed-bbc0-a662bacb8ec8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "myFormPanel2",
+                "selector": "myFormPanel2",
+                "xtype": "myFormPanel2"
+            },
+            "name": "myFormPanel2",
+            "designerId": "6d53e756-4aaa-4987-bb22-057e47c4bd66"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "formEdit",
+                "selector": "container#formEdit"
+            },
+            "name": "formEdit",
+            "designerId": "7d339e9d-6140-4920-93b5-8e9654e3c95a"
+        }
+    ]
+}

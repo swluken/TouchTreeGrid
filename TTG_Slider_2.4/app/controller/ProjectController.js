@@ -59,9 +59,7 @@ Ext.define('TouchTreeGrid.controller.ProjectController', {
                 pullrefresh: 'onExample2ListPullrefresh'
             },
             "checkboxfield#myCheckMark": {
-                check: 'onCheckboxfieldCheck'
-            },
-            "checkboxfield": {
+                check: 'onCheckboxfieldCheck',
                 uncheck: 'onCheckboxfieldUncheck'
             },
             "list#example2Clist": {
@@ -166,8 +164,9 @@ Ext.define('TouchTreeGrid.controller.ProjectController', {
 
     onCheckboxfieldCheck: function(checkboxfield, e, eOpts) {
         // Update store with checked status
-        var myRec = checkboxfield.config.thisRec;
-        myRec.set('done', checkboxfield._checked);
+        // Triggered onDisclose checkbox edit of Project #1 and #2 examples ... commented out as competes with Project #3 demo
+        // var myRec = checkboxfield.config.thisRec;
+        // myRec.set('done', checkboxfield._checked);
     },
 
     onCheckboxfieldUncheck: function(checkboxfield, e, eOpts) {

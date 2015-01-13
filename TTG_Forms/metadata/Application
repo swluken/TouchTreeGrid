@@ -1,0 +1,36 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "TouchTreeGridController"
+        ],
+        "models": [
+            "Task"
+        ],
+        "name": "TouchTreeGrid",
+        "requires": [
+            "Ext.MessageBox",
+            "Ext.device.Device"
+        ],
+        "stores": [
+            "Task",
+            "Task2",
+            "TaskMultiRec"
+        ],
+        "views": [
+            "Main",
+            "TouchTreeGrid",
+            "MyFormPanel",
+            "MyFormPanel2",
+            "MyFormPanelLong",
+            "MyFormPanelMini"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}

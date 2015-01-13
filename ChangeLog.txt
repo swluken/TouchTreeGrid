@@ -1,4 +1,27 @@
 **************************************************************************************************
+1/12/2015 COMMIT CHANGE LOG: 
+
+- Added support to embed forms with editable components in Tree Grid Category and Content (aka leaf) rows.
+
+- See example at:  http://www.gomainerentals.com/Sencha/TTG_Forms/index.html
+
+- Refer to TTG_Forms project for specific examples and TTG_Forms.pdf in same directory for detailed documentation
+  on how to implement Forms within your grid.
+  (Same examples also added to TTG_Slider_2.4 which is the defacto "Kitchen Sink" for various uses of TouchTreeGrid
+   and where the latest version of TouchTreeGrid.js can always be found)
+  
+- Updated TouchTreeGrid.xdc in ArchitectComponents "Architect 3.1.0 Build 1943" directory
+
+- All modifications to TouchTreeGrid for this release are backward compatible
+
+- Summary of Changes to TouchTreeGrid.js:  (search on text "SWL added JAN2015")
+   > Updated doRefreshList() method to define renderers.renderer_myForm
+   > Added renderer_myForm() method to handle rendering of form within grid
+   > Added following supporting methods for form components:
+     handleFormTextfieldBlur(), handleFormTextareaBlur(), handleFormTextfieldClearicontap(),
+     handleFormSelectfieldChange(), handleFormCheckboxfieldChange(), handleFormRadiofieldCheck()
+
+**************************************************************************************************
 11/23/2014 COMMIT CHANGE LOG: 
 
 - Added configs to TouchTreeGrid:  cssSimpleRow and styleSimpleRow which add support for row styling for standard grids

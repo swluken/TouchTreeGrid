@@ -237,75 +237,107 @@ Ext.define('TouchTreeGrid.controller.CommonController', {
                 result.gridcont.doRefreshList();
                 Ext.Viewport.setMasked(false);
             }  else {result.grid.refresh();}
+        }
+        else if (text === 'Grouper #2') {
+            result = this.swapCont(listsController.getDow2012grouper2Cont(), newSelection);
+            this.onMenuButtonTap();
+            this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
+            numRecords = result.grid.getStore().getData().length;
+            if (numRecords === 0) {
+                Ext.Viewport.setMasked({
+                    xtype: 'loadmask',
+                    message: 'Loading Grouper#2 ...'
+                });
+                listsController.loadDow2012Grouper2Store(result.gridcont, result.grid);
+            }  else {result.grid.refresh();}
+        }
+        else if (text === 'Horizontal Scrolling') {
+            result = this.swapCont(listsController.getDow2012HorizCont(), newSelection);
+            this.onMenuButtonTap();
+            this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
+            numRecords = result.grid.getStore().getData().length;
+            if (numRecords === 0) {
+                Ext.Viewport.setMasked({
+                    xtype: 'loadmask',
+                    message: 'Loading Horiz ...'
+                });
+                result.grid.getStore().load();
+                result.gridcont.doRefreshList();
+                Ext.Viewport.setMasked(false);
             }
-            else if (text === 'Grouper #2') {
-                result = this.swapCont(listsController.getDow2012grouper2Cont(), newSelection);
-                this.onMenuButtonTap();
-                this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
-                numRecords = result.grid.getStore().getData().length;
-                if (numRecords === 0) {
-                    Ext.Viewport.setMasked({
-                        xtype: 'loadmask',
-                        message: 'Loading Grouper#2 ...'
-                    });
-                    listsController.loadDow2012Grouper2Store(result.gridcont, result.grid);
-                }  else {result.grid.refresh();}
-                }
-                else if (text === 'Horizontal Scrolling') {
-                    result = this.swapCont(listsController.getDow2012HorizCont(), newSelection);
-                    this.onMenuButtonTap();
-                    this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
-                    numRecords = result.grid.getStore().getData().length;
-                    if (numRecords === 0) {
-                        Ext.Viewport.setMasked({
-                            xtype: 'loadmask',
-                            message: 'Loading Horiz ...'
-                        });
-                        result.grid.getStore().load();
-                        result.gridcont.doRefreshList();
-                        Ext.Viewport.setMasked(false);
-                    }
-                }
-                else if (text === 'Dynamic Grid') {
-                    result = this.swapCont(listsController.getDow2012DynamicCont(), newSelection);
-                    this.onMenuButtonTap();
-                    this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
+        }
+        else if (text === 'Dynamic Grid') {
+            result = this.swapCont(listsController.getDow2012DynamicCont(), newSelection);
+            this.onMenuButtonTap();
+            this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
 
-                    // Reload each time pressed for dynamic grid example
-                    listsController.loadDow2012DynamicStore(result.gridcont, result.grid);
-                }
-                else if (text === 'Manual TPL') {
-                    result = this.swapCont(commonController.getOverrideExampleCont(), newSelection);
-                    this.onMenuButtonTap();
-                    this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
-                }
+            // Reload each time pressed for dynamic grid example
+            listsController.loadDow2012DynamicStore(result.gridcont, result.grid);
+        }
+        else if (text === 'Grid Edit') {
+            result = this.swapCont(formsController.getFormsGridEdit(), newSelection);
+            this.onMenuButtonTap();
+            this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
 
-                else {
+            // Reload each time pressed for dynamic grid example
+            formsController.getFormsGridEdit(result.gridcont, result.grid);
+        }
+        else if (text === 'Form Edit') {
+            result = this.swapCont(formsController.getFormsEdit(), newSelection);
+            this.onMenuButtonTap();
+            this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
 
-                    // If none of the above then assume category row selection so deselect.
-                    // Original record remains selected since mode=MULTI defined
-                    idx = menulist.getStore().find('Text', text);
-                    menulist.deselect(idx);
-                    newSelection = false;
+            // Reload each time pressed for dynamic grid example
+            formsController.getFormsEdit(result.gridcont, result.grid);
+        }
+        else if (text === 'Short vs. Long Forms') {
+            result = this.swapCont(formsController.getFormsMulti(), newSelection);
+            this.onMenuButtonTap();
+            this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
 
-                }
-                if (newSelection) {
+            // Reload each time pressed for dynamic grid example
+            formsController.getFormsMulti(result.gridcont, result.grid);
+        }
+        else if (text === 'Mixed Forms') {
+            result = this.swapCont(formsController.getFormsMixed(), newSelection);
+            this.onMenuButtonTap();
+            this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
 
-                    // Deselect prior item
-                    idx = menulist.getStore().find('Text', lastSelectionText);
-                    menulist.deselect(idx);
-                    lastSelectionText = text;  // redefine global variable with current selection
+            // Reload each time pressed for dynamic grid example
+            formsController.getFormsMixed(result.gridcont, result.grid);
+        }
+        else if (text === 'Manual TPL') {
+            result = this.swapCont(commonController.getOverrideExampleCont(), newSelection);
+            this.onMenuButtonTap();
+            this.showHelp(result.gridcont, (isPhone ? '0px' : '340px'), isPhone);
+        }
 
-                    // Slide container panel for phones after menu selection
-                    var modText= text;
-                    if (isPhone) {
-                        modText = text;
-                    } else {
-                        modText = ((text === 'Horizontal Scrolling') ? text + ' (phone)' : text);
-                    }
-                    menucont.down('#menuconttoolbar').setTitle(modText);
+        else {
 
-                }
+            // If none of the above then assume category row selection so deselect.
+            // Original record remains selected since mode=MULTI defined
+            idx = menulist.getStore().find('Text', text);
+            menulist.deselect(idx);
+            newSelection = false;
+
+        }
+        if (newSelection) {
+
+            // Deselect prior item
+            idx = menulist.getStore().find('Text', lastSelectionText);
+            menulist.deselect(idx);
+            lastSelectionText = text;  // redefine global variable with current selection
+
+            // Slide container panel for phones after menu selection
+            var modText= text;
+            if (isPhone) {
+                modText = text;
+            } else {
+                modText = ((text === 'Horizontal Scrolling') ? text + ' (phone)' : text);
+            }
+            menucont.down('#menuconttoolbar').setTitle(modText);
+
+        }
 
 
     },
@@ -825,6 +857,7 @@ Ext.define('TouchTreeGrid.controller.CommonController', {
         projectController = this.getApplication().getController('TouchTreeGrid.controller.ProjectController');
         censusController = this.getApplication().getController('TouchTreeGrid.controller.CensusController');
         listsController = this.getApplication().getController('TouchTreeGrid.controller.ListsController');
+        formsController = this.getApplication().getController('TouchTreeGrid.controller.FormsController');
 
         // Global Varaible Tracks last selected menu item since List select event doesn't provide prior vs. current items
         lastSelectionText = '';

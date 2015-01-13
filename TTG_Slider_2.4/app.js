@@ -28,7 +28,8 @@ Ext.application({
         'CensusController',
         'ListsController',
         'ProjectController',
-        'TasksController'
+        'TasksController',
+        'FormsController'
     ],
     name: 'TouchTreeGrid',
 

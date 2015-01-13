@@ -319,9 +319,10 @@
                 "designer|targetType": "Ext.field.Checkbox",
                 "fn": "onCheckboxfieldCheck",
                 "implHandler": [
-                    "// Update store with checked status\r",
-                    "var myRec = checkboxfield.config.thisRec;\r",
-                    "myRec.set('done', checkboxfield._checked);"
+                    "// Update store with checked status",
+                    "// Triggered onDisclose checkbox edit of Project #1 and #2 examples ... commented out as competes with Project #3 demo",
+                    "// var myRec = checkboxfield.config.thisRec;",
+                    "// myRec.set('done', checkboxfield._checked);"
                 ],
                 "name": "check"
             },
@@ -336,7 +337,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "checkboxfield",
+                "designer|controlQuery": "checkboxfield#myCheckMark",
                 "designer|targetType": "Ext.field.Checkbox",
                 "fn": "onCheckboxfieldUncheck",
                 "implHandler": [

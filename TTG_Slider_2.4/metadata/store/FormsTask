@@ -1,0 +1,98 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "data": null,
+        "defaultRootProperty": "items",
+        "designer|userClassName": "FormsTask",
+        "model": "FormsTask",
+        "root": [
+            "{",
+            "                items: [{",
+            "                  text: 'Later this week',",
+            "                  expanded: true,",
+            "                  items: [",
+            "                    { ",
+            "                      text: 'Call Mom',",
+            "                      comment: 'Sample comment',",
+            "                      check1: true,",
+            "                      option: 'second',                      ",
+            "                      leaf: true",
+            "                    }, {",
+            "                      text: 'Later this week - Subjects',",
+            "                      items: [",
+            "                          {",
+            "                            text: 'Calculus',",
+            "                            leaf: true",
+            "                          }, {",
+            "                            text: 'Physics',",
+            "                            leaf: true",
+            "                          }]",
+            "                    }]",
+            "                }, {",
+            "                  text: 'Today',",
+            "                  items: [{",
+            "                    text: 'Mow Grass',",
+            "                    leaf: true",
+            "                  }, {",
+            "                    text: 'Buy Groceries',",
+            "                    leaf: true",
+            "                  }, {",
+            "                    text: 'Watch Game',",
+            "                    leaf: true",
+            "                  }",
+            "                         ]",
+            "                }, {",
+            "                  text: 'Tomorrow',",
+            "                  items: [{",
+            "                    text: 'Frisbee',",
+            "                    leaf: true",
+            "                  }, {",
+            "                    text: 'Cookout',",
+            "                    leaf: true",
+            "                  }]",
+            "                }, {",
+            "                  text: 'On Hold',",
+            "                    items: [",
+            "                   ",
+            "                  {",
+            "                    text: 'Buy Clothes',",
+            "                    leaf: true",
+            "                  }]",
+            "                }]",
+            "              }"
+        ],
+        "storeId": "FormsTask"
+    },
+    "name": "Task1",
+    "designerId": "d187c1ce-aeb1-4c7e-949a-c75717af7c44",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy2",
+            "designerId": "ec3c6529-b5f5-4c23-a646-5beb59f4fb2d",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader2",
+                    "designerId": "1e9e3f62-7cfc-470c-b448-3763c15d2a90"
+                }
+            ]
+        }
+    ]
+}

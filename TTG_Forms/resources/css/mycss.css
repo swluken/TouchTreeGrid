@@ -1,0 +1,120 @@
+
+/**************** BEGIN RECOMMENDED CSS FOR ALL IMPLEMENTATIONS ***********************/
+
+.checkbox-checked .x-field-mask::after{    /* Required for Checkboxes and Radio buttons */
+    color: #006bb6 !important;  /* checked color */
+}
+
+.radiofield-checked .x-field-mask::after{   /* Required for Checkboxes and Radio buttons */
+    background-color: #006bb6 !important;
+}
+
+/* 2.1 selectors to eliminate lines  ... 2nd set is for Touch 2.2+ */
+.touchtreegrid-myForm .x-list-normal .x-list-item .x-dock-horizontal,
+.touchtreegrid-myForm .x-list-normal .x-list-item.x-list-item-tpl{
+    border: none;  
+}
+
+.touchtreegrid-myForm .touchtreegrid-list-content{ /* Needed to remove default padding for content row */
+    padding:0 0 0 0;
+}
+
+.myForm .x-scroll-bar-grid {  /* Needed to remove scroller indicator */
+    display: none;
+}
+
+/**************** END RECOMMENDED CSS FOR ALL IMPLEMENTATIONS ***********************/
+
+
+.touchtreegrid-myForm .touchtreegrid-list-categ {  
+    min-height:47px !important; 
+    padding: 15px 0 0 0 !important; 
+    font-size: 16px !important;    
+}
+.myForm .x-scroll-container {  /* Needed to ensure uniform content row color */
+    background-color: #FFFFCC !important;
+}
+.touchtreegrid-myForm .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    background-color:#FFFFCC;
+}
+.form-edit {    
+    background-color:#FFFFCC !important;
+}
+
+.form-edit .x-layout-card-item{
+    background-color: #FFFFCC;
+}
+
+.myForm .x-form-fieldset {
+    margin: 0 .5em .5em !important;
+}
+
+.myForm .x-form-fieldset-title {
+    margin: .2em 0.7em 0em !important;
+}
+
+.myForm .x-field-radio .x-field-mask::before {
+    top: 5px !important;
+}
+
+.myForm .x-field-radio .x-field-mask::after {
+    top: 10px !important;
+}
+
+.myForm .x-field-radio .x-form-label{
+    padding: 8px 0 0 20px !important;
+}
+
+.myForm .x-toolbar {
+    background-color: transparent;
+    height: 2em;
+}
+.myForm .x-toolbar.x-docked-top{
+    border: none;
+}
+
+.myform-edit-btn, .myform-edit-btn::before, .myform-edit-btn::after{
+    background-color: #b64b00 !important;
+    background-image: none !important;
+    color: white !important;
+    font-weight: bold;
+}
+.myform-edit-btn  .x-button-label{    
+    font-size: 13px !important;
+}
+
+.multiexample-toolbar .x-field-radio .x-field-mask::before {
+    top: 5px !important;
+}
+
+.multiexample-toolbar .x-field-radio .x-field-mask::after {
+    top: 10px !important;
+}
+
+.multiexample-toolbar .x-field-radio .x-form-label{
+    padding: 8px 0 0 5px !important;
+    font-size: 14px;
+}
+
+.multi:before {
+    font-family: "Pictos";
+    content: "|"
+}
+
+/****** ADD ANIMATION ON EXPAND TO FORM EDIT EXAMPLE *******/
+.touchtreegrid-myForm-animate .x-form {   
+    -webkit-animation: myForm .5s ease-in; /* Chrome, Safari, Opera */
+    animation: myForm .5s ease-in;    
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myForm {
+    from {height: 0px; opacity: 1}
+    to {height: 320px; opacity: 1}
+}
+
+/* Standard syntax */
+@keyframes myForm {
+    from {height: 0px; opacity: 1}
+    to {height: 320px; opacity: 1}
+}

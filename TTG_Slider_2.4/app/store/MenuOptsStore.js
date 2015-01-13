@@ -156,6 +156,39 @@ Ext.define('TouchTreeGrid.store.MenuOptsStore', {
                     LEVEL: '1',
                     expanded: false,
                     leaf: false,
+                    Image: '<img src=\'./resources/images/form.png\'>',
+                    Text: 'Embedded Forms',
+                    children: [
+                        {
+                            LEVEL: '2',
+                            leaf: true,
+                            Image: null,
+                            Text: 'Grid Edit'
+                        },
+                        {
+                            LEVEL: '2',
+                            leaf: true,
+                            Image: null,
+                            Text: 'Form Edit'
+                        },
+                        {
+                            LEVEL: '2',
+                            leaf: true,
+                            Image: null,
+                            Text: 'Short vs. Long Forms'
+                        },
+                        {
+                            LEVEL: '2',
+                            leaf: true,
+                            Image: null,
+                            Text: 'Mixed Forms'
+                        }
+                    ]
+                },
+                {
+                    LEVEL: '1',
+                    expanded: false,
+                    leaf: false,
                     Image: '<img src=\'./resources/images/layers.png\'>',
                     Text: 'Miscellaneous',
                     children: [

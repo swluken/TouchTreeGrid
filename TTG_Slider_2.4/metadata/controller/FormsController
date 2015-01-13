@@ -1,0 +1,97 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "FormsController",
+        "models": [
+            "FormsTask"
+        ],
+        "stores": [
+            "FormsTask",
+            "FormsTask2",
+            "FormsTaskMultiRec"
+        ],
+        "views": [
+            "MyFormPanel",
+            "MyFormPanel2",
+            "MyFormPanelLong",
+            "MyFormPanelMini",
+            "FormsGridEdit",
+            "FormsMulti",
+            "FormsMixed",
+            "FormsEdit"
+        ]
+    },
+    "name": "MyController",
+    "designerId": "20baa322-7efc-4454-8194-51dd4f164261",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "formsGridEdit",
+                "selector": "formsGridEdit",
+                "xtype": "formsGridEdit"
+            },
+            "name": "formsGridEdit",
+            "designerId": "b8f01603-d75f-4441-b3e9-cae3dcbe19ba"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "formsMulti",
+                "selector": "formsMulti",
+                "xtype": "formsMulti"
+            },
+            "name": "formsMulti",
+            "designerId": "6307d697-5132-48ef-929e-0f75d6e1d765"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "formsMixed",
+                "selector": "formsMixed",
+                "xtype": "formsMixed"
+            },
+            "name": "formsMixed",
+            "designerId": "e32a1a59-70cb-4c9d-b22a-d9a306ef9808"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "formsEdit",
+                "selector": "formsEdit",
+                "xtype": "formsEdit"
+            },
+            "name": "formsEdit",
+            "designerId": "adc82502-ebad-43cd-8233-59c42fa4b652"
+        }
+    ]
+}

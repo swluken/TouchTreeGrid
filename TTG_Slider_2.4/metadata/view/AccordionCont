@@ -22,7 +22,7 @@
             "codeClass": null,
             "userConfig": {
                 "additionalListConfigs": null,
-                "applyDefaultCollapseLevel": null,
+                "applyDefaultCollapseLevel": false,
                 "arrowPctWidth": null,
                 "categColumns": null,
                 "categDepthColorButtons": null,
@@ -51,7 +51,7 @@
                 "contentItemTplOverride": null,
                 "customColumnSortEvent": null,
                 "customExpCollapseEvent": null,
-                "defaultCollapseLevel": 1,
+                "defaultCollapseLevel": null,
                 "designer|createAlias": "touchtreegrid",
                 "disableExpandCollapse": null,
                 "disableSelection": null,

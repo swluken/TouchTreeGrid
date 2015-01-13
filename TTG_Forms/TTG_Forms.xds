@@ -1,0 +1,66 @@
+{
+    "name": "TTG_Forms",
+    "settings": {
+        "cmd": {
+            "license": "",
+            "cmdVersion": "",
+            "frameworkVersion": ""
+        },
+        "urlPrefix": "http://localhost/TouchTreeGrid-master/TTG_Forms/",
+        "spacesToIndent": 4,
+        "exportPath": "",
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "canvasControls": {
+            "viewportSize": {
+                "name": "iPhone",
+                "builtIn": true,
+                "height": 480,
+                "width": 320
+            },
+            "viewportOrientation": "portrait"
+        },
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": true,
+        "generateArchitectVersion": true,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1128-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1943,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "touch24",
+    "viewOrderMap": {
+        "view": [
+            "8c274233-2c62-4f46-b103-76d6c9f0def6",
+            "297729d1-fe3f-4e0e-abff-12a1ba4b474d",
+            "51310bd8-e3b8-4e9e-9267-c8a219f10e3a",
+            "84d68b7f-6857-4275-8e0e-bf4f9cb75a7c",
+            "a87a0385-051e-4780-ac8a-77f54c2b0264",
+            "966e9a1c-f908-410c-979a-cdc282bcddc1"
+        ],
+        "store": [
+            "0908d481-13f2-47c2-8ba8-4d1dbed2f9f6",
+            "b53ac7c7-0a8c-4e33-8123-55863895d827",
+            "9f193d42-fbbe-4f3e-b57b-83b4f0e0014e"
+        ],
+        "controller": [
+            "ac3c8037-b03d-45af-ac33-d2b07600986d"
+        ],
+        "model": [
+            "bb95e1bf-6755-4cc6-a8ca-2ab3b5790c33"
+        ],
+        "resource": [
+            "edd7cdca-5c64-4ae6-9342-57c41820ab1d",
+            "9d18a977-daa6-4040-ac61-39c2369b822d",
+            "a2c3275f-2569-4eee-828d-7d1b7094afbd"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

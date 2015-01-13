@@ -1,0 +1,639 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "cls": [
+            "myForm"
+        ],
+        "designer|userAlias": "myformpanellong",
+        "designer|userClassName": "MyFormPanelLong",
+        "disabled": null,
+        "id": null,
+        "itemId": "myFormPanelLong",
+        "layout": "vbox",
+        "maxWidth": "30em",
+        "readOnly": true,
+        "requires": [
+            "Ext.device.Device"
+        ],
+        "scrollable": false,
+        "style": "font-size: .8rem;"
+    },
+    "name": "MyFormPanel1",
+    "configAlternates": {
+        "readOnly": "boolean"
+    },
+    "designerId": "a87a0385-051e-4780-ac8a-77f54c2b0264",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "readOnly",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaults": null,
+                "title": ""
+            },
+            "name": "MyFieldSet1",
+            "designerId": "6aaff0c7-8271-429f-aeeb-6d5e8b828b36",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "center",
+                        "layout": "hbox",
+                        "style": "border-bottom: 1px solid #ddd;"
+                    },
+                    "name": "MyContainer6",
+                    "designerId": "5c09f119-3442-4415-9af4-978212234fba",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": null,
+                                "label": "Task:",
+                                "labelWidth": "4em",
+                                "listeners": null,
+                                "name": "text",
+                                "readOnly": null,
+                                "value": null
+                            },
+                            "name": "MyTextField1",
+                            "configAlternates": {
+                                "listeners": "object"
+                            },
+                            "designerId": "cccc035e-a58d-4d8c-85fb-b55566ab6536",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "listeners",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": [
+                                    "myform-edit-btn"
+                                ],
+                                "designer|uiInterfaceName": "plain",
+                                "docked": "right",
+                                "height": null,
+                                "itemId": "myFormEditBtn",
+                                "listeners": null,
+                                "maxHeight": null,
+                                "readOnly": null,
+                                "style": "padding-top: 6px; margin: 5px 10px 0 0;",
+                                "text": "Edit",
+                                "ui": "plain"
+                            },
+                            "name": "MyButton",
+                            "configAlternates": {
+                                "readOnly": "boolean",
+                                "listeners": "object"
+                            },
+                            "designerId": "7a05d535-c1fe-47c6-b042-6c84766d56d5",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "readOnly",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "listeners",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": null,
+                        "itemId": null,
+                        "label": "Comment:",
+                        "labelWidth": "5.7rem",
+                        "listeners": null,
+                        "maxRows": 2,
+                        "name": "comment",
+                        "readOnly": null
+                    },
+                    "name": "MyTextArea1",
+                    "configAlternates": {
+                        "listeners": "object"
+                    },
+                    "designerId": "6bb0c74a-451f-48fb-a5b5-c5108b81dccc",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "listeners",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.field.Select",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "myselectfield2",
+                        "label": "Select",
+                        "labelWidth": "5.1em",
+                        "name": "option",
+                        "options": [
+                            "[",
+                            "{text: 'First Option',  value: null},",
+                            "{text: 'Second Option', value: 'second'},",
+                            "{text: 'Third Option',  value: 'third'}",
+                            "]"
+                        ],
+                        "readOnly": null,
+                        "usePicker": [
+                            "false",
+                            ""
+                        ]
+                    },
+                    "name": "MySelectField2",
+                    "designerId": "720a1d45-998b-4247-bafa-ceb62428483e"
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "center",
+                        "height": "35px",
+                        "layout": "hbox",
+                        "maxWidth": null,
+                        "style": "border-bottom: 1px solid #ddd;"
+                    },
+                    "name": "MyContainer5",
+                    "designerId": "e83cbe84-9040-4d72-a253-62d9337ee13e",
+                    "cn": [
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "html": "Radio",
+                                "layout|flex": 1,
+                                "style": "padding: .6em 0 0 .6em; font-size: .8rem; font-weight: bold; color: #333;"
+                            },
+                            "name": "MyLabel1",
+                            "designerId": "b47f67cd-d471-4cbb-8f5d-627b23c74a42"
+                        },
+                        {
+                            "type": "Ext.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "checked": true,
+                                "height": null,
+                                "itemId": "opt1",
+                                "label": "Opt1",
+                                "labelWidth": "65px",
+                                "layout|flex": null,
+                                "name": "myRadioBtn",
+                                "style": "border-bottom: none;",
+                                "width": "125px"
+                            },
+                            "name": "MyRadioButton",
+                            "designerId": "ef93ef75-c03e-4128-bba3-9b937a1561a1"
+                        },
+                        {
+                            "type": "Ext.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": null,
+                                "itemId": "opt2",
+                                "label": "Opt2",
+                                "labelWidth": "65px",
+                                "layout|flex": null,
+                                "name": "myRadioBtn",
+                                "style": "border-bottom: none;",
+                                "width": "125px"
+                            },
+                            "name": "MyRadioButton1",
+                            "designerId": "abd4ca14-71e7-4a12-bfed-d2340fe7f027"
+                        },
+                        {
+                            "type": "Ext.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "name": "MySpacer",
+                            "designerId": "add2095e-ea3c-4db7-8e0a-2fd78aac685d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "TEST LABEL",
+                        "style": "padding-left: .6em; color: red; font-weight: bold;"
+                    },
+                    "name": "MyLabel",
+                    "designerId": "5bc99390-14bd-457e-b561-b1f1bd5858e0"
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "defaults": null,
+                        "layout": "hbox"
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "3e937ea1-e2f1-4362-a086-90d52b0cc750",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "defaults": [
+                                    "{labelWidth: '6em', labelAlign: 'right'}"
+                                ],
+                                "layout|flex": 1
+                            },
+                            "name": "MyContainer1",
+                            "designerId": "03e2aac9-779f-4e2f-86f5-5e829fa4c37a",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check1",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check1"
+                                    },
+                                    "name": "MyCheckbox",
+                                    "designerId": "dc6f7025-59b8-4b30-9c4f-f0c00ee9d266"
+                                },
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check2",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check2"
+                                    },
+                                    "name": "MyCheckbox2",
+                                    "designerId": "54681e1e-da12-4e35-a1d2-dccbec4f37d2"
+                                },
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check3",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check3"
+                                    },
+                                    "name": "MyCheckbox3",
+                                    "designerId": "f78b6357-0268-4075-81a8-628fcb91d69d"
+                                },
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check4",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check4"
+                                    },
+                                    "name": "MyCheckbox1",
+                                    "designerId": "09f9a5c7-4203-434e-892a-27e7774ad6a0"
+                                },
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check5",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check5"
+                                    },
+                                    "name": "MyCheckbox7",
+                                    "designerId": "53bbc2fb-0909-40a0-a11e-b09b3ad720f4"
+                                },
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check6",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check6"
+                                    },
+                                    "name": "MyCheckbox8",
+                                    "designerId": "2baf49eb-fb13-45c7-b447-74099ef1daac"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "defaults": [
+                                    "{labelWidth: '6em', labelAlign: 'right'}"
+                                ],
+                                "layout|flex": 1
+                            },
+                            "name": "MyContainer2",
+                            "designerId": "f00e8094-a9fd-4dee-b3b4-54c874add58b",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check7",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check7"
+                                    },
+                                    "name": "MyCheckbox4",
+                                    "designerId": "73b57ed8-7723-4492-aa2f-507e59c312e9"
+                                },
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check8",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check8"
+                                    },
+                                    "name": "MyCheckbox5",
+                                    "designerId": "41e2e9cd-35c0-4e93-86a0-480ea1ed0178"
+                                },
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check9",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check9",
+                                        "style": null
+                                    },
+                                    "name": "MyCheckbox6",
+                                    "designerId": "070a504f-20ab-4a19-b3a3-bc10e30a7485"
+                                },
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check10",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check10",
+                                        "style": null
+                                    },
+                                    "name": "MyCheckbox9",
+                                    "designerId": "04b75efc-d198-41e5-8317-df9de2c8fc66"
+                                },
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check11",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check11",
+                                        "style": null
+                                    },
+                                    "name": "MyCheckbox10",
+                                    "designerId": "e365c1a5-529a-441c-bd9b-d216642f7865"
+                                },
+                                {
+                                    "type": "Ext.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "itemId": null,
+                                        "label": "Check12",
+                                        "labelAlign": null,
+                                        "labelWidth": null,
+                                        "name": "check12",
+                                        "style": null
+                                    },
+                                    "name": "MyCheckbox11",
+                                    "designerId": "a2992697-19d9-40cd-8874-2c8953b0abba"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "postInit",
+                "implHandler": [
+                    "// Custom \"postInit\" function called by TouchTreeGrid renderer_myForm method if it exists",
+                    "// Called just prior to rendering content row TPL",
+                    "",
+                    "var me = this;",
+                    "var myFormEditBtn = me.down('#myFormEditBtn');",
+                    "if (Ext.device.Device.platform === 'iOS'){",
+                    "    myFormEditBtn.setHidden(true);",
+                    "    // textfield and textarea field edit not fully supported for IOS devices currently",
+                    "    // Suggest implementing conditional logic to apply form-edit method for IOS devices",
+                    "}",
+                    "else {",
+                    "    myFormEditBtn.setText(me.config.readOnly ? 'Edit': 'Done');",
+                    "    myFormEditBtn.on('tap', me.onMyFormEditBtnTap, me);",
+                    "}"
+                ]
+            },
+            "name": "postInit",
+            "designerId": "4cc1cce8-b126-4ecd-8019-d7deb54e920e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "onMyFormEditBtnTap",
+                "implHandler": [
+                    "var myFormPanel = button.up(\"#myFormPanelLong\");  // UPDATE FOR YOUR PANEL HERE",
+                    "var readOnly, myRec;",
+                    "if (myFormPanel) {",
+                    "",
+                    "    myRec = myFormPanel.record;",
+                    "",
+                    "    if (myRec){",
+                    "        readOnly = !myFormPanel.config.readOnly;  // Toggle read-only mode",
+                    "        myRec.readOnly = readOnly;",
+                    "",
+                    "        myRec.set('leaf', true);  // Dummy update to force grid refresh",
+                    "        // TextArea, Text, Select fields support readOnly config and therefore handdled by TouchTreeGrid renderer_MyForm method()",
+                    "        // Radio and Checkboxes handled in TTG handleFormCheckboxfieldChange() and handleFormRadiofieldCheck() methods",
+                    "    }",
+                    "}"
+                ]
+            },
+            "name": "onMyFormEditBtnTap",
+            "designerId": "6849b6cb-304b-46fc-bd49-924a84530658"
+        }
+    ]
+}
