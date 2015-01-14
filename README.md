@@ -39,19 +39,19 @@ Refer to "TouchTreeGrid - Documentation.pdf" (page 1) for version details associ
  <p>
     <span style="color:red;">Most current TouchTreeGrid Source Code: </span><br>  /TTG&#95;Slider&#95;2.4/app/view/TouchTreeGrid.js
    <br> <span style="color:red;">Most current Architect component: </span><br> /ArchitectComponents/Architect 3.1.0 Build 1943/TouchTreeGrid.xdc<br>
-   <br> <b>Tablet Demo:</b><br> http://www.gomainerentals.com/Sencha/TTG_Slider_2.4/index.html
+   <br> <b>Tablet Demo:</b><br> http://www.gomainerentals.com/Sencha/TTG_Slider_2.4/index.html?deviceType=Tablet
    <br> <b>Phone Demo (resize your browser!):</b><br> http://www.gomainerentals.com/Sencha/TTG_Slider_2.4/index.html?deviceType=Phone
  </p>
 
- - <b>MenuEx</b> (Simplified example of how to utilize new Menu component included in Touch 2.3 for various implementations and using TouchTreeGrid for left/right menu items)<br>http://www.lincolnwaterfrontrentals.com/Sencha/MenuEx/app.html<br><br>
+ - <b>MenuEx</b> (Simplified example of how to utilize new Menu component included in Touch 2.3 for various implementations and using TouchTreeGrid for left/right menu items)<br>http://www.gomainerentals.com/Sencha/MenuEx/app.html<br><br>
  
- - <b>TouchTreeGrid_FreezeColumn</b> (Freeze Column with horizontal scrolling columns example simulates EXTJS 4.2 Kitchen Sink Big Data grid example...refer to TouchTreeGrid_FreezeColumn.pdf for additional documentation)<br>http://www.lincolnwaterfrontrentals.com/Sencha/TTG_Freeze/app.html<br><br>
+ - <b>TouchTreeGrid_FreezeColumn</b> (Freeze Column with horizontal scrolling columns example simulates EXTJS 4.2 Kitchen Sink Big Data grid example...refer to TouchTreeGrid_FreezeColumn.pdf for additional documentation)<br>http://www.gomainerentals.com/Sencha/TouchTreeGrid_FreezeColumn/app.html<br><br>
  
- - <b>CalendarPicker</b> (Full set of Calendar Picker examples)<br>http://www.lincolnwaterfrontrentals.com/Sencha/CalendarPicker/app.html<br><br>
+ - <b>CalendarPicker</b> (Full set of Calendar Picker examples)<br>http://www.gomainerentals.com/Sencha/CalendarPicker/app.html<br><br>
  
  - <b>TTG&#95;Forms</b> (Standalone example of how forms can be embedded in Category and Content/Leaf rows)<br>http://www.gomainerentals.com/Sencha/TTG_Forms/index.html<br><br>
 
- - <b>TouchTreeGrid_Advanced_22</b> (Original Tab Panel version of Examples implemented for Touch 2.2)<br>http://www.lincolnwaterfrontrentals.com/Sencha/TouchTreeGrid/app.html<br><br>
+ - <b>TouchTreeGrid&#95;Advanced&#95;23</b> (Original Tab Panel version of Examples implemented for Touch 2.3)<br>http://www.gomainerentals.com/Sencha/TouchTreeGrid_Advanced_23/index.html<br><br>
 
  - <b>DynamicLoadEx2C</b> (Dynamically load Nodes when expanded for large TreeStores)<br>http://www.gomainerentals.com/Sencha/DynamicLoadEx2C/index.html<br>(further discussion at: http://www.sencha.com/forum/showthread.php?259616-TouchTreeGrid-component&p=1058383&viewfull=1#post1058383)<br><br>
 
@@ -60,7 +60,11 @@ Refer to "TouchTreeGrid - Documentation.pdf" (page 1) for version details associ
  - <b>CalendarPicer_Basic</b> (Basic example of Calendar Pickers used for date selection)
  - <b>TouchTreeGrid_Basic_22</b> (Basic TreeGrid example for Touch 2.2)
  - <b>TouchTreeGrid_Basic_21</b> (Basic TreeGrid example for Touch 2.1)
- 
+
+
+***Refer to <b>GoMaineRentals.com</b> website for responsive website example using TouchTreeGrid and CalendarPicker for Tablet and Phone specific Touch applications.  TouchTreeGrid was used for all pages with lists.  As a side, the desktop version was written in EXTJS.  https://github.com/borismus/device.js/tree/master was used to leverage media queries to launch the appropriate framework based on device.<br>
+<br> - <b>Tablet version:</b><br> http://www.gomainerentals.com/m/index.html?deviceType=Tablet
+<br> - <b>Phone version (resize your browser!):</b><br> http://www.gomainerentals.com/m/index.html?deviceType=Phone
 
 PLANNED ENHANCEMENTS TO TouchTreeGrid:      
     

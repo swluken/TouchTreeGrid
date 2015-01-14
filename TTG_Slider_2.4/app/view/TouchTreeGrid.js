@@ -110,6 +110,9 @@ Ext.define('TouchTreeGrid.view.TouchTreeGrid', {
         customFooterItems: {
             
         },
+        onScrollOptions: {
+            
+        },
         linkedGridsArr: [
             
         ]

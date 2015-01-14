@@ -87,7 +87,7 @@
             "includeHeader": true,
             "infinite": true,
             "itemHeight": 47,
-            "itemId": "touchtreegrid1",
+            "itemId": "touchtreegrid",
             "landscapeIcon": "",
             "layout": "vbox",
             "linkedGridsArr": [
@@ -107,7 +107,9 @@
             "listStyle": null,
             "mode": "SINGLE",
             "onItemDisclosure": false,
-            "onScrollOptions": null,
+            "onScrollOptions": [
+                "{}"
+            ],
             "plugins": null,
             "pressedBtnCls": null,
             "pressedCls": "touchtreegrid-item-pressed",

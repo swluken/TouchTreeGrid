@@ -1,4 +1,12 @@
 **************************************************************************************************
+1/13/2015 COMMIT CHANGE LOG: 
+
+- Added onScrollOptions:{} config back to TouchTreeGrid.js to support grids with freeze/locked columns
+  (was inadvertently removed)
+- Updated TTG_Forms and TTG_Slider_2.4 projects to include corrected version of TouchTreeGrid.js
+
+
+**************************************************************************************************
 1/12/2015 COMMIT CHANGE LOG: 
 
 - Added support to embed forms with editable components in Tree Grid Category and Content (aka leaf) rows.
