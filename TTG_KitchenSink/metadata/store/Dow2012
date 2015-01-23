@@ -1,0 +1,46 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "Dow2012",
+        "model": "Dow2012",
+        "storeId": "dow2012store"
+    },
+    "designerId": "3307a78a-f902-4a81-aed1-8866d3fe8958",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "./data/dow2012.json"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "d7d04485-d8d2-457f-aab0-f7d480125b93",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "clientIdProperty": null,
+                        "rootProperty": "datalist"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "589a29ca-85a5-4323-a3c1-b371dc4773a9"
+                }
+            ]
+        }
+    ]
+}

@@ -66,6 +66,7 @@
                 "type": "object"
             },
             "codeClass": null,
+            "name": "MyAjaxProxy",
             "designerId": "5e619aeb-1b86-4c95-a597-3819ab6fae87",
             "cn": [
                 {
@@ -75,6 +76,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "name": "MyArrayReader",
                     "designerId": "e96d6722-1037-4daf-98b1-e8f7045f2f19"
                 }
             ]
@@ -89,6 +91,7 @@
             "userConfig": {
                 "name": "code"
             },
+            "name": "field",
             "designerId": "a7fe0a7f-c74c-4dee-bbbd-fb34b99e91b6"
         },
         {
@@ -101,6 +104,7 @@
             "userConfig": {
                 "name": "language"
             },
+            "name": "field1",
             "designerId": "060665fa-b83b-42d0-b98c-e8dd5760a102"
         }
     ]

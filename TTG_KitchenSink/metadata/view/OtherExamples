@@ -1,0 +1,18 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "otherExamples",
+        "designer|userClassName": "OtherExamples",
+        "html": "",
+        "itemId": "otherExamples",
+        "scrollable": "vertical",
+        "style": "margin: 5px 5px 20px 5px"
+    },
+    "name": "MyContainer3",
+    "designerId": "082e6fd7-a755-48c7-a9fa-501950a36d8f"
+}

@@ -1,0 +1,67 @@
+{
+    "name": "TTG_LockedColumns",
+    "settings": {
+        "cmd": {
+            "license": "commercial",
+            "cmdVersion": "5.0.2.270",
+            "frameworkVersion": "2.4.0.482"
+        },
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "http://localhost/TouchTreeGrid-master/TTG_LockedColumns/",
+        "exportPath": "",
+        "buildShouldOverwriteIndex": true,
+        "canvasControls": {
+            "viewportSize": {
+                "name": "iPhone",
+                "builtIn": true,
+                "height": 480,
+                "width": 320
+            },
+            "viewportOrientation": "portrait"
+        },
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "generateArchitectVersion": true,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1128-inputEl": "a new version of the framework is available",
+        "sdkPath": ""
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1943,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "touch24",
+    "viewOrderMap": {
+        "view": [
+            "1b2e3875-bab2-4ea5-924a-2e9e5f46a4e3",
+            "9204622d-8a02-4e48-bd65-5c32969c3f4b",
+            "f45ef5db-de2d-47b3-8b98-2d5fac5a250e",
+            "95f4f16a-da51-4a5c-8455-e38899ab4b1e",
+            "9121de6c-8b70-4705-8493-43dee67db0b7"
+        ],
+        "store": [
+            "9ff9e47e-a02e-47b4-abf1-3bd8cfcd1f57",
+            "f4b326e1-7d0b-4c35-8328-5202382e7e82",
+            "6293b780-fd5a-4c66-b6d8-df932eb6846d"
+        ],
+        "controller": [
+            "97a4c3a2-9a08-4611-87a1-12b030c85f82"
+        ],
+        "model": [
+            "9238ee98-c9e5-4bfc-9528-611e0feb9756",
+            "5e0c8a0b-42a2-46a1-b1a6-4db3f7403f7c",
+            "7b7370bc-a4e6-41d9-92ab-0ff878fb570d"
+        ],
+        "resource": [
+            "94f678cb-fd5d-4c34-9629-893a412789c7",
+            "087f6104-eaf2-44c2-b243-8df338c6dd04",
+            "94125f8b-4dc7-4141-b123-cb62c633e6ad"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

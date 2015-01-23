@@ -1,0 +1,251 @@
+/******************** CENSUS EXAMPLE OVERRIDES *********************/
+
+.x-touchtreegrid-list-censusmaine .touchtreegrid-details-img {
+    margin-top: 12px;
+}
+
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-categ0 {  
+  background-color: #904848 !important;
+  background-image: none !important;
+  color: white;    /* default is black */
+  border-top: 1px solid #4D80BC;
+  border-bottom: 1px solid #2D4E76;
+  font-weight: bold;  /* default is normal */
+  min-height:47px !important; 
+  padding:0 0 0 0 !important; 
+  line-height: 47px;
+  font-size: 15px !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
+}
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-categ1 {  
+  background-color: #dddddd !important;
+  background-image: none !important;
+  color: blue;    /* default is black */
+  border-top: 1px solid #4D80BC;
+  border-bottom: 1px solid #2D4E76;
+  font-weight: bold;  /* default is normal */
+  min-height:47px !important; 
+  line-height: 47px;
+  padding:0 0 0 0 !important; 
+  font-size: 15px !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
+}
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    color: black;
+    font-weight: bold;  /* default is normal */  
+    background-color:white;
+   /* width:100%; */
+    padding:0 0 0 0;
+    min-height:47px !important; 
+    line-height: 47px;
+    margin:0;
+    font-size: 15px !important;    
+}
+.x-touchtreegrid-list-censusmaine .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0.6em 0 0 0;
+    font-size: .8em !important;
+}
+
+.x-touchtreegrid-list-censusmaine-small .touchtreegrid-details-img {
+    margin-top: 6px;
+}
+.x-touchtreegrid-list-censusmaine-small .touchtreegrid-list-categ0 {  
+  font-weight: bold;  
+  min-height:32px !important; 
+  line-height: 32px;
+  padding:0 0 0 0 !important; 
+  font-size: 12px !important;
+}
+.x-touchtreegrid-list-censusmaine-small .touchtreegrid-list-categ1 {  
+  font-weight: bold;  
+  min-height:32px !important; 
+  line-height: 32px;    
+  padding:0 0 0 0 !important; 
+  font-size: 12px !important;
+
+}
+.x-touchtreegrid-list-censusmaine-small .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    font-weight: normal;    
+    padding:0 0 0 0;
+    min-height:32px !important; 
+    line-height: 32px;
+    font-size: 12px !important;    
+}
+.x-touchtreegrid-list-censusmaine-small .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0.6em 0 0 0;
+    font-size: .6em !important;
+}
+
+
+.x-touchtreegrid-list-censusmaine-large .touchtreegrid-list-categ0 {  
+  font-weight: bold;  
+  min-height:47px !important; 
+  line-height: 47px;        
+  padding:0 0 0 0 !important; 
+  font-size: 18px !important;
+}
+.x-touchtreegrid-list-censusmaine-large .touchtreegrid-list-categ1 {  
+  font-weight: bold;  
+  min-height:47px !important; 
+  line-height: 47px;    
+  padding:0 0 0 0 !important; 
+  font-size: 18px !important;
+
+}
+.x-touchtreegrid-list-censusmaine-large .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    font-weight: bold;    
+    padding:0 0 0 0;
+    min-height:47px !important; 
+    line-height: 47px;    
+    font-size: 18px !important;    
+}
+.x-touchtreegrid-list-censusmaine-large .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0.6em 0 0 0;
+    font-size: .8em !important;
+}
+
+/******************** BIG DATA EXAMPLE OVERRIDES *********************/
+.x-touchtreegrid-list-bigData .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0 0 0 0;
+    color: black;
+    font-weight: bold;
+    font-size: 13px !important;
+    background-color: #eef6fb;
+    background: none;
+}
+
+.x-touchtreegrid-list-bigData .touchtreegrid-header-cell {
+ line-height: 59px; 
+ border-right: 1px solid #c0c0c0;
+ padding-left: 8px !important;
+} 
+
+.x-touchtreegrid-list-bigData .touchtreegrid-simplelist-cell{ /* simple list cells  */
+    line-height: 24px; 
+    color: black;
+    padding: 0 0 0 8px;
+    border-right: 1px solid #dedede;
+    font-size: 13px !important;   
+    background-color: transparent;
+}
+.x-touchtreegrid-list-bigData .x-touchtreegrid-item {  
+    background-color: white;
+}
+.x-touchtreegrid-list-bigData .x-touchtreegrid-item:nth-child(even) {  /* for alternate shading */
+    background-color: #f4f9fc !important;
+}
+
+.x-touchtreegrid-list-bigData .x-grid-sort-desc {
+    background-position: right center;
+}
+
+.x-touchtreegrid-list-bigData .x-grid-sort-asc {
+    background-position: right center;
+} 
+
+.x-touchtreegrid-list-bigData .x-list-header {  /* Grouped header rows */
+    color: black;
+    font-weight: bold;
+    font-size: 13px !important;
+    background: none;
+    background-image: none;    
+    background-color: #eef6fb;   
+    border-color: #dedede;
+}
+
+/******************** DOW2012 HORIZ SCROLLING GRID OVERRIDES ************************/
+.x-touchtreegrid-list-dow2012Horiz .touchtreegrid-simplelist-cell{ /* simple list cells  */
+    height: 47px !important;
+    padding:0 0 0 0;
+    line-height: 47px !important;
+    font-size: 15px !important;      
+}
+
+.x-touchtreegrid-list-dow2012Horiz .x-grid-sort-desc,
+.x-touchtreegrid-list-dow2012Horiz .x-grid-sort-asc {
+    margin-top: .2em !important;
+    background-position: left top;
+}
+.x-touchtreegrid-list-dow2012Horiz .touchtreegrid-header {  /* Titlebar with column headers  */
+  /*  width:100%;  */
+    padding:0 0 0 0;
+    margin:.2em 0 0 0;
+    color: black;
+    font-size: 15px !important;
+    background-color: #e5e5e5;
+    background: none;
+    font-weight: bold;
+}
+.x-touchtreegrid-list-dow2012Horiz .x-touchtreegrid-item {  /* default color all expanded grid rows including background color for shaded category rows */
+    min-height: 47px !important;
+    max-height: 47px !important;
+    height: 47px;
+}
+
+
+/*  GENERATED FROM SCSS .. moved to css directory  */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('fontawesome-webfont.eot?v=4.0.3');
+  src: url('fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'),
+       url('fontawesome-webfont.woff?v=4.0.3') format('woff'),
+       url('fontawesome-webfont.ttf?v=4.0.3') format('truetype'),
+       url('fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.x-tab .x-button-icon.fa-exchange:before,
+.x-button .x-button-icon.fa-exchange:before{
+position:absolute;
+top:0;
+right:0;
+bottom:0;
+left:0;
+text-align:center;
+font-family:"FontAwesome";
+content:"\f0ec"
+}
+
+.x-tab .x-button-icon.fa-font:before,
+.x-button .x-button-icon.fa-font:before{
+position:absolute;
+top:0;
+right:0;
+bottom:0;
+left:0;
+text-align:center;
+font-family:"FontAwesome";
+content:"\f031"
+}
+
+.fa-exchange {
+    color: gray;
+    font-size: 10px;
+}
+
+
+.small-text .fa-font{
+    font-size: 10px;
+}
+.default-text .fa-font{
+    font-size: 14px;
+}
+.large-text .fa-font{
+    font-size: 18px;
+}
+.small-text{
+    padding-top: 12px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+.default-text{
+    padding-top: 6px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+.large-text{
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+

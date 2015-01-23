@@ -22,6 +22,7 @@
             "userConfig": {
                 "url": "./data/optionDates.json"
             },
+            "name": "MyAjaxProxy1",
             "designerId": "c25da3d0-0d24-4a78-8501-e3ef72f0fb95",
             "cn": [
                 {
@@ -34,6 +35,7 @@
                     "userConfig": {
                         "rootProperty": "datalist"
                     },
+                    "name": "MyJsonReader",
                     "designerId": "76a1507a-c7c4-4755-98ec-c3a41b387975"
                 }
             ]
@@ -48,6 +50,7 @@
             "userConfig": {
                 "name": "ID"
             },
+            "name": "field2",
             "designerId": "f4641176-bead-4580-8473-b15f1f865b4b"
         },
         {
@@ -60,6 +63,7 @@
             "userConfig": {
                 "name": "customType"
             },
+            "name": "field3",
             "designerId": "aee257fe-c4c5-4a85-9765-2958f1c5bb1e"
         },
         {
@@ -72,6 +76,7 @@
             "userConfig": {
                 "name": "dateStr"
             },
+            "name": "field4",
             "designerId": "614b64a4-e997-49bf-bd27-70151ea30ce7"
         },
         {
@@ -84,6 +89,7 @@
             "userConfig": {
                 "name": "descr"
             },
+            "name": "field5",
             "designerId": "f76898c2-14f7-4c85-b84d-50e529bf9ffc"
         }
     ]

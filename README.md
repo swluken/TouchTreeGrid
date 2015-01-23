@@ -35,17 +35,17 @@ Refer to Forum thread for TouchTreeGrid with answers to many of your questions:
 
 Refer to "TouchTreeGrid - Documentation.pdf" (page 1) for version details associated with each of the project directories included in the download:
 
- - <b>TTG&#95;Slider&#95;2.4</b> ("Kitchen Sink" slide navigation example that includes most updated version of TouchTreeGrid using Sencha Touch v2.4)
+ - <b>TTG&#95;KitchenSink</b> ("Kitchen Sink" slide navigation example that includes most updated version of TouchTreeGrid using Sencha Touch v2.4)
  <p>
-    <span style="color:red;">Most current TouchTreeGrid Source Code: </span><br>  /TTG&#95;Slider&#95;2.4/app/view/TouchTreeGrid.js
+    <span style="color:red;">Most current TouchTreeGrid Source Code: </span><br>  /TTG&#95;KitchenSink/app/view/TouchTreeGrid.js
    <br> <span style="color:red;">Most current Architect component: </span><br> /ArchitectComponents/Architect 3.1.0 Build 1943/TouchTreeGrid.xdc<br>
-   <br> <b>Tablet Demo:</b><br> http://www.gomainerentals.com/Sencha/TTG_Slider_2.4/index.html?deviceType=Tablet
-   <br> <b>Phone Demo (resize your browser!):</b><br> http://www.gomainerentals.com/Sencha/TTG_Slider_2.4/index.html?deviceType=Phone
+   <br> <b>Tablet Demo:</b><br> http://www.gomainerentals.com/Sencha/TTG_KitchenSink/index.html?deviceType=Tablet
+   <br> <b>Phone Demo (resize your browser!):</b><br> http://www.gomainerentals.com/Sencha/TTG_KitchenSink/index.html?deviceType=Phone
  </p>
 
  - <b>MenuEx</b> (Simplified example of how to utilize new Menu component included in Touch 2.3 for various implementations and using TouchTreeGrid for left/right menu items)<br>http://www.gomainerentals.com/Sencha/MenuEx/app.html<br><br>
  
- - <b>TouchTreeGrid_FreezeColumn</b> (Freeze Column with horizontal scrolling columns example simulates EXTJS 4.2 Kitchen Sink Big Data grid example...refer to TouchTreeGrid_FreezeColumn.pdf for additional documentation)<br>http://www.gomainerentals.com/Sencha/TouchTreeGrid_FreezeColumn/app.html<br><br>
+ - <b>TTG_LockedColumns</b> (Locked Column with horizontal scrolling examples - Standard Grids and TreeGrids...refer to TTG_LockedColumns.pdf for additional documentation)<br>http://www.gomainerentals.com/Sencha/TTG_LockedColumns/index.html<br><br>
  
  - <b>CalendarPicker</b> (Full set of Calendar Picker examples)<br>http://www.gomainerentals.com/Sencha/CalendarPicker/app.html<br><br>
  

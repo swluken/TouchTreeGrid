@@ -25,5 +25,6 @@
             "TouchTreeGrid"
         ]
     },
+    "name": "Application",
     "designerId": "application"
 }

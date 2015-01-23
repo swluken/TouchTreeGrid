@@ -1,0 +1,206 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "BigDataModel"
+    },
+    "name": "BigDataModel1",
+    "designerId": "5c5c5b3e-4183-4b4c-a171-a727471df03f",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "department"
+            },
+            "name": "field28",
+            "designerId": "d0f9d1c2-56b9-46df-96a9-2c8c3cac7b62"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": "Ymd",
+                "name": "dob",
+                "type": "date"
+            },
+            "name": "field29",
+            "designerId": "6e88f414-6b1d-4dff-9efe-e690a843067c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "email"
+            },
+            "name": "field30",
+            "designerId": "e16131fc-46a0-4b8d-af35-9e2260bc0f0d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "employeeNo"
+            },
+            "name": "field31",
+            "designerId": "a1e036f7-4217-470e-a28b-e463b97bf17d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "forename"
+            },
+            "name": "field32",
+            "designerId": "de80e4a9-97e2-4e16-b8db-b2d74a9d6632"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "holidayAllowance",
+                "type": "int"
+            },
+            "name": "field33",
+            "designerId": "9187b314-b123-487d-ba8d-b62be130915d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "holidayDays",
+                "type": "int"
+            },
+            "name": "field34",
+            "designerId": "e19e2b4e-6027-42ed-92ef-a760bcee009d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": "Ymd",
+                "name": "joinDate",
+                "type": "date"
+            },
+            "name": "field35",
+            "designerId": "76ff6b66-bbea-4ad8-a179-b43a27db838c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "field36",
+            "designerId": "a615fcc2-e24b-4f5c-b38a-c8c3c52606fe"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "noticePeriod"
+            },
+            "name": "field37",
+            "designerId": "390639c4-ec0f-4962-a408-da66c1bd5bc3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "rating",
+                "type": "int"
+            },
+            "name": "field38",
+            "designerId": "d57f3181-64fa-4fe2-b553-b2671c6328eb"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "salary",
+                "type": "float"
+            },
+            "name": "field39",
+            "designerId": "eb1db783-5602-4a92-bfa0-f6237c699d03"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sickDays",
+                "type": "int"
+            },
+            "name": "field40",
+            "designerId": "ddb99279-409b-42f1-a733-6080b76bf427"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "surname"
+            },
+            "name": "field41",
+            "designerId": "11ced64e-15ef-45fb-8d05-fc2f65541e35"
+        }
+    ]
+}

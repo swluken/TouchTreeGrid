@@ -25,13 +25,16 @@
         "sdkPath": "",
         "generateArchitectVersion": true,
         "displayfield-ExtBox1-1484-inputEl": "Not Installed",
-        "displayfield-ExtBox1-1550-inputEl": "Not Installed"
+        "displayfield-ExtBox1-1550-inputEl": "Not Installed",
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "installStatus": "Not Installed"
     },
-    "xdsVersion": "3.0.3",
-    "xdsBuild": 1382,
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1943,
     "schemaVersion": 1,
-    "upgradeVersion": 300000000004,
-    "framework": "touch23",
+    "upgradeVersion": 300000000007,
+    "framework": "touch24",
     "viewOrderMap": {
         "view": [
             "889cc880-c791-4408-9eef-32aa9889cd48",
@@ -40,7 +43,7 @@
             "69e22d97-06f2-4bf7-95d3-1549c048f1b3",
             "020eb8a7-73f6-4669-b3f3-b5762162a051",
             "a02ad749-e6e2-4e16-9df1-f87c60b6249b",
-            "4a8cdce9-a270-4211-bff6-b4ce112cc15c"
+            "c903ec8e-9242-476f-b530-e157cc933b00"
         ],
         "store": [
             "b9d584e1-0cd1-4929-a1ee-e97945888dc4",

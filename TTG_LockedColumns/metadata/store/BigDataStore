@@ -1,0 +1,86 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "BigDataStore",
+        "model": "BigDataModel",
+        "storeId": "BigDataStore"
+    },
+    "designerId": "f4b326e1-7d0b-4c35-8328-5202382e7e82",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "./data/BigData.json"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "53dbea81-bed8-498c-84f3-1be1cee7bd9f",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "clientIdProperty": null,
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "a3fc715c-91cc-46d1-9f47-28270af9289e"
+                }
+            ]
+        },
+        {
+            "type": "Ext.util.Grouper",
+            "reference": {
+                "name": "grouper",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "property": "department",
+                "sortProperty": "department"
+            },
+            "name": "MyGrouper",
+            "designerId": "ab464437-8523-45a3-8571-a1566f92b335"
+        },
+        {
+            "type": "Ext.util.Sorter",
+            "reference": {
+                "name": "sorters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "property": "surname"
+            },
+            "name": "MySorter",
+            "designerId": "0b5d939f-21bb-4a78-8557-f62ddf1518f7"
+        },
+        {
+            "type": "Ext.util.Sorter",
+            "reference": {
+                "name": "sorters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "property": "forename"
+            },
+            "name": "MySorter1",
+            "designerId": "9c13840d-001e-4c9e-a255-45d43858776e"
+        }
+    ]
+}

@@ -29,6 +29,7 @@
                 "docked": "top",
                 "ui": "light"
             },
+            "name": "MyToolbar1",
             "designerId": "0f5a6a16-15ab-4c18-9ffc-a695055b209f",
             "cn": [
                 {
@@ -43,6 +44,7 @@
                         "text": "Back",
                         "ui": "back"
                     },
+                    "name": "MyButton",
                     "designerId": "e5fc03f4-1899-4366-8ccf-f7a1835e157e"
                 },
                 {
@@ -55,6 +57,7 @@
                     "userConfig": {
                         "itemId": "matrixViewSegBtn"
                     },
+                    "name": "MySegmentedButton",
                     "designerId": "e8fc2f08-81c2-466a-a374-6450a7d6b764",
                     "cn": [
                         {
@@ -69,6 +72,7 @@
                                 "pressed": true,
                                 "text": "Year"
                             },
+                            "name": "MyButton1",
                             "designerId": "0d439fcb-8511-4278-9347-2c28fa3344af"
                         },
                         {
@@ -82,6 +86,7 @@
                                 "itemId": "matrixViewMonthBtn",
                                 "text": "Month"
                             },
+                            "name": "MyButton2",
                             "designerId": "5d696e59-6f38-48b8-b01a-7e40a4247ee3"
                         },
                         {
@@ -95,6 +100,7 @@
                                 "itemId": "matrixViewListBtn",
                                 "text": "List"
                             },
+                            "name": "MyButton3",
                             "designerId": "38fb29ac-56c2-4e33-a014-a36aa0e49305"
                         },
                         {
@@ -108,6 +114,7 @@
                                 "itemId": "matrixViewDayBtn",
                                 "text": "Day"
                             },
+                            "name": "MyButton4",
                             "designerId": "978ac658-9dab-4950-bb05-5ffb8b5f9dc6"
                         }
                     ]
@@ -124,6 +131,7 @@
                         "itemId": "matrixViewLabel",
                         "style": "margin-left: 1em;"
                     },
+                    "name": "MyLabel",
                     "designerId": "16bd14ad-94fb-4965-aa51-3f58dfe585d4"
                 }
             ]
@@ -136,11 +144,14 @@
             },
             "codeClass": null,
             "userConfig": {
+                "height": "100%",
                 "itemId": "yearView",
                 "layout": "fit",
                 "margin": "1em",
-                "style": "border: 1px solid blue;"
+                "style": "border: 1px solid blue;",
+                "width": "100%"
             },
+            "name": "MyContainer67",
             "designerId": "9c0a43b7-5b66-4643-aabc-5ec62874d702"
         },
         {
@@ -158,6 +169,7 @@
                 "padding": null,
                 "style": "border: 1px solid blue;"
             },
+            "name": "MyContainer68",
             "designerId": "e60d3c48-25bb-4246-8a7a-3ddcbad30d95"
         },
         {
@@ -173,6 +185,7 @@
                 "layout": "fit",
                 "style": "border: 1px solid blue; background-color: white;"
             },
+            "name": "MyContainer69",
             "designerId": "a416e307-6ce3-47d7-b331-10143da2a48b"
         },
         {
@@ -189,6 +202,7 @@
                 "maxWidth": "40em",
                 "style": "background-color: white; border: 1px solid gray; margin: 1em;"
             },
+            "name": "MyContainer70",
             "designerId": "d3d0327b-eb0b-41f4-b0b0-b76d800fd601",
             "cn": [
                 {
@@ -204,6 +218,7 @@
                         "layout": "hbox",
                         "style": "border-bottom: 1px solid gray; margin: 0 1em 0 1em;"
                     },
+                    "name": "MyContainer71",
                     "designerId": "5258a12f-d4fe-4d1f-8353-6e3e50fe5dec",
                     "cn": [
                         {
@@ -219,6 +234,7 @@
                                 "layout|flex": 1,
                                 "style": "  font-weight: normal;   color: gray;"
                             },
+                            "name": "MyContainer72",
                             "designerId": "9e51133c-8f56-4aad-8f30-176a343d34f4",
                             "cn": [
                                 {
@@ -235,6 +251,7 @@
                                         "layout|flex": 1,
                                         "style": "font-size: 5em;"
                                     },
+                                    "name": "MyContainer73",
                                     "designerId": "cb25a48a-c748-4feb-a1f2-1659d22f27c2"
                                 },
                                 {
@@ -251,6 +268,7 @@
                                         "layout|flex": 1,
                                         "style": "font-size: 1.5em; margin-top: 1em;"
                                     },
+                                    "name": "MyContainer74",
                                     "designerId": "1d94dcd5-ae72-4d65-8db6-9a4e8b8e3089"
                                 }
                             ]
@@ -271,6 +289,7 @@
                                 "style": null,
                                 "width": "17em"
                             },
+                            "name": "MyContainer75",
                             "designerId": "31a2c00f-a130-4a10-848e-e512ba3e0b45"
                         }
                     ]
@@ -300,6 +319,7 @@
                         "styleHtmlCls": "dayViewListDetail-html",
                         "styleHtmlContent": true
                     },
+                    "name": "MyContainer76",
                     "configAlternates": {
                         "listeners": "object"
                     },

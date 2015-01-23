@@ -1,0 +1,463 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "mainContainer",
+        "designer|userClassName": "MainContainer",
+        "layout": "hbox",
+        "requires": [
+            "Ext.Menu"
+        ]
+    },
+    "configAlternates": {
+        "scrollable": "object"
+    },
+    "designerId": "eeeda3bf-155a-46cc-b5da-27e57a4e4a09",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "menucontgridpanel",
+                "layout": "fit",
+                "layout|flex": 1,
+                "width": "100%"
+            },
+            "name": "MyContainer",
+            "designerId": "c7f8087f-4727-42d0-b4cd-782076e80b3d",
+            "cn": [
+                {
+                    "type": "Ext.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "menuconttoolbardark"
+                        ],
+                        "docked": "top",
+                        "itemId": "menuconttoolbar",
+                        "title": "Accordion"
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "5af021ab-604a-4d04-910c-5b4fd05ef07a",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "html": null,
+                                "itemId": "menubtn",
+                                "labelCls": "x-button-label-menu",
+                                "padding": "0 .2em .3em .2em",
+                                "style": "border: 1px solid grey; ",
+                                "text": "MENU",
+                                "ui": "plain"
+                            },
+                            "name": "MyButton",
+                            "designerId": "58804dd9-189f-4b2d-b0ac-80357f5c3a38"
+                        },
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "right",
+                                "height": "1.5em",
+                                "hidden": false,
+                                "itemId": "gridhelp",
+                                "margin": ".5em 0 0 0",
+                                "src": "./resources/images/question.png",
+                                "width": "1.5em"
+                            },
+                            "name": "MyImg",
+                            "designerId": "fa32c54d-b9e0-4f61-849b-55f7b706d876"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "menucontswap",
+                        "layout": "card"
+                    },
+                    "name": "MyContainer1",
+                    "designerId": "c18c5d3d-6970-4138-ae05-fe8687c1577d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": null,
+                "html": null,
+                "itemId": "menuconthelppanel",
+                "layout": "fit",
+                "layout|flex": null,
+                "maxWidth": null,
+                "minWidth": 0,
+                "scrollable": "vertical",
+                "style": "border-left: 1px solid gray; background-color:#fffd8f;",
+                "width": null,
+                "zIndex": null
+            },
+            "name": "MyContainer2",
+            "designerId": "e3903bcc-3b41-4d45-bc56-3d51496552ec",
+            "cn": [
+                {
+                    "type": "Ext.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "menuconthelptoolbar"
+                        ],
+                        "docked": "top",
+                        "itemId": "menuconthelptoolbar",
+                        "style": null,
+                        "ui": "plain"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "9235ff2c-e742-419f-9b27-ddd1d2462dad",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "iconCls": "delete",
+                                "iconMask": true,
+                                "itemId": "closehelp",
+                                "margin": "0 0 .2em 0",
+                                "padding": "0 0 .2em 0",
+                                "style": null,
+                                "text": null
+                            },
+                            "name": "MyButton1",
+                            "configAlternates": {
+                                "iconMask": "boolean"
+                            },
+                            "designerId": "5d03569e-6ee6-4c82-ab5d-e51b0ffc69c5",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "iconMask",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "if (!Ext.os.is.Phone) {\r",
+                    "   this.down('#menuconthelptoolbar').setHidden(true);  // Hide help menu toolbar for tablets\r",
+                    "}   \r",
+                    "//Ext.Viewport.toggleMenu('left');\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "name": "initialize",
+            "designerId": "a7269627-1a95-4e42-bcba-64b6a43139d5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "myMenu",
+                "implHandler": [
+                    "var scrnHt = (window.innerHeight > 0) ? window.innerHeight : screen.height;",
+                    "var gridHt = scrnHt  - 35;  // - 32;  // FOOTER HIDDEN BELOW",
+                    "",
+                    "",
+                    "",
+                    "var items = [",
+                    "{",
+                    "    xtype: 'container',",
+                    "    itemId: 'menunav',",
+                    "    minWidth: '256px',",
+                    "    style: 'border-right: thin solid #999; background-color: #323232; font-size: 1em;',",
+                    "    layout: {",
+                    "        type: 'fit'",
+                    "    },",
+                    "    items: [",
+                    "    {",
+                    "        xtype: 'container',",
+                    "        cls: 'menuopt_header',",
+                    "        docked: 'top',",
+                    "        height: '35px',",
+                    "        html: 'TouchTreeGrid Demo',",
+                    "        itemId: 'menuopt_header',",
+                    "        maxHeight: '35px',",
+                    "        minHeight: '35px',",
+                    "        padding: '8px 0 0 0',",
+                    "        style: 'color: white; text-align: center; font-size: 1em;',",
+                    "        ui: 'plain'",
+                    "    },",
+                    "    {",
+                    "        xtype: 'container',",
+                    "        minHeight: gridHt+'px',",
+                    "        maxHeight: gridHt+'px',",
+                    "        height: gridHt+'px',",
+                    "        itemId: 'menuoptitems',",
+                    "        style: 'background-color: #323232;',",
+                    "        scrollable: {",
+                    "            //http://www.sencha.com/forum/showthread.php?175065",
+                    "            direction: 'vertical',",
+                    "            directionLock: true,",
+                    "            momentumEasing: {",
+                    "                momentum: {",
+                    "                    acceleration: 30,",
+                    "                    friction: 0.5",
+                    "                },",
+                    "                bounce: {",
+                    "                    acceleration: 0.0001,",
+                    "                    springTension: 0.9999",
+                    "                },",
+                    "                minVelocity: 5",
+                    "            },",
+                    "            outOfBoundRestrictFactor: 0",
+                    "        },",
+                    "        items: [",
+                    "        {",
+                    "            xtype: 'touchtreegrid',",
+                    "            store: 'menuOptsStore',",
+                    "            listScrollable: false,",
+                    "            disableSelection: false,",
+                    "            onItemDisclosure: true,",
+                    "            columns: [",
+                    "            {",
+                    "                dataIndex: 'Image',",
+                    "                width: '15%',",
+                    "                style: 'text-align: left;'",
+                    "            },",
+                    "            {",
+                    "                dataIndex: 'Text',",
+                    "                width: '85%',",
+                    "                style: 'text-align: left;'",
+                    "            }",
+                    "            ],",
+                    "            disclosureProperty: 'leaf',",
+                    "            listItemId: 'menuoptlist',",
+                    "            includeFooter: false,",
+                    "            categIndentPct: '0',",
+                    "            categDepthColors: true,",
+                    "            categDepthColorsArr: [",
+                    "            '#323232',",
+                    "            'white',",
+                    "            'white'",
+                    "            ],",
+                    "            includeHeader: false,",
+                    "            applyDefaultCollapseLevel: true,",
+                    "            disableExpandCollapse: true,",
+                    "            singleExpand: false,",
+                    "            mode: 'MULTI',",
+                    "            arrowPctWidth: '0',",
+                    "            cls: [",
+                    "            'x-touchtreegrid-list',",
+                    "            'x-touchtreegrid-list-menuopt'",
+                    "            ],",
+                    "            minHeight: '90rem',",
+                    "            height: '90rem',",
+                    "            maxHeight: '90rem',",
+                    "            itemId: 'menuopt'",
+                    "        }",
+                    "        ]",
+                    "    },",
+                    "    {",
+                    "        xtype: 'toolbar',",
+                    "        docked: 'bottom',",
+                    "        itemId: 'menuopt_footer',",
+                    "        maxHeight: '32px',",
+                    "        minHeight: '32px',",
+                    "        hidden: true,     // **********************************  CUSTOM SETTING",
+                    "        style: ' background-color: #323232; ',",
+                    "        ui: 'plain',",
+                    "        items: [",
+                    "        {",
+                    "            xtype: 'image',",
+                    "            docked: 'left',",
+                    "            height: '32px',",
+                    "            itemId: 'menuoptexpand',",
+                    "            margin: '0 0 8px 0',",
+                    "            width: '32px',",
+                    "            src: './resources/images/bullet_arrow_bottom.png'",
+                    "        },",
+                    "        {",
+                    "            xtype: 'image',",
+                    "            docked: 'left',",
+                    "            height: '32px',",
+                    "            itemId: 'menuoptcollapse',",
+                    "            margin: '0 0 8px 0',",
+                    "            width: '32px',",
+                    "            src: './resources/images/bullet_arrow_top.png'",
+                    "        }",
+                    "        ]",
+                    "    }",
+                    "    ]",
+                    "}];",
+                    "return items;"
+                ]
+            },
+            "name": "myMenu",
+            "designerId": "7ca84814-a808-495a-b0b9-58c6f691a59d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "side"
+                ],
+                "fn": "menuForSide",
+                "implHandler": [
+                    "var items = this.myMenu();\r",
+                    "\r",
+                    "var className = 'Ext.Menu';\r",
+                    "if (Ext.theme.name == \"Blackberry\") {\r",
+                    "    if (['top', 'bottom'].indexOf(side) != -1) {\r",
+                    "        className = 'Ext.ux.ApplicationMenu';\r",
+                    "    } else {\r",
+                    "        className = 'Ext.ux.ContextMenu';\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "return Ext.create(className, {\r",
+                    "    baseCls: 'x-menu-touchtreegrid',   // Override baseCls so that we can remove 0 padding, etc...\r",
+                    "    items: items\r",
+                    "});"
+                ]
+            },
+            "name": "menuForSide",
+            "designerId": "c3149129-cb18-4405-9b4c-d6fa3a2de80f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "hidden"
+                ],
+                "fn": "doSetHidden",
+                "implHandler": [
+                    "var me = this;",
+                    "this.callParent(arguments);",
+                    "",
+                    "if (hidden) {",
+                    "    Ext.Viewport.removeMenu('left');",
+                    "} else {",
+                    "",
+                    "    Ext.Viewport.setMenu(this.menuForSide('left'), {  // slide",
+                    "        side: 'left',",
+                    "        cover: false",
+                    "    });",
+                    "",
+                    "}",
+                    "",
+                    "// Appears to be bug with Touch 2.3 codebase for edgeswipe.",
+                    "// Be sure to remove this workaround once fixed !",
+                    "var viewport = Ext.Viewport;",
+                    "viewport.element.on({",
+                    "    edgeswipe: me.onMyEdgeSwipe,",
+                    "    scope: me",
+                    "});",
+                    "",
+                    ""
+                ]
+            },
+            "name": "doSetHidden",
+            "designerId": "2987f73a-51f6-4f4d-8e0b-1868b4b8fca7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "e",
+                    "el"
+                ],
+                "fn": "onMyEdgeSwipe",
+                "implHandler": [
+                    "// Appears to be bug with Touch 2.3 codebase for edgeswipe.",
+                    "// Be sure to remove this workaround once fixed !",
+                    "",
+                    "var dir = e.direction;",
+                    "if (dir === 'left') {",
+                    "    // swiping from right edge",
+                    "   Ext.Viewport.toggleMenu('right');",
+                    "}",
+                    "if (dir === 'right') {",
+                    "    // swiping from left edge",
+                    "   Ext.Viewport.toggleMenu('left');",
+                    "",
+                    "}"
+                ]
+            },
+            "name": "onMyEdgeSwipe",
+            "designerId": "b4d99f8d-d878-4ecc-8a41-3dd346919c9c"
+        }
+    ]
+}

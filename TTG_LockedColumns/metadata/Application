@@ -1,0 +1,33 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "CommonController"
+        ],
+        "models": [
+            "BigDataModel",
+            "Census",
+            "Dow2012Model"
+        ],
+        "name": "TouchTreeGrid",
+        "stores": [
+            "CensusFreezeStore",
+            "BigDataStore",
+            "Dow2012"
+        ],
+        "views": [
+            "TouchTreeGrid",
+            "MainTabPanel",
+            "BigDataCont",
+            "CensusFreezeCont",
+            "Dow2012LockedCont"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}

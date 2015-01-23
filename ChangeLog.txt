@@ -1,4 +1,45 @@
 **************************************************************************************************
+1/22/2015 COMMIT CHANGE LOG: 
+
+Enhanced Locked Column support.
+Added more examples of Grids with Locked Columns and updated TouchTreeGrid to add support for thumb
+so that user can resize locked grid width.  Updated primary projects to latest version of TouchTreeGrid
+using Touch 2.4 framework.
+
+- TouchTreeGrid modifications (refer to text:  "SWL UPDATED 1/17/2015"
+   - Added logic to updateColumns() method to to correct for common error trying to indent by pct when width defined in pixels.
+     Also updated to call prepLinkedGridsArr() method upon list refresh event for includeThumb config
+   - Added logic to prepLinkedGridsArr() method to support Thumb to allow user to resize locked column width of Freeze/Locked column grids
+   - New configs (refer to TouchTreeGrid_Documentation.pdf - Appendix D):  includeThumb {default false}, thumbConfig
+   - Added onThumbDragEnd() method to handle dragEnd event  (standard processed)
+   - Added onThumbDrag() method to handle drag event (optionally processed)
+   
+- Created TTG_LockedColumns project with following examples of Grids with Locked Columns:
+   - Standard Grid #1 example with custom thumb to resize locked columns width 
+   - Standard Grid #2 example)  (custom thumb phone only) to resize locked columns width.  Simulates EXTJS Big Data example using Touch.
+   - Horizontal scrolling with Locked Column for large 600 data row with 28 data elements per row Tree Grid example with thumb for resizing.
+     Also Demonstrates how to implement pinch event and buttons to reduce/expand grid size.
+   - Provided TTG_LockedColumns.pdf with detailed documenation for above examples.
+   
+- Updated CalendarPicker project to include latest version of TouchTreeGrid.js and project updated to Touch 2.4 framework.
+   - small change to creation of "legend" component within CalendarPicker.js initialize() method to handle heights correctly 
+     for Touch 2.4.  Otherwise, no other changes to CalendarPicker.js component.
+  
+- Updated TTG_Forms project to include latest version of TouchTreeGrid.js.  
+  
+- Updated /ArchitectComponents/Architect 3.1.0 Build 1943/TouchTreeGrid.xdc
+  
+- Created TTG_KitchenSink example to consolidate all examples utilizing TouchTreeGrid with Touch 2.4 framework.  Links to other projects are also included.
+
+- Removed projects TTG_Slider_2.4 and TouchTreeGrid_FreezeColumn projects.
+   
+- All changes to TouchTreeGrid and CalendarPicker are backward compatible.   
+
+- Refer to Appendix C in TouchTreeGrid-Documentation.pdf for how to upgrade TouchTreeGrid/CalendarPicker in your Architect projects.
+
+
+
+**************************************************************************************************
 1/13/2015 COMMIT CHANGE LOG: 
 
 - Added onScrollOptions:{} config back to TouchTreeGrid.js to support grids with freeze/locked columns

@@ -132,6 +132,7 @@
                 ],
                 "name": "optionDatesMatrix_btn"
             },
+            "name": "onExample7_MatrixView",
             "designerId": "74854e73-ce85-4f6b-89e4-58d1f211a3ea"
         },
         {
@@ -153,6 +154,7 @@
                 ],
                 "name": "lookup_btn"
             },
+            "name": "onExample4_MatrixView",
             "designerId": "1bfc8932-7d4b-4245-aa77-470fdb0a40e5"
         },
         {
@@ -168,6 +170,7 @@
                 "selector": "matrixView",
                 "xtype": "matrixView"
             },
+            "name": "matrixView",
             "designerId": "6db7e343-c911-43ee-9bf8-613894f468e2"
         },
         {
@@ -183,6 +186,7 @@
                 "selector": "matrixViewPhone",
                 "xtype": "matrixViewPhone"
             },
+            "name": "matrixViewPhone",
             "designerId": "a2a7d12f-8218-4a7f-a036-2e0424428488"
         },
         {
@@ -197,6 +201,7 @@
                 "selector": "calCont",
                 "xtype": "calCont"
             },
+            "name": "calCont",
             "designerId": "9319cf90-cbcf-4471-aee5-70744a2a0ffb"
         },
         {
@@ -211,6 +216,7 @@
                 "selector": "dateexamples",
                 "xtype": "dateexamples"
             },
+            "name": "dateexamples",
             "designerId": "a245d26d-55b6-48f3-84c5-cf688acdcad2"
         },
         {
@@ -224,6 +230,7 @@
                 "ref": "languageSelect",
                 "selector": "#languageSelect"
             },
+            "name": "languageSelect",
             "designerId": "746c154b-a506-40a3-a8d6-c68d459065ec"
         },
         {
@@ -236,85 +243,86 @@
             "userConfig": {
                 "fn": "processDetailCalendar",
                 "implHandler": [
-                    "// Launch MatrixView \r",
-                    "\r",
-                    "if(Ext.os.is.Phone) {\r",
-                    "    this.processDetailCalendarPhone();\r",
-                    "    return;\r",
-                    "}\r",
-                    "\r",
-                    "var languageSelect = this.getLanguageSelect();\r",
-                    "\r",
-                    "var matrixView = this.getMatrixView();\r",
-                    "\r",
-                    "matrixView.down('#matrixViewLabel').setHtml('Calendar');\r",
-                    "var yearView = matrixView.down('#yearView');\r",
-                    "yearView.setMaxWidth('50em');\r",
-                    "yearView.setCls('matrix-view-year');\r",
-                    "\r",
-                    "\r",
-                    "var customDateTypes = [\r",
-                    "{\r",
-                    "    customType: 'holiday',\r",
-                    "    customDescr: 'Holiday',\r",
-                    "    useCustomDtArr: false,\r",
-                    "    storeId: 'optionDates',\r",
-                    "    priority: 1,\r",
-                    "    disabled: false,\r",
-                    "    cls: 'calendarpicker-holiday'\r",
-                    "}\r",
-                    "];\r",
-                    "\r",
-                    "\r",
-                    "var getDts = Ext.create('widget.calendarpicker', {\r",
-                    "    customCls : ['calendarpicker-matrix-year'],   \r",
-                    "    itemId : 'myYear' ,\r",
-                    "    selectMode: 'NONE',\r",
-                    "    itemHeight: 16,\r",
-                    "    variableHeights: true,    \r",
-                    "    backMonths: 0,\r",
-                    "    forwardMonths: 6,\r",
-                    "    useIconsForExpCollapse: false,\r",
-                    "    returnItem: yearView,\r",
-                    "    enableQuickDaySelection: true,    \r",
-                    "    customDateTypes: customDateTypes,    \r",
-                    "    includeCustomDatesLegend: true,     \r",
-                    "\r",
-                    "    // configs specific to matrix view follow        \r",
-                    "    hideTitleBar: true,\r",
-                    "    includeFooter: false,\r",
-                    "    matrixView: true,\r",
-                    "    matrixCols: 3,\r",
-                    "    matrixRows: 99,\r",
-                    "    matrixItemHeight: '10em',  \r",
-                    "    matrixItem6WeekHeight: '11.5em',  \r",
-                    "    matrixContainer: yearView,\r",
-                    "\r",
-                    "    // Language overridable configs\r",
-                    "    monthsToInsertPullText: (Ext.isEmpty(languageSelect.monthsToInsertPullText) ? 'Pull to Insert Months...' : languageSelect.monthsToInsertPullText),\r",
-                    "    monthsToInsertRefreshText: (Ext.isEmpty(languageSelect.monthsToInsertRefreshText) ? 'Release to Insert Months...' : languageSelect.monthsToInsertRefreshText),\r",
-                    "    monthsToInsertLastUpdatedText: (Ext.isEmpty(languageSelect.monthsToInsertLastUpdatedText) ? 'Last Updated:&nbsp;' : languageSelect.monthsToInsertLastUpdatedText),\r",
-                    "    monthsToInsertLastUpdatedDateFormat: (Ext.isEmpty(languageSelect.monthsToInsertLastUpdatedDateFormat) ? 'm/d/Y h:iA' : languageSelect.monthsToInsertLastUpdatedDateFormat),\r",
-                    "    monthsToInsertLoadedText: (Ext.isEmpty(languageSelect.monthsToInsertLoadedText) ? 'Loaded.' : languageSelect.monthsToInsertLoadedText),\r",
-                    "    monthsToInsertLoadingText: (Ext.isEmpty(languageSelect.monthsToInsertLoadingText) ? 'Loading...' : languageSelect.monthsToInsertLoadingText),\r",
-                    "    monthsToAppendText: (Ext.isEmpty(languageSelect.monthsToAppendText) ? 'Append more Months...' : languageSelect.monthsToAppendText),\r",
-                    "    longDayFormat: (Ext.isEmpty(languageSelect.longDayFormat) ? 'F d, Y' : languageSelect.longDayFormat),\r",
-                    "    monthYearFormat: (Ext.isEmpty(languageSelect.monthYearFormat) ? 'F Y' : languageSelect.monthYearFormat),\r",
-                    "    startDay: (Ext.isEmpty(languageSelect.startDay) ? 0 : languageSelect.startDay),\r",
-                    "    weekendIndexArr: (Ext.isEmpty(languageSelect.weekendIndexArr) ? [0,6] : languageSelect.weekendIndexArr),\r",
-                    "    \r",
-                    "    allowMatrixMonthAdditions:true,\r",
-                    "    monthsToAppend: 6,\r",
-                    "    monthsToAppendText: 'Append more Months...'      \r",
-                    "});\r",
-                    "\r",
-                    "\r",
-                    "Ext.Viewport.add(matrixView);\r",
-                    "\r",
-                    "Ext.Viewport.setActiveItem(matrixView);\r",
+                    "// Launch MatrixView",
+                    "",
+                    "if(Ext.os.is.Phone) {",
+                    "    this.processDetailCalendarPhone();",
+                    "    return;",
+                    "}",
+                    "",
+                    "var languageSelect = this.getLanguageSelect();",
+                    "",
+                    "var matrixView = this.getMatrixView();",
+                    "",
+                    "matrixView.down('#matrixViewLabel').setHtml('Calendar');",
+                    "var yearView = matrixView.down('#yearView');",
+                    "yearView.setMaxWidth('50em');",
+                    "yearView.setCls('matrix-view-year');",
+                    "",
+                    "",
+                    "var customDateTypes = [",
+                    "    {",
+                    "        customType: 'holiday',",
+                    "        customDescr: 'Holiday',",
+                    "        useCustomDtArr: false,",
+                    "        storeId: 'optionDates',",
+                    "        priority: 1,",
+                    "        disabled: false,",
+                    "        cls: 'calendarpicker-holiday'",
+                    "    }",
+                    "];",
+                    "",
+                    "",
+                    "var getDts = Ext.create('widget.calendarpicker', {",
+                    "    customCls : ['calendarpicker-matrix-year'],",
+                    "    itemId : 'myYear' ,",
+                    "    selectMode: 'NONE',",
+                    "    itemHeight: 16,",
+                    "    variableHeights: true,",
+                    "    backMonths: 0,",
+                    "    forwardMonths: 6,",
+                    "    useIconsForExpCollapse: false,",
+                    "    returnItem: yearView,",
+                    "    enableQuickDaySelection: true,",
+                    "    customDateTypes: customDateTypes,",
+                    "    includeCustomDatesLegend: true,",
+                    "",
+                    "    // configs specific to matrix view follow",
+                    "    hideTitleBar: true,",
+                    "    includeFooter: false,",
+                    "    matrixView: true,",
+                    "    matrixCols: 3,",
+                    "    matrixRows: 99,",
+                    "    matrixItemHeight: '10em',",
+                    "    matrixItem6WeekHeight: '11.5em',",
+                    "    matrixContainer: yearView,",
+                    "",
+                    "    // Language overridable configs",
+                    "    monthsToInsertPullText: (Ext.isEmpty(languageSelect.monthsToInsertPullText) ? 'Pull to Insert Months...' : languageSelect.monthsToInsertPullText),",
+                    "    monthsToInsertRefreshText: (Ext.isEmpty(languageSelect.monthsToInsertRefreshText) ? 'Release to Insert Months...' : languageSelect.monthsToInsertRefreshText),",
+                    "    monthsToInsertLastUpdatedText: (Ext.isEmpty(languageSelect.monthsToInsertLastUpdatedText) ? 'Last Updated:&nbsp;' : languageSelect.monthsToInsertLastUpdatedText),",
+                    "    monthsToInsertLastUpdatedDateFormat: (Ext.isEmpty(languageSelect.monthsToInsertLastUpdatedDateFormat) ? 'm/d/Y h:iA' : languageSelect.monthsToInsertLastUpdatedDateFormat),",
+                    "    monthsToInsertLoadedText: (Ext.isEmpty(languageSelect.monthsToInsertLoadedText) ? 'Loaded.' : languageSelect.monthsToInsertLoadedText),",
+                    "    monthsToInsertLoadingText: (Ext.isEmpty(languageSelect.monthsToInsertLoadingText) ? 'Loading...' : languageSelect.monthsToInsertLoadingText),",
+                    "    monthsToAppendText: (Ext.isEmpty(languageSelect.monthsToAppendText) ? 'Append more Months...' : languageSelect.monthsToAppendText),",
+                    "    longDayFormat: (Ext.isEmpty(languageSelect.longDayFormat) ? 'F d, Y' : languageSelect.longDayFormat),",
+                    "    monthYearFormat: (Ext.isEmpty(languageSelect.monthYearFormat) ? 'F Y' : languageSelect.monthYearFormat),",
+                    "    startDay: (Ext.isEmpty(languageSelect.startDay) ? 0 : languageSelect.startDay),",
+                    "    weekendIndexArr: (Ext.isEmpty(languageSelect.weekendIndexArr) ? [0,6] : languageSelect.weekendIndexArr),",
+                    "",
+                    "    allowMatrixMonthAdditions:true,",
+                    "    monthsToAppend: 6,",
+                    "    monthsToAppendText: 'Append more Months...'",
+                    "});",
+                    "",
+                    "",
+                    "Ext.Viewport.add(matrixView);",
+                    "",
+                    "Ext.Viewport.setActiveItem(matrixView);",
                     ""
                 ]
             },
+            "name": "processDetailCalendar",
             "designerId": "18e82a86-e82d-499d-be3d-ce89fe489cb1"
         },
         {
@@ -370,6 +378,7 @@
                 ],
                 "name": "nodeItemTap"
             },
+            "name": "onMonthTap",
             "designerId": "a1e9a65d-0537-4ba0-9354-696ab3946cef"
         },
         {
@@ -433,6 +442,7 @@
                 ],
                 "name": "itemswipe"
             },
+            "name": "onListItemSwipe",
             "designerId": "1f2ca452-3109-48b6-8a22-53a55d9a4e42"
         },
         {
@@ -492,6 +502,7 @@
                 ],
                 "name": "dayViewSwipe"
             },
+            "name": "onDayViewSwipe",
             "designerId": "a266e082-ee4c-4e03-9944-837306bccb60"
         },
         {
@@ -580,6 +591,7 @@
                 ],
                 "name": "dateSelected"
             },
+            "name": "onCalendarDayTap",
             "designerId": "0d7159ac-fd8a-4179-8040-3cc67d7079f5"
         },
         {
@@ -608,6 +620,7 @@
                 ],
                 "name": "tap"
             },
+            "name": "onMatrixViewBackBtnTap",
             "designerId": "45d8919e-853b-4d36-aeb2-c2b7fcac260f"
         },
         {
@@ -627,6 +640,7 @@
                 ],
                 "name": "tap"
             },
+            "name": "onYearViewTap",
             "designerId": "8dfd614b-93aa-4290-85e1-14aefe10e2b2"
         },
         {
@@ -660,6 +674,7 @@
                 ],
                 "name": "tap"
             },
+            "name": "onMonthViewTap",
             "designerId": "5280f0e9-35d4-407d-8d13-2d1bfb1cdabc"
         },
         {
@@ -680,6 +695,7 @@
                 ],
                 "name": "tap"
             },
+            "name": "onListViewTap",
             "designerId": "93445665-cd19-4620-8db3-cba2f872c4fa"
         },
         {
@@ -721,6 +737,7 @@
                 ],
                 "name": "tap"
             },
+            "name": "onDayViewTap",
             "designerId": "762b3658-597d-4357-b0b0-d2d278cd3b8d"
         },
         {
@@ -798,6 +815,7 @@
                     ""
                 ]
             },
+            "name": "processDetailCalendarPhone",
             "designerId": "ca635b44-9c39-49c3-b5f7-5319b9ab5376"
         },
         {
@@ -844,6 +862,7 @@
                     ""
                 ]
             },
+            "name": "processMonthViewCategTap",
             "designerId": "7ccd72dd-8bd9-4518-98fe-6600310cd099"
         },
         {
@@ -877,6 +896,7 @@
                 ],
                 "name": "yearMoSel"
             },
+            "name": "onMonth_YearMoSel",
             "designerId": "fe1a248c-f6ce-471d-855b-5d6eda4efee0"
         },
         {
@@ -1038,6 +1058,7 @@
                     ""
                 ]
             },
+            "name": "updateMonthView",
             "designerId": "a30a3ede-31d4-44d1-938b-3b6ec2fc856a"
         },
         {
@@ -1144,6 +1165,7 @@
                     "return getDts;"
                 ]
             },
+            "name": "createDayCalendar",
             "designerId": "59988506-e6f3-450c-87a4-95a057d91b80"
         },
         {
@@ -1188,6 +1210,7 @@
                     ""
                 ]
             },
+            "name": "processDayViewCategTap",
             "designerId": "3318bb9d-1b1f-4b6a-a69b-ae66c157aa98"
         },
         {
@@ -1226,6 +1249,7 @@
                 ],
                 "name": "yearMoSel"
             },
+            "name": "onDay_YearMoSel",
             "designerId": "a971ba0b-6879-4524-b702-b926aa9beb3b"
         },
         {
@@ -1279,6 +1303,7 @@
                     "dayList.setHtml((Ext.os.is.Phone ? dateDescr : '')+htmlStr);"
                 ]
             },
+            "name": "customDayList",
             "designerId": "00f32dea-5e9e-4bc5-802f-17ab50e5e2cc"
         }
     ]

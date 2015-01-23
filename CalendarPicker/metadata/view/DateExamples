@@ -34,6 +34,7 @@
                 "title": "Calendar Picker Examples",
                 "ui": "plain"
             },
+            "name": "MyToolbar",
             "designerId": "3b31107b-8d2b-4611-859e-f4cb8d8042f1"
         },
         {
@@ -50,6 +51,7 @@
                 "scrollable": "vertical",
                 "style": "background: white;"
             },
+            "name": "MyContainer",
             "designerId": "70c94ca9-02b1-4c5d-93ea-93dd2acf94ce",
             "cn": [
                 {
@@ -68,6 +70,7 @@
                         "style": null,
                         "width": "20em"
                     },
+                    "name": "MyContainer1",
                     "designerId": "b8edc019-d649-45bd-b6b6-e95c5b8bb7e7",
                     "cn": [
                         {
@@ -82,6 +85,7 @@
                                 "title": null,
                                 "width": null
                             },
+                            "name": "MyFieldSet",
                             "designerId": "ff7375b1-a361-4c4b-b81f-f2d42fc6a1ec",
                             "cn": [
                                 {
@@ -107,6 +111,7 @@
                                         ],
                                         "valueField": "code"
                                     },
+                                    "name": "MySelectField",
                                     "designerId": "0f010ad3-dda8-4445-a2c6-6b6def628405"
                                 }
                             ]
@@ -127,6 +132,7 @@
                         "layout": "hbox",
                         "style": "border: 1px solid gray;"
                     },
+                    "name": "MyContainer2",
                     "designerId": "33bcec3d-5f04-484b-8c45-a6bd2df6fdf1",
                     "cn": [
                         {
@@ -142,6 +148,7 @@
                                 "src": "./resources/images/calendar.png",
                                 "width": "2em"
                             },
+                            "name": "MyImg",
                             "designerId": "1225e28a-f5df-49ac-8922-5b04c418a501"
                         },
                         {
@@ -156,6 +163,7 @@
                                 "layout|flex": 1,
                                 "maxWidth": "10em"
                             },
+                            "name": "MyContainer3",
                             "designerId": "8133fd72-d9d5-4b4c-a5af-ee9efbd04316",
                             "cn": [
                                 {
@@ -171,6 +179,7 @@
                                         "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
+                                    "name": "MyContainer4",
                                     "designerId": "3735128d-ac0d-4816-abc4-cbea03648473"
                                 },
                                 {
@@ -204,6 +213,7 @@
                                         "minHeight": "2.5em",
                                         "style": null
                                     },
+                                    "name": "MyContainer5",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -232,6 +242,7 @@
                                                 "style": null,
                                                 "width": null
                                             },
+                                            "name": "MyContainer6",
                                             "designerId": "4eeddd6f-804d-46e5-aa50-04bbfd564fa7"
                                         },
                                         {
@@ -250,6 +261,7 @@
                                                 "layout|flex": 1,
                                                 "style": null
                                             },
+                                            "name": "MyContainer8",
                                             "designerId": "7687ea82-a2f3-485e-896f-1a11fd8ac6a5"
                                         }
                                     ]
@@ -268,6 +280,7 @@
                                 "layout|flex": 1,
                                 "maxWidth": "10em"
                             },
+                            "name": "MyContainer9",
                             "designerId": "ce7adb49-12d6-4d9c-9d32-8fc81abadb19",
                             "cn": [
                                 {
@@ -283,6 +296,7 @@
                                         "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
+                                    "name": "MyContainer10",
                                     "designerId": "1499cc1f-d83a-4fce-a0a4-f68e370dff24"
                                 },
                                 {
@@ -316,6 +330,7 @@
                                         "minHeight": "2.5em",
                                         "style": null
                                     },
+                                    "name": "MyContainer11",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -344,6 +359,7 @@
                                                 "style": null,
                                                 "width": null
                                             },
+                                            "name": "MyContainer12",
                                             "designerId": "2d625ab6-9941-4ed7-afad-e16aee821adf"
                                         },
                                         {
@@ -362,6 +378,7 @@
                                                 "layout|flex": 1,
                                                 "style": null
                                             },
+                                            "name": "MyContainer13",
                                             "designerId": "5de168c0-bc6c-4277-86b7-c8a15bfa4ec8"
                                         }
                                     ]
@@ -387,6 +404,7 @@
                                 "styleHtmlCls": "example-descr-html",
                                 "styleHtmlContent": true
                             },
+                            "name": "MyContainer14",
                             "designerId": "33c88fbc-888a-44a4-92eb-cc0763b4e77b"
                         }
                     ]
@@ -405,6 +423,7 @@
                         "layout": "hbox",
                         "style": "border: 1px solid gray;"
                     },
+                    "name": "MyContainer15",
                     "designerId": "16424b8b-c530-44d2-939b-bd785f3a3462",
                     "cn": [
                         {
@@ -420,6 +439,7 @@
                                 "src": "./resources/images/calendar.png",
                                 "width": "2em"
                             },
+                            "name": "MyImg1",
                             "designerId": "9c1684d0-00f4-4a08-a8b1-aa0c08b055a7"
                         },
                         {
@@ -434,6 +454,7 @@
                                 "layout|flex": 1,
                                 "maxWidth": "10em"
                             },
+                            "name": "MyContainer16",
                             "designerId": "d011fa06-d92a-492d-9786-b5a1dcc3a1d2",
                             "cn": [
                                 {
@@ -449,6 +470,7 @@
                                         "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
+                                    "name": "MyContainer17",
                                     "designerId": "236cd12e-d546-4d29-8943-a7dc1337b658"
                                 },
                                 {
@@ -482,6 +504,7 @@
                                         "minHeight": "2.5em",
                                         "style": null
                                     },
+                                    "name": "MyContainer18",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -510,6 +533,7 @@
                                                 "style": null,
                                                 "width": null
                                             },
+                                            "name": "MyContainer19",
                                             "designerId": "92e7b365-2bf4-4d12-8306-84aeacf70fb9"
                                         },
                                         {
@@ -528,6 +552,7 @@
                                                 "layout|flex": 1,
                                                 "style": null
                                             },
+                                            "name": "MyContainer20",
                                             "designerId": "9dbfb7a3-ddd5-4096-b05f-ec3410287943"
                                         }
                                     ]
@@ -546,6 +571,7 @@
                                 "layout|flex": 1,
                                 "maxWidth": "10em"
                             },
+                            "name": "MyContainer21",
                             "designerId": "305f1b88-e00c-40a2-9a48-c251a7caf8d8",
                             "cn": [
                                 {
@@ -561,6 +587,7 @@
                                         "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
+                                    "name": "MyContainer22",
                                     "designerId": "b5a6b04f-0c6b-4f0e-a62d-35223810dcda"
                                 },
                                 {
@@ -594,6 +621,7 @@
                                         "minHeight": "2.5em",
                                         "style": null
                                     },
+                                    "name": "MyContainer23",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -622,6 +650,7 @@
                                                 "style": null,
                                                 "width": null
                                             },
+                                            "name": "MyContainer24",
                                             "designerId": "2a7e89a4-0c45-489d-9085-ed04ea73294e"
                                         },
                                         {
@@ -640,6 +669,7 @@
                                                 "layout|flex": 1,
                                                 "style": null
                                             },
+                                            "name": "MyContainer25",
                                             "designerId": "b97e19ff-08c3-4f31-a855-395972daab50"
                                         }
                                     ]
@@ -665,6 +695,7 @@
                                 "styleHtmlCls": "example-descr-html",
                                 "styleHtmlContent": true
                             },
+                            "name": "MyContainer26",
                             "designerId": "ca23c887-fbe5-48df-a9f0-6c0f1fe605a0"
                         }
                     ]
@@ -685,6 +716,7 @@
                         "maxWidth": null,
                         "style": "border: 1px solid gray;"
                     },
+                    "name": "MyContainer27",
                     "designerId": "65cba723-5528-4add-bf10-bdbbcc2719d5",
                     "cn": [
                         {
@@ -700,6 +732,7 @@
                                 "src": "./resources/images/calendar.png",
                                 "width": "2em"
                             },
+                            "name": "MyImg2",
                             "designerId": "35dd0f56-ce3b-4f21-9d3a-4a4c36e32a70"
                         },
                         {
@@ -715,6 +748,7 @@
                                 "maxWidth": "10em",
                                 "minHeight": "4.5em"
                             },
+                            "name": "MyContainer28",
                             "designerId": "f2619071-71b3-4749-a08c-1b092325cb8e",
                             "cn": [
                                 {
@@ -730,6 +764,7 @@
                                         "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
+                                    "name": "MyContainer29",
                                     "designerId": "43074e55-93c3-4a52-ab9a-2850e8db1c81"
                                 },
                                 {
@@ -763,6 +798,7 @@
                                         "minHeight": "2.5em",
                                         "style": null
                                     },
+                                    "name": "MyContainer30",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -791,6 +827,7 @@
                                                 "style": null,
                                                 "width": null
                                             },
+                                            "name": "MyContainer31",
                                             "designerId": "23dc2948-3ea3-43b9-aec0-fbdf8c736b3a"
                                         },
                                         {
@@ -809,6 +846,7 @@
                                                 "layout|flex": 1,
                                                 "style": null
                                             },
+                                            "name": "MyContainer32",
                                             "designerId": "9ec78a01-2259-4337-ba53-a2a1f3a6d70f"
                                         }
                                     ]
@@ -828,6 +866,7 @@
                                 "maxWidth": "10em",
                                 "minHeight": "4.5em"
                             },
+                            "name": "MyContainer33",
                             "designerId": "d44ea0cd-0c27-45e7-a580-8c74e3f0d085",
                             "cn": [
                                 {
@@ -843,6 +882,7 @@
                                         "layout|flex": null,
                                         "style": "padding-top: .2em; font-size: .8em; color: orange;"
                                     },
+                                    "name": "MyContainer34",
                                     "designerId": "6bf0d4a0-c016-4fcb-a95f-7788847e7ac1"
                                 },
                                 {
@@ -876,6 +916,7 @@
                                         "minHeight": "2.5em",
                                         "style": null
                                     },
+                                    "name": "MyContainer35",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -904,6 +945,7 @@
                                                 "style": null,
                                                 "width": null
                                             },
+                                            "name": "MyContainer36",
                                             "designerId": "ad59c6a3-35db-40e4-801c-dc1be4ce8532"
                                         },
                                         {
@@ -922,6 +964,7 @@
                                                 "layout|flex": 1,
                                                 "style": null
                                             },
+                                            "name": "MyContainer37",
                                             "designerId": "990927bd-cdfe-4fd8-b43e-4bb770542c4a"
                                         }
                                     ]
@@ -947,6 +990,7 @@
                                 "styleHtmlCls": "example-descr-html",
                                 "styleHtmlContent": true
                             },
+                            "name": "MyContainer38",
                             "designerId": "1ff55b72-70e5-4656-b9fc-e64958da26e4"
                         }
                     ]
@@ -966,6 +1010,7 @@
                         "maxWidth": null,
                         "style": "border: 1px solid gray;"
                     },
+                    "name": "MyContainer39",
                     "designerId": "edafc616-b959-4844-8eb8-6c4d5278156d",
                     "cn": [
                         {
@@ -981,6 +1026,7 @@
                                 "src": "./resources/images/calendar.png",
                                 "width": "2em"
                             },
+                            "name": "MyImg3",
                             "designerId": "2073d1fb-724e-4e82-9980-1f18be722946"
                         },
                         {
@@ -995,6 +1041,7 @@
                                 "layout|flex": 1,
                                 "maxWidth": "15em"
                             },
+                            "name": "MyFieldSet1",
                             "designerId": "ca99017d-2223-49f8-9082-690b9d443ca1",
                             "cn": [
                                 {
@@ -1029,6 +1076,7 @@
                                         "styleHtmlCls": "sel-date-html",
                                         "styleHtmlContent": true
                                     },
+                                    "name": "MyTextField",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -1062,6 +1110,7 @@
                                 "styleHtmlCls": "example-descr-html",
                                 "styleHtmlContent": true
                             },
+                            "name": "MyContainer40",
                             "designerId": "e236346c-bdcf-40f6-9cd0-0331b97074fd"
                         }
                     ]
@@ -1080,6 +1129,7 @@
                         "layout": "hbox",
                         "style": "border: 1px solid gray;"
                     },
+                    "name": "MyContainer41",
                     "designerId": "1da67a09-fdf0-464b-bf6a-fec98613437f",
                     "cn": [
                         {
@@ -1095,6 +1145,7 @@
                                 "src": "./resources/images/calendar.png",
                                 "width": "2em"
                             },
+                            "name": "MyImg4",
                             "designerId": "5a9657e4-8228-4883-9daa-819a0ac11172"
                         },
                         {
@@ -1109,6 +1160,7 @@
                                 "layout|flex": 1,
                                 "maxWidth": "5em"
                             },
+                            "name": "MyContainer42",
                             "designerId": "649a5af5-63b9-472f-9ccc-a38007080817",
                             "cn": [
                                 {
@@ -1142,6 +1194,7 @@
                                         "minHeight": "2.5em",
                                         "style": null
                                     },
+                                    "name": "MyContainer43",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -1173,6 +1226,7 @@
                                 "styleHtmlCls": "multisel-dates-html",
                                 "styleHtmlContent": true
                             },
+                            "name": "MyContainer44",
                             "designerId": "bc8bcfb2-0697-4a89-a9fe-dbc485532033"
                         },
                         {
@@ -1194,6 +1248,7 @@
                                 "styleHtmlCls": "example-descr-html",
                                 "styleHtmlContent": true
                             },
+                            "name": "MyContainer45",
                             "designerId": "08a56f19-c35c-4add-8acc-949800eba437"
                         }
                     ]
@@ -1214,6 +1269,7 @@
                         "minHeight": null,
                         "style": "border: 1px solid gray;"
                     },
+                    "name": "MyContainer46",
                     "designerId": "7aca58d2-1a45-4633-b998-1bca92befac6",
                     "cn": [
                         {
@@ -1229,6 +1285,7 @@
                                 "src": "./resources/images/calendar_view_day.png",
                                 "width": "2em"
                             },
+                            "name": "MyImg5",
                             "designerId": "83598251-4538-477b-a639-f6c7ee863bde"
                         },
                         {
@@ -1243,6 +1300,7 @@
                                 "layout|flex": 1,
                                 "maxWidth": "7em"
                             },
+                            "name": "MyContainer47",
                             "designerId": "5a74ee64-4519-4984-a204-6d87734b57a4",
                             "cn": [
                                 {
@@ -1277,6 +1335,7 @@
                                         "padding": "0 0 0 .8em",
                                         "style": null
                                     },
+                                    "name": "MyContainer48",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -1308,6 +1367,7 @@
                                 "styleHtmlCls": null,
                                 "styleHtmlContent": null
                             },
+                            "name": "MyContainer49",
                             "designerId": "db8ed901-99a8-422e-a01f-c1e1d25616fe"
                         },
                         {
@@ -1329,6 +1389,7 @@
                                 "styleHtmlCls": "example-descr-html",
                                 "styleHtmlContent": true
                             },
+                            "name": "MyContainer50",
                             "designerId": "2369dbe3-fa14-437f-9979-805a0c7fb04f"
                         }
                     ]
@@ -1348,6 +1409,7 @@
                         "minHeight": null,
                         "style": "border: 1px solid gray;"
                     },
+                    "name": "MyContainer51",
                     "designerId": "184943f5-4b2c-479b-a12d-d4a0693771b0",
                     "cn": [
                         {
@@ -1363,6 +1425,7 @@
                                 "src": "./resources/images/santa.png",
                                 "width": "2em"
                             },
+                            "name": "MyImg6",
                             "designerId": "d6a4f473-a2f8-443e-8e5d-b2dc07b58dc3"
                         },
                         {
@@ -1377,6 +1440,7 @@
                                 "layout|flex": 1,
                                 "maxWidth": "7em"
                             },
+                            "name": "MyContainer52",
                             "designerId": "e6c51033-670e-4c3f-9a86-b3308f241e5b",
                             "cn": [
                                 {
@@ -1408,6 +1472,7 @@
                                         "maxWidth": "7em",
                                         "style": null
                                     },
+                                    "name": "MyContainer53",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -1439,6 +1504,7 @@
                                 "styleHtmlCls": null,
                                 "styleHtmlContent": null
                             },
+                            "name": "MyContainer54",
                             "designerId": "2cbd0f09-af05-458f-98bc-993cfc2f8670"
                         },
                         {
@@ -1460,6 +1526,7 @@
                                 "styleHtmlCls": "example-descr-html",
                                 "styleHtmlContent": true
                             },
+                            "name": "MyContainer55",
                             "designerId": "f6ac40f8-ba86-4a5a-abea-c6aa335e3565"
                         }
                     ]
@@ -1479,6 +1546,7 @@
                         "minHeight": null,
                         "style": "border: 1px solid gray;"
                     },
+                    "name": "MyContainer56",
                     "designerId": "3c349711-eef8-458a-854d-e424887dd9a5",
                     "cn": [
                         {
@@ -1494,6 +1562,7 @@
                                 "src": "./resources/images/calendar_view_month.png",
                                 "width": "2em"
                             },
+                            "name": "MyImg7",
                             "designerId": "267e0c3c-ffc6-42bc-ac98-99d529bc9f7d"
                         },
                         {
@@ -1510,6 +1579,7 @@
                                 "maxWidth": null,
                                 "width": "10em"
                             },
+                            "name": "MyContainer57",
                             "designerId": "318406ee-ce75-4bf0-ab15-df830c68ab7a",
                             "cn": [
                                 {
@@ -1543,6 +1613,7 @@
                                         "minHeight": null,
                                         "style": "text-align: center"
                                     },
+                                    "name": "MyContainer58",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -1573,6 +1644,7 @@
                                 "scrollable": null,
                                 "styleHtmlCls": null
                             },
+                            "name": "MyContainer59",
                             "designerId": "a876df5a-2ccd-4c15-a368-a53f244b7237"
                         },
                         {
@@ -1594,6 +1666,7 @@
                                 "styleHtmlCls": "example-descr-html",
                                 "styleHtmlContent": true
                             },
+                            "name": "MyContainer60",
                             "designerId": "a2d089c8-e1f7-40e1-a7c1-a84b644b5070"
                         }
                     ]
@@ -1614,6 +1687,7 @@
                         "scrollable": null,
                         "style": "border: 1px solid gray;"
                     },
+                    "name": "MyContainer61",
                     "designerId": "4e03a23f-d27f-4017-9e5c-923bcb1e0229",
                     "cn": [
                         {
@@ -1629,6 +1703,7 @@
                                 "src": "./resources/images/calendar_view_month.png",
                                 "width": "2em"
                             },
+                            "name": "MyImg8",
                             "designerId": "446d0d72-9887-47a5-bd40-6f950f27788d"
                         },
                         {
@@ -1645,6 +1720,7 @@
                                 "maxWidth": null,
                                 "width": "10em"
                             },
+                            "name": "MyContainer62",
                             "designerId": "f718a13f-f01d-4bd6-bbdd-b63d26977698",
                             "cn": [
                                 {
@@ -1678,6 +1754,7 @@
                                         "minHeight": null,
                                         "style": "text-align: center"
                                     },
+                                    "name": "MyContainer63",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -1706,6 +1783,7 @@
                                 "maxWidth": null,
                                 "width": "10em"
                             },
+                            "name": "MyContainer64",
                             "designerId": "b1f93507-925f-418e-a2bd-82e744581f01",
                             "cn": [
                                 {
@@ -1739,6 +1817,7 @@
                                         "minHeight": null,
                                         "style": "text-align: center"
                                     },
+                                    "name": "MyContainer65",
                                     "configAlternates": {
                                         "listeners": "object"
                                     },
@@ -1772,6 +1851,7 @@
                                 "styleHtmlCls": "example-descr-html",
                                 "styleHtmlContent": true
                             },
+                            "name": "MyContainer66",
                             "designerId": "6bb567be-6a47-45f3-a605-1b88c36a395d"
                         }
                     ]

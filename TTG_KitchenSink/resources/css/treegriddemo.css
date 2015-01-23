@@ -1,0 +1,974 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('fontawesome-webfont.eot?v=4.0.3');
+  src: url('fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'),
+       url('fontawesome-webfont.woff?v=4.0.3') format('woff'),
+       url('fontawesome-webfont.ttf?v=4.0.3') format('truetype'),
+       url('fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/*********************************** MENU OPTIONS ************************************/
+.menuopt_header {  /* TouchTreeGrid Demo Blue colored header in navigation panel */
+    background-color: none; 
+    color: white;
+    font-weight: bold;  
+background: rgb(76,76,76); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRjNGM0YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE1JSIgc3RvcC1jb2xvcj0iIzAwYWVkYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg1JSIgc3RvcC1jb2xvcj0iIzAwYWVkYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0YzRjNGMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(left,  rgba(76,76,76,1) 0%, rgba(0,174,219,1) 15%, rgba(0,174,219,1) 85%, rgba(76,76,76,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(76,76,76,1)), color-stop(15%,rgba(0,174,219,1)), color-stop(85%,rgba(0,174,219,1)), color-stop(100%,rgba(76,76,76,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(76,76,76,1) 0%,rgba(0,174,219,1) 15%,rgba(0,174,219,1) 85%,rgba(76,76,76,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(76,76,76,1) 0%,rgba(0,174,219,1) 15%,rgba(0,174,219,1) 85%,rgba(76,76,76,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(76,76,76,1) 0%,rgba(0,174,219,1) 15%,rgba(0,174,219,1) 85%,rgba(76,76,76,1) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(76,76,76,1) 0%,rgba(0,174,219,1) 15%,rgba(0,174,219,1) 85%,rgba(76,76,76,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#4c4c4c',GradientType=1 ); /* IE6-8 */
+  
+}
+
+.x-touchtreegrid-list-menuopt .x-touchtreegrid-item {  /* default color all expanded grid rows including background color for shaded category rows */
+    background-color: white;
+}
+
+.x-touchtreegrid-list-menuopt .x-scroll-container { /* background Scroll container same color as category rows */
+        background-color: #323232;
+}
+
+.x-touchtreegrid-list-menuopt .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+  background-color: transparent;  /* defined in categDepthColorsArr[] in view config */
+  background-image: none;    
+  border-top: 1px solid #a6a6a6;
+  border-bottom: none;
+  padding:.7em 0 0 0 !important; 
+  -webkit-box-shadow: none;
+  max-height: 47px;
+  min-height: 47px;
+  font-weight: normal;
+  color: white;
+  font-size: 1em !important;        
+}
+
+.x-touchtreegrid-list-menuopt .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    color: #155bb0;
+    font-weight: bold;
+    background-color: white;
+    padding:.7em 0 0 0 !important;
+    margin:0;
+    font-size: 1em !important;   
+    background-color: transparent;  /* Needed for row selection */    
+}
+
+.x-touchtreegrid-list-menuopt .x-list-disclosure{  
+        width: 12px;
+        height: 1.5em;
+        margin: .4em .4em 0 .5em;   
+        -webkit-mask: none;  
+        -webkit-mask-box-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjbQg61aAAAAc0lEQVQ4T2NgGGagtLS0DoSJ8hZIYVlZ2X8QJkoTUFELTAOILikpqSZoE7ma2tFsqiDGJtI0FRYWSgOd9xYpEJ4AxYSw2gRVfBtNsQqdFdvb27MA3XyEKGfA3AZ0uwpQ0xMQBrEJBiVIAUgh0YqJMpEuigDEnX39an6ddgAAAABJRU5ErkJggg==');
+}
+.x-touchtreegrid-list-menuopt .x-list-disclosure:before{  
+/* Disable Touch 2.2 arrow picto for disclosure icon */
+        content: '';
+        font-family: '';
+}   
+
+/** Begin menuopt CSS required to support row selection for content rows **/
+
+.x-touchtreegrid-list-menuopt .touchtreegrid-list-categ { 
+    min-height: 47px !important;  /* Selected row is still painted, but underneath webkit box which is sized to hide selection */
+}
+
+.x-touchtreegrid-list-menuopt .x-touchtreegrid-item .touchtreegrid-item-selected,
+.x-touchtreegrid-list-menuopt .touchtreegrid-item-selected,
+.x-touchtreegrid-list-menuopt .touchtreegrid-item-selected .touchtreegrid-list-content-cell { 
+ /* effectively disable row selection by matching non-selected color, but support pressed color */    
+    background-color: white !important;  
+    color: #155bb0; 
+
+}    
+
+.x-touchtreegrid-list-menuopt .touchtreegrid-item-selected .x-list-disclosure{ 
+    background-color: #155bb0 !important;  /* maintain icon color for selected row */
+}    
+
+.x-touchtreegrid-list-menuopt .x-touchtreegrid-item .touchtreegrid-item-pressed,
+.x-touchtreegrid-list-menuopt .touchtreegrid-item-pressed,
+.x-touchtreegrid-list-menuopt .touchtreegrid-item-pressed .touchtreegrid-list-content-cell { 
+/* colors for selected row while pressing */
+    color: white;
+    background-color: #FF6F00 !important; 
+}    
+   
+                    
+.menuconttoolbardark {
+background: rgb(25,25,25); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(25,25,25,1) 0%, rgba(50,50,50,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(25,25,25,1)), color-stop(100%,rgba(50,50,50,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(25,25,25,1) 0%,rgba(50,50,50,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(25,25,25,1) 0%,rgba(50,50,50,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(25,25,25,1) 0%,rgba(50,50,50,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(25,25,25,1) 0%,rgba(50,50,50,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#191919', endColorstr='#323232',GradientType=0 ); /* IE6-9 */
+border-bottom: .1em solid;    
+}
+
+.x-button-label-menu { 
+    font-size: .5em;
+    font-weight: bold;
+}
+
+.menuconthelptoolbar {
+    background-color:#fffd8f !important;
+}
+     
+       
+/******************** BEGIN ACCORDION EXAMPLE OVERRIDES *********************/
+
+/* 2.1 selectors to eliminate lines  ... 2nd set is for Touch 2.2 */
+.x-touchtreegrid-list-accordion .x-list-normal .x-list-item .x-dock-horizontal,
+.x-touchtreegrid-list-accordion .x-list-normal .x-list-item.x-list-item-tpl{
+   border: none; 
+}
+
+.x-touchtreegrid-list-accordion .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    padding:.6em 0 0 0;
+}
+
+.x-touchtreegrid-list-accordion .touchtreegrid-list-categ {  
+  border-top: none;
+  border-bottom: none;
+  -webkit-box-shadow: none;
+  min-height: 45px !important;      
+}
+
+.x-touchtreegrid-list-accordion .touchtreegrid-details-img {   /* category row arrow */
+  margin-top: .5em !important;
+}
+
+/*  ADD ANIMATION */
+.x-touchtreegrid-list-accordion .touchtreegrid-list-content  {
+    -webkit-animation: contentRowAnim .5s ease-in; /* Chrome, Safari, Opera */
+    animation: contentRowAnim .5s ease-in;    
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes contentRowAnim {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes contentRowAnim {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/******************** BEGIN TASK#2 EXAMPLE OVERRIDES *********************/
+
+/* 2.1 selectors to eliminate lines  ... 2nd set is for Touch 2.2 */
+.x-touchtreegrid-list-task2 .x-list-normal .x-list-item .x-dock-horizontal,
+.x-touchtreegrid-list-task2 .x-list-normal .x-list-item.x-list-item-tpl{
+ /*  border: none; */
+}
+
+.x-touchtreegrid-list-task2 .touchtreegrid-list-categ { 
+    min-height: 47px !important;  /* Selected row is still painted, but underneath webkit box which is sized to hide selection */
+}
+
+/** Begin Task2 CSS required to support row selection for category and content rows **/
+.x-touchtreegrid-list-task2 .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    padding:.6em 0 0 0;
+    background-color: transparent;  /* Needed for row selection */
+}
+
+.x-touchtreegrid-list-task2 .x-touchtreegrid-item .touchtreegrid-item-selected,
+.x-touchtreegrid-list-task2 .touchtreegrid-item-selected,
+.x-touchtreegrid-list-task2 .touchtreegrid-item-selected .touchtreegrid-list-content-cell {
+    background-color: #b64b00 !important;  /* color for selected row */
+    color: white !important;  /* Change selected text color to white */    
+}    
+
+.x-touchtreegrid-list-task2 .touchtreegrid-item-pressed {
+    background-color: #ecd2bf !important;  /* color for selected row */
+}   
+
+.x-touchtreegrid-list-task2 .touchtreegrid-item-selected .touchtreegrid-list-categ {  
+    background-color: transparent !important;
+    color: white !important;
+    border-top: none;
+    border-bottom: none;
+    -webkit-box-shadow: none;
+}
+
+.x-touchtreegrid-list-task2 .touchtreegrid-item-selected .touchtreegrid-list-categ-cell {  
+    color: white !important;
+}
+/** End Task2 CSS required to support row selection for category and content rows **/
+
+
+/******************** BEGIN TASK#3 EXAMPLE OVERRIDES *********************/
+
+/* 2.1 selectors to eliminate lines  ... 2nd set is for Touch 2.2 */
+.x-touchtreegrid-list-task3 .x-list-normal .x-list-item .x-dock-horizontal,
+.x-touchtreegrid-list-task3 .x-list-normal .x-list-item.x-list-item-tpl{
+  /* border: none; */
+}
+.x-touchtreegrid-list-task3 .touchtreegrid-list-categ { 
+    min-height: 47px !important;  /* Selected row is still painted, but underneath webkit box which is sized to hide selection */
+}
+
+/** Begin Task2 CSS required to support row selection for category and content rows **/
+.x-touchtreegrid-list-task3 .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    padding:.6em 0 0 0;
+    background-color: transparent;  /* Needed for row selection */
+}
+
+.x-touchtreegrid-list-task3 .x-touchtreegrid-item .touchtreegrid-item-selected,
+.x-touchtreegrid-list-task3 .touchtreegrid-item-selected,
+.x-touchtreegrid-list-task3 .touchtreegrid-item-selected .touchtreegrid-list-content-cell {
+    background-color: #b64b00 !important;  /* color for selected row */
+    color: white !important;  /* Change selected text color to white */    
+}    
+
+.x-touchtreegrid-list-task3 .touchtreegrid-item-pressed {
+    background-color: #ecd2bf !important;  /* color for selected row */
+}   
+
+.x-touchtreegrid-list-task3 .touchtreegrid-item-selected .touchtreegrid-list-categ {  
+  /*   background-color: transparent !important;
+   color: white !important; 
+    border-top: none;
+    border-bottom: none;
+    -webkit-box-shadow: none;  */
+}
+
+.x-touchtreegrid-list-task3 .touchtreegrid-item-selected .touchtreegrid-list-categ-cell {  
+/*    color: white !important; */
+}
+
+
+/******************** BEGIN PROJECT #1 EXAMPLE OVERRIDES *********************/
+/* Remove -or- rename this to use default Sencha disclosure icon if concerns with sensitivity of smaller iphone style icon */
+ .x-touchtreegrid-list-example2 .x-list-disclosure{  
+        width: 12px;
+        height: 1.5em;
+        margin: .4em 0 0 .5em;   
+        -webkit-mask: none;  
+        -webkit-mask-box-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjbQg61aAAAAc0lEQVQ4T2NgGGagtLS0DoSJ8hZIYVlZ2X8QJkoTUFELTAOILikpqSZoE7ma2tFsqiDGJtI0FRYWSgOd9xYpEJ4AxYSw2gRVfBtNsQqdFdvb27MA3XyEKGfA3AZ0uwpQ0xMQBrEJBiVIAUgh0YqJMpEuigDEnX39an6ddgAAAABJRU5ErkJggg==');
+}
+.x-touchtreegrid-list-example2 .x-list-disclosure:before{  
+/* Disable Touch 2.2 arrow picto for disclosure icon */
+        content: '';
+        font-family: '';
+}    
+
+
+/******************** BEGIN PROJECT #2 EXAMPLE OVERRIDES *********************/
+ .x-touchtreegrid-list-example2B .x-list-disclosure{  
+        margin-top: .1em;
+}
+
+/* .touchtreegrid-disclose-spacer referenced by doRefreshList function to create 
+   %screen shift in header approximately lining up headers with list items when ondisclosure icons displayed (because they shift their row data) */
+ .x-touchtreegrid-list-example2 .touchtreegrid-disclose-spacer {
+ /*  width: 97%;    */
+}
+.x-touchtreegrid-list-example2B .x-list-normal .x-list-item .x-dock-horizontal,
+.x-touchtreegrid-list-example2B .x-list-normal .x-list-item.x-list-item-tpl {
+   border: none; 
+}
+.x-touchtreegrid-list-example2B .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    padding:.6em 0 0 0;
+}
+
+.x-touchtreegrid-list-example2B .touchtreegrid-list-categ0 {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+    
+  background-color: #ddd !important;
+  background-image: none !important;
+  border-top: 1px solid #4D80BC;
+  border-bottom: 1px solid #2D4E76;
+  min-height:2.6em !important; 
+  padding:0.6em 0 0 0 !important; 
+  font-size: .7em !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);    
+}
+
+/******************** BEGIN PROJECT #3 EXAMPLE OVERRIDES *********************/
+
+.x-touchtreegrid-list-example2C .x-list-normal .x-list-item .x-dock-horizontal,
+.x-touchtreegrid-list-example2C .x-list-normal .x-list-item.x-list-item-tpl {
+   border: none; 
+}
+
+.x-touchtreegrid-list-example2C .touchtreegrid-list-categ {  /* Default for Category rows (and depth=0 category when custom categDepthColors=true)  */
+   padding:0 0 0 0 !important;     
+   background-color: transparent !important;
+   line-height: 32px !important;  
+   min-height: 32px !important;
+   font-size: .8em !important;
+   border: none;
+   -webkit-box-shadow: none;
+}
+
+.x-touchtreegrid-list-example2C .touchtreegrid-list-content { /* Detail (leaf) rows  */
+    padding:.6em 0 0 0;
+    padding:0 0 0 0 !important; 
+    background-color: transparent;     
+    line-height: 32px !important;  
+    min-height: 32px !important;
+    font-size: .8em !important;
+
+}
+
+.x-touchtreegrid-list-example2C .touchtreegrid-details-img {   /* category row arrow */
+   margin-top: .4em;
+}
+
+.x-touchtreegrid-list-example2C .flag-checked:before {
+    font-family: "Pictos";
+    content: "3";
+    color: gray;
+    font-size: 18px;
+    border: 1px solid gray;
+}
+.x-touchtreegrid-list-example2C .flag-not-checked:before {
+    font-family: "Pictos";
+    content: "3";
+    color: transparent; 
+    font-size: 18px;  
+    border: 1px solid gray;
+}
+.x-touchtreegrid-list-example2C .node-flag-checked:before {
+    font-family: "Pictos";
+    content: "3";
+    color: green;
+    font-size: 22px;
+}
+.x-touchtreegrid-list-example2C .node-flag-not-checked:before {
+    font-family: "Pictos";
+    content: "3";
+    color: transparent; 
+    font-size: 18px;  
+}
+
+
+/******************** BEGIN PROJECT #1, #2, #3 EXPAND/COLLAPSE BUTTON COLOR OVERRIDES *********************/
+
+.x-touchtreegrid-list-example2 .touchtreegrid-footer {  /* Class for Example 2 footer toolbar containing expand/collapse buttons */
+    background: #5e6266;
+}
+.x-touchtreegrid-list-example2 .touchtreegrid-expand-collapse-buttons { /* Class for Example 2 expand/collapse buttons */
+    background: #2f3133;
+}  
+
+/******************** BEGIN PROJECT #1, #2, #3 PRESSED BUTTON OVERRIDES *********************/
+/* This works because examples #2 and #3 also reference x-touchtreegrid-list-example2 class */
+/* Update following for specific implementations to control button pressing colors (refer to sencha-touch.css for version changes) */
+ .x-touchtreegrid-list-example2 .x-button.x-button-pressing, 
+ .x-touchtreegrid-list-example2 .x-button.x-button-pressing:after,
+ .x-touchtreegrid-list-example2 .x-button.x-button-pressed,
+ .x-touchtreegrid-list-example2 .x-button.x-button-pressed:after,
+ .x-touchtreegrid-list-example2 .x-button.x-button-active,
+ .x-touchtreegrid-list-example2 .x-button.x-button-active:after
+{
+  background-image: none;
+  background-color: #929699;
+}
+
+
+/******************** CENSUS EXAMPLE OVERRIDES *********************/
+
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-categ0 {  
+  background-color: #904848 !important;
+  background-image: none !important;
+  color: white;    /* default is black */
+  border-top: 1px solid #4D80BC;
+  border-bottom: 1px solid #2D4E76;
+  font-weight: bold;  /* default is normal */
+  min-height:2.6em !important; 
+  padding:0.7em 0 0 0 !important; 
+  font-size: 15px !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
+}
+
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-categ1 {  
+  background-color: #dddddd !important;
+  background-image: none !important;
+  color: blue;    /* default is black */
+  border-top: 1px solid #4D80BC;
+  border-bottom: 1px solid #2D4E76;
+  font-weight: bold;  /* default is normal */
+  min-height:2.6em !important; 
+  padding:0.7em 0 0 0 !important; 
+  font-size: 15px !important;
+  -webkit-box-shadow: 0px 0.1em 0.3em rgba(0, 0, 0, 0.3);
+}
+
+.x-touchtreegrid-list-censusmaine .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    color: black;
+    font-weight: bold;  /* default is normal */  
+    background-color:white;
+   /* width:100%; */
+    padding:1em 0 0 0;
+    margin:0;
+    font-size: 15px !important;    
+}
+.x-touchtreegrid-list-censusmaine .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0.6em 0 0 0;
+    font-size: .8em !important;
+}
+
+.census-filter-cont .x-field-select .x-component-outer,
+.census-filter-cont .x-field-select .x-component-outer:before {
+  border: 1px solid #061f31 !important;
+  border-top-color: #092e47 !important;
+  background-color: #FF6F00 !important;
+  color: black !important;
+}
+
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer, 
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer.x-button-back:after, 
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer.x-button-forward:after, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-back:after, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-forward:after, 
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer:before, 
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer:before.x-button-back:after, 
+.census-filter-cont .x-toolbar-light .x-field-select .x-component-outer:before.x-button-forward:after, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-back:after, 
+.census-filter-cont .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-forward:after {
+      background-image: none !important;
+      background-color: #FF6F00 !important;
+}
+
+
+/******************** CENSUS DETAIL PANEL COLUMN TEXT OVERRIDES *********************/
+.censusdetailpanel .detailtextfields {
+    text-align: right;
+}   
+.censusdetailpanel .detailtextfields-phone-portrait {
+    text-align: left;
+    font-size: .7em;
+}    
+.censusdetailpanel .censusfieldset2 .x-form-fieldset {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+.censusdetailpanel .censusfieldset1 .x-form-fieldset {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+}
+
+
+/******************** DOW2012 GRID OVERRIDES ************************/
+.x-touchtreegrid-list-dow2012 .touchtreegrid-simplelist-cell{ /* simple list cells  */  
+    background-color: transparent;  /* needed for alternate shading */
+    padding-top: .5em !important;
+    line-height: 2.6em;
+}
+
+.x-touchtreegrid-list-dow2012 .x-touchtreegrid-item:nth-child(even) {  /* for alternate shading */
+    background-color: #f5f5f5 !important;
+}
+
+/** Begin DOW2012 CSS required to support row selection for simplelist rows **/
+.x-touchtreegrid-list-dow2012 .touchtreegrid-item-selected,
+.x-touchtreegrid-list-dow2012 .touchtreegrid-item-selected.x-touchtreegrid-item:nth-child(even) { 
+/* Notice no space b/t last 2 selectors .. not sure why this is necessary but it works for shaded rows*/
+    background-color: #006bb6 !important;  /* color for selected row */
+}    
+
+.x-touchtreegrid-list-dow2012 .touchtreegrid-item-selected .touchtreegrid-simplelist-cell{
+    background-color: #006bb6 !important;  /* cells need to match row color */
+    color: white !important;  /* Change selected text color to white */
+} 
+
+.x-touchtreegrid-list-dow2012 .touchtreegrid-item-pressed,
+.x-touchtreegrid-list-dow2012 .touchtreegrid-item-pressed.x-touchtreegrid-item:nth-child(even),
+.x-touchtreegrid-list-dow2012 .touchtreegrid-item-pressed .touchtreegrid-simplelist-cell {
+    background-color: #b6e1ff !important;  /* color for selected row */
+}   
+
+/* Below would control selected color of Disclosure Icon if onDisclosure=true */
+.x-touchtreegrid-list-dow2012 .touchtreegrid-item-selected .x-list-disclosure{  
+    background-color: white;
+}
+.x-touchtreegrid-list-dow2012 .touchtreegrid-item-selected .x-list-disclosure:before{  
+    color: #006bb6;
+} 
+/** End DOW2012 CSS required to support row selection for simplelist rows **/
+
+/******************** DOW2012Basic2 GRID OVERRIDES ************************/
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-simplelist-cell{ /* simple list cells  */  
+    background-color: transparent;  /* needed for alternate shading */
+    padding-top:0 !important;
+    line-height: 32px;
+}
+
+.x-touchtreegrid-list-dow2012Basic2 .cellrend-positive {
+    color: green;
+}
+.x-touchtreegrid-list-dow2012Basic2 .cellrend-negative {
+    color: red;
+}
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .cellrend-positive {
+    color: white !important;
+}
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .cellrend-negative {
+    color: white !important;
+}
+
+.x-touchtreegrid-list-dow2012Basic2 .flag-checked:before {
+    font-family: "Pictos";
+    content: "3";
+    color: gray;
+    font-size: 18px;
+    border: 1px solid gray;
+}
+.x-touchtreegrid-list-dow2012Basic2 .flag-not-checked:before {
+    font-family: "Pictos";
+    content: "3";
+    color: transparent; 
+    font-size: 18px;  
+    border: 1px solid gray;
+    
+}
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .flag-checked:before {
+    color: white;
+    border: 1px solid white;
+}
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .flag-not-checked:before {
+    border: 1px solid white;    
+}
+
+.x-touchtreegrid-list-dow2012Basic2 .x-touchtreegrid-item:nth-child(even) {  /* for alternate shading */
+  /*  background-color: #f5f5f5 !important;  */
+}
+.x-touchtreegrid-list-dow2012Basic2 .highlight-rows-over-13200{
+    background-color: #FFFFB2;   
+    font-style: italic;
+    width: 100%;
+}
+
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .touchtreegrid-simplelist-cell{
+  /*  background-color: #006bb6 !important;  /* cells need to match row color */
+    color: white !important;  /* Change selected text color to white */
+} 
+
+/** Begin DOW2012 CSS required to support row selection for simplelist rows **/
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected,
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected.x-touchtreegrid-item:nth-child(even),
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected.x-touchtreegrid-item:nth-child(odd){ 
+/* Notice no space b/t last 2 selectors .. not sure why this is necessary but it works for shaded rows*/
+    background-color: #006bb6 !important;  /* color for selected row */
+}    
+
+
+
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-pressed,
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-pressed .highlight-rows-over-13200,
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-pressed.x-touchtreegrid-item:nth-child(even),
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-pressed.x-touchtreegrid-item:nth-child(odd),
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-pressed .touchtreegrid-simplelist-cell {
+    background-color: #b6e1ff !important;  /* color for selected row */
+}   
+
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected,
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .highlight-rows-over-13200 { 
+/* Notice no space b/t last 2 selectors .. not sure why this is necessary but it works for shaded rows*/
+    background-color: #006bb6 !important;  /* color for selected row */
+}    
+
+
+/* Below would control selected color of Disclosure Icon if onDisclosure=true */
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .x-list-disclosure{  
+    background-color: white;
+}
+.x-touchtreegrid-list-dow2012Basic2 .touchtreegrid-item-selected .x-list-disclosure:before{  
+    color: #006bb6;
+} 
+/** End DOW2012 CSS required to support row selection for simplelist rows **/
+
+
+/******************** DOW2012 HORIZ SCROLLING (and DOW2012 LOCKED) GRID OVERRIDES ************************/
+.x-touchtreegrid-list-dow2012Horiz .touchtreegrid-simplelist-cell{ /* simple list cells  */
+    height: 47px !important;
+    padding:0 0 0 0;
+    line-height: 47px !important;
+    font-size: 15px !important;      
+}
+
+.x-touchtreegrid-list-dow2012Horiz .x-grid-sort-desc,
+.x-touchtreegrid-list-dow2012Horiz .x-grid-sort-asc {
+    margin-top: .2em !important;
+    background-position: left top;
+}
+.x-touchtreegrid-list-dow2012Horiz .touchtreegrid-header {  /* Titlebar with column headers  */
+  /*  width:100%;  */
+    padding:0 0 0 0;
+    margin:.2em 0 0 0;
+    color: black;
+    font-size: 15px !important;
+    background-color: #e5e5e5;
+    background: none;
+    font-weight: bold;
+}
+.x-touchtreegrid-list-dow2012Horiz .x-touchtreegrid-item {  /* default color all expanded grid rows including background color for shaded category rows */
+    min-height: 47px !important;
+    max-height: 47px !important;
+    height: 47px;
+}
+
+.x-tab .x-button-icon.fa-exchange:before,
+.x-button .x-button-icon.fa-exchange:before{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    text-align:center;
+    font-family:"FontAwesome";
+    content:"\f0ec"
+}
+
+.x-tab .x-button-icon.fa-font:before,
+.x-button .x-button-icon.fa-font:before{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    text-align:center;
+    font-family:"FontAwesome";
+    content:"\f031"
+}
+
+.fa-exchange {
+    color: gray;
+    font-size: 10px;
+}
+
+/******************** DOW2012 DYNAMIC SCROLLING GRID OVERRIDES ************************/
+/*                    (DOW2012 HORIZ ALSO APPLIES)                                    */
+
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-header-center {
+   text-align: center;
+}
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-header-center-sorted {
+   text-align: center;
+   background-color: #dedede;    
+}
+
+
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-closedate {
+   text-align: center; 
+   font-weight: bold; 
+   color: #008abc; 
+   border-right: 1px solid #9b9b9b;
+}
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-closedate-sorted {
+   text-align: center; 
+   font-weight: bold; 
+   color: #008abc; 
+   border-right: 1px solid #9b9b9b;
+   background-color: #dedede;
+}
+
+
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right {
+   text-align: right;
+   font-weight: normal; 
+   padding-right: .4em;
+}
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right-sorted {
+   text-align: right;
+   font-weight: normal; 
+   padding-right: .4em;
+   background-color: #dedede;    
+}
+
+
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right-bold {
+   text-align: right;
+   font-weight: bold; 
+   padding-right: .4em;
+}
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right-bold-sorted {
+   text-align: right;
+   font-weight: bold; 
+   padding-right: .4em;
+   background-color: #dedede;        
+}
+
+
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right-border {
+   text-align: right;
+   font-weight: normal; 
+   padding-right: .4em; 
+   border-right: 1px solid #9b9b9b;
+}
+.x-touchtreegrid-list-dow2012Dynamic .dynamic-detail-right-border-sorted {
+   text-align: right;
+   font-weight: normal; 
+   padding-right: .4em; 
+   border-right: 1px solid #9b9b9b;
+   background-color: #dedede;        
+}
+
+
+.x-touchtreegrid-list-dow2012Dynamic .cellrend-positive {
+    color: green;    
+    }
+
+.x-touchtreegrid-list-dow2012Dynamic .cellrend-negative {
+    color: red;    
+    }
+/******************** BIG DATA EXAMPLE OVERRIDES *********************/
+.x-touchtreegrid-list-bigData .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0 0 0 0;
+    color: black;
+    font-weight: bold;
+    font-size: 13px !important;
+    background-color: #eef6fb;
+    background: none;
+}
+
+.x-touchtreegrid-list-bigData .touchtreegrid-header-cell {
+ line-height: 59px; 
+ border-right: 1px solid #c0c0c0;
+ padding-left: 8px !important;
+} 
+
+.x-touchtreegrid-list-bigData .touchtreegrid-simplelist-cell{ /* simple list cells  */
+    line-height: 24px; 
+    color: black;
+    padding: 0 0 0 8px;
+    border-right: 1px solid #dedede;
+    font-size: 13px !important;   
+    background-color: transparent;
+}
+.x-touchtreegrid-list-bigData .x-touchtreegrid-item {  
+    background-color: white;
+}
+.x-touchtreegrid-list-bigData .x-touchtreegrid-item:nth-child(even) {  /* for alternate shading */
+    background-color: #f4f9fc !important;
+}
+
+.x-touchtreegrid-list-bigData .x-grid-sort-desc {
+    background-position: right center;
+}
+
+.x-touchtreegrid-list-bigData .x-grid-sort-asc {
+    background-position: right center;
+} 
+
+.x-touchtreegrid-list-bigData .x-list-header {  /* Grouped header rows */
+    color: black;
+    font-weight: bold;
+    font-size: 13px !important;
+    background: none;
+    background-image: none;    
+    background-color: #eef6fb;   
+    border-color: #dedede;
+}
+/******************** CENSUS LOCKED COLUMNS EXAMPLE OVERRIDES *********************/
+
+.x-touchtreegrid-list-censusmaine-small .touchtreegrid-details-img {
+    margin-top: 6px;
+}
+.x-touchtreegrid-list-censusmaine-small .touchtreegrid-list-categ0 {  
+  font-weight: bold;  
+  min-height:32px !important; 
+  line-height: 32px;
+  padding:0 0 0 0 !important; 
+  font-size: 12px !important;
+}
+.x-touchtreegrid-list-censusmaine-small .touchtreegrid-list-categ1 {  
+  font-weight: bold;  
+  min-height:32px !important; 
+  line-height: 32px;    
+  padding:0 0 0 0 !important; 
+  font-size: 12px !important;
+
+}
+.x-touchtreegrid-list-censusmaine-small .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    font-weight: normal;    
+    padding:0 0 0 0;
+    min-height:32px !important; 
+    line-height: 32px;
+    font-size: 12px !important;    
+}
+.x-touchtreegrid-list-censusmaine-small .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0.6em 0 0 0;
+    font-size: .6em !important;
+}
+
+
+.x-touchtreegrid-list-censusmaine-large .touchtreegrid-list-categ0 {  
+  font-weight: bold;  
+  min-height:47px !important; 
+  line-height: 47px;        
+  padding:0 0 0 0 !important; 
+  font-size: 18px !important;
+}
+.x-touchtreegrid-list-censusmaine-large .touchtreegrid-list-categ1 {  
+  font-weight: bold;  
+  min-height:47px !important; 
+  line-height: 47px;    
+  padding:0 0 0 0 !important; 
+  font-size: 18px !important;
+
+}
+.x-touchtreegrid-list-censusmaine-large .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    font-weight: bold;    
+    padding:0 0 0 0;
+    min-height:47px !important; 
+    line-height: 47px;    
+    font-size: 18px !important;    
+}
+.x-touchtreegrid-list-censusmaine-large .touchtreegrid-header {  /* Titlebar with column headers  */
+    padding:0.6em 0 0 0;
+    font-size: .8em !important;
+}
+
+.small-text .fa-font{
+    font-size: 10px;
+}
+.default-text .fa-font{
+    font-size: 14px;
+}
+.large-text .fa-font{
+    font-size: 18px;
+}
+.small-text{
+    padding-top: 12px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+.default-text{
+    padding-top: 6px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+.large-text{
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+
+/******************** FORM EXAMPLE OVERRIDES *********************/
+
+.checkbox-checked .x-field-mask::after{    /* Required for Checkboxes and Radio buttons */
+    color: #006bb6 !important;  /* checked color */
+}
+
+.radiofield-checked .x-field-mask::after{   /* Required for Checkboxes and Radio buttons */
+    background-color: #006bb6 !important;
+}
+
+
+.touchtreegrid-myForm .touchtreegrid-list-categ {  
+    min-height:47px !important; 
+    padding: 15px 0 0 0 !important; 
+    font-size: 16px !important;    
+}
+
+.touchtreegrid-myForm .touchtreegrid-list-content{ /* Detail (leaf) rows  */
+    background-color:#FFFFCC;
+}
+.form-edit {    
+    background-color:#FFFFCC !important;
+}
+
+/* 2.1 selectors to eliminate lines  ... 2nd set is for Touch 2.2+ */
+.touchtreegrid-myForm .x-list-normal .x-list-item .x-dock-horizontal,
+.touchtreegrid-myForm .x-list-normal .x-list-item.x-list-item-tpl{
+    border: none;  
+}
+
+.touchtreegrid-myForm .touchtreegrid-list-content{ /* Needed to remove default padding for content row */
+    padding:0 0 0 0;
+}
+
+.myForm .x-scroll-container {  /* Needed to ensure uniform content row color */
+    background-color: #FFFFCC !important;
+}
+.form-edit .x-layout-card-item{
+    background-color: #FFFFCC;
+}
+
+.myForm .x-scroll-bar-grid {  /* Needed to remove scroller indicator */
+    display: none;
+}
+
+.myForm .x-form-fieldset {
+    margin: 0 .5em .5em !important;
+}
+
+.myForm .x-form-fieldset-title {
+    margin: .2em 0.7em 0em !important;
+}
+
+.myForm .x-field-radio .x-field-mask::before {
+    top: 5px !important;
+}
+
+.myForm .x-field-radio .x-field-mask::after {
+    top: 10px !important;
+}
+
+.myForm .x-field-radio .x-form-label{
+    padding: 8px 0 0 20px !important;
+}
+
+.myForm .x-toolbar {
+    background-color: transparent;
+    height: 2em;
+}
+.myForm .x-toolbar.x-docked-top{
+    border: none;
+}
+
+.myform-edit-btn, .myform-edit-btn::before, .myform-edit-btn::after{
+    background-color: #b64b00 !important;
+    background-image: none !important;
+    color: white !important;
+    font-weight: bold;
+}
+.myform-edit-btn  .x-button-label{    
+    font-size: 13px !important;
+}
+
+.multiexample-toolbar .x-field-radio .x-field-mask::before {
+    top: 5px !important;
+}
+
+.multiexample-toolbar .x-field-radio .x-field-mask::after {
+    top: 10px !important;
+}
+
+.multiexample-toolbar .x-field-radio .x-form-label{
+    padding: 8px 0 0 5px !important;
+    font-size: 14px;
+}
+
+.multi:before {
+    font-family: "Pictos";
+    content: "|"
+}
+
+
+/******************** MANUAL OVERRIDE EXAMPLE OVERRIDES *********************/
+.x-touchtreegrid-list-override .touchtreegrid-list-categ {
+  background-color: white !important;
+  border: none;
+  -webkit-box-shadow: none;
+}   
+.x-touchtreegrid-list-override .x-list-normal .x-list-item.x-list-item-tpl{
+   border: none; 
+}
+

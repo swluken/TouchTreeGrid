@@ -29,6 +29,7 @@
                 "docked": "top",
                 "ui": "light"
             },
+            "name": "MyToolbar2",
             "designerId": "6927690f-5587-4780-97d1-52879997b0d9",
             "cn": [
                 {
@@ -43,6 +44,7 @@
                         "text": "Back",
                         "ui": "back"
                     },
+                    "name": "MyButton5",
                     "designerId": "cd7a6b32-eace-47fa-b25b-bfc88cb99a43"
                 },
                 {
@@ -55,6 +57,7 @@
                     "userConfig": {
                         "itemId": "matrixViewSegBtn"
                     },
+                    "name": "MySegmentedButton1",
                     "designerId": "b35faaf4-0bae-4cac-ab60-356dfb2e422a",
                     "cn": [
                         {
@@ -69,6 +72,7 @@
                                 "pressed": true,
                                 "text": "Year"
                             },
+                            "name": "MyButton6",
                             "designerId": "361579b0-5d90-43ec-b598-236af1953edb"
                         },
                         {
@@ -82,6 +86,7 @@
                                 "itemId": "matrixViewListBtn",
                                 "text": "List"
                             },
+                            "name": "MyButton7",
                             "designerId": "1f222d9e-d6e4-47fa-9ef5-05ef0f797d38"
                         },
                         {
@@ -95,6 +100,7 @@
                                 "itemId": "matrixViewDayBtn",
                                 "text": "Day"
                             },
+                            "name": "MyButton8",
                             "designerId": "e5597506-200d-4654-b607-0be4afbd2418"
                         }
                     ]
@@ -111,6 +117,7 @@
                         "itemId": "matrixViewLabel",
                         "style": "margin-left: 1em;"
                     },
+                    "name": "MyLabel1",
                     "designerId": "4b2a2004-8f4f-4ac1-8afd-4806da4672d1"
                 }
             ]
@@ -123,11 +130,14 @@
             },
             "codeClass": null,
             "userConfig": {
+                "height": "100%",
                 "itemId": "yearView",
                 "layout": "fit",
                 "margin": ".5em",
-                "style": "border: 1px solid blue;background-color: white;"
+                "style": "border: 1px solid blue;background-color: white;",
+                "width": "100%"
             },
+            "name": "MyContainer77",
             "designerId": "ed506131-83b5-454e-a6bb-27d87c6836f9"
         },
         {
@@ -143,6 +153,7 @@
                 "layout": "fit",
                 "style": "border: 1px solid blue; background-color: white;"
             },
+            "name": "MyContainer78",
             "designerId": "d380a11c-8c82-4988-8225-c55f78edab7d"
         },
         {
@@ -159,6 +170,7 @@
                 "maxWidth": "40em",
                 "style": "background-color: white; border: 1px solid gray; margin: .5em;"
             },
+            "name": "MyContainer79",
             "designerId": "8823f843-4dc4-4d9c-995c-feeba005fd05",
             "cn": [
                 {
@@ -174,6 +186,7 @@
                         "layout": "hbox",
                         "style": "border-bottom: 1px solid gray; margin: 0 1em 0 1em;"
                     },
+                    "name": "MyContainer80",
                     "designerId": "ddaa3413-9f93-4eee-9aa8-374ba6b708f1",
                     "cn": [
                         {
@@ -192,6 +205,7 @@
                                 "style": null,
                                 "width": "17em"
                             },
+                            "name": "MyContainer81",
                             "designerId": "86d32afd-f885-499f-9cee-25a9c12d348c"
                         }
                     ]
@@ -221,6 +235,7 @@
                         "styleHtmlCls": "dayViewListDetail-html",
                         "styleHtmlContent": true
                     },
+                    "name": "MyContainer82",
                     "configAlternates": {
                         "listeners": "object"
                     },
