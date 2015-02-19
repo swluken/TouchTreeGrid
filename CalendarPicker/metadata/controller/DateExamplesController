@@ -806,7 +806,7 @@
                     "",
                     "var returnItem = this.getDateexamples().down('#example3');",
                     "var selDtArr = returnItem.down('#multisel_btn').selDtArr;",
-                    "var initDtArr = ['2013-09-11', '2013-09-17', '2013-11-06'];",
+                    "var initDtArr = [];",
                     "",
                     "var selDts=(Ext.isEmpty(selDtArr) ? initDtArr : selDtArr), disableDts=[];",
                     "",

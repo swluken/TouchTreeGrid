@@ -377,23 +377,6 @@
                             "id": "b552ed2b-c3ff-4c96-9eae-0583cefe1cfd"
                         },
                         {
-                            "id": "5ee073db-dc0f-4077-8585-b7cc09915dd0",
-                            "cn": [
-                                {
-                                    "id": "5c42563f-7af3-4c13-b983-b56ad9faddc9"
-                                },
-                                {
-                                    "id": "4e621080-4306-4023-a940-f37c0bca0c6e"
-                                },
-                                {
-                                    "id": "b0e57751-9e9e-4054-8de5-807d6b235d0e"
-                                },
-                                {
-                                    "id": "e2faaeaf-ae3a-426f-b907-820baa8f66d5"
-                                }
-                            ]
-                        },
-                        {
                             "id": "0a695d68-26e6-497d-be77-f001a72a1b27"
                         },
                         {
@@ -878,7 +861,12 @@
             ]
         },
         "082e6fd7-a755-48c7-a9fa-501950a36d8f": {
-            "id": "082e6fd7-a755-48c7-a9fa-501950a36d8f"
+            "id": "082e6fd7-a755-48c7-a9fa-501950a36d8f",
+            "cn": [
+                {
+                    "id": "1a1c59c1-6839-486f-b7b4-7daa26d41565"
+                }
+            ]
         },
         "store": true,
         "31f07016-1978-48ac-b3c9-0d682e8e398a": {
@@ -1661,14 +1649,16 @@
         }
     },
     "tabState": {
-        "openTabs": []
+        "openTabs": [
+            "0ab99167-356a-427b-b428-c689f152660e"
+        ]
     },
     "canvasState": {
-        "topInstance": "eeeda3bf-155a-46cc-b5da-27e57a4e4a09"
+        "topInstance": "0ab99167-356a-427b-b428-c689f152660e"
     },
     "inspectorState": {
-        "topInstance": "eeeda3bf-155a-46cc-b5da-27e57a4e4a09",
-        "selectedInstance": "eeeda3bf-155a-46cc-b5da-27e57a4e4a09"
+        "topInstance": "0ab99167-356a-427b-b428-c689f152660e",
+        "selectedInstance": "0ab99167-356a-427b-b428-c689f152660e"
     },
     "editMode": "design",
     "userSettings": {

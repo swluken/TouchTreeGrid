@@ -93,13 +93,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e6266', end
 }
 .x-touchtreegrid-list-calendar .touchtreegrid-expand-collapse-buttons,
 .x-touchtreegrid-list-calendar .pickerfooterbtns{ 
-    background: #5e6266;
-    border-color: black;
-    max-height: 1.5em;
-    min-height: 1.5em;
-    margin-top: 0.25em;;
-    padding-left: .2em;
-    padding-right: .2em;
+    background: #5e6266 !important;
+    border-color: black !important;
+    max-height: 1.5em !important;
+    min-height: 1.5em !important;
+    margin-top: 0.25em !important;
+    padding-left: .2em !important;
+    padding-right: .2em !important;
 }  
 
  .x-touchtreegrid-list-calendar .x-button.x-button-pressing, 

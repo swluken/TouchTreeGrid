@@ -1,4 +1,13 @@
 **************************************************************************************************
+2/18/2015 COMMIT CHANGE LOG: 
+- Misc updates to CalendarPicker and TTG_KitchenSink projects and updated to Architect v3.2.0.75
+  - Removed radio buttons from MyForm examples
+- calendarpicker.css:   added !important to css for selectors:
+   .x-touchtreegrid-list-calendar .touchtreegrid-expand-collapse-buttons, .x-touchtreegrid-list-calendar .pickerfooterbtns{...}
+- Added /ArchitectComponents/Architect 3.10 Build 1851/ with latest Architect versions of TouchTreeGrid.xdc and CalendarPicker.xdc
+*** No code updates to TouchTreeGrid or CalendarPicker with this release.
+
+**************************************************************************************************
 1/22/2015 COMMIT CHANGE LOG: 
 
 Enhanced Locked Column support.

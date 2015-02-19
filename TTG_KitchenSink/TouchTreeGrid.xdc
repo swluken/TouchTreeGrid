@@ -1,5 +1,5 @@
 {
-    "xdsVersion": "3.1.0",
+    "xdsVersion": "3.2.0",
     "frameworkVersion": "touch24",
     "internals": {
         "type": "Ext.Container",

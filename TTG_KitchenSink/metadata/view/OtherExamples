@@ -14,5 +14,36 @@
         "style": "margin: 5px 5px 20px 5px"
     },
     "name": "MyContainer3",
-    "designerId": "082e6fd7-a755-48c7-a9fa-501950a36d8f"
+    "designerId": "082e6fd7-a755-48c7-a9fa-501950a36d8f",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "this.setHtml(",
+                    "'<div>'+",
+                    "'Full set of Calendar Picker examples:<br> '+",
+                    "'<a target=\"_blank\" href=\"http://www.gomainerentals.com/Sencha/CalendarPicker/app.html?deviceType=Tablet\">CalendarPicker - Tablet</a><br>'+",
+                    "'<a target=\"_blank\" href=\"http://www.gomainerentals.com/Sencha/CalendarPicker/app.html?deviceType=Phone\">CalendarPicker - Phone</a><br><br>'+",
+                    "'Dynamically load Nodes when expanded for large TreeStores:<br> <a target=\"_blank\" href=\"http://www.gomainerentals.com/Sencha/DynamicLoadEx2C/index.html\">DynamicLoadEx2C</a><br>(Click on nodes to dynamically add more nodes)<br><br>'+",
+                    "'Simplified example of how to utilize new Menu component included with Touch 2.3+ for various implementations and using TouchTreeGrid for left/right menu items:<a target=\"_blank\" href=\"http://www.gomainerentals.com/Sencha/MenuEx/app.html\">MenuEx</a><br><br>'+",
+                    "'Refer to <a target=\"_blank\" href=\"http://www.GoMaineRentals.com\">GoMaineRentals.com</a> website for responsive website example using TouchTreeGrid and CalendarPicker for Tablet and Phone specific Touch applications.  TouchTreeGrid was used for all pages with lists.  As a side, the desktop version was written in EXTJS.  <a target=\"_blank\" href=\"https://github.com/borismus/device.js/tree/master\">device.js</a> was used to leverage media queries to launch the appropriate framework based on device.<br>'+",
+                    "'<br> To view mobile versions from Desktop browser:'+",
+                    "'<br> <a target=\"_blank\" href=\"http://www.gomainerentals.com/m/index.html?deviceType=Tablet\">GoMaineRentals - Tablet</a>'+",
+                    "'<br> <a target=\"_blank\" href=\"http://www.gomainerentals.com/m/index.html?deviceType=Phone\">GoMaineRentals - Phone</a> (resize your browser!)'+",
+                    "'</div>'",
+                    ");"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "1a1c59c1-6839-486f-b7b4-7daa26d41565"
+        }
+    ]
 }

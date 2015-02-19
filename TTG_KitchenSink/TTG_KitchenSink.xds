@@ -29,10 +29,10 @@
         "installStatus": "Not Installed",
         "sdkPath": ""
     },
-    "xdsVersion": "3.1.0",
-    "xdsBuild": 1943,
+    "xdsVersion": "3.2.0",
+    "xdsBuild": 75,
     "schemaVersion": 1,
-    "upgradeVersion": 300000000007,
+    "upgradeVersion": 310000000001,
     "framework": "touch24",
     "viewOrderMap": {
         "view": [

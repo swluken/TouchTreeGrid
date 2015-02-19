@@ -130,10 +130,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdb99', end
     background-color: #e5e5e5;
 }
 .calendarpicker-kayak .calendarpicker-holiday {  /* Repeat "holiday" after weekend or disabled overrides */
-    background-color: #FFE800;
+    background-color: #f0ff99;
 }
 .calendarpicker-kayak .calendarpicker-today { /* Repeat "today" after weekend or disabled overrides */
-  background-color: #00ff00; 
+  background-color: #99ffdb; 
 }
 
 .calendarpicker-kayak .calendarpicker-selected {  /* Repeat "selected" after any other day overrides */
@@ -213,13 +213,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#014101', end
 
 .calendarpicker-christmas .touchtreegrid-expand-collapse-buttons,
 .calendarpicker-christmas .pickerfooterbtns{ 
-    background: transparent;
-    border-color: black;
-    max-height: 1.5em;
-    min-height: 1.5em;
+    background: transparent !important;
+    border-color: black !important;
+    max-height: 1.5em !important;
+    min-height: 1.5em !important;
     margin: 0.5em 0 .5em 0 !important;
-    padding-left: .2em;
-    padding-right: .2em;
+    padding-left: .2em !important;
+    padding-right: .2em !important;
 }  
 
 .christmas-label {

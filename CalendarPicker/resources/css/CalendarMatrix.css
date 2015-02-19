@@ -71,8 +71,8 @@ border: none;
 }
 .calendarpicker-matrix-year .touchtreegrid-expand-collapse-buttons,
 .calendarpicker-matrix-year .pickerfooterbtns{ 
-    background: #b8b8b8;
-    border-color: gray;
+    background: #b8b8b8 !important;
+    border-color: gray !important;
 }  
 
 .calendarpicker-matrix-year .x-button.x-button-pressing, 
@@ -82,8 +82,8 @@ border: none;
 .calendarpicker-matrix-year .x-button.x-button-active,
 .calendarpicker-matrix-year .x-button.x-button-active:after
 {
-  background-image: none;
-  background-color: #cfcfcf ;
+  background-image: none !important;
+  background-color: #cfcfcf !important;
 }
 
 

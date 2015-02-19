@@ -12,6 +12,7 @@
         "designer|userAlias": "myFormPanel2",
         "designer|userClassName": "MyFormPanel2",
         "disabled": null,
+        "height": "100%",
         "id": null,
         "itemId": "myFormPanel2",
         "layout": "vbox",

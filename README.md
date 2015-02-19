@@ -47,7 +47,12 @@ Refer to "TouchTreeGrid - Documentation.pdf" (page 1) for version details associ
  
  - <b>TTG_LockedColumns</b> (Locked Column with horizontal scrolling examples - Standard Grids and TreeGrids...refer to TTG_LockedColumns.pdf for additional documentation)<br>http://www.gomainerentals.com/Sencha/TTG_LockedColumns/index.html<br><br>
  
- - <b>CalendarPicker</b> (Full set of Calendar Picker examples)<br>http://www.gomainerentals.com/Sencha/CalendarPicker/app.html<br><br>
+ - <b>CalendarPicker</b> (Full set of Calendar Picker examples for Sencha Touch)
+<br>http://www.gomainerentals.com/Sencha/CalendarPicker/app.html
+<br>
+<br>The equivalent EXTJS "CalendarMatrix" component can be found at: 
+<br>https://github.com/swluken/CalendarMatrix
+<br><b>CalendarMatrix Demo</b><br>http://www.gomainerentals.com/Sencha/CalendarMatrixDemo/index.html <br><br>
  
  - <b>TTG&#95;Forms</b> (Standalone example of how forms can be embedded in Category and Content/Leaf rows)<br>http://www.gomainerentals.com/Sencha/TTG_Forms/index.html<br><br>
 

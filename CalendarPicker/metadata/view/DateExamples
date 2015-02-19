@@ -1217,7 +1217,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "html": "2013-09-11, 2013-09-17, 2013-11-06",
+                                "html": null,
                                 "itemId": "multisel_dates_html",
                                 "layout": "fit",
                                 "layout|flex": 1,

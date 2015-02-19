@@ -22,5 +22,32 @@
         ]
     },
     "name": "Application",
-    "designerId": "application"
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onUpdated",
+                "implHandler": [
+                    "Ext.Msg.confirm(",
+                    "    \"Application Update\",",
+                    "    \"A newer version of TTG_KitchenSink is available. Reload now?\",",
+                    "    function() {",
+                    "        Ext.defer(function(){",
+                    "            window.location.reload();",
+                    "        },",
+                    "                  500);",
+                    "    }",
+                    ");"
+                ]
+            },
+            "name": "onUpdated",
+            "designerId": "38fb94e0-1232-4058-8dd1-a957b3fb1f8e"
+        }
+    ]
 }
